@@ -67,14 +67,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 255, 204));
 
+        btnAtalhoCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/system_users_22484 (1).png"))); // NOI18N
         btnAtalhoCadastro.setText("CADASTRO");
+        btnAtalhoCadastro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAtalhoCadastro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnAtalhoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtalhoCadastroActionPerformed(evt);
             }
         });
 
+        btnAtalhoTreinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/utilities-system-monitor-icon_37689.png"))); // NOI18N
         btnAtalhoTreinos.setText("TREINOS");
+        btnAtalhoTreinos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAtalhoTreinos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnAtalhoTreinos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtalhoTreinosActionPerformed(evt);
@@ -88,6 +94,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnAtalhoFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bill (1).png"))); // NOI18N
         btnAtalhoFinanceiro.setText("FINANCEIRO");
         btnAtalhoFinanceiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +133,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         espacoTelas.setLayout(espacoTelasLayout);
         espacoTelasLayout.setHorizontalGroup(
             espacoTelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 755, Short.MAX_VALUE)
+            .addGap(0, 743, Short.MAX_VALUE)
         );
         espacoTelasLayout.setVerticalGroup(
             espacoTelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
