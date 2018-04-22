@@ -77,7 +77,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnAtalhoTreinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/utilities-system-monitor-icon_37689.png"))); // NOI18N
+        btnAtalhoTreinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dumbbell_icon-icons.com_59181.png"))); // NOI18N
         btnAtalhoTreinos.setText("TREINOS");
         btnAtalhoTreinos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAtalhoTreinos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -87,15 +87,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnAtalhoEquipamentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/muscle_icon-icons.com_59189.png"))); // NOI18N
         btnAtalhoEquipamentos.setText("EQUIPAMENTOS");
+        btnAtalhoEquipamentos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAtalhoEquipamentos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnAtalhoEquipamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtalhoEquipamentosActionPerformed(evt);
             }
         });
 
-        btnAtalhoFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bill (1).png"))); // NOI18N
+        btnAtalhoFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/notes_icon-icons.com_59177.png"))); // NOI18N
         btnAtalhoFinanceiro.setText("FINANCEIRO");
+        btnAtalhoFinanceiro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAtalhoFinanceiro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnAtalhoFinanceiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtalhoFinanceiroActionPerformed(evt);
@@ -113,14 +118,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(btnAtalhoFinanceiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAtalhoTreinos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAtalhoCadastro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(16, 16, 16))
+                .addGap(10, 10, 10))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(btnAtalhoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(53, 53, 53)
                 .addComponent(btnAtalhoTreinos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(btnAtalhoEquipamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,7 +138,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         espacoTelas.setLayout(espacoTelasLayout);
         espacoTelasLayout.setHorizontalGroup(
             espacoTelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 743, Short.MAX_VALUE)
+            .addGap(0, 755, Short.MAX_VALUE)
         );
         espacoTelasLayout.setVerticalGroup(
             espacoTelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
