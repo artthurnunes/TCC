@@ -1,6 +1,5 @@
 package telas;
 
-import classes.ClasseEmailEsqueceuSenha;
 import classes.ClasseEsqueceuSenha;
 import conexoesbancodedados.SelectBd;
 import java.sql.SQLException;
@@ -107,16 +106,7 @@ public class TelaEsqueceuSenha extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        ClasseEmailEsqueceuSenha envia = new ClasseEmailEsqueceuSenha();
-        envia.setAssunto("TESTE");
-        envia.setDestino("artthur.nunes@outlook.com");
-        envia.setMsg("Boa noite, enviei do java");
-        
-            try{
-                envia.sendMail();
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**

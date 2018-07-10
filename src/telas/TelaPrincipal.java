@@ -47,18 +47,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu13 = new javax.swing.JMenu();
         jMenu14 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu15 = new javax.swing.JMenu();
         jMenu16 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
 
         jScrollPane1.setViewportView(jTree1);
 
@@ -160,31 +155,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Editar");
-
-        jMenuItem1.setText("Cadastros");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Exibir");
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Ferramentas");
-        jMenuBar1.add(jMenu4);
-
-        jMenu11.setText("Administração");
-
-        jMenu12.setText("Funcionários");
-        jMenu11.add(jMenu12);
-
-        jMenuBar1.add(jMenu11);
-
         jMenu5.setText("Opções");
 
         jMenu9.setText("Alteração de senha");
@@ -204,6 +174,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu6.add(jMenu16);
 
         jMenuBar1.add(jMenu6);
+
+        jMenu7.setText(" Liberação de Catraca");
+        jMenuBar1.add(jMenu7);
 
         setJMenuBar(jMenuBar1);
 
@@ -225,10 +198,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnAtalhoEquipamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtalhoEquipamentosActionPerformed
         this.limpaFundoInternalFrame();
@@ -297,21 +266,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane espacoTelas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu13;
     private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu15;
     private javax.swing.JMenu jMenu16;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
