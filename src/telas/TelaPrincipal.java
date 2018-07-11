@@ -50,6 +50,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu15 = new javax.swing.JMenu();
         jMenu16 = new javax.swing.JMenu();
@@ -142,7 +143,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(153, 255, 204));
 
-        jMenu8.setText("Sobre Ruthra Softwares    (icone)");
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ScreenHunter 83.png"))); // NOI18N
+        jMenu8.setText("Sobre Ruthra Softwares       ");
+        jMenu8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jMenuBar1.add(jMenu8);
 
         jMenu1.setText("Arquivo");
@@ -157,11 +160,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu5.setText("Opções");
 
-        jMenu9.setText("Alteração de senha");
+        jMenu9.setText("Alterar senha de acesso");
         jMenu5.add(jMenu9);
 
-        jMenu10.setText("Criação de novo usuário");
+        jMenu10.setText("Criar novo usuário de acesso");
         jMenu5.add(jMenu10);
+
+        jMenu2.setText("Exibir alunos inativos");
+        jMenu5.add(jMenu2);
 
         jMenuBar1.add(jMenu5);
 
@@ -170,12 +176,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu15.setText("Contato");
         jMenu6.add(jMenu15);
 
-        jMenu16.setText("Relatar Problemas");
+        jMenu16.setText("Relatar problemas");
         jMenu6.add(jMenu16);
 
         jMenuBar1.add(jMenu6);
 
-        jMenu7.setText(" Liberação de Catraca");
+        jMenu7.setText("Liberar Catrada");
         jMenuBar1.add(jMenu7);
 
         setJMenuBar(jMenuBar1);
@@ -270,6 +276,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu15;
     private javax.swing.JMenu jMenu16;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;

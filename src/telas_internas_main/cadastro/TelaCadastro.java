@@ -67,6 +67,12 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -339,7 +345,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         );
 
         Tcad_btnTreino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1492550641-4_83349 (1).png"))); // NOI18N
-        Tcad_btnTreino.setText("TREINO");
+        Tcad_btnTreino.setText("TREINOS");
         Tcad_btnTreino.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Tcad_btnTreino.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         Tcad_btnTreino.addActionListener(new java.awt.event.ActionListener() {
@@ -359,11 +365,29 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        jMenu1.setText("File");
+        jMenu1.setText("Novo");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Editar");
         jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Pesquisar");
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Salvar");
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Cancelar");
+        jMenuBar1.add(jMenu5);
+
+        jMenu8.setText("Excluir");
+        jMenuBar1.add(jMenu8);
+
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1486485553-ago-arrow-arrow-left-back-previous-direction-left_81160.png"))); // NOI18N
+        jMenuBar1.add(jMenu6);
+
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/setadireita.png"))); // NOI18N
+        jMenuBar1.add(jMenu7);
 
         setJMenuBar(jMenuBar1);
 
@@ -390,7 +414,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Tcad_btnFinanceiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Tcad_btnTreino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -451,6 +475,12 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

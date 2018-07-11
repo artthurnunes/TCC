@@ -3,10 +3,31 @@ package classes;
 
 public class PendenciasIdeiasAlteracoes {
     
-    /* PENDÊNCIAS ----------------------
+    /* PENDÊNCIAS SEM RELEVÂNCIAS SE FUNCIONAR LEGAL....
         * Verificar a possibilidade de criar barra de rolagem nas telas para resoluções de telas menores. 800x600 corta
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
         * Se der certo enviar o email, vazer verificação para prómixo login com senha nova, seja pedido para criar uma nova senha pessoal.
+        * Criar botão de carregar foto e salvar no BD dentro campo foto
+        * Importação e exportação de bkp do banco
+    */
+    
+    
+    /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
+        * Criar uma classe mãe para menu para que as outras telas herdão dela as funcões do menu
+        * Quando clicar em salvar, bloquear as opções e quando clicar em editar desbloquear. Não 
+           deixar fechar a tela sem salvar. Fazer em todas as telas que tem SALVAR E EDITAR.
+        * Botão esquerda e direita correr select anterior e próximo. Botão pesquisar abrir uma caixa com a lista 
+           de equipamentos/aluno com mesmo nome da pesquisa. Se retorna somente 1 carregar ja na tela
+    
+            TELAS A FAZER
+                - TREINOS (TIRAR FOTO DA FICHA DA ACADEMIA
+                - LIBERAÇÃO DE CATRACA
+                - CONTATO
+                - RELATAR PROBLEMAS 
+                - ALTERAÇAO DE SENHA
+                - CRIAÇÃO DE USUARIO
+                - ALUNOS INATIVOS 
+                - IMPORTAR/EXPORTAR BD
     */
     
     
@@ -26,6 +47,12 @@ public class PendenciasIdeiasAlteracoes {
     ONDE PAREI
     * Populando os campos da tela de cadastro
     
+    
+    */
+    
+    /*
+    PONTOS LEGAIS PARA DIZER NA PARTE ESCRITA E NA APRESENTAÇÃO
+    * Herança do menu em todas as classes
     
     */
     

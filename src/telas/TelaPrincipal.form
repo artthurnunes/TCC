@@ -22,7 +22,11 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sobre Ruthra Softwares    (icone)"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/ScreenHunter 83.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Sobre Ruthra Softwares       "/>
+            <Property name="horizontalTextPosition" type="int" value="2"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu1">
@@ -49,12 +53,17 @@
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="jMenu9">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Altera&#xe7;&#xe3;o de senha"/>
+                <Property name="text" type="java.lang.String" value="Alterar senha de acesso"/>
               </Properties>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cria&#xe7;&#xe3;o de novo usu&#xe1;rio"/>
+                <Property name="text" type="java.lang.String" value="Criar novo usu&#xe1;rio de acesso"/>
+              </Properties>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMenu2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Exibir alunos inativos"/>
               </Properties>
             </Menu>
           </SubComponents>
@@ -71,14 +80,14 @@
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu16">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Relatar Problemas"/>
+                <Property name="text" type="java.lang.String" value="Relatar problemas"/>
               </Properties>
             </Menu>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu7">
           <Properties>
-            <Property name="text" type="java.lang.String" value=" Libera&#xe7;&#xe3;o de Catraca"/>
+            <Property name="text" type="java.lang.String" value="Liberar Catrada"/>
           </Properties>
         </Menu>
       </SubComponents>
