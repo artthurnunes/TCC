@@ -34,15 +34,14 @@
             <Property name="text" type="java.lang.String" value="Arquivo"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu13">
+            <Menu class="javax.swing.JMenu" name="btnMenuImport">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Exportar backup"/>
+                <Property name="text" type="java.lang.String" value="Importar/Exportar backup"/>
               </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu14">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Importar backup"/>
-              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMenuImportMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuImportActionPerformed"/>
+              </Events>
             </Menu>
           </SubComponents>
         </Menu>
@@ -60,6 +59,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Criar novo usu&#xe1;rio de acesso"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu10MouseClicked"/>
+              </Events>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu2">
               <Properties>

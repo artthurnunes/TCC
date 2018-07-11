@@ -9,6 +9,7 @@ public class PendenciasIdeiasAlteracoes {
         * Se der certo enviar o email, vazer verificação para prómixo login com senha nova, seja pedido para criar uma nova senha pessoal.
         * Criar botão de carregar foto e salvar no BD dentro campo foto
         * Importação e exportação de bkp do banco
+        * Tentar fazer import/export/bkp do banco pela aplicação
     */
     
     
@@ -27,7 +28,6 @@ public class PendenciasIdeiasAlteracoes {
                 - ALTERAÇAO DE SENHA
                 - CRIAÇÃO DE USUARIO
                 - ALUNOS INATIVOS 
-                - IMPORTAR/EXPORTAR BD
     */
     
     

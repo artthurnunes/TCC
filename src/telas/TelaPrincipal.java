@@ -45,8 +45,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu8 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
-        jMenu13 = new javax.swing.JMenu();
-        jMenu14 = new javax.swing.JMenu();
+        btnMenuImport = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
@@ -150,11 +149,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Arquivo");
 
-        jMenu13.setText("Exportar backup");
-        jMenu1.add(jMenu13);
-
-        jMenu14.setText("Importar backup");
-        jMenu1.add(jMenu14);
+        btnMenuImport.setText("Importar/Exportar backup");
+        btnMenuImport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMenuImportMouseClicked(evt);
+            }
+        });
+        btnMenuImport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuImportActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnMenuImport);
 
         jMenuBar1.add(jMenu1);
 
@@ -164,6 +170,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu5.add(jMenu9);
 
         jMenu10.setText("Criar novo usuário de acesso");
+        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu10MouseClicked(evt);
+            }
+        });
         jMenu5.add(jMenu10);
 
         jMenu2.setText("Exibir alunos inativos");
@@ -225,6 +236,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telaFinanceiro.setVisible(true);
     }//GEN-LAST:event_btnAtalhoFinanceiroActionPerformed
 
+    private void btnMenuImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuImportActionPerformed
+        //Comando errado
+    }//GEN-LAST:event_btnMenuImportActionPerformed
+
+    private void btnMenuImportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuImportMouseClicked
+        new TelaImportBackup(null,true).setVisible(true);
+    }//GEN-LAST:event_btnMenuImportMouseClicked
+
+    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
+        new TelaNovoUsuAcesso(null,true).setVisible(true);
+    }//GEN-LAST:event_jMenu10MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -269,11 +292,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAtalhoEquipamentos;
     private javax.swing.JButton btnAtalhoFinanceiro;
     private javax.swing.JButton btnAtalhoTreinos;
+    private javax.swing.JMenu btnMenuImport;
     private javax.swing.JDesktopPane espacoTelas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu13;
-    private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu15;
     private javax.swing.JMenu jMenu16;
     private javax.swing.JMenu jMenu2;
