@@ -142,7 +142,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(153, 255, 204));
 
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ScreenHunter 83.png"))); // NOI18N
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/arthur.png"))); // NOI18N
         jMenu8.setText("Sobre Ruthra Softwares       ");
         jMenu8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jMenuBar1.add(jMenu8);
@@ -187,7 +187,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu15.setText("Contato");
         jMenu6.add(jMenu15);
 
-        jMenu16.setText("Relatar problemas");
+        jMenu16.setText("Relatar problemas(Criar se o envio de email funcionar)");
         jMenu6.add(jMenu16);
 
         jMenuBar1.add(jMenu6);

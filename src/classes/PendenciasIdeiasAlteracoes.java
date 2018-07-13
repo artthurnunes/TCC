@@ -10,6 +10,7 @@ public class PendenciasIdeiasAlteracoes {
         * Criar botão de carregar foto e salvar no BD dentro campo foto
         * Importação e exportação de bkp do banco
         * Tentar fazer import/export/bkp do banco pela aplicação
+        * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.
     */
     
     
@@ -24,9 +25,6 @@ public class PendenciasIdeiasAlteracoes {
                 - TREINOS (TIRAR FOTO DA FICHA DA ACADEMIA
                 - LIBERAÇÃO DE CATRACA
                 - CONTATO
-                - RELATAR PROBLEMAS 
-                - ALTERAÇAO DE SENHA
-                - CRIAÇÃO DE USUARIO
                 - ALUNOS INATIVOS 
     */
     
