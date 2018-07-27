@@ -85,9 +85,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Tcad_btnFinanceiro" min="-2" pref="120" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="Tcad_btnTreino" min="-2" pref="120" max="-2" attributes="0"/>
+              <Component id="Tcad_btnModalidade" min="-2" pref="120" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="Tcad_btnTreino1" min="-2" pref="120" max="-2" attributes="0"/>
+              <Component id="Tcad_btnTreino" min="-2" pref="120" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -100,8 +100,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="Tcad_btnFinanceiro" max="32767" attributes="0"/>
-                  <Component id="Tcad_btnTreino" max="32767" attributes="0"/>
-                  <Component id="Tcad_btnTreino1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="Tcad_btnModalidade" max="32767" attributes="0"/>
+                  <Component id="Tcad_btnTreino" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
@@ -610,7 +610,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="Tcad_btnTreino">
+    <Component class="javax.swing.JButton" name="Tcad_btnModalidade">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/olympics_sport_weight_weightlifting_2257.png"/>
@@ -620,7 +620,7 @@
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Tcad_btnTreinoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Tcad_btnModalidadeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Tcad_btnFinanceiro">
@@ -637,7 +637,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Tcad_btnFinanceiroActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Tcad_btnTreino1">
+    <Component class="javax.swing.JButton" name="Tcad_btnTreino">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/1492550655-7_83351.png"/>
@@ -647,7 +647,7 @@
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Tcad_btnTreino1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Tcad_btnTreinoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

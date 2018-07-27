@@ -11,7 +11,8 @@ public class PendenciasIdeiasAlteracoes {
         * Importação e exportação de bkp do banco
         * Tentar fazer import/export/bkp do banco pela aplicação
         * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.
-        * Se der certo a tela de treinos clicando no + e aparecendo, criar a tela de modalidades no mesmo sentido.
+        * Se der certo a tela de treinos clicando no + e aparecendo, criar a tela de modalidades no mesmo sentido.  
+        * Exibir hora e data no rodapé
     */
     
     
@@ -23,10 +24,11 @@ public class PendenciasIdeiasAlteracoes {
            de equipamentos/aluno com mesmo nome da pesquisa. Se retorna somente 1 carregar ja na tela
         * Fazer uma telinha no canto inferior direito sempre aparecendo com o nome dos alunos que estão para vencer 
            o treino
+        * Fazer masca para os campos de data
     
             TELAS A FAZER
                 - TREINOS (Fazer a tela de acordo com os exercícios cadastrados. Tentar fazer um botão de +
-                           e ir adicionando combobox na medida que for apertando o +)
+                           e ir adicionando combobox na medida que for apertando o +) https://youtube.com/watch?v=bp9XblpZSSw
                 - LIBERAÇÃO DE CATRACA
                 - CONTATO
                 - ALUNOS INATIVOS (trazer do banco uma lista dos alunos inativos. Fazer esta tela depois de terminar
@@ -49,7 +51,7 @@ public class PendenciasIdeiasAlteracoes {
     
     /*
     ONDE PAREI
-    * Populando os campos da tela de cadastro
+    * Tentando fazer a tela de treinos para aparecer os combos sozinhos quando o + é clicado https://youtube.com/watch?v=bp9XblpZSSw
     
     
     */
