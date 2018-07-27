@@ -4,12 +4,12 @@ package telas;
 import telas_internas_main.cadastro.TelaCadastro;
 import telas_internas_main.TelaEquipamentos;
 import telas_internas_main.TelaFinanceiro;
-import telas_internas_main.TelaTreinos;
+import telas_internas_main.TelaCatraca;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
     TelaCadastro telaCadastro = new TelaCadastro();
-    TelaTreinos telaTreinos = new TelaTreinos();
+    TelaCatraca telaTreinos = new TelaCatraca();
     TelaEquipamentos telaEquipamentos = new TelaEquipamentos();
     TelaFinanceiro telaFinanceiro = new TelaFinanceiro();
 
@@ -46,14 +46,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         btnMenuImport = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu15 = new javax.swing.JMenu();
         jMenu16 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
 
         jScrollPane1.setViewportView(jTree1);
 
@@ -72,8 +76,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnAtalhoTreinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/dumbbell_icon-icons.com_59181.png"))); // NOI18N
-        btnAtalhoTreinos.setText("TREINOS");
+        btnAtalhoTreinos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/exitdoor_87195.png"))); // NOI18N
+        btnAtalhoTreinos.setText("Liberação Catraca");
         btnAtalhoTreinos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnAtalhoTreinos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnAtalhoTreinos.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +137,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         espacoTelas.setLayout(espacoTelasLayout);
         espacoTelasLayout.setHorizontalGroup(
             espacoTelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 755, Short.MAX_VALUE)
+            .addGap(0, 747, Short.MAX_VALUE)
         );
         espacoTelasLayout.setVerticalGroup(
             espacoTelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,6 +168,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu3.setText("Exibir");
+
+        jMenuItem4.setText("Exibir alunos inativos");
+        jMenu3.add(jMenuItem4);
+
+        jMenuItem3.setText("Exibir equipamentos ");
+        jMenu3.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Ferramentas");
+
+        jMenuItem1.setText("Cadastro de exercícios");
+        jMenu4.add(jMenuItem1);
+
+        jMenuItem2.setText("Cadastro de modalidades (caso a tela de cadastro de exercícios funcione)");
+        jMenu4.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu4);
+
         jMenu5.setText("Opções");
 
         jMenu9.setText("Alterar senha de acesso");
@@ -177,9 +201,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(jMenu10);
 
-        jMenu2.setText("Exibir alunos inativos");
-        jMenu5.add(jMenu2);
-
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Ajuda");
@@ -191,9 +212,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu6.add(jMenu16);
 
         jMenuBar1.add(jMenu6);
-
-        jMenu7.setText("Liberar Catrada");
-        jMenuBar1.add(jMenu7);
 
         setJMenuBar(jMenuBar1);
 
@@ -298,13 +316,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu15;
     private javax.swing.JMenu jMenu16;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;

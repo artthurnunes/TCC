@@ -64,6 +64,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtNascimento = new javax.swing.JTextField();
         Tcad_btnTreino = new javax.swing.JButton();
         Tcad_btnFinanceiro = new javax.swing.JButton();
+        Tcad_btnTreino1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -344,8 +345,8 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        Tcad_btnTreino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1492550641-4_83349 (1).png"))); // NOI18N
-        Tcad_btnTreino.setText("TREINOS");
+        Tcad_btnTreino.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/olympics_sport_weight_weightlifting_2257.png"))); // NOI18N
+        Tcad_btnTreino.setText("MODALIDADES");
         Tcad_btnTreino.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Tcad_btnTreino.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         Tcad_btnTreino.addActionListener(new java.awt.event.ActionListener() {
@@ -362,6 +363,16 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_btnFinanceiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Tcad_btnFinanceiroActionPerformed(evt);
+            }
+        });
+
+        Tcad_btnTreino1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1492550655-7_83351.png"))); // NOI18N
+        Tcad_btnTreino1.setText("TREINOS");
+        Tcad_btnTreino1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Tcad_btnTreino1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Tcad_btnTreino1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tcad_btnTreino1ActionPerformed(evt);
             }
         });
 
@@ -400,10 +411,12 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Tcad_btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Tcad_btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Tcad_btnTreino, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(889, Short.MAX_VALUE))
+                .addComponent(Tcad_btnTreino, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Tcad_btnTreino1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,8 +426,9 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Tcad_btnFinanceiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Tcad_btnTreino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(Tcad_btnTreino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Tcad_btnTreino1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -425,13 +439,18 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Tcad_btnFinanceiroActionPerformed
 
     private void Tcad_btnTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tcad_btnTreinoActionPerformed
-        new TelaCadastro_treino(null,true).setVisible(true);
+        new TelaCadastro_modalidades(null,true).setVisible(true);
     }//GEN-LAST:event_Tcad_btnTreinoActionPerformed
+
+    private void Tcad_btnTreino1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tcad_btnTreino1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Tcad_btnTreino1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Tcad_btnFinanceiro;
     private javax.swing.JButton Tcad_btnTreino;
+    private javax.swing.JButton Tcad_btnTreino1;
     private javax.swing.JTextField Tcad_txtBairro;
     private javax.swing.JTextField Tcad_txtCep;
     private javax.swing.JTextField Tcad_txtCidade;

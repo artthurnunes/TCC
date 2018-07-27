@@ -9,12 +9,12 @@ package telas_internas_main;
  *
  * @author Arthur
  */
-public class TelaTreinos extends javax.swing.JInternalFrame {
+public class TelaCatraca extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaTreinos
      */
-    public TelaTreinos() {
+    public TelaCatraca() {
         initComponents();
     }
 
@@ -31,7 +31,7 @@ public class TelaTreinos extends javax.swing.JInternalFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Tela treinos");
+        setTitle("Liberação de catraca");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
