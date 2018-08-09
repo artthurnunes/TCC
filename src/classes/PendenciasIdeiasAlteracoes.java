@@ -25,6 +25,8 @@ public class PendenciasIdeiasAlteracoes {
         * Fazer uma telinha no canto inferior direito sempre aparecendo com o nome dos alunos que estão para vencer 
            o treino
         * Fazer masca para os campos de data
+        * Pensar nas esteiras, bicicletas e equipamentos aerobicos na tela de equipametos, para colocar os 
+          periódicos
     
             TELAS A FAZER
                 - TREINOS (Fazer a tela de acordo com os exercícios cadastrados. Tentar fazer um botão de +
@@ -52,7 +54,7 @@ public class PendenciasIdeiasAlteracoes {
     /*
     ONDE PAREI
     * Tentando fazer a tela de treinos para aparecer os combos sozinhos quando o + é clicado https://youtube.com/watch?v=bp9XblpZSSw
-    
+    * Tenho que salvar a quantidade de + presionado no banco para excluir ou adicionar depois de já salvo o treino
     
     */
     
