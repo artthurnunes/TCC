@@ -460,6 +460,176 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioB5_6 = new javax.swing.JComboBox<>();
         lblObservacoesB5_6 = new javax.swing.JLabel();
         btnLessB5 = new javax.swing.JButton();
+        abaTreinoC = new javax.swing.JTabbedPane();
+        jPanel29 = new javax.swing.JPanel();
+        combMusculoC1 = new javax.swing.JComboBox<>();
+        btnPlusC1 = new javax.swing.JButton();
+        jPanel30 = new javax.swing.JPanel();
+        combExercicioC1 = new javax.swing.JComboBox<>();
+        combRepeticoesC1 = new javax.swing.JComboBox<>();
+        lblObservacoesC1 = new javax.swing.JLabel();
+        txtObservacoesC1 = new javax.swing.JTextField();
+        combExercicioC1_1 = new javax.swing.JComboBox<>();
+        combRepeticoesC1_1 = new javax.swing.JComboBox<>();
+        lblObservacoesC1_1 = new javax.swing.JLabel();
+        txtObservacoesC1_1 = new javax.swing.JTextField();
+        combRepeticoesC1_2 = new javax.swing.JComboBox<>();
+        combExercicioC1_2 = new javax.swing.JComboBox<>();
+        lblObservacoesC1_2 = new javax.swing.JLabel();
+        txtObservacoesC1_2 = new javax.swing.JTextField();
+        combExercicioC1_3 = new javax.swing.JComboBox<>();
+        txtObservacoesC1_3 = new javax.swing.JTextField();
+        combRepeticoesC1_3 = new javax.swing.JComboBox<>();
+        lblObservacoesC1_3 = new javax.swing.JLabel();
+        combExercicioC1_4 = new javax.swing.JComboBox<>();
+        txtObservacoesC1_4 = new javax.swing.JTextField();
+        lblObservacoesC1_4 = new javax.swing.JLabel();
+        combRepeticoesC1_4 = new javax.swing.JComboBox<>();
+        txtObservacoesC1_5 = new javax.swing.JTextField();
+        combExercicioC1_5 = new javax.swing.JComboBox<>();
+        lblObservacoesC1_5 = new javax.swing.JLabel();
+        combRepeticoesC1_5 = new javax.swing.JComboBox<>();
+        combRepeticoesC1_6 = new javax.swing.JComboBox<>();
+        txtObservacoesC1_6 = new javax.swing.JTextField();
+        combExercicioC1_6 = new javax.swing.JComboBox<>();
+        lblObservacoesC1_6 = new javax.swing.JLabel();
+        btnLessC1 = new javax.swing.JButton();
+        jPanel31 = new javax.swing.JPanel();
+        jPanel32 = new javax.swing.JPanel();
+        combMusculoC2 = new javax.swing.JComboBox<>();
+        btnPlusC2 = new javax.swing.JButton();
+        jPanel33 = new javax.swing.JPanel();
+        combExercicioC2 = new javax.swing.JComboBox<>();
+        combRepeticoesC2 = new javax.swing.JComboBox<>();
+        lblObservacoesC2 = new javax.swing.JLabel();
+        txtObservacoesC2 = new javax.swing.JTextField();
+        combExercicioC2_1 = new javax.swing.JComboBox<>();
+        combRepeticoesC2_1 = new javax.swing.JComboBox<>();
+        lblObservacoesC2_1 = new javax.swing.JLabel();
+        txtObservacoesC2_1 = new javax.swing.JTextField();
+        combRepeticoesC2_2 = new javax.swing.JComboBox<>();
+        combExercicioC2_2 = new javax.swing.JComboBox<>();
+        lblObservacoesC2_2 = new javax.swing.JLabel();
+        txtObservacoesC2_2 = new javax.swing.JTextField();
+        combExercicioC2_3 = new javax.swing.JComboBox<>();
+        txtObservacoesC2_3 = new javax.swing.JTextField();
+        combRepeticoesC2_3 = new javax.swing.JComboBox<>();
+        lblObservacoesC2_3 = new javax.swing.JLabel();
+        combExercicioC2_4 = new javax.swing.JComboBox<>();
+        txtObservacoesC2_4 = new javax.swing.JTextField();
+        lblObservacoesC2_4 = new javax.swing.JLabel();
+        combRepeticoesC2_4 = new javax.swing.JComboBox<>();
+        txtObservacoesC2_5 = new javax.swing.JTextField();
+        combExercicioC2_5 = new javax.swing.JComboBox<>();
+        lblObservacoesC2_5 = new javax.swing.JLabel();
+        combRepeticoesC2_5 = new javax.swing.JComboBox<>();
+        combRepeticoesC2_6 = new javax.swing.JComboBox<>();
+        txtObservacoesC2_6 = new javax.swing.JTextField();
+        combExercicioC2_6 = new javax.swing.JComboBox<>();
+        lblObservacoesC2_6 = new javax.swing.JLabel();
+        btnLessC2 = new javax.swing.JButton();
+        jPanel34 = new javax.swing.JPanel();
+        jPanel35 = new javax.swing.JPanel();
+        combMusculoC3 = new javax.swing.JComboBox<>();
+        btnPlusC3 = new javax.swing.JButton();
+        jPanel36 = new javax.swing.JPanel();
+        combExercicioC3 = new javax.swing.JComboBox<>();
+        combRepeticoesC3 = new javax.swing.JComboBox<>();
+        lblObservacoesC3 = new javax.swing.JLabel();
+        txtObservacoesC3 = new javax.swing.JTextField();
+        combExercicioC3_1 = new javax.swing.JComboBox<>();
+        combRepeticoesC3_1 = new javax.swing.JComboBox<>();
+        lblObservacoesC3_1 = new javax.swing.JLabel();
+        txtObservacoesC3_1 = new javax.swing.JTextField();
+        combRepeticoesC3_2 = new javax.swing.JComboBox<>();
+        combExercicioC3_2 = new javax.swing.JComboBox<>();
+        lblObservacoesC3_2 = new javax.swing.JLabel();
+        txtObservacoesC3_2 = new javax.swing.JTextField();
+        combExercicioC3_3 = new javax.swing.JComboBox<>();
+        txtObservacoesC3_3 = new javax.swing.JTextField();
+        combRepeticoesC3_3 = new javax.swing.JComboBox<>();
+        lblObservacoesC3_3 = new javax.swing.JLabel();
+        combExercicioC3_4 = new javax.swing.JComboBox<>();
+        txtObservacoesC3_4 = new javax.swing.JTextField();
+        lblObservacoesC3_4 = new javax.swing.JLabel();
+        combRepeticoesC3_4 = new javax.swing.JComboBox<>();
+        txtObservacoesC3_5 = new javax.swing.JTextField();
+        combExercicioC3_5 = new javax.swing.JComboBox<>();
+        lblObservacoesC3_5 = new javax.swing.JLabel();
+        combRepeticoesC3_5 = new javax.swing.JComboBox<>();
+        combRepeticoesC3_6 = new javax.swing.JComboBox<>();
+        txtObservacoesC3_6 = new javax.swing.JTextField();
+        combExercicioC3_6 = new javax.swing.JComboBox<>();
+        lblObservacoesC3_6 = new javax.swing.JLabel();
+        btnLessC3 = new javax.swing.JButton();
+        jPanel37 = new javax.swing.JPanel();
+        jPanel38 = new javax.swing.JPanel();
+        combMusculoC4 = new javax.swing.JComboBox<>();
+        btnPlusC4 = new javax.swing.JButton();
+        jPanel39 = new javax.swing.JPanel();
+        combExercicioC4 = new javax.swing.JComboBox<>();
+        combRepeticoesC4 = new javax.swing.JComboBox<>();
+        lblObservacoesC4 = new javax.swing.JLabel();
+        txtObservacoesC4 = new javax.swing.JTextField();
+        combExercicioC4_1 = new javax.swing.JComboBox<>();
+        combRepeticoesC4_1 = new javax.swing.JComboBox<>();
+        lblObservacoesC4_1 = new javax.swing.JLabel();
+        txtObservacoesC4_1 = new javax.swing.JTextField();
+        combRepeticoesC4_2 = new javax.swing.JComboBox<>();
+        combExercicioC4_2 = new javax.swing.JComboBox<>();
+        lblObservacoesC4_2 = new javax.swing.JLabel();
+        txtObservacoesC4_2 = new javax.swing.JTextField();
+        combExercicioC4_3 = new javax.swing.JComboBox<>();
+        txtObservacoesC4_3 = new javax.swing.JTextField();
+        combRepeticoesC4_3 = new javax.swing.JComboBox<>();
+        lblObservacoesC4_3 = new javax.swing.JLabel();
+        combExercicioC4_4 = new javax.swing.JComboBox<>();
+        txtObservacoesC4_4 = new javax.swing.JTextField();
+        lblObservacoesC4_4 = new javax.swing.JLabel();
+        combRepeticoesC4_4 = new javax.swing.JComboBox<>();
+        txtObservacoesC4_5 = new javax.swing.JTextField();
+        combExercicioC4_5 = new javax.swing.JComboBox<>();
+        lblObservacoesC4_5 = new javax.swing.JLabel();
+        combRepeticoesC4_5 = new javax.swing.JComboBox<>();
+        combRepeticoesC4_6 = new javax.swing.JComboBox<>();
+        txtObservacoesC4_6 = new javax.swing.JTextField();
+        combExercicioC4_6 = new javax.swing.JComboBox<>();
+        lblObservacoesC4_6 = new javax.swing.JLabel();
+        btnLessC4 = new javax.swing.JButton();
+        jPanel40 = new javax.swing.JPanel();
+        jPanel41 = new javax.swing.JPanel();
+        combMusculoC5 = new javax.swing.JComboBox<>();
+        btnPlusC5 = new javax.swing.JButton();
+        jPanel42 = new javax.swing.JPanel();
+        combExercicioC5 = new javax.swing.JComboBox<>();
+        combRepeticoesC5 = new javax.swing.JComboBox<>();
+        lblObservacoesC5 = new javax.swing.JLabel();
+        txtObservacoesC5 = new javax.swing.JTextField();
+        combExercicioC5_1 = new javax.swing.JComboBox<>();
+        combRepeticoesC5_1 = new javax.swing.JComboBox<>();
+        lblObservacoesC5_1 = new javax.swing.JLabel();
+        txtObservacoesC5_1 = new javax.swing.JTextField();
+        combRepeticoesC5_2 = new javax.swing.JComboBox<>();
+        combExercicioC5_2 = new javax.swing.JComboBox<>();
+        lblObservacoesC5_2 = new javax.swing.JLabel();
+        txtObservacoesC5_2 = new javax.swing.JTextField();
+        combExercicioC5_3 = new javax.swing.JComboBox<>();
+        txtObservacoesC5_3 = new javax.swing.JTextField();
+        combRepeticoesC5_3 = new javax.swing.JComboBox<>();
+        lblObservacoesC5_3 = new javax.swing.JLabel();
+        combExercicioC5_4 = new javax.swing.JComboBox<>();
+        txtObservacoesC5_4 = new javax.swing.JTextField();
+        lblObservacoesC5_4 = new javax.swing.JLabel();
+        combRepeticoesC5_4 = new javax.swing.JComboBox<>();
+        txtObservacoesC5_5 = new javax.swing.JTextField();
+        combExercicioC5_5 = new javax.swing.JComboBox<>();
+        lblObservacoesC5_5 = new javax.swing.JLabel();
+        combRepeticoesC5_5 = new javax.swing.JComboBox<>();
+        combRepeticoesC5_6 = new javax.swing.JComboBox<>();
+        txtObservacoesC5_6 = new javax.swing.JTextField();
+        combExercicioC5_6 = new javax.swing.JComboBox<>();
+        lblObservacoesC5_6 = new javax.swing.JLabel();
+        btnLessC5 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -2672,6 +2842,1108 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         painelAbas.addTab("Treino B                                   ", abaTreinoB);
 
+        combMusculoC1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Peito" }));
+
+        btnPlusC1.setForeground(new java.awt.Color(251, 0, 51));
+        btnPlusC1.setText("+");
+        btnPlusC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlusC1ActionPerformed(evt);
+            }
+        });
+
+        jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
+
+        combExercicioC1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC1.setText("Observações");
+
+        combExercicioC1_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC1_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC1_1.setText("Observações");
+
+        combRepeticoesC1_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC1_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC1_2.setText("Observações");
+
+        combExercicioC1_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC1_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC1_3.setText("Observações");
+
+        combExercicioC1_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC1_4.setText("Observações");
+
+        combRepeticoesC1_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC1_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC1_5.setText("Observações");
+
+        combRepeticoesC1_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combRepeticoesC1_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+        combRepeticoesC1_6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combRepeticoesC1_6ActionPerformed(evt);
+            }
+        });
+
+        combExercicioC1_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC1_6.setText("Observações");
+
+        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
+        jPanel30.setLayout(jPanel30Layout);
+        jPanel30Layout.setHorizontalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addComponent(combExercicioC1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addComponent(combExercicioC1_1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC1_1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC1_1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC1_1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addComponent(combExercicioC1_2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC1_2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC1_2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC1_2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addComponent(combExercicioC1_3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC1_3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC1_3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC1_3, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addComponent(combExercicioC1_4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC1_4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC1_4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC1_4, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addComponent(combExercicioC1_5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC1_5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC1_5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC1_5, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel30Layout.createSequentialGroup()
+                        .addComponent(combExercicioC1_6, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC1_6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC1_6)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC1_6, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel30Layout.setVerticalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC1)
+                    .addComponent(txtObservacoesC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC1_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC1_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC1_1)
+                    .addComponent(txtObservacoesC1_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC1_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC1_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC1_2)
+                    .addComponent(txtObservacoesC1_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC1_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC1_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC1_3)
+                    .addComponent(txtObservacoesC1_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC1_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC1_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC1_4)
+                    .addComponent(txtObservacoesC1_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC1_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC1_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC1_5)
+                    .addComponent(txtObservacoesC1_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC1_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC1_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC1_6)
+                    .addComponent(txtObservacoesC1_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
+        );
+
+        btnLessC1.setForeground(new java.awt.Color(251, 0, 51));
+        btnLessC1.setText("-");
+        btnLessC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLessC1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
+        jPanel29.setLayout(jPanel29Layout);
+        jPanel29Layout.setHorizontalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel29Layout.createSequentialGroup()
+                        .addComponent(combMusculoC1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPlusC1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLessC1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel29Layout.setVerticalGroup(
+            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel29Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combMusculoC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPlusC1)
+                    .addComponent(btnLessC1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        abaTreinoC.addTab("     Treino C - 1          ", jPanel29);
+
+        combMusculoC2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ombro" }));
+
+        btnPlusC2.setForeground(new java.awt.Color(251, 0, 51));
+        btnPlusC2.setText("+");
+        btnPlusC2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlusC2ActionPerformed(evt);
+            }
+        });
+
+        jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
+
+        combExercicioC2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC2.setText("Observações");
+
+        combExercicioC2_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC2_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC2_1.setText("Observações");
+
+        combRepeticoesC2_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC2_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC2_2.setText("Observações");
+
+        combExercicioC2_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC2_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC2_3.setText("Observações");
+
+        combExercicioC2_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC2_4.setText("Observações");
+
+        combRepeticoesC2_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC2_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC2_5.setText("Observações");
+
+        combRepeticoesC2_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combRepeticoesC2_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC2_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC2_6.setText("Observações");
+
+        javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
+        jPanel33.setLayout(jPanel33Layout);
+        jPanel33Layout.setHorizontalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel33Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel33Layout.createSequentialGroup()
+                        .addComponent(combExercicioC2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel33Layout.createSequentialGroup()
+                        .addComponent(combExercicioC2_1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC2_1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC2_1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC2_1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel33Layout.createSequentialGroup()
+                        .addComponent(combExercicioC2_2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC2_2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC2_2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC2_2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel33Layout.createSequentialGroup()
+                        .addComponent(combExercicioC2_3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC2_3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC2_3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC2_3, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel33Layout.createSequentialGroup()
+                        .addComponent(combExercicioC2_4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC2_4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC2_4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC2_4, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel33Layout.createSequentialGroup()
+                        .addComponent(combExercicioC2_5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC2_5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC2_5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC2_5, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel33Layout.createSequentialGroup()
+                        .addComponent(combExercicioC2_6, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC2_6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC2_6)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC2_6, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel33Layout.setVerticalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel33Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC2)
+                    .addComponent(txtObservacoesC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC2_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC2_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC2_1)
+                    .addComponent(txtObservacoesC2_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC2_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC2_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC2_2)
+                    .addComponent(txtObservacoesC2_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC2_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC2_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC2_3)
+                    .addComponent(txtObservacoesC2_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC2_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC2_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC2_4)
+                    .addComponent(txtObservacoesC2_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC2_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC2_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC2_5)
+                    .addComponent(txtObservacoesC2_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC2_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC2_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC2_6)
+                    .addComponent(txtObservacoesC2_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
+        );
+
+        btnLessC2.setForeground(new java.awt.Color(251, 0, 51));
+        btnLessC2.setText("-");
+        btnLessC2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLessC2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
+        jPanel32.setLayout(jPanel32Layout);
+        jPanel32Layout.setHorizontalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel32Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel32Layout.createSequentialGroup()
+                        .addComponent(combMusculoC2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPlusC2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLessC2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel32Layout.setVerticalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel32Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combMusculoC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPlusC2)
+                    .addComponent(btnLessC2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
+        jPanel31.setLayout(jPanel31Layout);
+        jPanel31Layout.setHorizontalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel31Layout.createSequentialGroup()
+                .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel31Layout.setVerticalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel31Layout.createSequentialGroup()
+                .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 54, Short.MAX_VALUE))
+        );
+
+        abaTreinoC.addTab("     Treino C - 2          ", jPanel31);
+
+        combMusculoC3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tríceps" }));
+
+        btnPlusC3.setForeground(new java.awt.Color(251, 0, 51));
+        btnPlusC3.setText("+");
+        btnPlusC3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlusC3ActionPerformed(evt);
+            }
+        });
+
+        jPanel36.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
+
+        combExercicioC3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC3.setText("Observações");
+
+        combExercicioC3_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC3_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC3_1.setText("Observações");
+
+        combRepeticoesC3_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC3_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC3_2.setText("Observações");
+
+        combExercicioC3_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC3_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC3_3.setText("Observações");
+
+        combExercicioC3_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC3_4.setText("Observações");
+
+        combRepeticoesC3_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC3_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC3_5.setText("Observações");
+
+        combRepeticoesC3_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combRepeticoesC3_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC3_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC3_6.setText("Observações");
+
+        javax.swing.GroupLayout jPanel36Layout = new javax.swing.GroupLayout(jPanel36);
+        jPanel36.setLayout(jPanel36Layout);
+        jPanel36Layout.setHorizontalGroup(
+            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel36Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel36Layout.createSequentialGroup()
+                        .addComponent(combExercicioC3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC3, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel36Layout.createSequentialGroup()
+                        .addComponent(combExercicioC3_1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC3_1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC3_1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC3_1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel36Layout.createSequentialGroup()
+                        .addComponent(combExercicioC3_2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC3_2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC3_2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC3_2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel36Layout.createSequentialGroup()
+                        .addComponent(combExercicioC3_3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC3_3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC3_3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC3_3, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel36Layout.createSequentialGroup()
+                        .addComponent(combExercicioC3_4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC3_4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC3_4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC3_4, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel36Layout.createSequentialGroup()
+                        .addComponent(combExercicioC3_5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC3_5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC3_5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC3_5, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel36Layout.createSequentialGroup()
+                        .addComponent(combExercicioC3_6, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC3_6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC3_6)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC3_6, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel36Layout.setVerticalGroup(
+            jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel36Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC3)
+                    .addComponent(txtObservacoesC3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC3_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC3_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC3_1)
+                    .addComponent(txtObservacoesC3_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC3_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC3_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC3_2)
+                    .addComponent(txtObservacoesC3_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC3_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC3_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC3_3)
+                    .addComponent(txtObservacoesC3_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC3_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC3_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC3_4)
+                    .addComponent(txtObservacoesC3_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC3_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC3_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC3_5)
+                    .addComponent(txtObservacoesC3_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel36Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC3_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC3_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC3_6)
+                    .addComponent(txtObservacoesC3_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
+        );
+
+        btnLessC3.setForeground(new java.awt.Color(251, 0, 51));
+        btnLessC3.setText("-");
+        btnLessC3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLessC3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
+        jPanel35.setLayout(jPanel35Layout);
+        jPanel35Layout.setHorizontalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel35Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel35Layout.createSequentialGroup()
+                        .addComponent(combMusculoC3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPlusC3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLessC3)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel35Layout.setVerticalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel35Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combMusculoC3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPlusC3)
+                    .addComponent(btnLessC3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel34Layout = new javax.swing.GroupLayout(jPanel34);
+        jPanel34.setLayout(jPanel34Layout);
+        jPanel34Layout.setHorizontalGroup(
+            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel34Layout.setVerticalGroup(
+            jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel34Layout.createSequentialGroup()
+                .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 54, Short.MAX_VALUE))
+        );
+
+        abaTreinoC.addTab("     Treino C - 3          ", jPanel34);
+
+        combMusculoC4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abdomen" }));
+
+        btnPlusC4.setForeground(new java.awt.Color(251, 0, 51));
+        btnPlusC4.setText("+");
+        btnPlusC4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlusC4ActionPerformed(evt);
+            }
+        });
+
+        jPanel39.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
+
+        combExercicioC4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC4.setText("Observações");
+
+        combExercicioC4_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC4_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC4_1.setText("Observações");
+
+        combRepeticoesC4_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC4_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC4_2.setText("Observações");
+
+        combExercicioC4_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC4_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC4_3.setText("Observações");
+
+        combExercicioC4_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC4_4.setText("Observações");
+
+        combRepeticoesC4_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC4_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC4_5.setText("Observações");
+
+        combRepeticoesC4_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combRepeticoesC4_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC4_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC4_6.setText("Observações");
+
+        javax.swing.GroupLayout jPanel39Layout = new javax.swing.GroupLayout(jPanel39);
+        jPanel39.setLayout(jPanel39Layout);
+        jPanel39Layout.setHorizontalGroup(
+            jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel39Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addComponent(combExercicioC4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC4, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addComponent(combExercicioC4_1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC4_1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC4_1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC4_1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addComponent(combExercicioC4_2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC4_2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC4_2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC4_2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addComponent(combExercicioC4_3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC4_3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC4_3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC4_3, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addComponent(combExercicioC4_4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC4_4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC4_4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC4_4, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addComponent(combExercicioC4_5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC4_5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC4_5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC4_5, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addComponent(combExercicioC4_6, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC4_6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC4_6)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC4_6, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel39Layout.setVerticalGroup(
+            jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel39Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC4)
+                    .addComponent(txtObservacoesC4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC4_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC4_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC4_1)
+                    .addComponent(txtObservacoesC4_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC4_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC4_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC4_2)
+                    .addComponent(txtObservacoesC4_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC4_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC4_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC4_3)
+                    .addComponent(txtObservacoesC4_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC4_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC4_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC4_4)
+                    .addComponent(txtObservacoesC4_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC4_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC4_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC4_5)
+                    .addComponent(txtObservacoesC4_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC4_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC4_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC4_6)
+                    .addComponent(txtObservacoesC4_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
+        );
+
+        btnLessC4.setForeground(new java.awt.Color(251, 0, 51));
+        btnLessC4.setText("-");
+        btnLessC4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLessC4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
+        jPanel38.setLayout(jPanel38Layout);
+        jPanel38Layout.setHorizontalGroup(
+            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel38Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel38Layout.createSequentialGroup()
+                        .addComponent(combMusculoC4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPlusC4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLessC4)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel38Layout.setVerticalGroup(
+            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel38Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combMusculoC4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPlusC4)
+                    .addComponent(btnLessC4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel39, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
+        jPanel37.setLayout(jPanel37Layout);
+        jPanel37Layout.setHorizontalGroup(
+            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel37Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel37Layout.setVerticalGroup(
+            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel37Layout.createSequentialGroup()
+                .addComponent(jPanel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 54, Short.MAX_VALUE))
+        );
+
+        abaTreinoC.addTab("     Treino C - 4          ", jPanel37);
+
+        combMusculoC5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aeróbico" }));
+
+        btnPlusC5.setForeground(new java.awt.Color(251, 0, 51));
+        btnPlusC5.setText("+");
+        btnPlusC5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlusC5ActionPerformed(evt);
+            }
+        });
+
+        jPanel42.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
+
+        combExercicioC5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC5.setText("Observações");
+
+        combExercicioC5_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC5_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC5_1.setText("Observações");
+
+        combRepeticoesC5_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC5_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC5_2.setText("Observações");
+
+        combExercicioC5_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        combRepeticoesC5_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        lblObservacoesC5_3.setText("Observações");
+
+        combExercicioC5_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC5_4.setText("Observações");
+
+        combRepeticoesC5_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC5_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC5_5.setText("Observações");
+
+        combRepeticoesC5_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combRepeticoesC5_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
+
+        combExercicioC5_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
+
+        lblObservacoesC5_6.setText("Observações");
+
+        javax.swing.GroupLayout jPanel42Layout = new javax.swing.GroupLayout(jPanel42);
+        jPanel42.setLayout(jPanel42Layout);
+        jPanel42Layout.setHorizontalGroup(
+            jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel42Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel42Layout.createSequentialGroup()
+                        .addComponent(combExercicioC5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC5, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel42Layout.createSequentialGroup()
+                        .addComponent(combExercicioC5_1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC5_1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC5_1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC5_1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel42Layout.createSequentialGroup()
+                        .addComponent(combExercicioC5_2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC5_2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC5_2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC5_2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel42Layout.createSequentialGroup()
+                        .addComponent(combExercicioC5_3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC5_3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC5_3)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC5_3, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel42Layout.createSequentialGroup()
+                        .addComponent(combExercicioC5_4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC5_4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC5_4)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC5_4, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel42Layout.createSequentialGroup()
+                        .addComponent(combExercicioC5_5, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC5_5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC5_5)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC5_5, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel42Layout.createSequentialGroup()
+                        .addComponent(combExercicioC5_6, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combRepeticoesC5_6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblObservacoesC5_6)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtObservacoesC5_6, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel42Layout.setVerticalGroup(
+            jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel42Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC5)
+                    .addComponent(txtObservacoesC5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC5_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC5_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC5_1)
+                    .addComponent(txtObservacoesC5_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC5_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC5_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC5_2)
+                    .addComponent(txtObservacoesC5_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC5_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC5_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC5_3)
+                    .addComponent(txtObservacoesC5_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC5_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC5_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC5_4)
+                    .addComponent(txtObservacoesC5_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC5_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC5_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC5_5)
+                    .addComponent(txtObservacoesC5_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combExercicioC5_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combRepeticoesC5_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblObservacoesC5_6)
+                    .addComponent(txtObservacoesC5_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
+        );
+
+        btnLessC5.setForeground(new java.awt.Color(251, 0, 51));
+        btnLessC5.setText("-");
+        btnLessC5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLessC5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel41Layout = new javax.swing.GroupLayout(jPanel41);
+        jPanel41.setLayout(jPanel41Layout);
+        jPanel41Layout.setHorizontalGroup(
+            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel41Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel41Layout.createSequentialGroup()
+                        .addComponent(combMusculoC5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPlusC5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLessC5)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel41Layout.setVerticalGroup(
+            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel41Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combMusculoC5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPlusC5)
+                    .addComponent(btnLessC5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel40Layout = new javax.swing.GroupLayout(jPanel40);
+        jPanel40.setLayout(jPanel40Layout);
+        jPanel40Layout.setHorizontalGroup(
+            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel40Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel40Layout.setVerticalGroup(
+            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel40Layout.createSequentialGroup()
+                .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 54, Short.MAX_VALUE))
+        );
+
+        abaTreinoC.addTab("     Treino C - 5          ", jPanel40);
+
+        painelAbas.addTab("Treino C                                   ", abaTreinoC);
+
         jMenu1.setText("Salvar");
         jMenuBar1.add(jMenu1);
 
@@ -3049,6 +4321,50 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_combRepeticoesB1_6ActionPerformed
 
+    private void btnPlusC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusC1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPlusC1ActionPerformed
+
+    private void combRepeticoesC1_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combRepeticoesC1_6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combRepeticoesC1_6ActionPerformed
+
+    private void btnLessC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessC1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLessC1ActionPerformed
+
+    private void btnPlusC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusC2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPlusC2ActionPerformed
+
+    private void btnLessC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessC2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLessC2ActionPerformed
+
+    private void btnPlusC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusC3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPlusC3ActionPerformed
+
+    private void btnLessC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessC3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLessC3ActionPerformed
+
+    private void btnPlusC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusC4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPlusC4ActionPerformed
+
+    private void btnLessC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessC4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLessC4ActionPerformed
+
+    private void btnPlusC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusC5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPlusC5ActionPerformed
+
+    private void btnLessC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessC5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLessC5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3096,6 +4412,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField Tcad_dataDataInicial;
     private javax.swing.JTabbedPane abaTreinoA;
     private javax.swing.JTabbedPane abaTreinoB;
+    private javax.swing.JTabbedPane abaTreinoC;
     private javax.swing.JButton btnLessA1;
     private javax.swing.JButton btnLessA2;
     private javax.swing.JButton btnLessA3;
@@ -3106,6 +4423,11 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JButton btnLessB3;
     private javax.swing.JButton btnLessB4;
     private javax.swing.JButton btnLessB5;
+    private javax.swing.JButton btnLessC1;
+    private javax.swing.JButton btnLessC2;
+    private javax.swing.JButton btnLessC3;
+    private javax.swing.JButton btnLessC4;
+    private javax.swing.JButton btnLessC5;
     private javax.swing.JButton btnPlusA1;
     private javax.swing.JButton btnPlusA2;
     private javax.swing.JButton btnPlusA3;
@@ -3116,6 +4438,11 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JButton btnPlusB3;
     private javax.swing.JButton btnPlusB4;
     private javax.swing.JButton btnPlusB5;
+    private javax.swing.JButton btnPlusC1;
+    private javax.swing.JButton btnPlusC2;
+    private javax.swing.JButton btnPlusC3;
+    private javax.swing.JButton btnPlusC4;
+    private javax.swing.JButton btnPlusC5;
     private javax.swing.JComboBox<String> combExercicioA1;
     private javax.swing.JComboBox<String> combExercicioA1_1;
     private javax.swing.JComboBox<String> combExercicioA1_2;
@@ -3186,6 +4513,41 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> combExercicioB5_4;
     private javax.swing.JComboBox<String> combExercicioB5_5;
     private javax.swing.JComboBox<String> combExercicioB5_6;
+    private javax.swing.JComboBox<String> combExercicioC1;
+    private javax.swing.JComboBox<String> combExercicioC1_1;
+    private javax.swing.JComboBox<String> combExercicioC1_2;
+    private javax.swing.JComboBox<String> combExercicioC1_3;
+    private javax.swing.JComboBox<String> combExercicioC1_4;
+    private javax.swing.JComboBox<String> combExercicioC1_5;
+    private javax.swing.JComboBox<String> combExercicioC1_6;
+    private javax.swing.JComboBox<String> combExercicioC2;
+    private javax.swing.JComboBox<String> combExercicioC2_1;
+    private javax.swing.JComboBox<String> combExercicioC2_2;
+    private javax.swing.JComboBox<String> combExercicioC2_3;
+    private javax.swing.JComboBox<String> combExercicioC2_4;
+    private javax.swing.JComboBox<String> combExercicioC2_5;
+    private javax.swing.JComboBox<String> combExercicioC2_6;
+    private javax.swing.JComboBox<String> combExercicioC3;
+    private javax.swing.JComboBox<String> combExercicioC3_1;
+    private javax.swing.JComboBox<String> combExercicioC3_2;
+    private javax.swing.JComboBox<String> combExercicioC3_3;
+    private javax.swing.JComboBox<String> combExercicioC3_4;
+    private javax.swing.JComboBox<String> combExercicioC3_5;
+    private javax.swing.JComboBox<String> combExercicioC3_6;
+    private javax.swing.JComboBox<String> combExercicioC4;
+    private javax.swing.JComboBox<String> combExercicioC4_1;
+    private javax.swing.JComboBox<String> combExercicioC4_2;
+    private javax.swing.JComboBox<String> combExercicioC4_3;
+    private javax.swing.JComboBox<String> combExercicioC4_4;
+    private javax.swing.JComboBox<String> combExercicioC4_5;
+    private javax.swing.JComboBox<String> combExercicioC4_6;
+    private javax.swing.JComboBox<String> combExercicioC5;
+    private javax.swing.JComboBox<String> combExercicioC5_1;
+    private javax.swing.JComboBox<String> combExercicioC5_2;
+    private javax.swing.JComboBox<String> combExercicioC5_3;
+    private javax.swing.JComboBox<String> combExercicioC5_4;
+    private javax.swing.JComboBox<String> combExercicioC5_5;
+    private javax.swing.JComboBox<String> combExercicioC5_6;
     private javax.swing.JComboBox<String> combMusculoA1;
     private javax.swing.JComboBox<String> combMusculoA2;
     private javax.swing.JComboBox<String> combMusculoA3;
@@ -3196,6 +4558,11 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> combMusculoB3;
     private javax.swing.JComboBox<String> combMusculoB4;
     private javax.swing.JComboBox<String> combMusculoB5;
+    private javax.swing.JComboBox<String> combMusculoC1;
+    private javax.swing.JComboBox<String> combMusculoC2;
+    private javax.swing.JComboBox<String> combMusculoC3;
+    private javax.swing.JComboBox<String> combMusculoC4;
+    private javax.swing.JComboBox<String> combMusculoC5;
     private javax.swing.JComboBox<String> combRepeticoesA1;
     private javax.swing.JComboBox<String> combRepeticoesA1_1;
     private javax.swing.JComboBox<String> combRepeticoesA1_2;
@@ -3266,6 +4633,41 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> combRepeticoesB5_4;
     private javax.swing.JComboBox<String> combRepeticoesB5_5;
     private javax.swing.JComboBox<String> combRepeticoesB5_6;
+    private javax.swing.JComboBox<String> combRepeticoesC1;
+    private javax.swing.JComboBox<String> combRepeticoesC1_1;
+    private javax.swing.JComboBox<String> combRepeticoesC1_2;
+    private javax.swing.JComboBox<String> combRepeticoesC1_3;
+    private javax.swing.JComboBox<String> combRepeticoesC1_4;
+    private javax.swing.JComboBox<String> combRepeticoesC1_5;
+    private javax.swing.JComboBox<String> combRepeticoesC1_6;
+    private javax.swing.JComboBox<String> combRepeticoesC2;
+    private javax.swing.JComboBox<String> combRepeticoesC2_1;
+    private javax.swing.JComboBox<String> combRepeticoesC2_2;
+    private javax.swing.JComboBox<String> combRepeticoesC2_3;
+    private javax.swing.JComboBox<String> combRepeticoesC2_4;
+    private javax.swing.JComboBox<String> combRepeticoesC2_5;
+    private javax.swing.JComboBox<String> combRepeticoesC2_6;
+    private javax.swing.JComboBox<String> combRepeticoesC3;
+    private javax.swing.JComboBox<String> combRepeticoesC3_1;
+    private javax.swing.JComboBox<String> combRepeticoesC3_2;
+    private javax.swing.JComboBox<String> combRepeticoesC3_3;
+    private javax.swing.JComboBox<String> combRepeticoesC3_4;
+    private javax.swing.JComboBox<String> combRepeticoesC3_5;
+    private javax.swing.JComboBox<String> combRepeticoesC3_6;
+    private javax.swing.JComboBox<String> combRepeticoesC4;
+    private javax.swing.JComboBox<String> combRepeticoesC4_1;
+    private javax.swing.JComboBox<String> combRepeticoesC4_2;
+    private javax.swing.JComboBox<String> combRepeticoesC4_3;
+    private javax.swing.JComboBox<String> combRepeticoesC4_4;
+    private javax.swing.JComboBox<String> combRepeticoesC4_5;
+    private javax.swing.JComboBox<String> combRepeticoesC4_6;
+    private javax.swing.JComboBox<String> combRepeticoesC5;
+    private javax.swing.JComboBox<String> combRepeticoesC5_1;
+    private javax.swing.JComboBox<String> combRepeticoesC5_2;
+    private javax.swing.JComboBox<String> combRepeticoesC5_3;
+    private javax.swing.JComboBox<String> combRepeticoesC5_4;
+    private javax.swing.JComboBox<String> combRepeticoesC5_5;
+    private javax.swing.JComboBox<String> combRepeticoesC5_6;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -3295,8 +4697,22 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
+    private javax.swing.JPanel jPanel38;
+    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
+    private javax.swing.JPanel jPanel42;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -3372,6 +4788,41 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JLabel lblObservacoesB5_4;
     private javax.swing.JLabel lblObservacoesB5_5;
     private javax.swing.JLabel lblObservacoesB5_6;
+    private javax.swing.JLabel lblObservacoesC1;
+    private javax.swing.JLabel lblObservacoesC1_1;
+    private javax.swing.JLabel lblObservacoesC1_2;
+    private javax.swing.JLabel lblObservacoesC1_3;
+    private javax.swing.JLabel lblObservacoesC1_4;
+    private javax.swing.JLabel lblObservacoesC1_5;
+    private javax.swing.JLabel lblObservacoesC1_6;
+    private javax.swing.JLabel lblObservacoesC2;
+    private javax.swing.JLabel lblObservacoesC2_1;
+    private javax.swing.JLabel lblObservacoesC2_2;
+    private javax.swing.JLabel lblObservacoesC2_3;
+    private javax.swing.JLabel lblObservacoesC2_4;
+    private javax.swing.JLabel lblObservacoesC2_5;
+    private javax.swing.JLabel lblObservacoesC2_6;
+    private javax.swing.JLabel lblObservacoesC3;
+    private javax.swing.JLabel lblObservacoesC3_1;
+    private javax.swing.JLabel lblObservacoesC3_2;
+    private javax.swing.JLabel lblObservacoesC3_3;
+    private javax.swing.JLabel lblObservacoesC3_4;
+    private javax.swing.JLabel lblObservacoesC3_5;
+    private javax.swing.JLabel lblObservacoesC3_6;
+    private javax.swing.JLabel lblObservacoesC4;
+    private javax.swing.JLabel lblObservacoesC4_1;
+    private javax.swing.JLabel lblObservacoesC4_2;
+    private javax.swing.JLabel lblObservacoesC4_3;
+    private javax.swing.JLabel lblObservacoesC4_4;
+    private javax.swing.JLabel lblObservacoesC4_5;
+    private javax.swing.JLabel lblObservacoesC4_6;
+    private javax.swing.JLabel lblObservacoesC5;
+    private javax.swing.JLabel lblObservacoesC5_1;
+    private javax.swing.JLabel lblObservacoesC5_2;
+    private javax.swing.JLabel lblObservacoesC5_3;
+    private javax.swing.JLabel lblObservacoesC5_4;
+    private javax.swing.JLabel lblObservacoesC5_5;
+    private javax.swing.JLabel lblObservacoesC5_6;
     private javax.swing.JTabbedPane painelAbas;
     private javax.swing.JTextField txtObservacoesA1;
     private javax.swing.JTextField txtObservacoesA1_1;
@@ -3443,5 +4894,40 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JTextField txtObservacoesB5_4;
     private javax.swing.JTextField txtObservacoesB5_5;
     private javax.swing.JTextField txtObservacoesB5_6;
+    private javax.swing.JTextField txtObservacoesC1;
+    private javax.swing.JTextField txtObservacoesC1_1;
+    private javax.swing.JTextField txtObservacoesC1_2;
+    private javax.swing.JTextField txtObservacoesC1_3;
+    private javax.swing.JTextField txtObservacoesC1_4;
+    private javax.swing.JTextField txtObservacoesC1_5;
+    private javax.swing.JTextField txtObservacoesC1_6;
+    private javax.swing.JTextField txtObservacoesC2;
+    private javax.swing.JTextField txtObservacoesC2_1;
+    private javax.swing.JTextField txtObservacoesC2_2;
+    private javax.swing.JTextField txtObservacoesC2_3;
+    private javax.swing.JTextField txtObservacoesC2_4;
+    private javax.swing.JTextField txtObservacoesC2_5;
+    private javax.swing.JTextField txtObservacoesC2_6;
+    private javax.swing.JTextField txtObservacoesC3;
+    private javax.swing.JTextField txtObservacoesC3_1;
+    private javax.swing.JTextField txtObservacoesC3_2;
+    private javax.swing.JTextField txtObservacoesC3_3;
+    private javax.swing.JTextField txtObservacoesC3_4;
+    private javax.swing.JTextField txtObservacoesC3_5;
+    private javax.swing.JTextField txtObservacoesC3_6;
+    private javax.swing.JTextField txtObservacoesC4;
+    private javax.swing.JTextField txtObservacoesC4_1;
+    private javax.swing.JTextField txtObservacoesC4_2;
+    private javax.swing.JTextField txtObservacoesC4_3;
+    private javax.swing.JTextField txtObservacoesC4_4;
+    private javax.swing.JTextField txtObservacoesC4_5;
+    private javax.swing.JTextField txtObservacoesC4_6;
+    private javax.swing.JTextField txtObservacoesC5;
+    private javax.swing.JTextField txtObservacoesC5_1;
+    private javax.swing.JTextField txtObservacoesC5_2;
+    private javax.swing.JTextField txtObservacoesC5_3;
+    private javax.swing.JTextField txtObservacoesC5_4;
+    private javax.swing.JTextField txtObservacoesC5_5;
+    private javax.swing.JTextField txtObservacoesC5_6;
     // End of variables declaration//GEN-END:variables
 }
