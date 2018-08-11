@@ -9,100 +9,26 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     int controlePlusA4 = 0;
     int controlePlusA5 = 0;
     
+    int controlePlusB1 = 0; //controle de botão + Treinos B
+    int controlePlusB2 = 0;
+    int controlePlusB3 = 0;
+    int controlePlusB4 = 0;
+    int controlePlusB5 = 0;
+    
+    int controlePlusC1 = 0; //controle de botão + Treinos C
+    int controlePlusC2 = 0;
+    int controlePlusC3 = 0;
+    int controlePlusC4 = 0;
+    int controlePlusC5 = 0;
+    
+    
     
     public TelaCadastro_treino(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        //Treino A1
-        combExercicioA1_3.setVisible(false);
-        combRepeticoesA1_3.setVisible(false);
-        txtObservacoesA1_3.setVisible(false);
-        lblObservacoesA1_3.setVisible(false); 
-        combExercicioA1_4.setVisible(false);
-        combRepeticoesA1_4.setVisible(false);
-        txtObservacoesA1_4.setVisible(false);
-        lblObservacoesA1_4.setVisible(false);
-        combExercicioA1_5.setVisible(false);
-        combRepeticoesA1_5.setVisible(false);
-        txtObservacoesA1_5.setVisible(false);
-        lblObservacoesA1_5.setVisible(false);
-        combExercicioA1_6.setVisible(false);
-        combRepeticoesA1_6.setVisible(false);
-        txtObservacoesA1_6.setVisible(false);
-        lblObservacoesA1_6.setVisible(false);
-        
-        //Treino A2
-        combExercicioA2_3.setVisible(false);
-        combRepeticoesA2_3.setVisible(false);
-        txtObservacoesA2_3.setVisible(false);
-        lblObservacoesA2_3.setVisible(false); 
-        combExercicioA2_4.setVisible(false);
-        combRepeticoesA2_4.setVisible(false);
-        txtObservacoesA2_4.setVisible(false);
-        lblObservacoesA2_4.setVisible(false);
-        combExercicioA2_5.setVisible(false);
-        combRepeticoesA2_5.setVisible(false);
-        txtObservacoesA2_5.setVisible(false);
-        lblObservacoesA2_5.setVisible(false);
-        combExercicioA2_6.setVisible(false);
-        combRepeticoesA2_6.setVisible(false);
-        txtObservacoesA2_6.setVisible(false);
-        lblObservacoesA2_6.setVisible(false);
-        
-        //Treino A3
-        combExercicioA3_3.setVisible(false);
-        combRepeticoesA3_3.setVisible(false);
-        txtObservacoesA3_3.setVisible(false);
-        lblObservacoesA3_3.setVisible(false); 
-        combExercicioA3_4.setVisible(false);
-        combRepeticoesA3_4.setVisible(false);
-        txtObservacoesA3_4.setVisible(false);
-        lblObservacoesA3_4.setVisible(false);
-        combExercicioA3_5.setVisible(false);
-        combRepeticoesA3_5.setVisible(false);
-        txtObservacoesA3_5.setVisible(false);
-        lblObservacoesA3_5.setVisible(false);
-        combExercicioA3_6.setVisible(false);
-        combRepeticoesA3_6.setVisible(false);
-        txtObservacoesA3_6.setVisible(false);
-        lblObservacoesA3_6.setVisible(false);
-        
-        //Treino A4
-        combExercicioA4_3.setVisible(false);
-        combRepeticoesA4_3.setVisible(false);
-        txtObservacoesA4_3.setVisible(false);
-        lblObservacoesA4_3.setVisible(false); 
-        combExercicioA4_4.setVisible(false);
-        combRepeticoesA4_4.setVisible(false);
-        txtObservacoesA4_4.setVisible(false);
-        lblObservacoesA4_4.setVisible(false);
-        combExercicioA4_5.setVisible(false);
-        combRepeticoesA4_5.setVisible(false);
-        txtObservacoesA4_5.setVisible(false);
-        lblObservacoesA4_5.setVisible(false);
-        combExercicioA4_6.setVisible(false);
-        combRepeticoesA4_6.setVisible(false);
-        txtObservacoesA4_6.setVisible(false);
-        lblObservacoesA4_6.setVisible(false);
-        
-        //Treino A5
-        combExercicioA5_3.setVisible(false);
-        combRepeticoesA5_3.setVisible(false);
-        txtObservacoesA5_3.setVisible(false);
-        lblObservacoesA5_3.setVisible(false); 
-        combExercicioA5_4.setVisible(false);
-        combRepeticoesA5_4.setVisible(false);
-        txtObservacoesA5_4.setVisible(false);
-        lblObservacoesA5_4.setVisible(false);
-        combExercicioA5_5.setVisible(false);
-        combRepeticoesA5_5.setVisible(false);
-        txtObservacoesA5_5.setVisible(false);
-        lblObservacoesA5_5.setVisible(false);
-        combExercicioA5_6.setVisible(false);
-        combRepeticoesA5_6.setVisible(false);
-        txtObservacoesA5_6.setVisible(false);
-        lblObservacoesA5_6.setVisible(false);
- 
+        this.ocultaBotoesTreinoA();
+        this.ocultaBotoesTreinoB();
+        this.ocultaBotoesTreinoC();
         
     }
 
@@ -3998,43 +3924,283 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLessB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessB5ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusB5 == 4){
+            combExercicioB5_6.setVisible(false);
+            combRepeticoesB5_6.setVisible(false);
+            txtObservacoesB5_6.setVisible(false);
+            lblObservacoesB5_6.setVisible(false);
+            controlePlusB5--;
+        }else if(controlePlusB5 == 3){
+            combExercicioB5_5.setVisible(false);
+            combRepeticoesB5_5.setVisible(false);
+            txtObservacoesB5_5.setVisible(false);
+            lblObservacoesB5_5.setVisible(false);
+            controlePlusB5--;
+        }else if(controlePlusB5 == 2){
+            combExercicioB5_4.setVisible(false);
+            combRepeticoesB5_4.setVisible(false);
+            txtObservacoesB5_4.setVisible(false);
+            lblObservacoesB5_4.setVisible(false);
+            controlePlusB5--;
+        }else if(controlePlusB5 == 1){
+            combExercicioB5_3.setVisible(false);
+            combRepeticoesB5_3.setVisible(false);
+            txtObservacoesB5_3.setVisible(false);
+            lblObservacoesB5_3.setVisible(false);
+            controlePlusB5--;
+        }
     }//GEN-LAST:event_btnLessB5ActionPerformed
 
     private void btnPlusB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusB5ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusB5 == 0){
+            combExercicioB5_3.setVisible(true);
+            combRepeticoesB5_3.setVisible(true);
+            txtObservacoesB5_3.setVisible(true);
+            lblObservacoesB5_3.setVisible(true);
+            controlePlusB5++;
+        }else if(controlePlusB5 == 1){
+            combExercicioB5_4.setVisible(true);
+            combRepeticoesB5_4.setVisible(true);
+            txtObservacoesB5_4.setVisible(true);
+            lblObservacoesB5_4.setVisible(true);
+            controlePlusB5++;
+        }else if(controlePlusB5 == 2){
+            combExercicioB5_5.setVisible(true);
+            combRepeticoesB5_5.setVisible(true);
+            txtObservacoesB5_5.setVisible(true);
+            lblObservacoesB5_5.setVisible(true);
+            controlePlusB5++;
+        }else if(controlePlusB5 == 3){
+            combExercicioB5_6.setVisible(true);
+            combRepeticoesB5_6.setVisible(true);
+            txtObservacoesB5_6.setVisible(true);
+            lblObservacoesB5_6.setVisible(true);
+            controlePlusB5++;
+        }
     }//GEN-LAST:event_btnPlusB5ActionPerformed
 
     private void btnLessB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessB4ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusB4 == 4){
+            combExercicioB4_6.setVisible(false);
+            combRepeticoesB4_6.setVisible(false);
+            txtObservacoesB4_6.setVisible(false);
+            lblObservacoesB4_6.setVisible(false);
+            controlePlusB4--;
+        }else if(controlePlusB4 == 3){
+            combExercicioB4_5.setVisible(false);
+            combRepeticoesB4_5.setVisible(false);
+            txtObservacoesB4_5.setVisible(false);
+            lblObservacoesB4_5.setVisible(false);
+            controlePlusB4--;
+        }else if(controlePlusB4 == 2){
+            combExercicioB4_4.setVisible(false);
+            combRepeticoesB4_4.setVisible(false);
+            txtObservacoesB4_4.setVisible(false);
+            lblObservacoesB4_4.setVisible(false);
+            controlePlusB4--;
+        }else if(controlePlusB4 == 1){
+            combExercicioB4_3.setVisible(false);
+            combRepeticoesB4_3.setVisible(false);
+            txtObservacoesB4_3.setVisible(false);
+            lblObservacoesB4_3.setVisible(false);
+            controlePlusB4--;
+        }
     }//GEN-LAST:event_btnLessB4ActionPerformed
 
     private void btnPlusB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusB4ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusB4 == 0){
+            combExercicioB4_3.setVisible(true);
+            combRepeticoesB4_3.setVisible(true);
+            txtObservacoesB4_3.setVisible(true);
+            lblObservacoesB4_3.setVisible(true);
+            controlePlusB4++;
+        }else if(controlePlusB4 == 1){
+            combExercicioB4_4.setVisible(true);
+            combRepeticoesB4_4.setVisible(true);
+            txtObservacoesB4_4.setVisible(true);
+            lblObservacoesB4_4.setVisible(true);
+            controlePlusB4++;
+        }else if(controlePlusB4 == 2){
+            combExercicioB4_5.setVisible(true);
+            combRepeticoesB4_5.setVisible(true);
+            txtObservacoesB4_5.setVisible(true);
+            lblObservacoesB4_5.setVisible(true);
+            controlePlusB4++;
+        }else if(controlePlusB4 == 3){
+            combExercicioB4_6.setVisible(true);
+            combRepeticoesB4_6.setVisible(true);
+            txtObservacoesB4_6.setVisible(true);
+            lblObservacoesB4_6.setVisible(true);
+            controlePlusB4++;
+        }
     }//GEN-LAST:event_btnPlusB4ActionPerformed
 
     private void btnLessB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessB3ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusB3 == 4){
+            combExercicioB3_6.setVisible(false);
+            combRepeticoesB3_6.setVisible(false);
+            txtObservacoesB3_6.setVisible(false);
+            lblObservacoesB3_6.setVisible(false);
+            controlePlusB3--;
+        }else if(controlePlusB3 == 3){
+            combExercicioB3_5.setVisible(false);
+            combRepeticoesB3_5.setVisible(false);
+            txtObservacoesB3_5.setVisible(false);
+            lblObservacoesB3_5.setVisible(false);
+            controlePlusB3--;
+        }else if(controlePlusB3 == 2){
+            combExercicioB3_4.setVisible(false);
+            combRepeticoesB3_4.setVisible(false);
+            txtObservacoesB3_4.setVisible(false);
+            lblObservacoesB3_4.setVisible(false);
+            controlePlusB3--;
+        }else if(controlePlusB3 == 1){
+            combExercicioB3_3.setVisible(false);
+            combRepeticoesB3_3.setVisible(false);
+            txtObservacoesB3_3.setVisible(false);
+            lblObservacoesB3_3.setVisible(false);
+            controlePlusB3--;
+        }
     }//GEN-LAST:event_btnLessB3ActionPerformed
 
     private void btnPlusB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusB3ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusB3 == 0){
+            combExercicioB3_3.setVisible(true);
+            combRepeticoesB3_3.setVisible(true);
+            txtObservacoesB3_3.setVisible(true);
+            lblObservacoesB3_3.setVisible(true);
+            controlePlusB3++;
+        }else if(controlePlusB3 == 1){
+            combExercicioB3_4.setVisible(true);
+            combRepeticoesB3_4.setVisible(true);
+            txtObservacoesB3_4.setVisible(true);
+            lblObservacoesB3_4.setVisible(true);
+            controlePlusB3++;
+        }else if(controlePlusB3 == 2){
+            combExercicioB3_5.setVisible(true);
+            combRepeticoesB3_5.setVisible(true);
+            txtObservacoesB3_5.setVisible(true);
+            lblObservacoesB3_5.setVisible(true);
+            controlePlusB3++;
+        }else if(controlePlusB3 == 3){
+            combExercicioB3_6.setVisible(true);
+            combRepeticoesB3_6.setVisible(true);
+            txtObservacoesB3_6.setVisible(true);
+            lblObservacoesB3_6.setVisible(true);
+            controlePlusB3++;
+        }
     }//GEN-LAST:event_btnPlusB3ActionPerformed
 
     private void btnLessB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessB2ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusB2 == 4){
+            combExercicioB2_6.setVisible(false);
+            combRepeticoesB2_6.setVisible(false);
+            txtObservacoesB2_6.setVisible(false);
+            lblObservacoesB2_6.setVisible(false);
+            controlePlusB2--;
+        }else if(controlePlusB2 == 3){
+            combExercicioB2_5.setVisible(false);
+            combRepeticoesB2_5.setVisible(false);
+            txtObservacoesB2_5.setVisible(false);
+            lblObservacoesB2_5.setVisible(false);
+            controlePlusB2--;
+        }else if(controlePlusB2 == 2){
+            combExercicioB2_4.setVisible(false);
+            combRepeticoesB2_4.setVisible(false);
+            txtObservacoesB2_4.setVisible(false);
+            lblObservacoesB2_4.setVisible(false);
+            controlePlusB2--;
+        }else if(controlePlusB2 == 1){
+            combExercicioB2_3.setVisible(false);
+            combRepeticoesB2_3.setVisible(false);
+            txtObservacoesB2_3.setVisible(false);
+            lblObservacoesB2_3.setVisible(false);
+            controlePlusB2--;
+        }
     }//GEN-LAST:event_btnLessB2ActionPerformed
 
     private void btnPlusB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusB2ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusB2 == 0){
+            combExercicioB2_3.setVisible(true);
+            combRepeticoesB2_3.setVisible(true);
+            txtObservacoesB2_3.setVisible(true);
+            lblObservacoesB2_3.setVisible(true);
+            controlePlusB2++;
+        }else if(controlePlusB2 == 1){
+            combExercicioB2_4.setVisible(true);
+            combRepeticoesB2_4.setVisible(true);
+            txtObservacoesB2_4.setVisible(true);
+            lblObservacoesB2_4.setVisible(true);
+            controlePlusB2++;
+        }else if(controlePlusB2 == 2){
+            combExercicioB2_5.setVisible(true);
+            combRepeticoesB2_5.setVisible(true);
+            txtObservacoesB2_5.setVisible(true);
+            lblObservacoesB2_5.setVisible(true);
+            controlePlusB2++;
+        }else if(controlePlusB2 == 3){
+            combExercicioB2_6.setVisible(true);
+            combRepeticoesB2_6.setVisible(true);
+            txtObservacoesB2_6.setVisible(true);
+            lblObservacoesB2_6.setVisible(true);
+            controlePlusB2++;
+        }
     }//GEN-LAST:event_btnPlusB2ActionPerformed
 
     private void btnLessB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessB1ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusB1 == 4){
+            combExercicioB1_6.setVisible(false);
+            combRepeticoesB1_6.setVisible(false);
+            txtObservacoesB1_6.setVisible(false);
+            lblObservacoesB1_6.setVisible(false);
+            controlePlusB1--;
+        }else if(controlePlusB1 == 3){
+            combExercicioB1_5.setVisible(false);
+            combRepeticoesB1_5.setVisible(false);
+            txtObservacoesB1_5.setVisible(false);
+            lblObservacoesB1_5.setVisible(false);
+            controlePlusB1--;
+        }else if(controlePlusB1 == 2){
+            combExercicioB1_4.setVisible(false);
+            combRepeticoesB1_4.setVisible(false);
+            txtObservacoesB1_4.setVisible(false);
+            lblObservacoesB1_4.setVisible(false);
+            controlePlusB1--;
+        }else if(controlePlusB1 == 1){
+            combExercicioB1_3.setVisible(false);
+            combRepeticoesB1_3.setVisible(false);
+            txtObservacoesB1_3.setVisible(false);
+            lblObservacoesB1_3.setVisible(false);
+            controlePlusB1--;
+        }
     }//GEN-LAST:event_btnLessB1ActionPerformed
 
     private void btnPlusB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusB1ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusB1 == 0){
+            combExercicioB1_3.setVisible(true);
+            combRepeticoesB1_3.setVisible(true);
+            txtObservacoesB1_3.setVisible(true);
+            lblObservacoesB1_3.setVisible(true);
+            controlePlusB1++;
+        }else if(controlePlusB1 == 1){
+            combExercicioB1_4.setVisible(true);
+            combRepeticoesB1_4.setVisible(true);
+            txtObservacoesB1_4.setVisible(true);
+            lblObservacoesB1_4.setVisible(true);
+            controlePlusB1++;
+        }else if(controlePlusB1 == 2){
+            combExercicioB1_5.setVisible(true);
+            combRepeticoesB1_5.setVisible(true);
+            txtObservacoesB1_5.setVisible(true);
+            lblObservacoesB1_5.setVisible(true);
+            controlePlusB1++;
+        }else if(controlePlusB1 == 3){
+            combExercicioB1_6.setVisible(true);
+            combRepeticoesB1_6.setVisible(true);
+            txtObservacoesB1_6.setVisible(true);
+            lblObservacoesB1_6.setVisible(true);
+            controlePlusB1++;
+        }
     }//GEN-LAST:event_btnPlusB1ActionPerformed
 
     private void btnLessA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessA5ActionPerformed
@@ -4322,7 +4488,31 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     }//GEN-LAST:event_combRepeticoesB1_6ActionPerformed
 
     private void btnPlusC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusC1ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusC1 == 0){
+            combExercicioC1_3.setVisible(true);
+            combRepeticoesC1_3.setVisible(true);
+            txtObservacoesC1_3.setVisible(true);
+            lblObservacoesC1_3.setVisible(true);
+            controlePlusC1++;
+        }else if(controlePlusC1 == 1){
+            combExercicioC1_4.setVisible(true);
+            combRepeticoesC1_4.setVisible(true);
+            txtObservacoesC1_4.setVisible(true);
+            lblObservacoesC1_4.setVisible(true);
+            controlePlusC1++;
+        }else if(controlePlusC1 == 2){
+            combExercicioC1_5.setVisible(true);
+            combRepeticoesC1_5.setVisible(true);
+            txtObservacoesC1_5.setVisible(true);
+            lblObservacoesC1_5.setVisible(true);
+            controlePlusC1++;
+        }else if(controlePlusC1 == 3){
+            combExercicioC1_6.setVisible(true);
+            combRepeticoesC1_6.setVisible(true);
+            txtObservacoesC1_6.setVisible(true);
+            lblObservacoesC1_6.setVisible(true);
+            controlePlusC1++;
+        }
     }//GEN-LAST:event_btnPlusC1ActionPerformed
 
     private void combRepeticoesC1_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combRepeticoesC1_6ActionPerformed
@@ -4330,41 +4520,536 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     }//GEN-LAST:event_combRepeticoesC1_6ActionPerformed
 
     private void btnLessC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessC1ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusC1 == 4){
+            combExercicioC1_6.setVisible(false);
+            combRepeticoesC1_6.setVisible(false);
+            txtObservacoesC1_6.setVisible(false);
+            lblObservacoesC1_6.setVisible(false);
+            controlePlusC1--;
+        }else if(controlePlusC1 == 3){
+            combExercicioC1_5.setVisible(false);
+            combRepeticoesC1_5.setVisible(false);
+            txtObservacoesC1_5.setVisible(false);
+            lblObservacoesC1_5.setVisible(false);
+            controlePlusC1--;
+        }else if(controlePlusC1 == 2){
+            combExercicioC1_4.setVisible(false);
+            combRepeticoesC1_4.setVisible(false);
+            txtObservacoesC1_4.setVisible(false);
+            lblObservacoesC1_4.setVisible(false);
+            controlePlusC1--;
+        }else if(controlePlusC1 == 1){
+            combExercicioC1_3.setVisible(false);
+            combRepeticoesC1_3.setVisible(false);
+            txtObservacoesC1_3.setVisible(false);
+            lblObservacoesC1_3.setVisible(false);
+            controlePlusC1--;
+        }
     }//GEN-LAST:event_btnLessC1ActionPerformed
 
     private void btnPlusC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusC2ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusC2 == 0){
+            combExercicioC2_3.setVisible(true);
+            combRepeticoesC2_3.setVisible(true);
+            txtObservacoesC2_3.setVisible(true);
+            lblObservacoesC2_3.setVisible(true);
+            controlePlusC2++;
+        }else if(controlePlusC2 == 1){
+            combExercicioC2_4.setVisible(true);
+            combRepeticoesC2_4.setVisible(true);
+            txtObservacoesC2_4.setVisible(true);
+            lblObservacoesC2_4.setVisible(true);
+            controlePlusC2++;
+        }else if(controlePlusC2 == 2){
+            combExercicioC2_5.setVisible(true);
+            combRepeticoesC2_5.setVisible(true);
+            txtObservacoesC2_5.setVisible(true);
+            lblObservacoesC2_5.setVisible(true);
+            controlePlusC2++;
+        }else if(controlePlusC2 == 3){
+            combExercicioC2_6.setVisible(true);
+            combRepeticoesC2_6.setVisible(true);
+            txtObservacoesC2_6.setVisible(true);
+            lblObservacoesC2_6.setVisible(true);
+            controlePlusC2++;
+        }
     }//GEN-LAST:event_btnPlusC2ActionPerformed
 
     private void btnLessC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessC2ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusC2 == 4){
+            combExercicioC2_6.setVisible(false);
+            combRepeticoesC2_6.setVisible(false);
+            txtObservacoesC2_6.setVisible(false);
+            lblObservacoesC2_6.setVisible(false);
+            controlePlusC2--;
+        }else if(controlePlusC2 == 3){
+            combExercicioC2_5.setVisible(false);
+            combRepeticoesC2_5.setVisible(false);
+            txtObservacoesC2_5.setVisible(false);
+            lblObservacoesC2_5.setVisible(false);
+            controlePlusC2--;
+        }else if(controlePlusC2 == 2){
+            combExercicioC2_4.setVisible(false);
+            combRepeticoesC2_4.setVisible(false);
+            txtObservacoesC2_4.setVisible(false);
+            lblObservacoesC2_4.setVisible(false);
+            controlePlusC2--;
+        }else if(controlePlusC2 == 1){
+            combExercicioC2_3.setVisible(false);
+            combRepeticoesC2_3.setVisible(false);
+            txtObservacoesC2_3.setVisible(false);
+            lblObservacoesC2_3.setVisible(false);
+            controlePlusC2--;
+        }
     }//GEN-LAST:event_btnLessC2ActionPerformed
 
     private void btnPlusC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusC3ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusC3 == 0){
+            combExercicioC3_3.setVisible(true);
+            combRepeticoesC3_3.setVisible(true);
+            txtObservacoesC3_3.setVisible(true);
+            lblObservacoesC3_3.setVisible(true);
+            controlePlusC3++;
+        }else if(controlePlusC3 == 1){
+            combExercicioC3_4.setVisible(true);
+            combRepeticoesC3_4.setVisible(true);
+            txtObservacoesC3_4.setVisible(true);
+            lblObservacoesC3_4.setVisible(true);
+            controlePlusC3++;
+        }else if(controlePlusC3 == 2){
+            combExercicioC3_5.setVisible(true);
+            combRepeticoesC3_5.setVisible(true);
+            txtObservacoesC3_5.setVisible(true);
+            lblObservacoesC3_5.setVisible(true);
+            controlePlusC3++;
+        }else if(controlePlusC3 == 3){
+            combExercicioC3_6.setVisible(true);
+            combRepeticoesC3_6.setVisible(true);
+            txtObservacoesC3_6.setVisible(true);
+            lblObservacoesC3_6.setVisible(true);
+            controlePlusC3++;
+        }
     }//GEN-LAST:event_btnPlusC3ActionPerformed
 
     private void btnLessC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessC3ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusC3 == 4){
+            combExercicioC3_6.setVisible(false);
+            combRepeticoesC3_6.setVisible(false);
+            txtObservacoesC3_6.setVisible(false);
+            lblObservacoesC3_6.setVisible(false);
+            controlePlusC3--;
+        }else if(controlePlusC3 == 3){
+            combExercicioC3_5.setVisible(false);
+            combRepeticoesC3_5.setVisible(false);
+            txtObservacoesC3_5.setVisible(false);
+            lblObservacoesC3_5.setVisible(false);
+            controlePlusC3--;
+        }else if(controlePlusC3 == 2){
+            combExercicioC3_4.setVisible(false);
+            combRepeticoesC3_4.setVisible(false);
+            txtObservacoesC3_4.setVisible(false);
+            lblObservacoesC3_4.setVisible(false);
+            controlePlusC3--;
+        }else if(controlePlusC3 == 1){
+            combExercicioC3_3.setVisible(false);
+            combRepeticoesC3_3.setVisible(false);
+            txtObservacoesC3_3.setVisible(false);
+            lblObservacoesC3_3.setVisible(false);
+            controlePlusC3--;
+        }
     }//GEN-LAST:event_btnLessC3ActionPerformed
 
     private void btnPlusC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusC4ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusC4 == 0){
+            combExercicioC4_3.setVisible(true);
+            combRepeticoesC4_3.setVisible(true);
+            txtObservacoesC4_3.setVisible(true);
+            lblObservacoesC4_3.setVisible(true);
+            controlePlusC4++;
+        }else if(controlePlusC4 == 1){
+            combExercicioC4_4.setVisible(true);
+            combRepeticoesC4_4.setVisible(true);
+            txtObservacoesC4_4.setVisible(true);
+            lblObservacoesC4_4.setVisible(true);
+            controlePlusC4++;
+        }else if(controlePlusC4 == 2){
+            combExercicioC4_5.setVisible(true);
+            combRepeticoesC4_5.setVisible(true);
+            txtObservacoesC4_5.setVisible(true);
+            lblObservacoesC4_5.setVisible(true);
+            controlePlusC4++;
+        }else if(controlePlusC4 == 3){
+            combExercicioC4_6.setVisible(true);
+            combRepeticoesC4_6.setVisible(true);
+            txtObservacoesC4_6.setVisible(true);
+            lblObservacoesC4_6.setVisible(true);
+            controlePlusC4++;
+        }
     }//GEN-LAST:event_btnPlusC4ActionPerformed
 
     private void btnLessC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessC4ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusC4 == 4){
+            combExercicioC4_6.setVisible(false);
+            combRepeticoesC4_6.setVisible(false);
+            txtObservacoesC4_6.setVisible(false);
+            lblObservacoesC4_6.setVisible(false);
+            controlePlusC4--;
+        }else if(controlePlusC4 == 3){
+            combExercicioC4_5.setVisible(false);
+            combRepeticoesC4_5.setVisible(false);
+            txtObservacoesC4_5.setVisible(false);
+            lblObservacoesC4_5.setVisible(false);
+            controlePlusC4--;
+        }else if(controlePlusC4 == 2){
+            combExercicioC4_4.setVisible(false);
+            combRepeticoesC4_4.setVisible(false);
+            txtObservacoesC4_4.setVisible(false);
+            lblObservacoesC4_4.setVisible(false);
+            controlePlusC4--;
+        }else if(controlePlusC4 == 1){
+            combExercicioC4_3.setVisible(false);
+            combRepeticoesC4_3.setVisible(false);
+            txtObservacoesC4_3.setVisible(false);
+            lblObservacoesC4_3.setVisible(false);
+            controlePlusC4--;
+        }
     }//GEN-LAST:event_btnLessC4ActionPerformed
 
     private void btnPlusC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusC5ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusC5 == 0){
+            combExercicioC5_3.setVisible(true);
+            combRepeticoesC5_3.setVisible(true);
+            txtObservacoesC5_3.setVisible(true);
+            lblObservacoesC5_3.setVisible(true);
+            controlePlusC5++;
+        }else if(controlePlusC5 == 1){
+            combExercicioC5_4.setVisible(true);
+            combRepeticoesC5_4.setVisible(true);
+            txtObservacoesC5_4.setVisible(true);
+            lblObservacoesC5_4.setVisible(true);
+            controlePlusC5++;
+        }else if(controlePlusC5 == 2){
+            combExercicioC5_5.setVisible(true);
+            combRepeticoesC5_5.setVisible(true);
+            txtObservacoesC5_5.setVisible(true);
+            lblObservacoesC5_5.setVisible(true);
+            controlePlusC5++;
+        }else if(controlePlusC5 == 3){
+            combExercicioC5_6.setVisible(true);
+            combRepeticoesC5_6.setVisible(true);
+            txtObservacoesC5_6.setVisible(true);
+            lblObservacoesC5_6.setVisible(true);
+            controlePlusC5++;
+        }
     }//GEN-LAST:event_btnPlusC5ActionPerformed
 
     private void btnLessC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessC5ActionPerformed
-        // TODO add your handling code here:
+        if(controlePlusC5 == 4){
+            combExercicioC5_6.setVisible(false);
+            combRepeticoesC5_6.setVisible(false);
+            txtObservacoesC5_6.setVisible(false);
+            lblObservacoesC5_6.setVisible(false);
+            controlePlusC5--;
+        }else if(controlePlusC5 == 3){
+            combExercicioC5_5.setVisible(false);
+            combRepeticoesC5_5.setVisible(false);
+            txtObservacoesC5_5.setVisible(false);
+            lblObservacoesC5_5.setVisible(false);
+            controlePlusC5--;
+        }else if(controlePlusC5 == 2){
+            combExercicioC5_4.setVisible(false);
+            combRepeticoesC5_4.setVisible(false);
+            txtObservacoesC5_4.setVisible(false);
+            lblObservacoesC5_4.setVisible(false);
+            controlePlusC5--;
+        }else if(controlePlusC5 == 1){
+            combExercicioC5_3.setVisible(false);
+            combRepeticoesC5_3.setVisible(false);
+            txtObservacoesC5_3.setVisible(false);
+            lblObservacoesC5_3.setVisible(false);
+            controlePlusC5--;
+        }
     }//GEN-LAST:event_btnLessC5ActionPerformed
 
+    
+    //------------------FUNÇÕES/METODOS/PRODEDURES
+    
+    private void ocultaBotoesTreinoA(){
+        //Treino A1
+        combExercicioA1_3.setVisible(false);
+        combRepeticoesA1_3.setVisible(false);
+        txtObservacoesA1_3.setVisible(false);
+        lblObservacoesA1_3.setVisible(false); 
+        combExercicioA1_4.setVisible(false);
+        combRepeticoesA1_4.setVisible(false);
+        txtObservacoesA1_4.setVisible(false);
+        lblObservacoesA1_4.setVisible(false);
+        combExercicioA1_5.setVisible(false);
+        combRepeticoesA1_5.setVisible(false);
+        txtObservacoesA1_5.setVisible(false);
+        lblObservacoesA1_5.setVisible(false);
+        combExercicioA1_6.setVisible(false);
+        combRepeticoesA1_6.setVisible(false);
+        txtObservacoesA1_6.setVisible(false);
+        lblObservacoesA1_6.setVisible(false);
+        
+        //Treino A2
+        combExercicioA2_3.setVisible(false);
+        combRepeticoesA2_3.setVisible(false);
+        txtObservacoesA2_3.setVisible(false);
+        lblObservacoesA2_3.setVisible(false); 
+        combExercicioA2_4.setVisible(false);
+        combRepeticoesA2_4.setVisible(false);
+        txtObservacoesA2_4.setVisible(false);
+        lblObservacoesA2_4.setVisible(false);
+        combExercicioA2_5.setVisible(false);
+        combRepeticoesA2_5.setVisible(false);
+        txtObservacoesA2_5.setVisible(false);
+        lblObservacoesA2_5.setVisible(false);
+        combExercicioA2_6.setVisible(false);
+        combRepeticoesA2_6.setVisible(false);
+        txtObservacoesA2_6.setVisible(false);
+        lblObservacoesA2_6.setVisible(false);
+        
+        //Treino A3
+        combExercicioA3_3.setVisible(false);
+        combRepeticoesA3_3.setVisible(false);
+        txtObservacoesA3_3.setVisible(false);
+        lblObservacoesA3_3.setVisible(false); 
+        combExercicioA3_4.setVisible(false);
+        combRepeticoesA3_4.setVisible(false);
+        txtObservacoesA3_4.setVisible(false);
+        lblObservacoesA3_4.setVisible(false);
+        combExercicioA3_5.setVisible(false);
+        combRepeticoesA3_5.setVisible(false);
+        txtObservacoesA3_5.setVisible(false);
+        lblObservacoesA3_5.setVisible(false);
+        combExercicioA3_6.setVisible(false);
+        combRepeticoesA3_6.setVisible(false);
+        txtObservacoesA3_6.setVisible(false);
+        lblObservacoesA3_6.setVisible(false);
+        
+        //Treino A4
+        combExercicioA4_3.setVisible(false);
+        combRepeticoesA4_3.setVisible(false);
+        txtObservacoesA4_3.setVisible(false);
+        lblObservacoesA4_3.setVisible(false); 
+        combExercicioA4_4.setVisible(false);
+        combRepeticoesA4_4.setVisible(false);
+        txtObservacoesA4_4.setVisible(false);
+        lblObservacoesA4_4.setVisible(false);
+        combExercicioA4_5.setVisible(false);
+        combRepeticoesA4_5.setVisible(false);
+        txtObservacoesA4_5.setVisible(false);
+        lblObservacoesA4_5.setVisible(false);
+        combExercicioA4_6.setVisible(false);
+        combRepeticoesA4_6.setVisible(false);
+        txtObservacoesA4_6.setVisible(false);
+        lblObservacoesA4_6.setVisible(false);
+        
+        //Treino A5
+        combExercicioA5_3.setVisible(false);
+        combRepeticoesA5_3.setVisible(false);
+        txtObservacoesA5_3.setVisible(false);
+        lblObservacoesA5_3.setVisible(false); 
+        combExercicioA5_4.setVisible(false);
+        combRepeticoesA5_4.setVisible(false);
+        txtObservacoesA5_4.setVisible(false);
+        lblObservacoesA5_4.setVisible(false);
+        combExercicioA5_5.setVisible(false);
+        combRepeticoesA5_5.setVisible(false);
+        txtObservacoesA5_5.setVisible(false);
+        lblObservacoesA5_5.setVisible(false);
+        combExercicioA5_6.setVisible(false);
+        combRepeticoesA5_6.setVisible(false);
+        txtObservacoesA5_6.setVisible(false);
+        lblObservacoesA5_6.setVisible(false);
+    }
+    
+    private void ocultaBotoesTreinoB(){
+        //Treino B1
+        combExercicioB1_3.setVisible(false);
+        combRepeticoesB1_3.setVisible(false);
+        txtObservacoesB1_3.setVisible(false);
+        lblObservacoesB1_3.setVisible(false); 
+        combExercicioB1_4.setVisible(false);
+        combRepeticoesB1_4.setVisible(false);
+        txtObservacoesB1_4.setVisible(false);
+        lblObservacoesB1_4.setVisible(false);
+        combExercicioB1_5.setVisible(false);
+        combRepeticoesB1_5.setVisible(false);
+        txtObservacoesB1_5.setVisible(false);
+        lblObservacoesB1_5.setVisible(false);
+        combExercicioB1_6.setVisible(false);
+        combRepeticoesB1_6.setVisible(false);
+        txtObservacoesB1_6.setVisible(false);
+        lblObservacoesB1_6.setVisible(false);
+        
+        //Treino B2
+        combExercicioB2_3.setVisible(false);
+        combRepeticoesB2_3.setVisible(false);
+        txtObservacoesB2_3.setVisible(false);
+        lblObservacoesB2_3.setVisible(false); 
+        combExercicioB2_4.setVisible(false);
+        combRepeticoesB2_4.setVisible(false);
+        txtObservacoesB2_4.setVisible(false);
+        lblObservacoesB2_4.setVisible(false);
+        combExercicioB2_5.setVisible(false);
+        combRepeticoesB2_5.setVisible(false);
+        txtObservacoesB2_5.setVisible(false);
+        lblObservacoesB2_5.setVisible(false);
+        combExercicioB2_6.setVisible(false);
+        combRepeticoesB2_6.setVisible(false);
+        txtObservacoesB2_6.setVisible(false);
+        lblObservacoesB2_6.setVisible(false);
+        
+        //Treino B3
+        combExercicioB3_3.setVisible(false);
+        combRepeticoesB3_3.setVisible(false);
+        txtObservacoesB3_3.setVisible(false);
+        lblObservacoesB3_3.setVisible(false); 
+        combExercicioB3_4.setVisible(false);
+        combRepeticoesB3_4.setVisible(false);
+        txtObservacoesB3_4.setVisible(false);
+        lblObservacoesB3_4.setVisible(false);
+        combExercicioB3_5.setVisible(false);
+        combRepeticoesB3_5.setVisible(false);
+        txtObservacoesB3_5.setVisible(false);
+        lblObservacoesB3_5.setVisible(false);
+        combExercicioB3_6.setVisible(false);
+        combRepeticoesB3_6.setVisible(false);
+        txtObservacoesB3_6.setVisible(false);
+        lblObservacoesB3_6.setVisible(false);
+        
+        //Treino B4
+        combExercicioB4_3.setVisible(false);
+        combRepeticoesB4_3.setVisible(false);
+        txtObservacoesB4_3.setVisible(false);
+        lblObservacoesB4_3.setVisible(false); 
+        combExercicioB4_4.setVisible(false);
+        combRepeticoesB4_4.setVisible(false);
+        txtObservacoesB4_4.setVisible(false);
+        lblObservacoesB4_4.setVisible(false);
+        combExercicioB4_5.setVisible(false);
+        combRepeticoesB4_5.setVisible(false);
+        txtObservacoesB4_5.setVisible(false);
+        lblObservacoesB4_5.setVisible(false);
+        combExercicioB4_6.setVisible(false);
+        combRepeticoesB4_6.setVisible(false);
+        txtObservacoesB4_6.setVisible(false);
+        lblObservacoesB4_6.setVisible(false);
+        
+        //Treino B5
+        combExercicioB5_3.setVisible(false);
+        combRepeticoesB5_3.setVisible(false);
+        txtObservacoesB5_3.setVisible(false);
+        lblObservacoesB5_3.setVisible(false); 
+        combExercicioB5_4.setVisible(false);
+        combRepeticoesB5_4.setVisible(false);
+        txtObservacoesB5_4.setVisible(false);
+        lblObservacoesB5_4.setVisible(false);
+        combExercicioB5_5.setVisible(false);
+        combRepeticoesB5_5.setVisible(false);
+        txtObservacoesB5_5.setVisible(false);
+        lblObservacoesB5_5.setVisible(false);
+        combExercicioB5_6.setVisible(false);
+        combRepeticoesB5_6.setVisible(false);
+        txtObservacoesB5_6.setVisible(false);
+        lblObservacoesB5_6.setVisible(false);
+    }
+    
+    private void ocultaBotoesTreinoC(){
+        //Treino C1
+        combExercicioC1_3.setVisible(false);
+        combRepeticoesC1_3.setVisible(false);
+        txtObservacoesC1_3.setVisible(false);
+        lblObservacoesC1_3.setVisible(false); 
+        combExercicioC1_4.setVisible(false);
+        combRepeticoesC1_4.setVisible(false);
+        txtObservacoesC1_4.setVisible(false);
+        lblObservacoesC1_4.setVisible(false);
+        combExercicioC1_5.setVisible(false);
+        combRepeticoesC1_5.setVisible(false);
+        txtObservacoesC1_5.setVisible(false);
+        lblObservacoesC1_5.setVisible(false);
+        combExercicioC1_6.setVisible(false);
+        combRepeticoesC1_6.setVisible(false);
+        txtObservacoesC1_6.setVisible(false);
+        lblObservacoesC1_6.setVisible(false);
+        
+        //Treino C2
+        combExercicioC2_3.setVisible(false);
+        combRepeticoesC2_3.setVisible(false);
+        txtObservacoesC2_3.setVisible(false);
+        lblObservacoesC2_3.setVisible(false); 
+        combExercicioC2_4.setVisible(false);
+        combRepeticoesC2_4.setVisible(false);
+        txtObservacoesC2_4.setVisible(false);
+        lblObservacoesC2_4.setVisible(false);
+        combExercicioC2_5.setVisible(false);
+        combRepeticoesC2_5.setVisible(false);
+        txtObservacoesC2_5.setVisible(false);
+        lblObservacoesC2_5.setVisible(false);
+        combExercicioC2_6.setVisible(false);
+        combRepeticoesC2_6.setVisible(false);
+        txtObservacoesC2_6.setVisible(false);
+        lblObservacoesC2_6.setVisible(false);
+        
+        //Treino C3
+        combExercicioC3_3.setVisible(false);
+        combRepeticoesC3_3.setVisible(false);
+        txtObservacoesC3_3.setVisible(false);
+        lblObservacoesC3_3.setVisible(false); 
+        combExercicioC3_4.setVisible(false);
+        combRepeticoesC3_4.setVisible(false);
+        txtObservacoesC3_4.setVisible(false);
+        lblObservacoesC3_4.setVisible(false);
+        combExercicioC3_5.setVisible(false);
+        combRepeticoesC3_5.setVisible(false);
+        txtObservacoesC3_5.setVisible(false);
+        lblObservacoesC3_5.setVisible(false);
+        combExercicioC3_6.setVisible(false);
+        combRepeticoesC3_6.setVisible(false);
+        txtObservacoesC3_6.setVisible(false);
+        lblObservacoesC3_6.setVisible(false);
+        
+        //Treino C4
+        combExercicioC4_3.setVisible(false);
+        combRepeticoesC4_3.setVisible(false);
+        txtObservacoesC4_3.setVisible(false);
+        lblObservacoesC4_3.setVisible(false); 
+        combExercicioC4_4.setVisible(false);
+        combRepeticoesC4_4.setVisible(false);
+        txtObservacoesC4_4.setVisible(false);
+        lblObservacoesC4_4.setVisible(false);
+        combExercicioC4_5.setVisible(false);
+        combRepeticoesC4_5.setVisible(false);
+        txtObservacoesC4_5.setVisible(false);
+        lblObservacoesC4_5.setVisible(false);
+        combExercicioC4_6.setVisible(false);
+        combRepeticoesC4_6.setVisible(false);
+        txtObservacoesC4_6.setVisible(false);
+        lblObservacoesC4_6.setVisible(false);
+        
+        //Treino C5
+        combExercicioC5_3.setVisible(false);
+        combRepeticoesC5_3.setVisible(false);
+        txtObservacoesC5_3.setVisible(false);
+        lblObservacoesC5_3.setVisible(false); 
+        combExercicioC5_4.setVisible(false);
+        combRepeticoesC5_4.setVisible(false);
+        txtObservacoesC5_4.setVisible(false);
+        lblObservacoesC5_4.setVisible(false);
+        combExercicioC5_5.setVisible(false);
+        combRepeticoesC5_5.setVisible(false);
+        txtObservacoesC5_5.setVisible(false);
+        lblObservacoesC5_5.setVisible(false);
+        combExercicioC5_6.setVisible(false);
+        combRepeticoesC5_6.setVisible(false);
+        txtObservacoesC5_6.setVisible(false);
+        lblObservacoesC5_6.setVisible(false);
+        
+    }
     /**
      * @param args the command line arguments
      */

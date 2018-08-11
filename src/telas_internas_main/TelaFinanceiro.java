@@ -61,7 +61,7 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/investment_78404.png"))); // NOI18N
-        jButton4.setText("INVESTIMENTOS FUTUROS");
+        jButton4.setText("Frequência dos alunos (MUDAR IMAGEM)");
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
@@ -111,8 +111,6 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(79, 79, 79))
         );
-
-        getAccessibleContext().setAccessibleName("Financeiro");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
