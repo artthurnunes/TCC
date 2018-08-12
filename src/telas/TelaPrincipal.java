@@ -242,6 +242,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btnAtalhoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtalhoCadastroActionPerformed
         this.limpaFundoInternalFrame();
         telaCadastro.setVisible(true);
+        telaCadastro.limparCampos();
     }//GEN-LAST:event_btnAtalhoCadastroActionPerformed
 
     private void btnAtalhoTreinosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtalhoTreinosActionPerformed
