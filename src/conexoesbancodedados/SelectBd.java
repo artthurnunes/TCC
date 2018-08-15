@@ -1,6 +1,7 @@
 
 package conexoesbancodedados;
 
+import classes.ClasseCadastro;
 import classes.ClasseEsqueceuSenha;
 import classes.ClasseSenhaInicial;
 import java.sql.Connection;
@@ -51,7 +52,7 @@ public class SelectBd {
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO FAZER SELECT NO BANCO !"+ ex);
         }finally{
-            //ConectaBd.closeConnection(con,stmt,rs);
+            ConectaBd.closeConnection(con,stmt,rs);
         }
         return(check);
     }
@@ -68,6 +69,26 @@ public class SelectBd {
         
             if(rs.next()){
                 cEsqSenha.setEmail(rs.getString("EMAIL"));
+            }   
+    }
+    
+    //select para pesquisar aluno sem like, vai pegar na ordem alfabética
+    public void selectCadastroAlfabetico(ClasseCadastro dados) throws SQLException{
+        
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+
+        String sql = "SELECT CD_REGISTRO,SITUACAO,NOME,TEL1,TEL2,PROFISSAO,SEXO,ESTADO_CIVIL,RG,CPF,DT_NASCIMENTO"
+                             + ",NM_MAE,NM_PAI,NM_EMER,TEL_EMER,PARENTESCO,END_RUA,END_NUMERO,END_BAIRRO,END_CIDADE"
+                             + ",END_ESTADO,END_CEP "
+                      + "FROM TB_ALUNOS ";
+                      //+ "WHERE NOME = 'Arthur Nunes' ";
+        
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next()){
+                dados.setCd_registro(rs.getInt("CD_REGISTRO"));
+                dados.setNome(rs.getString("NOME"));
             }   
     }
     

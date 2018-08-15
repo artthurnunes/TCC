@@ -3,8 +3,12 @@ package telas_internas_main.cadastro;
 
 import classes.ClasseCadastro;
 import conexoesbancodedados.InsertBd;
+import conexoesbancodedados.SelectBd;
 import java.awt.Image;
 import java.io.File;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -14,6 +18,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
     ClasseCadastro classecadastro = new ClasseCadastro();
     InsertBd inserts = new InsertBd();
+    SelectBd selects = new SelectBd();
     
     public TelaCadastro() {
         initComponents();
@@ -75,11 +80,9 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_btnFinanceiro = new javax.swing.JButton();
         Tcad_btnTreino = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        btnNovo = new javax.swing.JMenu();
+        btnPesquisar = new javax.swing.JMenu();
         btnSalvar = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
@@ -407,14 +410,21 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             }
         });
 
-        jMenu1.setText("Novo");
-        jMenuBar1.add(jMenu1);
+        btnNovo.setText("Novo");
+        btnNovo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNovoMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnNovo);
 
-        jMenu2.setText("Editar");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Pesquisar");
-        jMenuBar1.add(jMenu3);
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPesquisarMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnPesquisar);
 
         btnSalvar.setText("Salvar");
         btnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -428,9 +438,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             }
         });
         jMenuBar1.add(btnSalvar);
-
-        jMenu5.setText("Cancelar");
-        jMenuBar1.add(jMenu5);
 
         jMenu8.setText("Excluir");
         jMenuBar1.add(jMenu8);
@@ -489,7 +496,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Tcad_btnTreinoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
@@ -558,6 +565,21 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         radioMasculino.setSelected(false);
     }//GEN-LAST:event_radioFemininoActionPerformed
 
+    private void btnNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNovoMouseClicked
+        this.limparCampos();
+    }//GEN-LAST:event_btnNovoMouseClicked
+
+    private void btnPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesquisarMouseClicked
+        try {
+            selects.selectCadastroAlfabetico(classecadastro);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Tcad_txtNome.setText(classecadastro.getNome());
+        lblCodigoAluno.setText(Integer.toString(classecadastro.getCd_registro()));
+        
+    }//GEN-LAST:event_btnPesquisarMouseClicked
+
     public void limparCampos(){
         Tcad_txtNome.setText("");
         lblCodigoAluno.setText("");
@@ -606,6 +628,8 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Tcad_txtTel1;
     private javax.swing.JTextField Tcad_txtTel2;
     private javax.swing.JTextField Tcad_txtTelEmergencia;
+    private javax.swing.JMenu btnNovo;
+    private javax.swing.JMenu btnPesquisar;
     private javax.swing.JMenu btnSalvar;
     private javax.swing.JComboBox<String> combEstado;
     private javax.swing.JComboBox<String> combEstadoCivil;
@@ -631,10 +655,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
