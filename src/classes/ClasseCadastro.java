@@ -3,7 +3,7 @@ package classes;
 
 public class ClasseCadastro {
     
-    private int cd_registro;
+    //private int cd_registro;
     private boolean situacao;
     private String nome;
     private String tel1;
@@ -26,15 +26,16 @@ public class ClasseCadastro {
     private int end_estado;
     private String end_cep;
 
+    /*
     public int getCd_registro() {
         return cd_registro;
     }
 
     public void setCd_registro(int cd_registro) {
         this.cd_registro = cd_registro;
-    }
+    }*/
 
-    public boolean isSituacao() {
+    public boolean getSituacao() {
         return situacao;
     }
 

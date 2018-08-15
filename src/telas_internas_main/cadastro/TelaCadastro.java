@@ -493,7 +493,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
-        classecadastro.setCd_registro(Integer.parseInt(lblCodigoAluno.getText()));
         classecadastro.setSituacao(true);
         classecadastro.setNome(Tcad_txtNome.getText());
         classecadastro.setTel1(Tcad_txtTel1.getText());
@@ -505,8 +504,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             }else if(radioFeminino.isSelected()){
                 classecadastro.setSexo("Feminino");
                 System.out.println(classecadastro.getSexo());
-            }else{
-                JOptionPane.showMessageDialog(null, "Insira o sexo !!");
             }
         classecadastro.setEstado_civil(combEstadoCivil.getSelectedIndex());
         classecadastro.setRg(Tcad_txtRg.getText());
@@ -514,6 +511,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         classecadastro.setDt_nascimento(Tcad_txtNascimento.getText());
         classecadastro.setNm_mae(Tcad_txtMae.getText());
         classecadastro.setNm_pai(Tcad_txtPai.getText());
+        classecadastro.setNm_emer(Tcad_txtEmergencia.getText());
         classecadastro.setTel_emer(Tcad_txtTelEmergencia.getText());
         classecadastro.setParentesco(combParente.getSelectedIndex());
         classecadastro.setEnd_rua(Tcad_txtRua.getText());

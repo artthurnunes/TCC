@@ -15,57 +15,33 @@ public class InsertBd {
         PreparedStatement stmt = null;
  
         try{
-            stmt = con.prepareStatement("INSERT INTO TB_ALUNOS(NOME) VALUES (?)");
+            stmt = con.prepareStatement("INSERT INTO TB_ALUNOS (SITUACAO,NOME,TEL1,TEL2,PROFISSAO,SEXO,ESTADO_CIVIL"
+                                        + ",RG,CPF,DT_NASCIMENTO,NM_MAE,NM_PAI,NM_EMER,TEL_EMER,PARENTESCO,END_RUA"
+                                        + ",END_NUMERO,END_BAIRRO,END_CIDADE,END_ESTADO,END_CEP) "
+                                        + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");           
             
-            /*
-            stmt = con.prepareStatement("INSERT INTO tb_cadalunos (nome,nascimento,sexo,estadoCivil,profissao,"
-                    + "cpf,rg,rg_uf,telefone,endereco,numeroCasa,complemento,bairro,cidade,cep,endereco_uf,"
-                    + "professor,bebe,fuma,treinou,pergunta1,pergunta2,pergunta3,checkHipertrofia,checkAero,"
-                    + "checkNatacao,checkBox,checkZumba,checkDanca,checkBale,checkFisio,checkCross,checkIoga,"
-                    + "checkTenis,checkBasquete,checkFuncional,checkIntenso,checkVolei,checkBallet) "
-                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");*/
-            
-            stmt.setString(1, dados.getNome());
-            /*
-            stmt.setString(2, dados.getDataNascimento());
-            stmt.setInt(3, dados.getSexo());
-            stmt.setInt(4, dados.getEstadoCivil());
+            stmt.setBoolean(1, dados.getSituacao());
+            stmt.setString(2, dados.getNome());
+            stmt.setString(3, dados.getTel1());
+            stmt.setString(4, dados.getTel2());
             stmt.setString(5, dados.getProfissao());
-            stmt.setString(6,dados.getCpf());
-            stmt.setString(7, dados.getRg());
-            stmt.setInt(8, dados.getufRg());
-            stmt.setString(9, dados.getTelefone());
-            stmt.setString(10, dados.getEndereco());
-            stmt.setString(11,dados.getEnderecoNumero());
-            stmt.setString(12, dados.getEnderecoComplemento());
-            stmt.setString(13, dados.getBairro());
-            stmt.setString(14, dados.getCidade());
-            stmt.setString(15, dados.getCep());
-            stmt.setInt(16,dados.getEnderecoUf());
-            stmt.setString(17, dados.getProfResposavel());
-            stmt.setInt(18, dados.getBebe());
-            stmt.setInt(19, dados.getFuma());
-            stmt.setInt(20, dados.getTreinou());
-            stmt.setString(21,dados.getPergunta1());
-            stmt.setString(22, dados.getPergunta2());
-            stmt.setString(23, dados.getPergunta3());
-            stmt.setBoolean(24, dados.getCheckHipertrofia());
-            stmt.setBoolean(25, dados.getCheckAero());
-            stmt.setBoolean(26, dados.getCheckNatacao());
-            stmt.setBoolean(27, dados.getCheckBox());
-            stmt.setBoolean(28, dados.getCheckZumba());
-            stmt.setBoolean(29, dados.getCheckDanca());
-            stmt.setBoolean(30, dados.getCheckBale());
-            stmt.setBoolean(31, dados.getCheckFisio());
-            stmt.setBoolean(32, dados.getCheckCross());
-            stmt.setBoolean(33, dados.getCheckIoga());
-            stmt.setBoolean(34, dados.getCheckTenis());
-            stmt.setBoolean(35, dados.getCheckBasquete());
-            stmt.setBoolean(36, dados.getCheckFuncional());
-            stmt.setBoolean(37, dados.getCheckIntenso());
-            stmt.setBoolean(38, dados.getCheckVolei());
-            stmt.setBoolean(39, dados.getCheckBallet()); */
-            
+            stmt.setString(6,dados.getSexo());
+            stmt.setInt(7, dados.getEstado_civil());
+            stmt.setString(8, dados.getRg());
+            stmt.setString(9, dados.getCpf());
+            stmt.setString(10, dados.getDt_nascimento());
+            stmt.setString(11,dados.getNm_mae());
+            stmt.setString(12, dados.getNm_pai());
+            stmt.setString(13, dados.getNm_emer());
+            stmt.setString(14, dados.getTel_emer());
+            stmt.setInt(15, dados.getParentesco());
+            stmt.setString(16,dados.getEnd_rua());
+            stmt.setString(17, dados.getEnd_numero());
+            stmt.setString(18, dados.getEnd_bairro());
+            stmt.setString(19, dados.getEnd_cidade());
+            stmt.setInt(20, dados.getEnd_estado());
+            stmt.setString(21,dados.getEnd_cep());
+                       
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"SALVO COM SUCESSO !");
         
