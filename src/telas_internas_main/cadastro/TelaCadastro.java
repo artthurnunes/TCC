@@ -1,12 +1,13 @@
 
 package telas_internas_main.cadastro;
 
-import conexoesbancodedados.ClasseCadastro;
+import classes.ClasseCadastro;
 import conexoesbancodedados.InsertBd;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 
 public class TelaCadastro extends javax.swing.JInternalFrame {
@@ -183,8 +184,28 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         jLabel13.setText("Profissão:");
 
         radioMasculino.setText("Masculino");
+        radioMasculino.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                radioMasculinoMouseClicked(evt);
+            }
+        });
+        radioMasculino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioMasculinoActionPerformed(evt);
+            }
+        });
 
         radioFeminino.setText("Feminino");
+        radioFeminino.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                radioFemininoMouseClicked(evt);
+            }
+        });
+        radioFeminino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioFemininoActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Estado Civil:");
 
@@ -234,7 +255,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                                 .addComponent(lblSituacaoAluno)
                                 .addGap(14, 14, 14))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel11)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -267,7 +288,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(Tcad_txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(jLabel4)
@@ -281,11 +302,11 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                                                 .addComponent(jLabel10)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(Tcad_txtMae, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(13, 13, 13)
+                                                .addGap(10, 10, 10)
                                                 .addComponent(jLabel9)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(Tcad_txtPai, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(93, 93, 93)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -330,7 +351,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                                     .addComponent(Tcad_txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel23)
                                     .addComponent(Tcad_txtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
                                     .addComponent(Tcad_txtMae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -427,16 +448,17 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Tcad_btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Tcad_btnModalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Tcad_btnTreino, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Tcad_btnFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Tcad_btnModalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Tcad_btnTreino, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,7 +470,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                     .addComponent(Tcad_btnFinanceiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Tcad_btnModalidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Tcad_btnTreino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -471,7 +493,36 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
+        classecadastro.setCd_registro(Integer.parseInt(lblCodigoAluno.getText()));
+        classecadastro.setSituacao(true);
         classecadastro.setNome(Tcad_txtNome.getText());
+        classecadastro.setTel1(Tcad_txtTel1.getText());
+        classecadastro.setTel2(Tcad_txtTel2.getText());
+        classecadastro.setProfissao(Tcad_txtProfissao.getText());
+            if(radioMasculino.isSelected()){
+                classecadastro.setSexo("Masculino");
+                System.out.println(classecadastro.getSexo());
+            }else if(radioFeminino.isSelected()){
+                classecadastro.setSexo("Feminino");
+                System.out.println(classecadastro.getSexo());
+            }else{
+                JOptionPane.showMessageDialog(null, "Insira o sexo !!");
+            }
+        classecadastro.setEstado_civil(combEstadoCivil.getSelectedIndex());
+        classecadastro.setRg(Tcad_txtRg.getText());
+        classecadastro.setCpf(Tcad_txtCpf.getText());
+        classecadastro.setDt_nascimento(Tcad_txtNascimento.getText());
+        classecadastro.setNm_mae(Tcad_txtMae.getText());
+        classecadastro.setNm_pai(Tcad_txtPai.getText());
+        classecadastro.setTel_emer(Tcad_txtTelEmergencia.getText());
+        classecadastro.setParentesco(combParente.getSelectedIndex());
+        classecadastro.setEnd_rua(Tcad_txtRua.getText());
+        classecadastro.setEnd_numero(Tcad_txtNumero.getText());
+        classecadastro.setEnd_bairro(Tcad_txtBairro.getText());
+        classecadastro.setEnd_cidade(Tcad_txtCidade.getText());
+        classecadastro.setEnd_estado(combEstado.getSelectedIndex());
+        classecadastro.setEnd_cep(Tcad_txtCep.getText());
+      
         inserts.insertCadastro(classecadastro);
     }//GEN-LAST:event_btnSalvarMouseClicked
 
@@ -492,6 +543,22 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void radioMasculinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioMasculinoMouseClicked
+        
+    }//GEN-LAST:event_radioMasculinoMouseClicked
+
+    private void radioFemininoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioFemininoMouseClicked
+        
+    }//GEN-LAST:event_radioFemininoMouseClicked
+
+    private void radioMasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioMasculinoActionPerformed
+        radioFeminino.setSelected(false);
+    }//GEN-LAST:event_radioMasculinoActionPerformed
+
+    private void radioFemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioFemininoActionPerformed
+        radioMasculino.setSelected(false);
+    }//GEN-LAST:event_radioFemininoActionPerformed
 
     public void limparCampos(){
         Tcad_txtNome.setText("");

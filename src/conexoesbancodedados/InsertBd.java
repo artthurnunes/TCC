@@ -1,6 +1,7 @@
 
 package conexoesbancodedados;
 
+import classes.ClasseCadastro;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

@@ -3,6 +3,15 @@ package classes;
 
 public class PendenciasIdeiasAlteracoes {
     
+    /*   ONDE PAREI ----------------------------
+        Terminiei de criar o getter e setter ta tela cadastro, na tela e na classe, montar o insert agora
+        na classe de insert
+    
+    */
+    
+    
+    
+    
     /* PENDÊNCIAS SEM RELEVÂNCIAS SE FUNCIONAR LEGAL....
         * Verificar a possibilidade de criar barra de rolagem nas telas para resoluções de telas menores. 800x600 corta
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
@@ -27,6 +36,7 @@ public class PendenciasIdeiasAlteracoes {
         * Fazer mascara para os campos de data
         * Pensar nas esteiras, bicicletas e equipamentos aerobicos na tela de equipametos, para colocar os 
           periódicos
+        * Pensar em parte para inativar o alunos. Acho que pode ser no financeiro. 
     
             TELAS A FAZER
                 - LIBERAÇÃO DE CATRACA
