@@ -86,6 +86,7 @@ public class SelectBd {
         
         rs = stmt.executeQuery(sql);
         
+        
             if(rs.next()){
                 dados.setCd_registro(rs.getInt("CD_REGISTRO"));
                 dados.setSituacao(rs.getBoolean("SITUACAO"));
@@ -109,6 +110,7 @@ public class SelectBd {
                 dados.setEnd_cidade(rs.getString("END_CIDADE"));
                 dados.setEnd_estado(rs.getInt("END_ESTADO"));
                 dados.setEnd_cep(rs.getString("END_CEP"));
+                System.out.println(rs.getRow());
             }   
     }
     

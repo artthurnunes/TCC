@@ -4,8 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        Terminiei de criar o getter e setter ta tela cadastro, na tela e na classe, montar o insert agora
-        na classe de insert
+       Tentando fazer as flechas para avançar linha no select com o rs.getRow
     
     */
     
