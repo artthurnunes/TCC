@@ -115,7 +115,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
         jLabel17.setText("Estado:");
 
-        combEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        combEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         combEstado.setToolTipText("");
 
         jLabel18.setText("CEP:");
@@ -212,11 +212,11 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
         jLabel14.setText("Estado Civil:");
 
-        combEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casado(a)", "Solteiro(a)", "Divorciado(a)", "Viúvo(a)" }));
+        combEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Casado(a)", "Solteiro(a)", "Divorciado(a)", "Viúvo(a)" }));
 
         jLabel15.setText("Parentesco:");
 
-        combParente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pai", "Mãe", "Irmão", "Avô", "Avó", "Tio", "Tia", "Primo", "Prima", "Amigo", "Cunhado", "Cunhada" }));
+        combParente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Pai", "Mãe", "Irmão", "Avô", "Avó", "Tio", "Tia", "Primo", "Prima", "Amigo", "Cunhado", "Cunhada" }));
         combParente.setToolTipText("");
 
         jLabel19.setText("Código Resgistro:");
@@ -575,8 +575,33 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Tcad_txtNome.setText(classecadastro.getNome());
+        
         lblCodigoAluno.setText(Integer.toString(classecadastro.getCd_registro()));
+            if(classecadastro.getSituacao() == true){
+                lblSituacaoAluno.setText("ATIVO");
+            }else{lblSituacaoAluno.setText("INATIVO");}
+        Tcad_txtNome.setText(classecadastro.getNome());
+        Tcad_txtTel1.setText(classecadastro.getTel1());
+        Tcad_txtTel2.setText(classecadastro.getTel2());
+        Tcad_txtProfissao.setText(classecadastro.getProfissao());
+            if("Feminino".equals(classecadastro.getSexo())){
+                radioFeminino.setSelected(true);
+            }else{radioMasculino.setSelected(true);}
+        combEstadoCivil.setSelectedIndex(classecadastro.getEstado_civil());
+        Tcad_txtRg.setText(classecadastro.getRg());
+        Tcad_txtCpf.setText(classecadastro.getCpf());
+        Tcad_txtNascimento.setText(classecadastro.getDt_nascimento());
+        Tcad_txtMae.setText(classecadastro.getNm_mae());
+        Tcad_txtPai.setText(classecadastro.getNm_pai());
+        Tcad_txtEmergencia.setText(classecadastro.getNm_emer());
+        Tcad_txtTelEmergencia.setText(classecadastro.getTel_emer());
+        combParente.setSelectedIndex(classecadastro.getParentesco());
+        Tcad_txtRua.setText(classecadastro.getEnd_rua());
+        Tcad_txtNumero.setText(classecadastro.getEnd_numero());
+        Tcad_txtBairro.setText(classecadastro.getEnd_bairro());
+        Tcad_txtCidade.setText(classecadastro.getEnd_cidade());
+        combEstado.setSelectedIndex(classecadastro.getEnd_estado());
+        Tcad_txtCep.setText(classecadastro.getEnd_cep());
         
     }//GEN-LAST:event_btnPesquisarMouseClicked
 

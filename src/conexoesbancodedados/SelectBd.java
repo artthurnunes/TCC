@@ -88,7 +88,27 @@ public class SelectBd {
         
             if(rs.next()){
                 dados.setCd_registro(rs.getInt("CD_REGISTRO"));
+                dados.setSituacao(rs.getBoolean("SITUACAO"));
                 dados.setNome(rs.getString("NOME"));
+                dados.setTel1(rs.getString("TEL1"));
+                dados.setTel2(rs.getString("TEL2"));
+                dados.setProfissao(rs.getString("PROFISSAO"));
+                dados.setSexo(rs.getString("SEXO"));
+                dados.setEstado_civil(rs.getInt("ESTADO_CIVIL"));
+                dados.setRg(rs.getString("RG"));
+                dados.setCpf(rs.getString("CPF"));
+                dados.setDt_nascimento(rs.getString("DT_NASCIMENTO"));
+                dados.setNm_mae(rs.getString("NM_MAE"));
+                dados.setNm_pai(rs.getString("NM_PAI"));
+                dados.setNm_emer(rs.getString("NM_EMER"));
+                dados.setTel_emer(rs.getString("TEL_EMER"));
+                dados.setParentesco(rs.getInt("PARENTESCO"));
+                dados.setEnd_rua(rs.getString("END_RUA"));
+                dados.setEnd_numero(rs.getString("END_NUMERO"));
+                dados.setEnd_bairro(rs.getString("END_BAIRRO"));
+                dados.setEnd_cidade(rs.getString("END_CIDADE"));
+                dados.setEnd_estado(rs.getInt("END_ESTADO"));
+                dados.setEnd_cep(rs.getString("END_CEP"));
             }   
     }
     
