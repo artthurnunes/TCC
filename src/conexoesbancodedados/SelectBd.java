@@ -19,7 +19,16 @@ public class SelectBd {
     PreparedStatement stmt = null;
     ResultSet rs = null;
     Connection con;
-    
+    String sqlselectCadastroAlfabetico;
+    private int qt_linhas_select;
+
+    public int getQt_linhas_select() {
+        return qt_linhas_select;
+    }
+
+    public void setQt_linhas_select(int qt_linhas_select) {
+        this.qt_linhas_select = qt_linhas_select;
+    }         
     
     public void verificaUsuario(ClasseSenhaInicial login) throws SQLException{
         
@@ -72,22 +81,24 @@ public class SelectBd {
             }   
     }
     
-    //select para pesquisar aluno sem like, vai pegar na ordem alfabética
+    //select para trazer o cadastro desejado com LIKE, se estiver vazio ele traz todos os cadastros em ordem alfabética
     public void selectCadastroAlfabetico(ClasseCadastro dados) throws SQLException{
-        
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
 
-        String sql = "SELECT CD_REGISTRO,SITUACAO,NOME,TEL1,TEL2,PROFISSAO,SEXO,ESTADO_CIVIL,RG,CPF,DT_NASCIMENTO"
-                             + ",NM_MAE,NM_PAI,NM_EMER,TEL_EMER,PARENTESCO,END_RUA,END_NUMERO,END_BAIRRO,END_CIDADE"
-                             + ",END_ESTADO,END_CEP "
-                      + "FROM TB_ALUNOS ";
-                      //+ "WHERE NOME = 'Arthur Nunes' ";
+        sqlselectCadastroAlfabetico = "SELECT CD_REGISTRO,SITUACAO,NOME,TEL1,TEL2,PROFISSAO,SEXO,ESTADO_CIVIL,RG"
+                                   + ",CPF,DT_NASCIMENTO,NM_MAE,NM_PAI,NM_EMER,TEL_EMER,PARENTESCO,END_RUA,END_NUMERO"
+                                   + ",END_BAIRRO,END_CIDADE,END_ESTADO,END_CEP "
+                                        + "FROM TB_ALUNOS WHERE NOME LIKE '%"+dados.getNome()+"%'"
+                                            + "ORDER BY 3 ";
         
-        rs = stmt.executeQuery(sql);
+        rs = stmt.executeQuery(sqlselectCadastroAlfabetico);
         
+        System.out.println(rs.getRow());
         
-            if(rs.next()){
+        while(rs.next()){ //while e if para que eu consiga manipular as linhas retornadas
+              if(rs.getRow() == 0){
+            //if(rs.next()){ //if caso retorno somente 1 row
                 dados.setCd_registro(rs.getInt("CD_REGISTRO"));
                 dados.setSituacao(rs.getBoolean("SITUACAO"));
                 dados.setNome(rs.getString("NOME"));
@@ -110,13 +121,38 @@ public class SelectBd {
                 dados.setEnd_cidade(rs.getString("END_CIDADE"));
                 dados.setEnd_estado(rs.getInt("END_ESTADO"));
                 dados.setEnd_cep(rs.getString("END_CEP"));
-                System.out.println(rs.getRow());
-            }   
+            } 
+        }
     }
-    
-    
-    
-    
-    
-    
+        
+    /*
+    public int selectQtLinhasSelectOrderNome(ClasseCadastro dados) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement Stmt = con.createStatement();
+        ResultSet rsContagem = null;
+
+        sqlselectCadastroAlfabetico = "SELECT CD_REGISTRO,SITUACAO,NOME,TEL1,TEL2,PROFISSAO,SEXO,ESTADO_CIVIL,RG"
+                                   + ",CPF,DT_NASCIMENTO,NM_MAE,NM_PAI,NM_EMER,TEL_EMER,PARENTESCO,END_RUA,END_NUMERO"
+                                   + ",END_BAIRRO,END_CIDADE,END_ESTADO,END_CEP "
+                                        + "FROM TB_ALUNOS WHERE NOME LIKE '%"+dados.getNome()+"%'"
+                                            + "ORDER BY 3 ";
+        
+        rsContagem = Stmt.executeQuery(sqlselectCadastroAlfabetico);
+        int i = 0; //contar a quantidade de linhas que o select Retornou
+        
+            while(rsContagem.next()){
+                System.out.println("Passei no next da contagem: "+i);
+                i++;
+            }
+                
+        
+        return(i);
+    }*/
 }
+    
+    
+    
+    
+    
+    
+

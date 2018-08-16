@@ -570,12 +570,23 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNovoMouseClicked
 
     private void btnPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesquisarMouseClicked
+        classecadastro.setNome(Tcad_txtNome.getText());
+
+        //Try para contar quantas linhas o select vai retornar
+        /*
+        try{
+            selects.setQt_linhas_select(selects.selectQtLinhasSelectOrderNome(classecadastro));
+        }catch(SQLException ex) {
+            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+        //System.out.println("retorno de contagem com encapsulamento: "+selects.getQt_linhas_select());
+        
         try {
             selects.selectCadastroAlfabetico(classecadastro);
         } catch (SQLException ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         lblCodigoAluno.setText(Integer.toString(classecadastro.getCd_registro()));
             if(classecadastro.getSituacao() == true){
                 lblSituacaoAluno.setText("ATIVO");
