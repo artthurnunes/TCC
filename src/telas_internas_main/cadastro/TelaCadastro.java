@@ -4,6 +4,7 @@ package telas_internas_main.cadastro;
 import classes.ClasseCadastro;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
+import conexoesbancodedados.UpdateBd;
 import java.awt.Image;
 import java.io.File;
 import java.sql.SQLException;
@@ -19,6 +20,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     ClasseCadastro classecadastro = new ClasseCadastro();
     InsertBd inserts = new InsertBd();
     SelectBd selects = new SelectBd();
+    UpdateBd updates = new UpdateBd();
     
     public TelaCadastro() {
         initComponents();
@@ -83,9 +85,9 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         btnNovo = new javax.swing.JMenu();
         btnPesquisar = new javax.swing.JMenu();
         btnSalvar = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
+        btnExcluir = new javax.swing.JMenu();
+        btnVoltar = new javax.swing.JMenu();
+        btnProximo = new javax.swing.JMenu();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -439,14 +441,34 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         });
         jMenuBar1.add(btnSalvar);
 
-        jMenu8.setText("Excluir");
-        jMenuBar1.add(jMenu8);
+        btnExcluir.setText("Excluir");
+        btnExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExcluirMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnExcluir);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1486485553-ago-arrow-arrow-left-back-previous-direction-left_81160.png"))); // NOI18N
-        jMenuBar1.add(jMenu6);
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1486485553-ago-arrow-arrow-left-back-previous-direction-left_81160.png"))); // NOI18N
+        btnVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVoltarMouseClicked(evt);
+            }
+        });
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(btnVoltar);
 
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/setadireita.png"))); // NOI18N
-        jMenuBar1.add(jMenu7);
+        btnProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/setadireita.png"))); // NOI18N
+        btnProximo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProximoMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnProximo);
 
         setJMenuBar(jMenuBar1);
 
@@ -567,19 +589,20 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
     private void btnNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNovoMouseClicked
         this.limparCampos();
+        selects.setLinha_atual_select(1);//reseta a contagem do retorno de select com vários registros
     }//GEN-LAST:event_btnNovoMouseClicked
 
     private void btnPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesquisarMouseClicked
         classecadastro.setNome(Tcad_txtNome.getText());
-
+        this.limparCampos();
         //Try para contar quantas linhas o select vai retornar
-        /*
+        
         try{
             selects.setQt_linhas_select(selects.selectQtLinhasSelectOrderNome(classecadastro));
         }catch(SQLException ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        //System.out.println("retorno de contagem com encapsulamento: "+selects.getQt_linhas_select());
+        }
+        System.out.println("retorno de contagem com encapsulamento: "+selects.getQt_linhas_select());
         
         try {
             selects.selectCadastroAlfabetico(classecadastro);
@@ -587,34 +610,63 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        lblCodigoAluno.setText(Integer.toString(classecadastro.getCd_registro()));
-            if(classecadastro.getSituacao() == true){
-                lblSituacaoAluno.setText("ATIVO");
-            }else{lblSituacaoAluno.setText("INATIVO");}
-        Tcad_txtNome.setText(classecadastro.getNome());
-        Tcad_txtTel1.setText(classecadastro.getTel1());
-        Tcad_txtTel2.setText(classecadastro.getTel2());
-        Tcad_txtProfissao.setText(classecadastro.getProfissao());
-            if("Feminino".equals(classecadastro.getSexo())){
-                radioFeminino.setSelected(true);
-            }else{radioMasculino.setSelected(true);}
-        combEstadoCivil.setSelectedIndex(classecadastro.getEstado_civil());
-        Tcad_txtRg.setText(classecadastro.getRg());
-        Tcad_txtCpf.setText(classecadastro.getCpf());
-        Tcad_txtNascimento.setText(classecadastro.getDt_nascimento());
-        Tcad_txtMae.setText(classecadastro.getNm_mae());
-        Tcad_txtPai.setText(classecadastro.getNm_pai());
-        Tcad_txtEmergencia.setText(classecadastro.getNm_emer());
-        Tcad_txtTelEmergencia.setText(classecadastro.getTel_emer());
-        combParente.setSelectedIndex(classecadastro.getParentesco());
-        Tcad_txtRua.setText(classecadastro.getEnd_rua());
-        Tcad_txtNumero.setText(classecadastro.getEnd_numero());
-        Tcad_txtBairro.setText(classecadastro.getEnd_bairro());
-        Tcad_txtCidade.setText(classecadastro.getEnd_cidade());
-        combEstado.setSelectedIndex(classecadastro.getEnd_estado());
-        Tcad_txtCep.setText(classecadastro.getEnd_cep());
+        this.setarCampos();
         
     }//GEN-LAST:event_btnPesquisarMouseClicked
+
+    private void btnProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProximoMouseClicked
+      
+        if(selects.getLinha_atual_select() < selects.getQt_linhas_select()){
+            selects.setLinha_atual_select(selects.getLinha_atual_select()+1);
+            this.limparCampos();
+            classecadastro.setNome("");
+            try {
+                    selects.selectCadastroAlfabetico(classecadastro);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }else{
+            JOptionPane.showMessageDialog(null, "Ultimo registro para esta busca !");
+        }
+        
+        System.out.println("Somou na linha ? : "+selects.getLinha_atual_select());//teste
+        System.out.println("------");//teste
+        //System.out.println("Nome do proximo :"+classecadastro.getNome());//teste
+        
+        this.setarCampos();
+    }//GEN-LAST:event_btnProximoMouseClicked
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+       
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseClicked
+        if((selects.getLinha_atual_select()-1) >= 1){
+            selects.setLinha_atual_select(selects.getLinha_atual_select()-1);
+            this.limparCampos();
+            classecadastro.setNome("");
+            try {
+                    selects.selectCadastroAlfabetico(classecadastro);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+        this.setarCampos();
+    }//GEN-LAST:event_btnVoltarMouseClicked
+
+    private void btnExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirMouseClicked
+        //sim = 0 - não = 1
+        if("".equals(lblCodigoAluno.getText())){//if para não dar erro se ainda não existir nenhum registro pesquisado
+
+        }else{
+            int op = JOptionPane.showConfirmDialog(null, "O cadastro não será excluído, o aluno será inativado.\n"
+                                                    + "<html><b>Deseja continuar ?</b></html>");
+                if(op == 0){
+                    updates.inativaCadastro(Integer.parseInt(lblCodigoAluno.getText()));
+                    lblSituacaoAluno.setText("INATIVO");
+                }else{}   
+        }        
+    }//GEN-LAST:event_btnExcluirMouseClicked
 
     public void limparCampos(){
         Tcad_txtNome.setText("");
@@ -642,6 +694,34 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtCep.setText("");
     }
     
+    public void setarCampos(){
+        lblCodigoAluno.setText(Integer.toString(classecadastro.getCd_registro()));
+            if(classecadastro.getSituacao() == true){
+                lblSituacaoAluno.setText("ATIVO");
+            }else{lblSituacaoAluno.setText("INATIVO");}
+        Tcad_txtNome.setText(classecadastro.getNome());
+        Tcad_txtTel1.setText(classecadastro.getTel1());
+        Tcad_txtTel2.setText(classecadastro.getTel2());
+        Tcad_txtProfissao.setText(classecadastro.getProfissao());
+            if("Feminino".equals(classecadastro.getSexo())){
+                radioFeminino.setSelected(true);
+            }else{radioMasculino.setSelected(true);}
+        combEstadoCivil.setSelectedIndex(classecadastro.getEstado_civil());
+        Tcad_txtRg.setText(classecadastro.getRg());
+        Tcad_txtCpf.setText(classecadastro.getCpf());
+        Tcad_txtNascimento.setText(classecadastro.getDt_nascimento());
+        Tcad_txtMae.setText(classecadastro.getNm_mae());
+        Tcad_txtPai.setText(classecadastro.getNm_pai());
+        Tcad_txtEmergencia.setText(classecadastro.getNm_emer());
+        Tcad_txtTelEmergencia.setText(classecadastro.getTel_emer());
+        combParente.setSelectedIndex(classecadastro.getParentesco());
+        Tcad_txtRua.setText(classecadastro.getEnd_rua());
+        Tcad_txtNumero.setText(classecadastro.getEnd_numero());
+        Tcad_txtBairro.setText(classecadastro.getEnd_bairro());
+        Tcad_txtCidade.setText(classecadastro.getEnd_cidade());
+        combEstado.setSelectedIndex(classecadastro.getEnd_estado());
+        Tcad_txtCep.setText(classecadastro.getEnd_cep());
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -664,9 +744,12 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Tcad_txtTel1;
     private javax.swing.JTextField Tcad_txtTel2;
     private javax.swing.JTextField Tcad_txtTelEmergencia;
+    private javax.swing.JMenu btnExcluir;
     private javax.swing.JMenu btnNovo;
     private javax.swing.JMenu btnPesquisar;
+    private javax.swing.JMenu btnProximo;
     private javax.swing.JMenu btnSalvar;
+    private javax.swing.JMenu btnVoltar;
     private javax.swing.JComboBox<String> combEstado;
     private javax.swing.JComboBox<String> combEstadoCivil;
     private javax.swing.JComboBox<String> combParente;
@@ -691,9 +774,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;

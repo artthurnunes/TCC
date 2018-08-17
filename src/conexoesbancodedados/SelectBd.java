@@ -21,6 +21,7 @@ public class SelectBd {
     Connection con;
     String sqlselectCadastroAlfabetico;
     private int qt_linhas_select;
+    private int linha_atual_select = 1;
 
     public int getQt_linhas_select() {
         return qt_linhas_select;
@@ -28,8 +29,16 @@ public class SelectBd {
 
     public void setQt_linhas_select(int qt_linhas_select) {
         this.qt_linhas_select = qt_linhas_select;
-    }         
-    
+    }    
+
+    public int getLinha_atual_select() {
+        return linha_atual_select;
+    }
+
+    public void setLinha_atual_select(int linha_atual_select) {
+        this.linha_atual_select = linha_atual_select;
+    }
+       
     public void verificaUsuario(ClasseSenhaInicial login) throws SQLException{
         
         con = ConectaBd.getConnection();
@@ -89,16 +98,19 @@ public class SelectBd {
         sqlselectCadastroAlfabetico = "SELECT CD_REGISTRO,SITUACAO,NOME,TEL1,TEL2,PROFISSAO,SEXO,ESTADO_CIVIL,RG"
                                    + ",CPF,DT_NASCIMENTO,NM_MAE,NM_PAI,NM_EMER,TEL_EMER,PARENTESCO,END_RUA,END_NUMERO"
                                    + ",END_BAIRRO,END_CIDADE,END_ESTADO,END_CEP "
-                                        + "FROM TB_ALUNOS WHERE NOME LIKE '%"+dados.getNome()+"%'"
+                                        + "FROM TB_ALUNOS WHERE SITUACAO = 1 AND NOME LIKE '%"+dados.getNome()+"%'"
                                             + "ORDER BY 3 ";
         
         rs = stmt.executeQuery(sqlselectCadastroAlfabetico);
-        
-        System.out.println(rs.getRow());
-        
-        while(rs.next()){ //while e if para que eu consiga manipular as linhas retornadas
-              if(rs.getRow() == 0){
+        //System.out.println("Logo quando recebe o sql no rs :"+rs.getRow()); //teste
+         
+       //O rs começa com 0 mas o primeiro registro válido é o next que no caso é o 1. O 0 não retorna nada do sql
+       while(rs.next()){ //while e if para que eu consiga manipular as linhas retornadas
+       //System.out.println("Entrei no While :"+rs.getRow()); //teste
+              if(rs.getRow() == this.linha_atual_select){
             //if(rs.next()){ //if caso retorno somente 1 row
+                //System.out.println("Primeira linha do rs.next numero :"+rs.getRow()); //teste
+                
                 dados.setCd_registro(rs.getInt("CD_REGISTRO"));
                 dados.setSituacao(rs.getBoolean("SITUACAO"));
                 dados.setNome(rs.getString("NOME"));
@@ -121,11 +133,15 @@ public class SelectBd {
                 dados.setEnd_cidade(rs.getString("END_CIDADE"));
                 dados.setEnd_estado(rs.getInt("END_ESTADO"));
                 dados.setEnd_cep(rs.getString("END_CEP"));
+                
+                this.linha_atual_select = rs.getRow();
+                
+                System.out.println("Linha atual do select :"+rs.getRow());//teste
             } 
         }
     }
         
-    /*
+    
     public int selectQtLinhasSelectOrderNome(ClasseCadastro dados) throws SQLException{
         con = ConectaBd.getConnection();
         Statement Stmt = con.createStatement();
@@ -134,20 +150,20 @@ public class SelectBd {
         sqlselectCadastroAlfabetico = "SELECT CD_REGISTRO,SITUACAO,NOME,TEL1,TEL2,PROFISSAO,SEXO,ESTADO_CIVIL,RG"
                                    + ",CPF,DT_NASCIMENTO,NM_MAE,NM_PAI,NM_EMER,TEL_EMER,PARENTESCO,END_RUA,END_NUMERO"
                                    + ",END_BAIRRO,END_CIDADE,END_ESTADO,END_CEP "
-                                        + "FROM TB_ALUNOS WHERE NOME LIKE '%"+dados.getNome()+"%'"
+                                        + "FROM TB_ALUNOS WHERE SITUACAO = 1 AND NOME LIKE '%"+dados.getNome()+"%'"
                                             + "ORDER BY 3 ";
         
         rsContagem = Stmt.executeQuery(sqlselectCadastroAlfabetico);
         int i = 0; //contar a quantidade de linhas que o select Retornou
         
             while(rsContagem.next()){
-                System.out.println("Passei no next da contagem: "+i);
+                //System.out.println("Passei no next da contagem: "+i);//teste
                 i++;
             }
                 
         
         return(i);
-    }*/
+    }
 }
     
     

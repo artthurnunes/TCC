@@ -4,7 +4,8 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-       Tentando fazer as flechas para avançar linha no select com o rs.getRow
+        CRIANDO A TELA DE ALUNOS INATIVOS, A TABELA PARA RETORNAR OS ALUNOS INATIVOS JÁ ESTA FUNCIONANDO, 
+        ESTUDAR ELA E COMENTAR... COPIEI DO PROJETO ANTIGO
     
     */
     
@@ -36,6 +37,7 @@ public class PendenciasIdeiasAlteracoes {
         * Pensar nas esteiras, bicicletas e equipamentos aerobicos na tela de equipametos, para colocar os 
           periódicos
         * Pensar em parte para inativar o alunos. Acho que pode ser no financeiro. 
+        * Fazer mensagem para cpf igual no banco, as x o aluno esta inativo mais voltou quando for cadastrar novamente.
     
             TELAS A FAZER
                 - LIBERAÇÃO DE CATRACA
@@ -60,7 +62,7 @@ public class PendenciasIdeiasAlteracoes {
     
     /*
     PONTOS LEGAIS PARA DIZER NA PARTE ESCRITA E NA APRESENTAÇÃO
-    * Herança do menu em todas as classes
+    * 
     
     */
     

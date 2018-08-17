@@ -47,17 +47,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         btnMenuImport = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        btnAlunosInativos = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        btnNovoUsuarioAcesso = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenu15 = new javax.swing.JMenu();
-        jMenu16 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         jScrollPane1.setViewportView(jTree1);
 
@@ -170,8 +170,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Exibir");
 
-        jMenuItem4.setText("Exibir alunos inativos");
-        jMenu3.add(jMenuItem4);
+        btnAlunosInativos.setText("Exibir alunos inativos");
+        btnAlunosInativos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlunosInativosActionPerformed(evt);
+            }
+        });
+        jMenu3.add(btnAlunosInativos);
 
         jMenuItem3.setText("Exibir equipamentos ");
         jMenu3.add(jMenuItem3);
@@ -190,26 +195,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu5.setText("Opções");
 
-        jMenu9.setText("Alterar senha de acesso");
-        jMenu5.add(jMenu9);
+        jMenuItem6.setText("Alterar senha de acesso");
+        jMenu5.add(jMenuItem6);
 
-        jMenu10.setText("Criar novo usuário de acesso");
-        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnNovoUsuarioAcesso.setText("Criar novo usuário de acesso");
+        btnNovoUsuarioAcesso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu10MouseClicked(evt);
+                btnNovoUsuarioAcessoMouseClicked(evt);
             }
         });
-        jMenu5.add(jMenu10);
+        btnNovoUsuarioAcesso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoUsuarioAcessoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(btnNovoUsuarioAcesso);
 
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Ajuda");
 
-        jMenu15.setText("Contato");
-        jMenu6.add(jMenu15);
+        jMenuItem8.setText("Contato");
+        jMenu6.add(jMenuItem8);
 
-        jMenu16.setText("Relatar problemas(Criar se o envio de email funcionar)");
-        jMenu6.add(jMenu16);
+        jMenuItem9.setText("Relatar problemas(Criar se o envio de email funcionar)");
+        jMenu6.add(jMenuItem9);
 
         jMenuBar1.add(jMenu6);
 
@@ -263,9 +273,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         new TelaImportBackup(null,true).setVisible(true);
     }//GEN-LAST:event_btnMenuImportMouseClicked
 
-    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
+    private void btnNovoUsuarioAcessoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNovoUsuarioAcessoMouseClicked
+               
+    }//GEN-LAST:event_btnNovoUsuarioAcessoMouseClicked
+
+    private void btnNovoUsuarioAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoUsuarioAcessoActionPerformed
         new TelaNovoUsuAcesso(null,true).setVisible(true);
-    }//GEN-LAST:event_jMenu10MouseClicked
+    }//GEN-LAST:event_btnNovoUsuarioAcessoActionPerformed
+
+    private void btnAlunosInativosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlunosInativosActionPerformed
+        new TelaAlunosInativos().setVisible(true);
+    }//GEN-LAST:event_btnAlunosInativosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,27 +325,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnAlunosInativos;
     private javax.swing.JButton btnAtalhoCadastro;
     private javax.swing.JButton btnAtalhoEquipamentos;
     private javax.swing.JButton btnAtalhoFinanceiro;
     private javax.swing.JButton btnAtalhoTreinos;
     private javax.swing.JMenu btnMenuImport;
+    private javax.swing.JMenuItem btnNovoUsuarioAcesso;
     private javax.swing.JDesktopPane espacoTelas;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu15;
-    private javax.swing.JMenu jMenu16;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTree jTree1;
