@@ -25,8 +25,7 @@ public class TelaAlunosInativos extends javax.swing.JFrame {
 
     public TelaAlunosInativos() {
         initComponents();
-        preencherTabela("SELECT * FROM TB_ALUNOS WHERE SITUACAO = FALSE");
-        
+        preencherTabela("SELECT * FROM TB_ALUNOS WHERE SITUACAO = FALSE");  
     }
     
     //metodo para retornar rs para exibir ArrayList
@@ -152,7 +151,7 @@ public class TelaAlunosInativos extends javax.swing.JFrame {
     private void btnAtivarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtivarAlunoActionPerformed
         linha_selecionada = tabela.getSelectedRow(); //seleciona a linha que o usuário clicou na tabela
         codAluno_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
-        nmAluno_selecionado = (String) tabela.getValueAt(linha_selecionada, 1);
+        nmAluno_selecionado = (String) tabela.getValueAt(linha_selecionada, 1); //armazena o nome do aluno selecionado
         //System.out.println("codigo aluno selecionado : "+codAluno_selecionado);
         int op = JOptionPane.showConfirmDialog(null, "<html>O aluno <b>"+nmAluno_selecionado+"</b> será ativado. Desejá continuar ?</html>");
             if(op == 0){
