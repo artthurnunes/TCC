@@ -38,6 +38,7 @@ public class PendenciasIdeiasAlteracoes {
           periódicos
         * Pensar em parte para inativar o alunos. Acho que pode ser no financeiro. 
         * Fazer mensagem para cpf igual no banco, as x o aluno esta inativo mais voltou quando for cadastrar novamente.
+        * Quando não tem nenhum aluno inativo mostar uma mensagem se não da erro do banco, retorna vazio.
     
             TELAS A FAZER
                 - LIBERAÇÃO DE CATRACA
