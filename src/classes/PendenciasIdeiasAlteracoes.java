@@ -4,8 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        CRIANDO A TELA DE ALUNOS INATIVOS, A TABELA PARA RETORNAR OS ALUNOS INATIVOS JÁ ESTA FUNCIONANDO, 
-        ESTUDAR ELA E COMENTAR... COPIEI DO PROJETO ANTIGO
+        Começar a fazer o excluir na tela de cadastro de exercícios
     
     */
     
@@ -29,14 +28,11 @@ public class PendenciasIdeiasAlteracoes {
         * Criar uma classe mãe para menu para que as outras telas herdão dela as funcões do menu
         * Quando clicar em salvar, bloquear as opções e quando clicar em editar desbloquear. Não 
            deixar fechar a tela sem salvar. Fazer em todas as telas que tem SALVAR E EDITAR.
-        * Botão esquerda e direita correr select anterior e próximo. Botão pesquisar abrir uma caixa com a lista 
-           de equipamentos/aluno com mesmo nome da pesquisa. Se retorna somente 1 carregar ja na tela
         * Fazer uma telinha no canto inferior direito sempre aparecendo com o nome dos alunos que estão para vencer 
            o treino
         * Fazer mascara para os campos de data
         * Pensar nas esteiras, bicicletas e equipamentos aerobicos na tela de equipametos, para colocar os 
-          periódicos
-        * Pensar em parte para inativar o alunos. Acho que pode ser no financeiro. 
+          periódicos 
         * Fazer mensagem para cpf igual no banco, as x o aluno esta inativo mais voltou quando for cadastrar novamente.
         * Quando não tem nenhum aluno inativo mostar uma mensagem se não da erro do banco, retorna vazio.
     

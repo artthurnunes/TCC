@@ -2,6 +2,7 @@
 package conexoesbancodedados;
 
 import classes.ClasseCadastro;
+import classes.ClasseCadastro_exercicios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -42,6 +43,26 @@ public class InsertBd {
             stmt.setInt(20, dados.getEnd_estado());
             stmt.setString(21,dados.getEnd_cep());
                        
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"SALVO COM SUCESSO !");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }        
+    }
+    
+    public void insereGrupoMembro(ClasseCadastro_exercicios dados){
+        
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+ 
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_MEMBROS (NM_MEMBRO) VALUES (?)");           
+            
+            stmt.setString(1, dados.getMembro());
+                                   
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"SALVO COM SUCESSO !");
         
