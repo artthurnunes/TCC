@@ -5,6 +5,7 @@ public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
         Começar a fazer o excluir na tela de cadastro de exercícios
+        - Fazer com que os exercicios e grupos sejam salvos no banco tudo em maiúsculo para padronizar.
     
     */
     

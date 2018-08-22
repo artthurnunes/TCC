@@ -21,6 +21,7 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
     
     private void carregarCombo(){
         listaMembros = exercicios.getListaCombo(); //recebendo a lista do banco
+
         try {
             exercicios.populandoCombMembros(); //atualizando o combobox com os dados do banco 
         } catch (SQLException ex) {
