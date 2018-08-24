@@ -4,7 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        Começar a fazer a parte de excluir exercícios da tela cadastro de exercícios.
+        Parei na classeCadastro_exercicios, fazendo o select para popular combo
     
     */
     

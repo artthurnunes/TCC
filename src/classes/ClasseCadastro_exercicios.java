@@ -13,7 +13,8 @@ public class ClasseCadastro_exercicios {
     private int cd_membro;
     private String membro;
     private String exercicio;
-    private ArrayList<String> listaCombo = new ArrayList();
+    private ArrayList<String> listaComboGrupos = new ArrayList();
+    private ArrayList<String> listaComboExercicios = new ArrayList();
     Connection con;
     ResultSet rs = null;
     
@@ -27,7 +28,24 @@ public class ClasseCadastro_exercicios {
         rs = stmt.executeQuery(sql);
         
             while(rs.next()){
-                listaCombo.add(rs.getString("NM_MEMBRO"));
+                listaComboGrupos.add(rs.getString("NM_MEMBRO"));
+            }
+            
+        //System.out.println(listaCombo); //teste   
+    }
+    
+    public void populandoCombExercicios() throws SQLException{
+        
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        
+        //PAREI AQUI NA MODIFICAÇÃO. FAZER O SELECT PARA A TABELA DE EXERCICIOS
+        String sql = "SELECT NM_MEMBRO FROM TB_MEMBROS ORDER BY NM_MEMBRO ASC";
+        
+        rs = stmt.executeQuery(sql);
+        
+            while(rs.next()){
+                listaComboExercicios.add(rs.getString("NM_MEMBRO"));
             }
             
         //System.out.println(listaCombo); //teste   
@@ -57,13 +75,23 @@ public class ClasseCadastro_exercicios {
         this.exercicio = exercicio;
     }
 
-    public ArrayList<String> getListaCombo() {
-        return listaCombo;
+    public ArrayList<String> getListaComboGrupos() {
+        return listaComboGrupos;
     }
 
-    public void setListaCombo(ArrayList<String> listaCombo) {
-        this.listaCombo = listaCombo;
+    public void setListaComboGrupos(ArrayList<String> listaCombo) {
+        this.listaComboGrupos = listaCombo;
     }
+
+    public ArrayList<String> getListaComboExercicios() {
+        return listaComboExercicios;
+    }
+
+    public void setListaComboExercicios(ArrayList<String> listaComboExercicios) {
+        this.listaComboExercicios = listaComboExercicios;
+    }
+    
+    
     
     
     

@@ -42,7 +42,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     }
 
     private void carregarCombo(){
-        listaMembros = exercicios.getListaCombo(); //recebendo a lista do banco
+        listaMembros = exercicios.getListaComboGrupos(); //recebendo a lista do banco
 
         try {
             exercicios.populandoCombMembros(); //atualizando o combobox com os dados do banco 
