@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class ClasseCadastro_exercicios {
     
+    private int cd_membro;
     private String membro;
     private String exercicio;
     private ArrayList<String> listaCombo = new ArrayList();
@@ -32,6 +33,14 @@ public class ClasseCadastro_exercicios {
         //System.out.println(listaCombo); //teste   
     }
 
+    public int getCd_membro() {
+        return cd_membro;
+    }
+
+    public void setCd_membro(int cd_membro) {
+        this.cd_membro = cd_membro;
+    }
+    
     public String getMembro() {
         return membro;
     }

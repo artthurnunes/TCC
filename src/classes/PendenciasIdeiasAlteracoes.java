@@ -4,8 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        Começar a fazer o excluir na tela de cadastro de exercícios
-        - Fazer com que os exercicios e grupos sejam salvos no banco tudo em maiúsculo para padronizar.
+        Começar a fazer a parte de excluir exercícios da tela cadastro de exercícios.
     
     */
     
@@ -61,7 +60,7 @@ public class PendenciasIdeiasAlteracoes {
     /*
     PONTOS LEGAIS PARA DIZER NA PARTE ESCRITA E NA APRESENTAÇÃO
     * 
-    
+     - A area de cadastro de Membros e exercicios ja corrige para salvar tudo em MAIUSCULO
     */
     
     //FILME O PROTETOR

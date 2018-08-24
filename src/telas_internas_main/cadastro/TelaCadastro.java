@@ -522,35 +522,23 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
-        classecadastro.setSituacao(true);
-        classecadastro.setNome(Tcad_txtNome.getText());
-        classecadastro.setTel1(Tcad_txtTel1.getText());
-        classecadastro.setTel2(Tcad_txtTel2.getText());
-        classecadastro.setProfissao(Tcad_txtProfissao.getText());
-            if(radioMasculino.isSelected()){
-                classecadastro.setSexo("Masculino");
-                System.out.println(classecadastro.getSexo());
-            }else if(radioFeminino.isSelected()){
-                classecadastro.setSexo("Feminino");
-                System.out.println(classecadastro.getSexo());
-            }
-        classecadastro.setEstado_civil(combEstadoCivil.getSelectedIndex());
-        classecadastro.setRg(Tcad_txtRg.getText());
-        classecadastro.setCpf(Tcad_txtCpf.getText());
-        classecadastro.setDt_nascimento(Tcad_txtNascimento.getText());
-        classecadastro.setNm_mae(Tcad_txtMae.getText());
-        classecadastro.setNm_pai(Tcad_txtPai.getText());
-        classecadastro.setNm_emer(Tcad_txtEmergencia.getText());
-        classecadastro.setTel_emer(Tcad_txtTelEmergencia.getText());
-        classecadastro.setParentesco(combParente.getSelectedIndex());
-        classecadastro.setEnd_rua(Tcad_txtRua.getText());
-        classecadastro.setEnd_numero(Tcad_txtNumero.getText());
-        classecadastro.setEnd_bairro(Tcad_txtBairro.getText());
-        classecadastro.setEnd_cidade(Tcad_txtCidade.getText());
-        classecadastro.setEnd_estado(combEstado.getSelectedIndex());
-        classecadastro.setEnd_cep(Tcad_txtCep.getText());
-      
-        inserts.insertCadastro(classecadastro);
+    
+        //se estiver vazio o campo de codigo quer dizer que o cadastro e novo, caso nao esteja, nao sera feito 
+        //um insert e sim um update do cadastro
+        if("".equals(lblCodigoAluno.getText())){
+            if("".equals(Tcad_txtCpf.getText())){
+                JOptionPane.showMessageDialog(null, "Campo CPF não pode estar vazio.");
+            }else{
+                this.setarCamposParaClasse();
+                inserts.insertCadastro(classecadastro);
+            }  
+        }else{
+            this.setarCamposParaClasse();
+            updates.alterarCadastroAluno(classecadastro);
+        }
+        
+        
+        
     }//GEN-LAST:event_btnSalvarMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -610,7 +598,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        this.setarCampos();
+        this.setarCamposDaClasse();
         
     }//GEN-LAST:event_btnPesquisarMouseClicked
 
@@ -633,7 +621,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         System.out.println("------");//teste
         //System.out.println("Nome do proximo :"+classecadastro.getNome());//teste
         
-        this.setarCampos();
+        this.setarCamposDaClasse();
     }//GEN-LAST:event_btnProximoMouseClicked
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -651,7 +639,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                     Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
-        this.setarCampos();
+        this.setarCamposDaClasse();
     }//GEN-LAST:event_btnVoltarMouseClicked
 
     private void btnExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirMouseClicked
@@ -694,7 +682,37 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtCep.setText("");
     }
     
-    public void setarCampos(){
+    public void setarCamposParaClasse(){
+        classecadastro.setSituacao(true);
+                classecadastro.setNome(Tcad_txtNome.getText());
+                classecadastro.setTel1(Tcad_txtTel1.getText());
+                classecadastro.setTel2(Tcad_txtTel2.getText());
+                classecadastro.setProfissao(Tcad_txtProfissao.getText());
+                    if(radioMasculino.isSelected()){
+                        classecadastro.setSexo("Masculino");
+                        System.out.println(classecadastro.getSexo());
+                    }else if(radioFeminino.isSelected()){
+                        classecadastro.setSexo("Feminino");
+                        System.out.println(classecadastro.getSexo());
+                    }
+                classecadastro.setEstado_civil(combEstadoCivil.getSelectedIndex());
+                classecadastro.setRg(Tcad_txtRg.getText());
+                classecadastro.setCpf(Tcad_txtCpf.getText());
+                classecadastro.setDt_nascimento(Tcad_txtNascimento.getText());
+                classecadastro.setNm_mae(Tcad_txtMae.getText());
+                classecadastro.setNm_pai(Tcad_txtPai.getText());
+                classecadastro.setNm_emer(Tcad_txtEmergencia.getText());
+                classecadastro.setTel_emer(Tcad_txtTelEmergencia.getText());
+                classecadastro.setParentesco(combParente.getSelectedIndex());
+                classecadastro.setEnd_rua(Tcad_txtRua.getText());
+                classecadastro.setEnd_numero(Tcad_txtNumero.getText());
+                classecadastro.setEnd_bairro(Tcad_txtBairro.getText());
+                classecadastro.setEnd_cidade(Tcad_txtCidade.getText());
+                classecadastro.setEnd_estado(combEstado.getSelectedIndex());
+                classecadastro.setEnd_cep(Tcad_txtCep.getText()); 
+    }
+    
+    public void setarCamposDaClasse(){
         lblCodigoAluno.setText(Integer.toString(classecadastro.getCd_registro()));
             if(classecadastro.getSituacao() == true){
                 lblSituacaoAluno.setText("ATIVO");

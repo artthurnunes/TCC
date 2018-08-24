@@ -2,6 +2,7 @@
 package conexoesbancodedados;
 
 import classes.ClasseCadastro;
+import classes.ClasseCadastro_exercicios;
 import classes.ClasseEsqueceuSenha;
 import classes.ClasseSenhaInicial;
 import java.sql.Connection;
@@ -141,7 +142,8 @@ public class SelectBd {
         }
     }
         
-    
+    //select para contar a quantidade de linhas retornadas pelo select para que quando o select retornar mais de uma linha
+    //o botão frente e traz da tela cadastro funcione.
     public int selectQtLinhasSelectOrderNome(ClasseCadastro dados) throws SQLException{
         con = ConectaBd.getConnection();
         Statement Stmt = con.createStatement();
@@ -164,6 +166,26 @@ public class SelectBd {
         
         return(i);
     }
+    
+    //selec para retornar o numero do cd do grupo muscular para a tela de cadastro de exercicios
+    public void retornaCdGrupoMuscular(ClasseCadastro_exercicios dados) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        
+        String sql = "SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getMembro()+"' ";
+        
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next()){
+                dados.setCd_membro(rs.getInt("CD_MEMBRO"));
+            } 
+            
+            //System.out.println(dados.getCd_membro()); //teste
+    }
+    
+    
+    
+    
 }
     
     

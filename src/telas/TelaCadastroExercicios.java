@@ -2,16 +2,21 @@
 package telas;
 
 import classes.ClasseCadastro_exercicios;
+import conexoesbancodedados.DeleteBd;
 import conexoesbancodedados.InsertBd;
+import conexoesbancodedados.SelectBd;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class TelaCadastroExercicios extends javax.swing.JFrame {
 
     ClasseCadastro_exercicios exercicios = new ClasseCadastro_exercicios();
     InsertBd inserts = new InsertBd();
+    DeleteBd deletes = new DeleteBd();
+    SelectBd selects = new SelectBd();
     ArrayList<String> listaMembros = new ArrayList();
             
     public TelaCadastroExercicios() {
@@ -30,6 +35,8 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
             for(int i=0; i < listaMembros.size();i++){ //populando o combobox com os dados
                 //System.out.println(listaMembros.get(i)); //teste
                 combMembros.addItem(listaMembros.get(i));
+                combMembros1.addItem(listaMembros.get(i));
+                combMembros2.addItem(listaMembros.get(i));
             }
     }
 
@@ -50,18 +57,31 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
         lblExercicio = new javax.swing.JTextField();
         btnSalvarExercicio = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        combMembros1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         combMembros = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         btnExcluir = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        combMembros2 = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        btnExcluir1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de exercícios");
 
         jLabel1.setText("CADASTRO DE EXERCÍCIOS PARA TELA DE TREINOS");
 
-        jLabel2.setText("Grupo/Membro:");
+        jLabel2.setText("Grupo muscular/Membro:");
 
         btnSalvarMembro.setText("Salvar");
         btnSalvarMembro.addActionListener(new java.awt.event.ActionListener() {
@@ -79,20 +99,49 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Grupo do exercício:");
+        jLabel4.setText("Grupo muscular:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+        combMembros1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
 
-        jLabel5.setText("Grupos/Membros cadastrados:");
+        jLabel5.setText("Grupos musculares cadastrados:");
 
         combMembros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
 
-        jLabel6.setText("______________________________________________________________________");
+        jLabel6.setText("____________________________________________________________________________");
 
         btnExcluir.setText("Excluir");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Escolha um GRUPO MUSCULAR para relacionar um exercício.");
+
+        jLabel8.setText("O grupo muscular só será excluído caso não exista nenhum exercicio relacionado com o grupo.");
+
+        jLabel9.setText("Cadastrar GRUPO MUSCULAR:");
+
+        jLabel10.setText("____________________________________________________________________________");
+
+        jLabel11.setText("Excluir GRUPO MUSCULAR:");
+
+        jLabel12.setText("Cadastrar EXERCÍCIOS:");
+
+        jLabel13.setText("Excluir EXERCÍCIOS:");
+
+        jLabel14.setText("____________________________________________________________________________");
+
+        combMembros2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        jLabel15.setText("Grupo muscular:");
+
+        jLabel16.setText("Exercícios:");
+
+        btnExcluir1.setText("Excluir");
+        btnExcluir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluir1ActionPerformed(evt);
             }
         });
 
@@ -103,65 +152,110 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblExercicio))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(74, 74, 74)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(combMembros, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(combMembros, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(lblMembro, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(btnSalvarMembro, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)))
-                        .addGap(0, 3, Short.MAX_VALUE))
+                                    .addComponent(btnSalvarMembro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(combMembros1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(combMembros2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSalvarExercicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnExcluir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalvarExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel9)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblMembro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalvarMembro))
                 .addGap(18, 18, 18)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(combMembros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExcluir))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(lblExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
+                    .addComponent(combMembros1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(lblExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSalvarExercicio)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel15)
+                    .addComponent(combMembros2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalvarExercicio))
-                .addContainerGap(82, Short.MAX_VALUE))
+                    .addComponent(btnExcluir1))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,29 +263,64 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarExercicioActionPerformed
-        // TODO add your handling code here:
+        exercicios.setMembro((String)combMembros1.getSelectedItem());
+            if(combMembros1.getSelectedItem() == ""){
+                JOptionPane.showMessageDialog(null, "<html>Grupo muscular vazio. <br>Escolha um grupo muscular para o exercício.</html>");
+            }else{
+                //Try para pegar o código do grupo muscular para vincular no exercicio cadastrado.
+                try {
+                    selects.retornaCdGrupoMuscular(exercicios);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                //setando o exercicio na classe e salvando no banco
+                exercicios.setExercicio(lblExercicio.getText());
+                inserts.insereExercicio(exercicios);
+                new TelaCadastroExercicios().setVisible(true); //atualizar a tela abrindo uma nova
+                this.dispose(); //fechando a velha
+            }   
     }//GEN-LAST:event_btnSalvarExercicioActionPerformed
 
     private void btnSalvarMembroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarMembroActionPerformed
-        exercicios.setMembro(lblMembro.getText());
+        String upper = lblMembro.getText();
+        exercicios.setMembro(upper.toUpperCase());
         inserts.insereGrupoMembro(exercicios); //Envia o nome para o banco
         new TelaCadastroExercicios().setVisible(true); //atualizar a tela abrindo uma nova
         this.dispose(); //fechando a velha
     }//GEN-LAST:event_btnSalvarMembroActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        exercicios.setMembro((String)combMembros.getSelectedItem());
+            if(combMembros.getSelectedItem() == ""){
+                JOptionPane.showMessageDialog(null,"Nenhum grupo muscular foi selecionado.");
+            }else{
+                try {
+                    deletes.apagarGrupoMuscular(exercicios);
+                    new TelaCadastroExercicios().setVisible(true); //atualizar a tela abrindo uma nova
+                    this.dispose(); //fechando a velha
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExcluir1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+     /* -----------------------------------
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+     /* -----------------------------------
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -211,25 +340,39 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+     /* -----------------------------------
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaCadastroExercicios().setVisible(true);
             }
         });
-    }
+    } ---------------------------------------*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnExcluir1;
     private javax.swing.JButton btnSalvarExercicio;
     private javax.swing.JButton btnSalvarMembro;
     private javax.swing.JComboBox<String> combMembros;
+    private javax.swing.JComboBox<String> combMembros1;
+    private javax.swing.JComboBox<String> combMembros2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField lblExercicio;
     private javax.swing.JTextField lblMembro;
     // End of variables declaration//GEN-END:variables

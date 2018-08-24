@@ -53,6 +53,7 @@ public class InsertBd {
         }        
     }
     
+    //Insert para cadastrar grupos musculares
     public void insereGrupoMembro(ClasseCadastro_exercicios dados){
         
         Connection con = ConectaBd.getConnection();
@@ -71,6 +72,28 @@ public class InsertBd {
         }finally{
             ConectaBd.closeConnection(con, stmt);
         }        
+    }
+    
+    //Insert para cadastrar exercicios
+    public void insereExercicio(ClasseCadastro_exercicios dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_EXERCICIOS (NM_EXERCICIO,CD_MEMBRO) VALUES (?,?)");           
+            
+            stmt.setString(1, dados.getExercicio());
+            stmt.setInt(2, dados.getCd_membro());
+                                   
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"EXERCÍCIO SALVO COM SUCESSO !");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }        
+        
     }
     
 }
