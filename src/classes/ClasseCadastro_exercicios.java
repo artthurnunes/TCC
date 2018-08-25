@@ -2,6 +2,7 @@
 package classes;
 
 import conexoesbancodedados.ConectaBd;
+import conexoesbancodedados.SelectBd;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,9 +11,11 @@ import java.util.ArrayList;
 
 public class ClasseCadastro_exercicios {
     
+    SelectBd selects = new SelectBd();
+    
     private int cd_membro;
-    private String membro;
-    private String exercicio;
+    private String nm_membro;
+    private String nm_exercicio;
     private ArrayList<String> listaComboGrupos = new ArrayList();
     private ArrayList<String> listaComboExercicios = new ArrayList();
     Connection con;
@@ -35,17 +38,20 @@ public class ClasseCadastro_exercicios {
     }
     
     public void populandoCombExercicios() throws SQLException{
+        listaComboExercicios.clear();
+        selects.retornaCdGrupoMuscular(this);
         
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
         
         //PAREI AQUI NA MODIFICAÇÃO. FAZER O SELECT PARA A TABELA DE EXERCICIOS
-        String sql = "SELECT NM_MEMBRO FROM TB_MEMBROS ORDER BY NM_MEMBRO ASC";
+        String sql = "SELECT NM_EXERCICIO FROM TB_EXERCICIOS WHERE CD_MEMBRO = '"+this.getCd_membro()+"' ORDER BY 1";
+        //String sql = "SELECT NM_MEMBRO FROM TB_MEMBROS ORDER BY NM_MEMBRO ASC";
         
         rs = stmt.executeQuery(sql);
         
             while(rs.next()){
-                listaComboExercicios.add(rs.getString("NM_MEMBRO"));
+                listaComboExercicios.add(rs.getString("NM_EXERCICIO"));
             }
             
         //System.out.println(listaCombo); //teste   
@@ -59,20 +65,20 @@ public class ClasseCadastro_exercicios {
         this.cd_membro = cd_membro;
     }
     
-    public String getMembro() {
-        return membro;
+    public String getNm_membro() {
+        return nm_membro;
     }
 
-    public void setMembro(String membro) {
-        this.membro = membro;
+    public void setNm_membro(String nm_membro) {
+        this.nm_membro = nm_membro;
     }
 
-    public String getExercicio() {
-        return exercicio;
+    public String getNm_exercicio() {
+        return nm_exercicio;
     }
 
-    public void setExercicio(String exercicio) {
-        this.exercicio = exercicio;
+    public void setNm_exercicio(String nm_exercicio) {
+        this.nm_exercicio = nm_exercicio;
     }
 
     public ArrayList<String> getListaComboGrupos() {

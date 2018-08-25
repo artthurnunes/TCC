@@ -62,7 +62,7 @@ public class InsertBd {
         try{
             stmt = con.prepareStatement("INSERT INTO TB_MEMBROS (NM_MEMBRO) VALUES (?)");           
             
-            stmt.setString(1, dados.getMembro());
+            stmt.setString(1, dados.getNm_membro());
                                    
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"SALVO COM SUCESSO !");
@@ -82,7 +82,7 @@ public class InsertBd {
         try{
             stmt = con.prepareStatement("INSERT INTO TB_EXERCICIOS (NM_EXERCICIO,CD_MEMBRO) VALUES (?,?)");           
             
-            stmt.setString(1, dados.getExercicio());
+            stmt.setString(1, dados.getNm_exercicio());
             stmt.setInt(2, dados.getCd_membro());
                                    
             stmt.executeUpdate();

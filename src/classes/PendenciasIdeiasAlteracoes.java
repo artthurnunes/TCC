@@ -4,7 +4,9 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        Parei na classeCadastro_exercicios, fazendo o select para popular combo
+        *Tratar para que não seja possível excuir um Grupo Muscular que tenha exercícios vinculados !!! MUITO IMPORTANTE
+        * Depois de terminar o de cima, voltar para a tela de treinos e já popular os combos dos treinos com os exercicios
+            do banco.
     
     */
     

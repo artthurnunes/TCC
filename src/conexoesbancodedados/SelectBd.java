@@ -172,7 +172,7 @@ public class SelectBd {
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
         
-        String sql = "SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getMembro()+"' ";
+        String sql = "SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getNm_membro()+"' ";
         
         rs = stmt.executeQuery(sql);
         

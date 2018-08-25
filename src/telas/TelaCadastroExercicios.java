@@ -18,6 +18,7 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
     DeleteBd deletes = new DeleteBd();
     SelectBd selects = new SelectBd();
     ArrayList<String> listaMembros = new ArrayList();
+    ArrayList<String> listaExercicios = new ArrayList();
             
     public TelaCadastroExercicios() {
         initComponents();
@@ -38,6 +39,16 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
                 combMembros1.addItem(listaMembros.get(i));
                 combMembros2.addItem(listaMembros.get(i));
             }
+    }
+    
+    private void carregarComboExercicios(){
+        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+        //System.out.println("Lista Carregar combo:"+listaExercicios); //teste
+
+            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+            //System.out.println("Passando pelo for para garregar combo :"+i); //teste
+            combExercicios.addItem(listaExercicios.get(i));
+            }      
     }
 
     /**
@@ -61,7 +72,7 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         combMembros = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        btnExcluir = new javax.swing.JButton();
+        btnExcluirGrupo = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -74,7 +85,7 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         combExercicios = new javax.swing.JComboBox<>();
-        btnExcluir1 = new javax.swing.JButton();
+        btnExcluirExercicio = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -110,10 +121,10 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
 
         jLabel6.setText("____________________________________________________________________________");
 
-        btnExcluir.setText("Excluir");
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+        btnExcluirGrupo.setText("Excluir");
+        btnExcluirGrupo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
+                btnExcluirGrupoActionPerformed(evt);
             }
         });
 
@@ -138,15 +149,31 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
         jLabel14.setText("____________________________________________________________________________");
 
         combMembros2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+        combMembros2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMembros2ActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("Grupo muscular:");
 
         jLabel16.setText("Exercícios:");
 
-        btnExcluir1.setText("Excluir");
-        btnExcluir1.addActionListener(new java.awt.event.ActionListener() {
+        combExercicios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                combExerciciosMouseClicked(evt);
+            }
+        });
+        combExercicios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluir1ActionPerformed(evt);
+                combExerciciosActionPerformed(evt);
+            }
+        });
+
+        btnExcluirExercicio.setText("Excluir");
+        btnExcluirExercicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirExercicioActionPerformed(evt);
             }
         });
 
@@ -168,7 +195,7 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(combExercicios, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnExcluir1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnExcluirExercicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
@@ -184,7 +211,7 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(combMembros, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(btnExcluirGrupo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(jLabel2)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -238,7 +265,7 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(combMembros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluir))
+                    .addComponent(btnExcluirGrupo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -268,8 +295,8 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(combExercicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluir1))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(btnExcluirExercicio))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -277,7 +304,7 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarExercicioActionPerformed
-        exercicios.setMembro((String)combMembros1.getSelectedItem()); //setando grupo para que possa ser utilizado o codigo do grupo no cadastro do exercicio
+        exercicios.setNm_membro((String)combMembros1.getSelectedItem()); //setando grupo para que possa ser utilizado o codigo do grupo no cadastro do exercicio
             if(combMembros1.getSelectedItem() == ""){
                 JOptionPane.showMessageDialog(null, "<html>Grupo muscular vazio. <br>Escolha um grupo muscular para o exercício.</html>");
             }else{
@@ -288,7 +315,7 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
                     Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 //setando o exercicio na classe e salvando no banco
-                exercicios.setExercicio(lblExercicio.getText().toUpperCase());
+                exercicios.setNm_exercicio(lblExercicio.getText().toUpperCase());
                 inserts.insereExercicio(exercicios);
                 new TelaCadastroExercicios().setVisible(true); //atualizar a tela abrindo uma nova
                 this.dispose(); //fechando a velha
@@ -296,14 +323,14 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarExercicioActionPerformed
 
     private void btnSalvarMembroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarMembroActionPerformed
-        exercicios.setMembro(lblMembro.getText().toUpperCase());
+        exercicios.setNm_membro(lblMembro.getText().toUpperCase());
         inserts.insereGrupoMembro(exercicios); //Envia o nome para o banco
         new TelaCadastroExercicios().setVisible(true); //atualizar a tela abrindo uma nova
         this.dispose(); //fechando a velha
     }//GEN-LAST:event_btnSalvarMembroActionPerformed
 
-    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        exercicios.setMembro((String)combMembros.getSelectedItem());
+    private void btnExcluirGrupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirGrupoActionPerformed
+        exercicios.setNm_membro((String)combMembros.getSelectedItem());
             if(combMembros.getSelectedItem() == ""){
                 JOptionPane.showMessageDialog(null,"Nenhum grupo muscular foi selecionado.");
             }else{
@@ -316,16 +343,45 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
                 }
             }
         
-    }//GEN-LAST:event_btnExcluirActionPerformed
+    }//GEN-LAST:event_btnExcluirGrupoActionPerformed
 
-    private void btnExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluir1ActionPerformed
-        exercicios.setMembro((String)combMembros2.getSelectedItem());
+    private void btnExcluirExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirExercicioActionPerformed
             if(combMembros2.getSelectedItem() == ""){
                 JOptionPane.showMessageDialog(null,"Nenhum grupo muscular foi selecionado.");
             }else{
-                
+                exercicios.setNm_exercicio(String.valueOf(combExercicios.getSelectedItem()));
+                try {
+                    deletes.apagarExercicio(exercicios);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                new TelaCadastroExercicios().setVisible(true); //atualizar a tela abrindo uma nova
+                this.dispose(); //fechando a velha
             }
-    }//GEN-LAST:event_btnExcluir1ActionPerformed
+    }//GEN-LAST:event_btnExcluirExercicioActionPerformed
+
+    private void combExerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combExerciciosActionPerformed
+        
+    }//GEN-LAST:event_combExerciciosActionPerformed
+
+    private void combExerciciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combExerciciosMouseClicked
+        
+    }//GEN-LAST:event_combExerciciosMouseClicked
+
+    private void combMembros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMembros2ActionPerformed
+        //CARREGAR COMBO DE EXERCÍCIOS
+        exercicios.setNm_membro((String)combMembros2.getSelectedItem());
+        //System.out.println("Enviei para classe Exercicios: "+exercicios.getMembro()); //testes
+        try {
+            combExercicios.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+            exercicios.populandoCombExercicios();
+            this.carregarComboExercicios();
+            //System.out.println("Lista do click combo:"+exercicios.getListaComboExercicios()); //testes
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //System.out.println(exercicios.getListaComboExercicios()); //teste
+    }//GEN-LAST:event_combMembros2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -367,8 +423,8 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
     } ---------------------------------------*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExcluir;
-    private javax.swing.JButton btnExcluir1;
+    private javax.swing.JButton btnExcluirExercicio;
+    private javax.swing.JButton btnExcluirGrupo;
     private javax.swing.JButton btnSalvarExercicio;
     private javax.swing.JButton btnSalvarMembro;
     private javax.swing.JComboBox<String> combExercicios;
