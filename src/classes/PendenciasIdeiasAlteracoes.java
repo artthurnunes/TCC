@@ -4,9 +4,11 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        *Tratar para que não seja possível excuir um Grupo Muscular que tenha exercícios vinculados !!! MUITO IMPORTANTE
         * Depois de terminar o de cima, voltar para a tela de treinos e já popular os combos dos treinos com os exercicios
             do banco.
+        * Quando entrar na tela de treinos, quando ocorrer alguma modificação, nao deixar sair sem salvar se não 
+          será perdido
+        * Não deixar salvar exercicios nem grupos musculares vazios
     
     */
     

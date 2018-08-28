@@ -183,6 +183,9 @@ public class SelectBd {
             //System.out.println(dados.getCd_membro()); //teste
     }
     
+    public void retornaListaDeExerciciosPorGrupos(ClasseCadastro dados){
+        
+    }
 
     
     

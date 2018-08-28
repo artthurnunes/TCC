@@ -18,9 +18,9 @@ public class DeleteBd {
             stmt = con.prepareStatement("DELETE FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getNm_membro()+"'");
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"<html>CADASTRO DO GRUPO MUSCULAR: <b>"+dados.getNm_membro()+"</b> <br>EXLCUIDO COM SUCESSO !!!</html>");
-        
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"ERRO AO EXCLUIR !"+ex);
+            //JOptionPane.showMessageDialog(null,"ERRO AO EXCLUIR !"+ex); //exibir o erro
+            JOptionPane.showMessageDialog(null, "Este grupo muscular possui exercícios, exclua os exercícios primeiro.");
         }finally{
             ConectaBd.closeConnection(con, stmt);
         }   

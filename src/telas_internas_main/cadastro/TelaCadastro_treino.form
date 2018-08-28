@@ -110,6 +110,9 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JTabbedPane" name="abaTreinoA">
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="abaTreinoAMouseClicked"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Treino A                                   ">
@@ -172,6 +175,9 @@
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combMusculoA1ActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -335,9 +341,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioA1">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -366,9 +370,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioA1_1">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -409,9 +411,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioA1_2">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -428,9 +428,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioA1_3">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -459,9 +457,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioA1_4">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -492,9 +488,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioA1_5">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -535,9 +529,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioA1_6">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -637,6 +629,9 @@
                           <StringArray count="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combMusculoA2ActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -800,9 +795,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA2">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -831,9 +824,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA2_1">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -874,9 +865,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA2_2">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -893,9 +882,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA2_3">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -924,9 +911,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA2_4">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -957,9 +942,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA2_5">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1000,9 +983,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA2_6">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1104,6 +1085,9 @@
                           <StringArray count="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combMusculoA3ActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -1267,9 +1251,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA3">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1298,9 +1280,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA3_1">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1341,9 +1321,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA3_2">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1360,9 +1338,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA3_3">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1391,9 +1367,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA3_4">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1424,9 +1398,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA3_5">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1467,9 +1439,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA3_6">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1571,6 +1541,9 @@
                           <StringArray count="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combMusculoA4ActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -1734,9 +1707,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA4">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1765,9 +1736,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA4_1">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1808,9 +1777,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA4_2">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1827,9 +1794,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA4_3">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1858,9 +1823,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA4_4">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1891,9 +1854,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA4_5">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -1934,9 +1895,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA4_6">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -2038,6 +1997,9 @@
                           <StringArray count="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combMusculoA5ActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -2201,9 +2163,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA5">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -2232,9 +2192,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA5_1">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -2275,9 +2233,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA5_2">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -2294,9 +2250,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA5_3">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -2325,9 +2279,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA5_4">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -2358,9 +2310,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA5_5">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -2401,9 +2351,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioA5_6">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -2497,6 +2445,9 @@
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combMusculoB1ActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -2660,9 +2611,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioB1">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -2691,9 +2640,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioB1_1">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -2734,9 +2681,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioB1_2">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -2753,9 +2698,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioB1_3">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -2784,9 +2727,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioB1_4">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -2817,9 +2758,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioB1_5">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -2863,9 +2802,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioB1_6">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -3128,9 +3065,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB2">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3159,9 +3094,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB2_1">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3202,9 +3135,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB2_2">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3221,9 +3152,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB2_3">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3252,9 +3181,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB2_4">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3285,9 +3212,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB2_5">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3328,9 +3253,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB2_6">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3595,9 +3518,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB3">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3626,9 +3547,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB3_1">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3669,9 +3588,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB3_2">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3688,9 +3605,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB3_3">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3719,9 +3634,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB3_4">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3752,9 +3665,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB3_5">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -3795,9 +3706,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB3_6">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4062,9 +3971,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB4">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4093,9 +4000,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB4_1">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4136,9 +4041,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB4_2">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4155,9 +4058,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB4_3">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4186,9 +4087,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB4_4">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4219,9 +4118,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB4_5">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4262,9 +4159,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB4_6">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4529,9 +4424,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB5">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4560,9 +4453,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB5_1">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4603,9 +4494,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB5_2">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4622,9 +4511,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB5_3">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4653,9 +4540,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB5_4">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4686,9 +4571,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB5_5">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4729,9 +4612,7 @@
                         <Component class="javax.swing.JComboBox" name="combExercicioB5_6">
                           <Properties>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="1">
-                                <StringItem index="0" value="Supino Reto"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
@@ -4988,9 +4869,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioC1">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -5019,9 +4898,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioC1_1">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -5062,9 +4939,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioC1_2">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -5081,9 +4956,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioC1_3">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -5112,9 +4985,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioC1_4">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -5145,9 +5016,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioC1_5">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -5191,9 +5060,7 @@
                     <Component class="javax.swing.JComboBox" name="combExercicioC1_6">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="1">
-                            <StringItem index="0" value="Supino Reto"/>
-                          </StringArray>
+                          <StringArray count="0"/>
                         </Property>
                       </Properties>
                       <AuxValues>
