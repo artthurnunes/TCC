@@ -4,6 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
+        * Layout OK
         * Parei em 2 lugares,fazendo o cadastro de repeticoes na tela cadastroExercicios e tentando melhorar o layout
           e começando a fazer o botão salvar da tela de treinos, a tabela do bd ja esta pronta. Pensar em como vou 
           fazer o insert com os codigos dos exercicios
