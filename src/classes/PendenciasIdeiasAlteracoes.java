@@ -4,12 +4,16 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        * Depois de terminar o de cima, voltar para a tela de treinos e já popular os combos dos treinos com os exercicios
-            do banco.
-        * Quando entrar na tela de treinos, quando ocorrer alguma modificação, nao deixar sair sem salvar se não 
-          será perdido
-        * Não deixar salvar exercicios nem grupos musculares vazios
+        * Parei em 2 lugares,fazendo o cadastro de repeticoes na tela cadastroExercicios e tentando melhorar o layout
+          e começando a fazer o botão salvar da tela de treinos, a tabela do bd ja esta pronta. Pensar em como vou 
+          fazer o insert com os codigos dos exercicios
+           - Pensei em fazer um select para recuperar os codigos, uma para os grupos e um para os exercicios e buscar o 
+             codigo sempre antes de fazer o insert
     
+        * Quando entrar na tela de treinos, quando ocorrer alguma modificação, nao deixar sair sem salvar se não 
+          será perdido.
+    
+        * Fazer Join para carregar o treino.
     */
     
     

@@ -1,6 +1,7 @@
 
 package telas_internas_main.cadastro;
 
+import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -31,12 +32,14 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     ArrayList<String> listaMembros = new ArrayList(); //lista de membros do banco
     ArrayList<String> listaExercicios = new ArrayList(); //lista de exercicios do banco
     ClasseCadastro_exercicios exercicios = new ClasseCadastro_exercicios();
+    ClasseCadastro cadastro = new ClasseCadastro();
     
     private boolean carregarPrimeiraVez = true; //variavel para não carregar toda hora que clicar na aba, somente 1 vez
  
     public TelaCadastro_treino(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        lblNomeAlunoTelaTreinos.setText(""+cadastro.getNome());
         this.ocultaBotoesTreinoA();
         this.ocultaBotoesTreinoB();
         this.ocultaBotoesTreinoC();
@@ -583,11 +586,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioC5_6 = new javax.swing.JComboBox<>();
         lblObservacoesC5_6 = new javax.swing.JLabel();
         btnLessC5 = new javax.swing.JButton();
+        lblNomeAlunoTelaTreinos = new javax.swing.JLabel();
+        IdTreino = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        btnSalvar = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Treinos");
@@ -1851,6 +1855,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         abaTreinoB.addTab("     Treino B - 1          ", jPanel17);
 
+        combMusculoB2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMusculoB2ActionPerformed(evt);
+            }
+        });
+
         btnPlusB2.setForeground(new java.awt.Color(251, 0, 51));
         btnPlusB2.setText("+");
         btnPlusB2.addActionListener(new java.awt.event.ActionListener() {
@@ -2056,6 +2066,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         );
 
         abaTreinoB.addTab("     Treino B - 2          ", jPanel18);
+
+        combMusculoB3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMusculoB3ActionPerformed(evt);
+            }
+        });
 
         btnPlusB3.setForeground(new java.awt.Color(251, 0, 51));
         btnPlusB3.setText("+");
@@ -2263,6 +2279,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         abaTreinoB.addTab("     Treino B - 3          ", jPanel20);
 
+        combMusculoB4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMusculoB4ActionPerformed(evt);
+            }
+        });
+
         btnPlusB4.setForeground(new java.awt.Color(251, 0, 51));
         btnPlusB4.setText("+");
         btnPlusB4.addActionListener(new java.awt.event.ActionListener() {
@@ -2468,6 +2490,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         );
 
         abaTreinoB.addTab("     Treino B - 4          ", jPanel23);
+
+        combMusculoB5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMusculoB5ActionPerformed(evt);
+            }
+        });
 
         btnPlusB5.setForeground(new java.awt.Color(251, 0, 51));
         btnPlusB5.setText("+");
@@ -2677,6 +2705,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         painelAbas.addTab("Treino B                                   ", abaTreinoB);
 
+        combMusculoC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMusculoC1ActionPerformed(evt);
+            }
+        });
+
         btnPlusC1.setForeground(new java.awt.Color(251, 0, 51));
         btnPlusC1.setText("+");
         btnPlusC1.addActionListener(new java.awt.event.ActionListener() {
@@ -2873,6 +2907,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         abaTreinoC.addTab("     Treino C - 1          ", jPanel29);
 
+        combMusculoC2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMusculoC2ActionPerformed(evt);
+            }
+        });
+
         btnPlusC2.setForeground(new java.awt.Color(251, 0, 51));
         btnPlusC2.setText("+");
         btnPlusC2.addActionListener(new java.awt.event.ActionListener() {
@@ -2883,13 +2923,9 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combExercicioC2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         combRepeticoesC2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC2.setText("Observações");
-
-        combExercicioC2_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         combRepeticoesC2_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
@@ -2897,31 +2933,21 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         combRepeticoesC2_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
-        combExercicioC2_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         lblObservacoesC2_2.setText("Observações");
-
-        combExercicioC2_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         combRepeticoesC2_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC2_3.setText("Observações");
 
-        combExercicioC2_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         lblObservacoesC2_4.setText("Observações");
 
         combRepeticoesC2_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combExercicioC2_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         lblObservacoesC2_5.setText("Observações");
 
         combRepeticoesC2_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         combRepeticoesC2_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combExercicioC2_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         lblObservacoesC2_6.setText("Observações");
 
@@ -3093,6 +3119,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         abaTreinoC.addTab("     Treino C - 2          ", jPanel31);
 
+        combMusculoC3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMusculoC3ActionPerformed(evt);
+            }
+        });
+
         btnPlusC3.setForeground(new java.awt.Color(251, 0, 51));
         btnPlusC3.setText("+");
         btnPlusC3.addActionListener(new java.awt.event.ActionListener() {
@@ -3103,13 +3135,9 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel36.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combExercicioC3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         combRepeticoesC3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC3.setText("Observações");
-
-        combExercicioC3_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         combRepeticoesC3_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
@@ -3117,31 +3145,21 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         combRepeticoesC3_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
-        combExercicioC3_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         lblObservacoesC3_2.setText("Observações");
-
-        combExercicioC3_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         combRepeticoesC3_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC3_3.setText("Observações");
 
-        combExercicioC3_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         lblObservacoesC3_4.setText("Observações");
 
         combRepeticoesC3_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combExercicioC3_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         lblObservacoesC3_5.setText("Observações");
 
         combRepeticoesC3_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         combRepeticoesC3_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combExercicioC3_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         lblObservacoesC3_6.setText("Observações");
 
@@ -3313,6 +3331,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         abaTreinoC.addTab("     Treino C - 3          ", jPanel34);
 
+        combMusculoC4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMusculoC4ActionPerformed(evt);
+            }
+        });
+
         btnPlusC4.setForeground(new java.awt.Color(251, 0, 51));
         btnPlusC4.setText("+");
         btnPlusC4.addActionListener(new java.awt.event.ActionListener() {
@@ -3323,13 +3347,9 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel39.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combExercicioC4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         combRepeticoesC4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC4.setText("Observações");
-
-        combExercicioC4_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         combRepeticoesC4_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
@@ -3337,31 +3357,21 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         combRepeticoesC4_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
-        combExercicioC4_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         lblObservacoesC4_2.setText("Observações");
-
-        combExercicioC4_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         combRepeticoesC4_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC4_3.setText("Observações");
 
-        combExercicioC4_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         lblObservacoesC4_4.setText("Observações");
 
         combRepeticoesC4_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combExercicioC4_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         lblObservacoesC4_5.setText("Observações");
 
         combRepeticoesC4_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         combRepeticoesC4_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combExercicioC4_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         lblObservacoesC4_6.setText("Observações");
 
@@ -3533,6 +3543,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         abaTreinoC.addTab("     Treino C - 4          ", jPanel37);
 
+        combMusculoC5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combMusculoC5ActionPerformed(evt);
+            }
+        });
+
         btnPlusC5.setForeground(new java.awt.Color(251, 0, 51));
         btnPlusC5.setText("+");
         btnPlusC5.addActionListener(new java.awt.event.ActionListener() {
@@ -3543,13 +3559,9 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel42.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combExercicioC5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         combRepeticoesC5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC5.setText("Observações");
-
-        combExercicioC5_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         combRepeticoesC5_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
@@ -3557,31 +3569,21 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         combRepeticoesC5_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
-        combExercicioC5_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         lblObservacoesC5_2.setText("Observações");
-
-        combExercicioC5_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         combRepeticoesC5_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC5_3.setText("Observações");
 
-        combExercicioC5_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
-
         lblObservacoesC5_4.setText("Observações");
 
         combRepeticoesC5_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combExercicioC5_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         lblObservacoesC5_5.setText("Observações");
 
         combRepeticoesC5_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         combRepeticoesC5_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combExercicioC5_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supino Reto" }));
 
         lblObservacoesC5_6.setText("Observações");
 
@@ -3755,17 +3757,22 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         painelAbas.addTab("Treino C                                   ", abaTreinoC);
 
-        jMenu1.setText("Salvar");
-        jMenuBar1.add(jMenu1);
+        lblNomeAlunoTelaTreinos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblNomeAlunoTelaTreinos.setForeground(new java.awt.Color(51, 0, 255));
+
+        btnSalvar.setText("Salvar");
+        btnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalvarMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnSalvar);
 
         jMenu2.setText("Editar");
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Novo");
         jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("                                                                                                                                                                            NOME DO ALUNO");
-        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -3776,11 +3783,11 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(painelAbas, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(painelAbas, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 381, Short.MAX_VALUE)
+                        .addGap(20, 20, 20)
+                        .addComponent(lblNomeAlunoTelaTreinos, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Tcad_dataDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3788,7 +3795,9 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(155, 155, 155))))
+                        .addGap(52, 52, 52)
+                        .addComponent(IdTreino, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3798,10 +3807,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
                     .addComponent(Tcad_dataDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNomeAlunoTelaTreinos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(IdTreino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(painelAbas, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -4840,6 +4851,257 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
             }
     }//GEN-LAST:event_combMusculoB1ActionPerformed
 
+    private void combMusculoB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoB2ActionPerformed
+        exercicios.setNm_membro((String)combMusculoB2.getSelectedItem());
+        try {
+            combExercicioB2.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+            combExercicioB2_1.removeAllItems();
+            combExercicioB2_2.removeAllItems();
+            combExercicioB2_3.removeAllItems();
+            combExercicioB2_4.removeAllItems();
+            combExercicioB2_5.removeAllItems();
+            combExercicioB2_6.removeAllItems();
+            exercicios.populandoCombExercicios();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+            combExercicioB2.addItem(listaExercicios.get(i));
+            combExercicioB2_1.addItem(listaExercicios.get(i));
+            combExercicioB2_2.addItem(listaExercicios.get(i));
+            combExercicioB2_3.addItem(listaExercicios.get(i));
+            combExercicioB2_4.addItem(listaExercicios.get(i));
+            combExercicioB2_5.addItem(listaExercicios.get(i));
+            combExercicioB2_6.addItem(listaExercicios.get(i));
+            }
+    }//GEN-LAST:event_combMusculoB2ActionPerformed
+
+    private void combMusculoB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoB3ActionPerformed
+        exercicios.setNm_membro((String)combMusculoB3.getSelectedItem());
+        try {
+            combExercicioB3.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+            combExercicioB3_1.removeAllItems();
+            combExercicioB3_2.removeAllItems();
+            combExercicioB3_3.removeAllItems();
+            combExercicioB3_4.removeAllItems();
+            combExercicioB3_5.removeAllItems();
+            combExercicioB3_6.removeAllItems();
+            exercicios.populandoCombExercicios();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+            combExercicioB3.addItem(listaExercicios.get(i));
+            combExercicioB3_1.addItem(listaExercicios.get(i));
+            combExercicioB3_2.addItem(listaExercicios.get(i));
+            combExercicioB3_3.addItem(listaExercicios.get(i));
+            combExercicioB3_4.addItem(listaExercicios.get(i));
+            combExercicioB3_5.addItem(listaExercicios.get(i));
+            combExercicioB3_6.addItem(listaExercicios.get(i));
+            }
+    }//GEN-LAST:event_combMusculoB3ActionPerformed
+
+    private void combMusculoB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoB4ActionPerformed
+        exercicios.setNm_membro((String)combMusculoB4.getSelectedItem());
+        try {
+            combExercicioB4.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+            combExercicioB4_1.removeAllItems();
+            combExercicioB4_2.removeAllItems();
+            combExercicioB4_3.removeAllItems();
+            combExercicioB4_4.removeAllItems();
+            combExercicioB4_5.removeAllItems();
+            combExercicioB4_6.removeAllItems();
+            exercicios.populandoCombExercicios();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+            combExercicioB4.addItem(listaExercicios.get(i));
+            combExercicioB4_1.addItem(listaExercicios.get(i));
+            combExercicioB4_2.addItem(listaExercicios.get(i));
+            combExercicioB4_3.addItem(listaExercicios.get(i));
+            combExercicioB4_4.addItem(listaExercicios.get(i));
+            combExercicioB4_5.addItem(listaExercicios.get(i));
+            combExercicioB4_6.addItem(listaExercicios.get(i));
+            }
+    }//GEN-LAST:event_combMusculoB4ActionPerformed
+
+    private void combMusculoB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoB5ActionPerformed
+        exercicios.setNm_membro((String)combMusculoB5.getSelectedItem());
+        try {
+            combExercicioB5.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+            combExercicioB5_1.removeAllItems();
+            combExercicioB5_2.removeAllItems();
+            combExercicioB5_3.removeAllItems();
+            combExercicioB5_4.removeAllItems();
+            combExercicioB5_5.removeAllItems();
+            combExercicioB5_6.removeAllItems();
+            exercicios.populandoCombExercicios();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+            combExercicioB5.addItem(listaExercicios.get(i));
+            combExercicioB5_1.addItem(listaExercicios.get(i));
+            combExercicioB5_2.addItem(listaExercicios.get(i));
+            combExercicioB5_3.addItem(listaExercicios.get(i));
+            combExercicioB5_4.addItem(listaExercicios.get(i));
+            combExercicioB5_5.addItem(listaExercicios.get(i));
+            combExercicioB5_6.addItem(listaExercicios.get(i));
+            }
+    }//GEN-LAST:event_combMusculoB5ActionPerformed
+
+    private void combMusculoC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoC1ActionPerformed
+        exercicios.setNm_membro((String)combMusculoC1.getSelectedItem());
+        try {
+            combExercicioC1.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+            combExercicioC1_1.removeAllItems();
+            combExercicioC1_2.removeAllItems();
+            combExercicioC1_3.removeAllItems();
+            combExercicioC1_4.removeAllItems();
+            combExercicioC1_5.removeAllItems();
+            combExercicioC1_6.removeAllItems();
+            exercicios.populandoCombExercicios();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+            combExercicioC1.addItem(listaExercicios.get(i));
+            combExercicioC1_1.addItem(listaExercicios.get(i));
+            combExercicioC1_2.addItem(listaExercicios.get(i));
+            combExercicioC1_3.addItem(listaExercicios.get(i));
+            combExercicioC1_4.addItem(listaExercicios.get(i));
+            combExercicioC1_5.addItem(listaExercicios.get(i));
+            combExercicioC1_6.addItem(listaExercicios.get(i));
+            }
+    }//GEN-LAST:event_combMusculoC1ActionPerformed
+
+    private void combMusculoC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoC2ActionPerformed
+        exercicios.setNm_membro((String)combMusculoC2.getSelectedItem());
+        try {
+            combExercicioC2.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+            combExercicioC2_1.removeAllItems();
+            combExercicioC2_2.removeAllItems();
+            combExercicioC2_3.removeAllItems();
+            combExercicioC2_4.removeAllItems();
+            combExercicioC2_5.removeAllItems();
+            combExercicioC2_6.removeAllItems();
+            exercicios.populandoCombExercicios();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+            combExercicioC2.addItem(listaExercicios.get(i));
+            combExercicioC2_1.addItem(listaExercicios.get(i));
+            combExercicioC2_2.addItem(listaExercicios.get(i));
+            combExercicioC2_3.addItem(listaExercicios.get(i));
+            combExercicioC2_4.addItem(listaExercicios.get(i));
+            combExercicioC2_5.addItem(listaExercicios.get(i));
+            combExercicioC2_6.addItem(listaExercicios.get(i));
+            }
+    }//GEN-LAST:event_combMusculoC2ActionPerformed
+
+    private void combMusculoC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoC3ActionPerformed
+        exercicios.setNm_membro((String)combMusculoC3.getSelectedItem());
+        try {
+            combExercicioC3.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+            combExercicioC3_1.removeAllItems();
+            combExercicioC3_2.removeAllItems();
+            combExercicioC3_3.removeAllItems();
+            combExercicioC3_4.removeAllItems();
+            combExercicioC3_5.removeAllItems();
+            combExercicioC3_6.removeAllItems();
+            exercicios.populandoCombExercicios();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+            combExercicioC3.addItem(listaExercicios.get(i));
+            combExercicioC3_1.addItem(listaExercicios.get(i));
+            combExercicioC3_2.addItem(listaExercicios.get(i));
+            combExercicioC3_3.addItem(listaExercicios.get(i));
+            combExercicioC3_4.addItem(listaExercicios.get(i));
+            combExercicioC3_5.addItem(listaExercicios.get(i));
+            combExercicioC3_6.addItem(listaExercicios.get(i));
+            }
+    }//GEN-LAST:event_combMusculoC3ActionPerformed
+
+    private void combMusculoC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoC4ActionPerformed
+        exercicios.setNm_membro((String)combMusculoC4.getSelectedItem());
+        try {
+            combExercicioC4.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+            combExercicioC4_1.removeAllItems();
+            combExercicioC4_2.removeAllItems();
+            combExercicioC4_3.removeAllItems();
+            combExercicioC4_4.removeAllItems();
+            combExercicioC4_5.removeAllItems();
+            combExercicioC4_6.removeAllItems();
+            exercicios.populandoCombExercicios();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+            combExercicioC4.addItem(listaExercicios.get(i));
+            combExercicioC4_1.addItem(listaExercicios.get(i));
+            combExercicioC4_2.addItem(listaExercicios.get(i));
+            combExercicioC4_3.addItem(listaExercicios.get(i));
+            combExercicioC4_4.addItem(listaExercicios.get(i));
+            combExercicioC4_5.addItem(listaExercicios.get(i));
+            combExercicioC4_6.addItem(listaExercicios.get(i));
+            }
+    }//GEN-LAST:event_combMusculoC4ActionPerformed
+
+    private void combMusculoC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoC5ActionPerformed
+        exercicios.setNm_membro((String)combMusculoC5.getSelectedItem());
+        try {
+            combExercicioC5.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+            combExercicioC5_1.removeAllItems();
+            combExercicioC5_2.removeAllItems();
+            combExercicioC5_3.removeAllItems();
+            combExercicioC5_4.removeAllItems();
+            combExercicioC5_5.removeAllItems();
+            combExercicioC5_6.removeAllItems();
+            exercicios.populandoCombExercicios();
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+            combExercicioC5.addItem(listaExercicios.get(i));
+            combExercicioC5_1.addItem(listaExercicios.get(i));
+            combExercicioC5_2.addItem(listaExercicios.get(i));
+            combExercicioC5_3.addItem(listaExercicios.get(i));
+            combExercicioC5_4.addItem(listaExercicios.get(i));
+            combExercicioC5_5.addItem(listaExercicios.get(i));
+            combExercicioC5_6.addItem(listaExercicios.get(i));
+            }
+    }//GEN-LAST:event_combMusculoC5ActionPerformed
+
+    private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
+        if(IdTreino.getText() == ""){
+            //insert
+        }else{
+            //update
+        }
+    }//GEN-LAST:event_btnSalvarMouseClicked
+
     
     //------------------FUNÇÕES/METODOS/PRODEDURES
     
@@ -5149,86 +5411,15 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
             }
     }
     
-    /*
-    private void carregarComboExerciciosA1(){
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioA1.addItem(listaExercicios.get(i));
-            combExercicioA1_1.addItem(listaExercicios.get(i));
-            combExercicioA1_2.addItem(listaExercicios.get(i));
-            combExercicioA1_3.addItem(listaExercicios.get(i));
-            combExercicioA1_4.addItem(listaExercicios.get(i));
-            combExercicioA1_5.addItem(listaExercicios.get(i));
-            combExercicioA1_6.addItem(listaExercicios.get(i));
-            }      
-    }
-    
-    private void carregarComboExerciciosA2(){
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioA2.addItem(listaExercicios.get(i));
-            combExercicioA2_1.addItem(listaExercicios.get(i));
-            combExercicioA2_2.addItem(listaExercicios.get(i));
-            combExercicioA2_3.addItem(listaExercicios.get(i));
-            combExercicioA2_4.addItem(listaExercicios.get(i));
-            combExercicioA2_5.addItem(listaExercicios.get(i));
-            combExercicioA2_6.addItem(listaExercicios.get(i));
-            }      
-    }
-    
-    private void carregarComboExerciciosA3(){
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioA3.addItem(listaExercicios.get(i));
-            combExercicioA3_1.addItem(listaExercicios.get(i));
-            combExercicioA3_2.addItem(listaExercicios.get(i));
-            combExercicioA3_3.addItem(listaExercicios.get(i));
-            combExercicioA3_4.addItem(listaExercicios.get(i));
-            combExercicioA3_5.addItem(listaExercicios.get(i));
-            combExercicioA3_6.addItem(listaExercicios.get(i));
-            }      
-    }
-    
-    private void carregarComboExerciciosA4(){
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioA4.addItem(listaExercicios.get(i));
-            combExercicioA4_1.addItem(listaExercicios.get(i));
-            combExercicioA4_2.addItem(listaExercicios.get(i));
-            combExercicioA4_3.addItem(listaExercicios.get(i));
-            combExercicioA4_4.addItem(listaExercicios.get(i));
-            combExercicioA4_5.addItem(listaExercicios.get(i));
-            combExercicioA4_6.addItem(listaExercicios.get(i));
-            }      
-    }
-    
-    private void carregarComboExerciciosA5(){
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioA5.addItem(listaExercicios.get(i));
-            combExercicioA5_1.addItem(listaExercicios.get(i));
-            combExercicioA5_2.addItem(listaExercicios.get(i));
-            combExercicioA5_3.addItem(listaExercicios.get(i));
-            combExercicioA5_4.addItem(listaExercicios.get(i));
-            combExercicioA5_5.addItem(listaExercicios.get(i));
-            combExercicioA5_6.addItem(listaExercicios.get(i));
-            }      
-    }
-    
-    */
-
-    
+   
+    /* --------------------------------------------------------------
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+    /* --------------------------------------------------------------
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -5248,6 +5439,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
+        /* --------------------------------------------------------------
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastro_treino dialog = new TelaCadastro_treino(new javax.swing.JFrame(), true);
@@ -5261,9 +5453,10 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
                 
             }
         });
-    }
+    } ------------------------------------------------------*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel IdTreino;
     private javax.swing.JFormattedTextField Tcad_dataDataInicial;
     private javax.swing.JTabbedPane abaTreinoA;
     private javax.swing.JTabbedPane abaTreinoB;
@@ -5298,6 +5491,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JButton btnPlusC3;
     private javax.swing.JButton btnPlusC4;
     private javax.swing.JButton btnPlusC5;
+    private javax.swing.JMenu btnSalvar;
     private javax.swing.JComboBox<String> combExercicioA1;
     private javax.swing.JComboBox<String> combExercicioA1_1;
     private javax.swing.JComboBox<String> combExercicioA1_2;
@@ -5526,10 +5720,8 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -5573,6 +5765,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lblNomeAlunoTelaTreinos;
     private javax.swing.JLabel lblObservacoesA1;
     private javax.swing.JLabel lblObservacoesA1_1;
     private javax.swing.JLabel lblObservacoesA1_2;

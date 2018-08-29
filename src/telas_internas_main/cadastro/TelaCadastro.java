@@ -514,7 +514,12 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Tcad_btnModalidadeActionPerformed
 
     private void Tcad_btnTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tcad_btnTreinoActionPerformed
-        new TelaCadastro_treino(null,true).setVisible(true);
+        if("".equals(lblCodigoAluno.getText())){
+            JOptionPane.showMessageDialog(null, "Não existe nenhum aluno selecionado !");
+        }else{
+            new TelaCadastro_treino(null,true).setVisible(true);
+        }
+        
     }//GEN-LAST:event_Tcad_btnTreinoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed

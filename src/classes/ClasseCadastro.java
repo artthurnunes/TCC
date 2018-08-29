@@ -3,9 +3,9 @@ package classes;
 
 public class ClasseCadastro {
     
-    private int cd_registro;
+    private static int cd_registro;
     private boolean situacao;
-    private String nome;
+    private static String nome;
     private String tel1;
     private String tel2;
     private String profissao;
