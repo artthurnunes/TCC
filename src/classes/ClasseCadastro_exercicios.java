@@ -19,6 +19,7 @@ public class ClasseCadastro_exercicios extends ClasseCadastro {
     private String nm_repeticao;
     private ArrayList<String> listaComboGrupos = new ArrayList();
     private ArrayList<String> listaComboExercicios = new ArrayList();
+    private ArrayList<String> listaComboRepeticoes = new ArrayList();
     Connection con;
     ResultSet rs = null;
     
@@ -386,6 +387,20 @@ public class ClasseCadastro_exercicios extends ClasseCadastro {
         //System.out.println(listaCombo); //teste   
     }
     
+    public void populandoCombRepeticoes() throws SQLException{
+        
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        
+        String sql = "SELECT NM_REPETICAO FROM TB_REPETICOES ORDER BY NM_REPETICAO ASC";
+        
+        rs = stmt.executeQuery(sql);
+        
+            while(rs.next()){
+                listaComboRepeticoes.add(rs.getString("NM_REPETICAO"));
+            } 
+    }   
+    
     public void populandoCombExercicios() throws SQLException{
         listaComboExercicios.clear();
         selects.retornaCdGrupoMuscular(this);
@@ -452,6 +467,14 @@ public class ClasseCadastro_exercicios extends ClasseCadastro {
 
     public void setListaComboExercicios(ArrayList<String> listaComboExercicios) {
         this.listaComboExercicios = listaComboExercicios;
+    }
+
+    public ArrayList<String> getListaComboRepeticoes() {
+        return listaComboRepeticoes;
+    }
+
+    public void setListaComboRepeticoes(ArrayList<String> listaComboRepeticoes) {
+        this.listaComboRepeticoes = listaComboRepeticoes;
     }
     
     public int getCd_treino() {

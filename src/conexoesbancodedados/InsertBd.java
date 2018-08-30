@@ -96,4 +96,24 @@ public class InsertBd {
         
     }
     
+    public void insereRepeticoes(ClasseCadastro_exercicios dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        //INSERT INTO TB_REPETICOES (NM_REPETICAO) VALUES ('3x10')
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_REPETICOES (NM_REPETICAO) VALUES (?)");           
+            
+            stmt.setString(1, dados.getNm_repeticao());
+                                   
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"REPETIÇÃO SALVA COM SUCESSO !");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }        
+        
+    }
+    
 }

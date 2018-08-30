@@ -46,5 +46,23 @@ public class DeleteBd {
         
     }
     
+    public void apagarRepeticoes(ClasseCadastro_exercicios dados) throws SQLException{
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("DELETE FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getNm_repeticao()+"'");
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>REPETIÇÃO: <b>"+dados.getNm_repeticao()+"</b> <br>EXLCUIDA COM SUCESSO !!!</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO EXCLUIR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+        
+        
+    }
+    
     
 }
