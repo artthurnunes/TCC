@@ -4,9 +4,11 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        * começando a fazer o botão salvar da tela de treinos.
-        * Setando os campos da tela na classe e fazendo o insert devagar para ja ir testando. vai ficar grandinho
-        * ATUALIZAR TABELA DE TREINOS, MODIFIQUEI NO TRABALHO
+    * FAZENDO O SELECT PARA POPULAR A TELA TREINOS    
+    *Começando a fazer o select dos treinos. Trazer o treino pelo CD_REGISTRO.Quando clicar no botão de editar do treino, quando salvar já salvar com novo CD_TREINO.
+        
+    
+        * ATUALIZAR TABELA DE TREINOS, MODIFIQUEI NO TRABALHO ((((((NÃO ESQUECER EM CASA !!!!))))))
     
         * Quando entrar na tela de treinos, quando ocorrer alguma modificação, nao deixar sair sem salvar se não 
           será perdido.

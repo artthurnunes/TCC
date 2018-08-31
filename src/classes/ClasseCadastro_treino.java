@@ -3,8 +3,9 @@ package classes;
 
 public class ClasseCadastro_treino {
     
-    private int cd_treino;
-    private String dt_inicio;
+    private static boolean treinoNovo = true;
+    private static int cd_treino;
+    private static String dt_inicio;
     private String dt_fim;
     private static int cd_registro;
     private String grupo_muscularA1;
@@ -351,6 +352,14 @@ public class ClasseCadastro_treino {
     private String exercicioC5_6;
     private String repeticaoC5_6;
     private String observacaoC5_6;
+
+    public static boolean getTreinoNovo() {
+        return treinoNovo;
+    }
+
+    public static void setTreinoNovo(boolean treinoNovo) {
+        ClasseCadastro_treino.treinoNovo = treinoNovo;
+    }
 
     public int getCd_treino() {
         return cd_treino;

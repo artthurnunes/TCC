@@ -519,8 +519,19 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         if("".equals(lblCodigoAluno.getText())){
             JOptionPane.showMessageDialog(null, "Não existe nenhum aluno selecionado !");
         }else{
-            treinos.setCd_registro(Integer.valueOf(lblCodigoAluno.getText()));
-            //System.out.println(treinos.getCd_registro()); //teste
+            treinos.setCd_registro(Integer.valueOf(lblCodigoAluno.getText())); //JÁ É SETADO O CD_REGISTRO PARA A CLASSECADASTRO_TREINO
+            try {
+                //SELECT PARA PESQUISAR SE O ALUNO JÁ TEM CADASTRO DE TREINO
+                treinos.setCd_treino(selects.selectExisteTreino(treinos)); //SETA O CÓDIGO DO TREINO PARA A CLASSE
+                    if(treinos.getCd_treino() == 0){
+                        //NÃO FAZ NADA, PRIMEIRO CADASTRO DE TREINO, FICA TUDO VAZIO
+                    }else{
+                        ClasseCadastro_treino.setTreinoNovo(false); //INDICANDO QUE NÃO PRECISA CARREGAR OS COMBOS DA TELA TREINOS POIS VAI VIR DO BD
+                        selects.populandoTelaTreinos();
+                    }
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+            }
             new TelaCadastro_treino(null,true).setVisible(true);
         }
         
@@ -592,14 +603,14 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private void btnPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesquisarMouseClicked
         classecadastro.setNome(Tcad_txtNome.getText());
         this.limparCampos();
-        //Try para contar quantas linhas o select vai retornar
         
+        //Try para contar quantas linhas o select vai retornar
         try{
             selects.setQt_linhas_select(selects.selectQtLinhasSelectOrderNome(classecadastro));
         }catch(SQLException ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("retorno de contagem com encapsulamento: "+selects.getQt_linhas_select());
+        //System.out.println("retorno de contagem com encapsulamento: "+selects.getQt_linhas_select()); //teste
         
         try {
             selects.selectCadastroAlfabetico(classecadastro);

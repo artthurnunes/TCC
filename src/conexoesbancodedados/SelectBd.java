@@ -3,6 +3,7 @@ package conexoesbancodedados;
 
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
+import classes.ClasseCadastro_treino;
 import classes.ClasseEsqueceuSenha;
 import classes.ClasseSenhaInicial;
 import java.sql.Connection;
@@ -16,6 +17,7 @@ public class SelectBd {
     
     ClasseSenhaInicial cSenha = new ClasseSenhaInicial();
     ClasseEsqueceuSenha cEsqSenha = new ClasseEsqueceuSenha();
+    ClasseCadastro_treino treinos = new ClasseCadastro_treino();
     
     PreparedStatement stmt = null;
     ResultSet rs = null;
@@ -137,7 +139,7 @@ public class SelectBd {
                 
                 this.linha_atual_select = rs.getRow();
                 
-                System.out.println("Linha atual do select :"+rs.getRow());//teste
+                //System.out.println("Linha atual do select :"+rs.getRow());//teste
             } 
         }
     }
@@ -183,10 +185,37 @@ public class SelectBd {
             //System.out.println(dados.getCd_membro()); //teste
     }
     
-    public void retornaListaDeExerciciosPorGrupos(ClasseCadastro dados){
+    public int selectExisteTreino(ClasseCadastro_treino dados) throws SQLException{
+        int n = 0;
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+                
+        String sql = "SELECT CD_TREINOA FROM TB_TREINOSA WHERE CD_REGISTRO = '"+dados.getCd_registro()+"' ";
         
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.last()){
+                n = rs.getInt("CD_TREINOA");
+            } 
+        return n;
     }
 
+    public void populandoTelaTreinos() throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        
+        String sql = "SELECT * FROM TB_TREINOSA WHERE CD_TREINOA = '"+treinos.getCd_treino()+"' ";
+        
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next()){
+                treinos.setCd_treino(rs.getInt("CD_TREINOA"));
+                treinos.setDt_inicio(rs.getString("DT_INICIO"));
+                
+            } 
+            
+            //System.out.println(dados.getCd_membro()); //teste
+    }
     
     
     

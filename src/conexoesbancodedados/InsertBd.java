@@ -215,7 +215,7 @@ public class InsertBd {
             stmt.setString(38, dados.getObservacaoA5_6());
                                    
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"TREINO SALVO !");
+            JOptionPane.showMessageDialog(null,"TREINO A SALVO !");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
@@ -225,4 +225,213 @@ public class InsertBd {
         
     }
     
+    public void insereTreinoB(ClasseCadastro_treino dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+             
+        try{
+           stmt = con.prepareStatement("INSERT INTO TB_TREINOSB (CD_REGISTRO,GRUPO_MUSCULARB1,EXERCICIOB1,REPETICAOB1,OBSERVACAOB1,EXERCICIOB1_1,REPETICAOB1_1,OBSERVACAOB1_1,EXERCICIOB1_2,REPETICAOB1_2,OBSERVACAOB1_2,EXERCICIOB1_3,REPETICAOB1_3,OBSERVACAOB1_3,EXERCICIOB1_4,REPETICAOB1_4,OBSERVACAOB1_4,EXERCICIOB1_5,REPETICAOB1_5,OBSERVACAOB1_5,EXERCICIOB1_6,REPETICAOB1_6,OBSERVACAOB1_6"
+                   + ",GRUPO_MUSCULARB2,EXERCICIOB2,REPETICAOB2,OBSERVACAOB2,EXERCICIOB2_1,REPETICAOB2_1,OBSERVACAOB2_1,EXERCICIOB2_2,REPETICAOB2_2,OBSERVACAOB2_2,EXERCICIOB2_3,REPETICAOB2_3,OBSERVACAOB2_3,EXERCICIOB2_4,REPETICAOB2_4,OBSERVACAOB2_4,EXERCICIOB2_5,REPETICAOB2_5,OBSERVACAOB2_5,EXERCICIOB2_6,REPETICAOB2_6,OBSERVACAOB2_6"
+                   + ",GRUPO_MUSCULARB3,EXERCICIOB3,REPETICAOB3,OBSERVACAOB3,EXERCICIOB3_1,REPETICAOB3_1,OBSERVACAOB3_1,EXERCICIOB3_2,REPETICAOB3_2,OBSERVACAOB3_2,EXERCICIOB3_3,REPETICAOB3_3,OBSERVACAOB3_3,EXERCICIOB3_4,REPETICAOB3_4,OBSERVACAOB3_4,EXERCICIOB3_5,REPETICAOB3_5,OBSERVACAOB3_5,EXERCICIOB3_6,REPETICAOB3_6,OBSERVACAOB3_6"
+                   + ",GRUPO_MUSCULARB4,EXERCICIOB4,REPETICAOB4,OBSERVACAOB4,EXERCICIOB4_1,REPETICAOB4_1,OBSERVACAOB4_1,EXERCICIOB4_2,REPETICAOB4_2,OBSERVACAOB4_2,EXERCICIOB4_3,REPETICAOB4_3,OBSERVACAOB4_3,EXERCICIOB4_4,REPETICAOB4_4,OBSERVACAOB4_4,EXERCICIOB4_5,REPETICAOB4_5,OBSERVACAOB4_5,EXERCICIOB4_6,REPETICAOB4_6,OBSERVACAOB4_6"
+                   + ",GRUPO_MUSCULARB5,EXERCICIOB5,REPETICAOB5,OBSERVACAOB5,EXERCICIOB5_1,REPETICAOB5_1,OBSERVACAOB5_1,EXERCICIOB5_2,REPETICAOB5_2,OBSERVACAOB5_2,EXERCICIOB5_3,REPETICAOB5_3,OBSERVACAOB5_3,EXERCICIOB5_4,REPETICAOB5_4,OBSERVACAOB5_4,EXERCICIOB5_5,REPETICAOB5_5,OBSERVACAOB5_5,EXERCICIOB5_6,REPETICAOB5_6,OBSERVACAOB5_6)"
+                   
+                   + "VALUES ((?),(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularB1()+"')"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB1()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB1_1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB1_1()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB1_2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB1_2()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB1_3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB1_3()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB1_4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB1_4()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB1_5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB1_5()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB1_6()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB1_6()+"'),(?)"
+                   
+                        + ",(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularB2()+"')  "
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB2()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB2_1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB2_1()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB2_2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB2_2()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB2_3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB2_3()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB2_4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB2_4()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB2_5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB2_5()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB2_6()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB2_6()+"'),(?)"
+                   
+                            + ",(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularB3()+"')  "
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB3()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB3_1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB3_1()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB3_2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB3_2()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB3_3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB3_3()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB3_4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB3_4()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB3_5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB3_5()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB3_6()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB3_6()+"'),(?)"        
+                           
+                                + ",(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularB4()+"')  "
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB4()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB4_1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB4_1()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB4_2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB4_2()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB4_3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB4_3()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB4_4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB4_4()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB4_5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB4_5()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB4_6()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB4_6()+"'),(?)"
+                                 
+                                    + ",(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularB5()+"')  "
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB5()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB5_1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB5_1()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB5_2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB5_2()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB5_3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB5_3()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB5_4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB5_4()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB5_5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB5_5()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioB5_6()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoB5_6()+"'),(?)"                                  
+                                    + "  )");
+            
+            stmt.setInt(1, dados.getCd_registro());
+            stmt.setString(2, dados.getObservacaoB1());
+            stmt.setString(3, dados.getObservacaoB1_1());
+            stmt.setString(4, dados.getObservacaoB1_2());
+            stmt.setString(5, dados.getObservacaoB1_3());
+            stmt.setString(6, dados.getObservacaoB1_4());
+            stmt.setString(7, dados.getObservacaoB1_5());
+            stmt.setString(8, dados.getObservacaoB1_6());
+            stmt.setString(9, dados.getObservacaoB2());
+            stmt.setString(10, dados.getObservacaoB2_1());
+            stmt.setString(11, dados.getObservacaoB2_2());
+            stmt.setString(12, dados.getObservacaoB2_3());
+            stmt.setString(13, dados.getObservacaoB2_4());
+            stmt.setString(14, dados.getObservacaoB2_5());
+            stmt.setString(15, dados.getObservacaoB2_6());
+            stmt.setString(16, dados.getObservacaoB3());
+            stmt.setString(17, dados.getObservacaoB3_1());
+            stmt.setString(18, dados.getObservacaoB3_2());
+            stmt.setString(19, dados.getObservacaoB3_3());
+            stmt.setString(20, dados.getObservacaoB3_4());
+            stmt.setString(21, dados.getObservacaoB3_5());
+            stmt.setString(22, dados.getObservacaoB3_6());
+            stmt.setString(23, dados.getObservacaoB4());
+            stmt.setString(24, dados.getObservacaoB4_1());
+            stmt.setString(25, dados.getObservacaoB4_2());
+            stmt.setString(26, dados.getObservacaoB4_3());
+            stmt.setString(27, dados.getObservacaoB4_4());
+            stmt.setString(28, dados.getObservacaoB4_5());
+            stmt.setString(29, dados.getObservacaoB4_6());
+            stmt.setString(30, dados.getObservacaoB5());
+            stmt.setString(31, dados.getObservacaoB5_1());
+            stmt.setString(32, dados.getObservacaoB5_2());
+            stmt.setString(33, dados.getObservacaoB5_3());
+            stmt.setString(34, dados.getObservacaoB5_4());
+            stmt.setString(35, dados.getObservacaoB5_5());
+            stmt.setString(36, dados.getObservacaoB5_6());
+                                   
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"TREINO B SALVO !");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }        
+        
+    }
+    
+    public void insereTreinoC(ClasseCadastro_treino dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+             
+        try{
+           stmt = con.prepareStatement("INSERT INTO TB_TREINOSC (CD_REGISTRO,GRUPO_MUSCULARC1,EXERCICIOC1,REPETICAOC1,OBSERVACAOC1,EXERCICIOC1_1,REPETICAOC1_1,OBSERVACAOC1_1,EXERCICIOC1_2,REPETICAOC1_2,OBSERVACAOC1_2,EXERCICIOC1_3,REPETICAOC1_3,OBSERVACAOC1_3,EXERCICIOC1_4,REPETICAOC1_4,OBSERVACAOC1_4,EXERCICIOC1_5,REPETICAOC1_5,OBSERVACAOC1_5,EXERCICIOC1_6,REPETICAOC1_6,OBSERVACAOC1_6"
+                   + ",GRUPO_MUSCULARC2,EXERCICIOC2,REPETICAOC2,OBSERVACAOC2,EXERCICIOC2_1,REPETICAOC2_1,OBSERVACAOC2_1,EXERCICIOC2_2,REPETICAOC2_2,OBSERVACAOC2_2,EXERCICIOC2_3,REPETICAOC2_3,OBSERVACAOC2_3,EXERCICIOC2_4,REPETICAOC2_4,OBSERVACAOC2_4,EXERCICIOC2_5,REPETICAOC2_5,OBSERVACAOC2_5,EXERCICIOC2_6,REPETICAOC2_6,OBSERVACAOC2_6"
+                   + ",GRUPO_MUSCULARC3,EXERCICIOC3,REPETICAOC3,OBSERVACAOC3,EXERCICIOC3_1,REPETICAOC3_1,OBSERVACAOC3_1,EXERCICIOC3_2,REPETICAOC3_2,OBSERVACAOC3_2,EXERCICIOC3_3,REPETICAOC3_3,OBSERVACAOC3_3,EXERCICIOC3_4,REPETICAOC3_4,OBSERVACAOC3_4,EXERCICIOC3_5,REPETICAOC3_5,OBSERVACAOC3_5,EXERCICIOC3_6,REPETICAOC3_6,OBSERVACAOC3_6"
+                   + ",GRUPO_MUSCULARC4,EXERCICIOC4,REPETICAOC4,OBSERVACAOC4,EXERCICIOC4_1,REPETICAOC4_1,OBSERVACAOC4_1,EXERCICIOC4_2,REPETICAOC4_2,OBSERVACAOC4_2,EXERCICIOC4_3,REPETICAOC4_3,OBSERVACAOC4_3,EXERCICIOC4_4,REPETICAOC4_4,OBSERVACAOC4_4,EXERCICIOC4_5,REPETICAOC4_5,OBSERVACAOC4_5,EXERCICIOC4_6,REPETICAOC4_6,OBSERVACAOC4_6"
+                   + ",GRUPO_MUSCULARC5,EXERCICIOC5,REPETICAOC5,OBSERVACAOC5,EXERCICIOC5_1,REPETICAOC5_1,OBSERVACAOC5_1,EXERCICIOC5_2,REPETICAOC5_2,OBSERVACAOC5_2,EXERCICIOC5_3,REPETICAOC5_3,OBSERVACAOC5_3,EXERCICIOC5_4,REPETICAOC5_4,OBSERVACAOC5_4,EXERCICIOC5_5,REPETICAOC5_5,OBSERVACAOC5_5,EXERCICIOC5_6,REPETICAOC5_6,OBSERVACAOC5_6)"
+                   
+                   + "VALUES ((?),(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularC1()+"')"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC1()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC1_1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC1_1()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC1_2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC1_2()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC1_3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC1_3()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC1_4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC1_4()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC1_5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC1_5()+"'),(?)"
+                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC1_6()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC1_6()+"'),(?)"
+                   
+                        + ",(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularC2()+"')  "
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC2()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC2_1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC2_1()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC2_2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC2_2()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC2_3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC2_3()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC2_4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC2_4()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC2_5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC2_5()+"'),(?)"
+                        + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC2_6()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC2_6()+"'),(?)"
+                   
+                            + ",(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularC3()+"')  "
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC3()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC3_1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC3_1()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC3_2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC3_2()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC3_3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC3_3()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC3_4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC3_4()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC3_5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC3_5()+"'),(?)"
+                            + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC3_6()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC3_6()+"'),(?)"        
+                           
+                                + ",(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularC4()+"')  "
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC4()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC4_1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC4_1()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC4_2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC4_2()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC4_3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC4_3()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC4_4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC4_4()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC4_5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC4_5()+"'),(?)"
+                                + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC4_6()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC4_6()+"'),(?)"
+                                 
+                                    + ",(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularC5()+"')  "
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC5()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC5_1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC5_1()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC5_2()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC5_2()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC5_3()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC5_3()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC5_4()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC5_4()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC5_5()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC5_5()+"'),(?)"
+                                    + ",(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioC5_6()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoC5_6()+"'),(?)"                                  
+                                    + "  )");
+            
+            stmt.setInt(1, dados.getCd_registro());
+            stmt.setString(2, dados.getObservacaoC1());
+            stmt.setString(3, dados.getObservacaoC1_1());
+            stmt.setString(4, dados.getObservacaoC1_2());
+            stmt.setString(5, dados.getObservacaoC1_3());
+            stmt.setString(6, dados.getObservacaoC1_4());
+            stmt.setString(7, dados.getObservacaoC1_5());
+            stmt.setString(8, dados.getObservacaoC1_6());
+            stmt.setString(9, dados.getObservacaoC2());
+            stmt.setString(10, dados.getObservacaoC2_1());
+            stmt.setString(11, dados.getObservacaoC2_2());
+            stmt.setString(12, dados.getObservacaoC2_3());
+            stmt.setString(13, dados.getObservacaoC2_4());
+            stmt.setString(14, dados.getObservacaoC2_5());
+            stmt.setString(15, dados.getObservacaoC2_6());
+            stmt.setString(16, dados.getObservacaoC3());
+            stmt.setString(17, dados.getObservacaoC3_1());
+            stmt.setString(18, dados.getObservacaoC3_2());
+            stmt.setString(19, dados.getObservacaoC3_3());
+            stmt.setString(20, dados.getObservacaoC3_4());
+            stmt.setString(21, dados.getObservacaoC3_5());
+            stmt.setString(22, dados.getObservacaoC3_6());
+            stmt.setString(23, dados.getObservacaoC4());
+            stmt.setString(24, dados.getObservacaoC4_1());
+            stmt.setString(25, dados.getObservacaoC4_2());
+            stmt.setString(26, dados.getObservacaoC4_3());
+            stmt.setString(27, dados.getObservacaoC4_4());
+            stmt.setString(28, dados.getObservacaoC4_5());
+            stmt.setString(29, dados.getObservacaoC4_6());
+            stmt.setString(30, dados.getObservacaoC5());
+            stmt.setString(31, dados.getObservacaoC5_1());
+            stmt.setString(32, dados.getObservacaoC5_2());
+            stmt.setString(33, dados.getObservacaoC5_3());
+            stmt.setString(34, dados.getObservacaoC5_4());
+            stmt.setString(35, dados.getObservacaoC5_5());
+            stmt.setString(36, dados.getObservacaoC5_6());
+                                   
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"TREINO C SALVO !");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }        
+        
+    }
 }
