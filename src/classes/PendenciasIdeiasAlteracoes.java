@@ -6,6 +6,7 @@ public class PendenciasIdeiasAlteracoes {
     /*   ONDE PAREI ----------------------------
         * começando a fazer o botão salvar da tela de treinos.
         * Setando os campos da tela na classe e fazendo o insert devagar para ja ir testando. vai ficar grandinho
+        * ATUALIZAR TABELA DE TREINOS, MODIFIQUEI NO TRABALHO
     
         * Quando entrar na tela de treinos, quando ocorrer alguma modificação, nao deixar sair sem salvar se não 
           será perdido.
