@@ -3,10 +3,13 @@ package telas_internas_main.cadastro;
 
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
+import classes.ClasseCadastro_treino;
+import conexoesbancodedados.InsertBd;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import telas.TelaCadastroExercicios;
 
 public class TelaCadastro_treino extends javax.swing.JDialog {
@@ -31,8 +34,11 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     
     ArrayList<String> listaMembros = new ArrayList(); //lista de membros do banco
     ArrayList<String> listaExercicios = new ArrayList(); //lista de exercicios do banco
+    ArrayList<String> listaRepeticoes = new ArrayList(); //lista de exercicios do banco
     ClasseCadastro_exercicios exercicios = new ClasseCadastro_exercicios();
+    ClasseCadastro_treino treinos = new ClasseCadastro_treino();
     ClasseCadastro cadastro = new ClasseCadastro();
+    InsertBd inserts = new InsertBd();
     
     private boolean carregarPrimeiraVez = true; //variavel para não carregar toda hora que clicar na aba, somente 1 vez
  
@@ -41,9 +47,10 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         initComponents();
         lblNomeAlunoTelaTreinos.setText(""+cadastro.getNome());
         this.ocultaBotoesTreinoA();
-        this.ocultaBotoesTreinoB();
+        this.ocultaBotoesTreinoB(); //PENSAR EM ALGUMA COISA PARA QUE O 4 TREINO APAREÇA CASO TENHA CADASTRO NO BD
         this.ocultaBotoesTreinoC();
-        this.carregarComboGrupos();        
+        this.carregarComboGrupos(); 
+        this.carregarComboRepeticoes();
         
         //TODOS OS MÉTODOS DA CLASSE SÃO EXECUTADOS QUANDO A TELA INCIA NÃO SEI PQ ??.....
         //Por isso codigo abaixo esta comentado mas vou deixar aqui pois nao estava funcionando assim BKP SE PARAR
@@ -73,8 +80,8 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Tcad_dataDataInicial = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        dtInicial = new javax.swing.JFormattedTextField();
+        dtFinal = new javax.swing.JFormattedTextField();
         painelAbas = new javax.swing.JTabbedPane();
         abaTreinoA = new javax.swing.JTabbedPane();
         jPanel10 = new javax.swing.JPanel();
@@ -622,31 +629,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesA1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA1.setText("Observações");
-
-        combRepeticoesA1_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA1_1.setText("Observações");
 
-        combRepeticoesA1_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA1_2.setText("Observações");
-
-        combRepeticoesA1_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA1_3.setText("Observações");
 
         lblObservacoesA1_4.setText("Observações");
 
-        combRepeticoesA1_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA1_5.setText("Observações");
-
-        combRepeticoesA1_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesA1_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA1_6.setText("Observações");
 
@@ -819,31 +812,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesA2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA2.setText("Observações");
-
-        combRepeticoesA2_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA2_1.setText("Observações");
 
-        combRepeticoesA2_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA2_2.setText("Observações");
-
-        combRepeticoesA2_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA2_3.setText("Observações");
 
         lblObservacoesA2_4.setText("Observações");
 
-        combRepeticoesA2_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA2_5.setText("Observações");
-
-        combRepeticoesA2_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesA2_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA2_6.setText("Observações");
 
@@ -1031,31 +1010,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesA3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA3.setText("Observações");
-
-        combRepeticoesA3_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA3_1.setText("Observações");
 
-        combRepeticoesA3_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA3_2.setText("Observações");
-
-        combRepeticoesA3_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA3_3.setText("Observações");
 
         lblObservacoesA3_4.setText("Observações");
 
-        combRepeticoesA3_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA3_5.setText("Observações");
-
-        combRepeticoesA3_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesA3_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA3_6.setText("Observações");
 
@@ -1243,31 +1208,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesA4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA4.setText("Observações");
-
-        combRepeticoesA4_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA4_1.setText("Observações");
 
-        combRepeticoesA4_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA4_2.setText("Observações");
-
-        combRepeticoesA4_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA4_3.setText("Observações");
 
         lblObservacoesA4_4.setText("Observações");
 
-        combRepeticoesA4_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA4_5.setText("Observações");
-
-        combRepeticoesA4_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesA4_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA4_6.setText("Observações");
 
@@ -1455,31 +1406,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesA5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA5.setText("Observações");
-
-        combRepeticoesA5_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA5_1.setText("Observações");
 
-        combRepeticoesA5_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA5_2.setText("Observações");
-
-        combRepeticoesA5_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA5_3.setText("Observações");
 
         lblObservacoesA5_4.setText("Observações");
 
-        combRepeticoesA5_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesA5_5.setText("Observações");
-
-        combRepeticoesA5_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesA5_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesA5_6.setText("Observações");
 
@@ -1669,31 +1606,18 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesB1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB1.setText("Observações");
-
-        combRepeticoesB1_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB1_1.setText("Observações");
 
-        combRepeticoesB1_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB1_2.setText("Observações");
-
-        combRepeticoesB1_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB1_3.setText("Observações");
 
         lblObservacoesB1_4.setText("Observações");
 
-        combRepeticoesB1_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB1_5.setText("Observações");
 
-        combRepeticoesB1_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesB1_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
         combRepeticoesB1_6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combRepeticoesB1_6ActionPerformed(evt);
@@ -1871,31 +1795,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesB2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB2.setText("Observações");
-
-        combRepeticoesB2_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB2_1.setText("Observações");
 
-        combRepeticoesB2_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB2_2.setText("Observações");
-
-        combRepeticoesB2_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB2_3.setText("Observações");
 
         lblObservacoesB2_4.setText("Observações");
 
-        combRepeticoesB2_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB2_5.setText("Observações");
-
-        combRepeticoesB2_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesB2_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB2_6.setText("Observações");
 
@@ -2083,31 +1993,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesB3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB3.setText("Observações");
-
-        combRepeticoesB3_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB3_1.setText("Observações");
 
-        combRepeticoesB3_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB3_2.setText("Observações");
-
-        combRepeticoesB3_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB3_3.setText("Observações");
 
         lblObservacoesB3_4.setText("Observações");
 
-        combRepeticoesB3_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB3_5.setText("Observações");
-
-        combRepeticoesB3_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesB3_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB3_6.setText("Observações");
 
@@ -2295,31 +2191,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesB4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB4.setText("Observações");
-
-        combRepeticoesB4_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB4_1.setText("Observações");
 
-        combRepeticoesB4_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB4_2.setText("Observações");
-
-        combRepeticoesB4_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB4_3.setText("Observações");
 
         lblObservacoesB4_4.setText("Observações");
 
-        combRepeticoesB4_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB4_5.setText("Observações");
-
-        combRepeticoesB4_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesB4_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB4_6.setText("Observações");
 
@@ -2507,31 +2389,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel28.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesB5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB5.setText("Observações");
-
-        combRepeticoesB5_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB5_1.setText("Observações");
 
-        combRepeticoesB5_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB5_2.setText("Observações");
-
-        combRepeticoesB5_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB5_3.setText("Observações");
 
         lblObservacoesB5_4.setText("Observações");
 
-        combRepeticoesB5_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesB5_5.setText("Observações");
-
-        combRepeticoesB5_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesB5_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesB5_6.setText("Observações");
 
@@ -2721,31 +2589,18 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesC1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC1.setText("Observações");
-
-        combRepeticoesC1_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC1_1.setText("Observações");
 
-        combRepeticoesC1_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC1_2.setText("Observações");
-
-        combRepeticoesC1_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC1_3.setText("Observações");
 
         lblObservacoesC1_4.setText("Observações");
 
-        combRepeticoesC1_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC1_5.setText("Observações");
 
-        combRepeticoesC1_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesC1_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
         combRepeticoesC1_6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combRepeticoesC1_6ActionPerformed(evt);
@@ -2923,31 +2778,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesC2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC2.setText("Observações");
-
-        combRepeticoesC2_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC2_1.setText("Observações");
 
-        combRepeticoesC2_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC2_2.setText("Observações");
-
-        combRepeticoesC2_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC2_3.setText("Observações");
 
         lblObservacoesC2_4.setText("Observações");
 
-        combRepeticoesC2_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC2_5.setText("Observações");
-
-        combRepeticoesC2_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesC2_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC2_6.setText("Observações");
 
@@ -3135,31 +2976,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel36.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesC3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC3.setText("Observações");
-
-        combRepeticoesC3_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC3_1.setText("Observações");
 
-        combRepeticoesC3_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC3_2.setText("Observações");
-
-        combRepeticoesC3_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC3_3.setText("Observações");
 
         lblObservacoesC3_4.setText("Observações");
 
-        combRepeticoesC3_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC3_5.setText("Observações");
-
-        combRepeticoesC3_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesC3_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC3_6.setText("Observações");
 
@@ -3347,31 +3174,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel39.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesC4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC4.setText("Observações");
-
-        combRepeticoesC4_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC4_1.setText("Observações");
 
-        combRepeticoesC4_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC4_2.setText("Observações");
-
-        combRepeticoesC4_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC4_3.setText("Observações");
 
         lblObservacoesC4_4.setText("Observações");
 
-        combRepeticoesC4_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC4_5.setText("Observações");
-
-        combRepeticoesC4_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesC4_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC4_6.setText("Observações");
 
@@ -3559,31 +3372,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         jPanel42.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Exercícios"));
 
-        combRepeticoesC5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC5.setText("Observações");
-
-        combRepeticoesC5_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC5_1.setText("Observações");
 
-        combRepeticoesC5_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC5_2.setText("Observações");
-
-        combRepeticoesC5_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC5_3.setText("Observações");
 
         lblObservacoesC5_4.setText("Observações");
 
-        combRepeticoesC5_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
         lblObservacoesC5_5.setText("Observações");
-
-        combRepeticoesC5_5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
-
-        combRepeticoesC5_6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3 x 12" }));
 
         lblObservacoesC5_6.setText("Observações");
 
@@ -3790,11 +3589,11 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
                         .addGap(30, 30, 30)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Tcad_dataDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dtInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dtFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
                         .addComponent(IdTreino, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -3803,13 +3602,14 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(Tcad_dataDataInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNomeAlunoTelaTreinos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(IdTreino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNomeAlunoTelaTreinos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(IdTreino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4)
+                        .addComponent(dtInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dtFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(painelAbas, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
@@ -5095,11 +4895,18 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     }//GEN-LAST:event_combMusculoC5ActionPerformed
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
-        if(IdTreino.getText() == ""){
-            //insert
+        if(combMusculoA1.getSelectedItem() == ""){
+            JOptionPane.showMessageDialog(null,"Escolha um grupo muscular !");
         }else{
-            //update
+            if("".equals(IdTreino.getText())){
+            //insert
+            this.setandoCamposClasseCadastro_treino();
+            inserts.insereTreinoA(treinos);
+            }else{
+                //update
+            }
         }
+        
     }//GEN-LAST:event_btnSalvarMouseClicked
 
     
@@ -5411,6 +5218,169 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
             }
     }
     
+    private void carregarComboRepeticoes(){
+        System.out.println("Chamei metodo repeticoes");
+        listaRepeticoes = exercicios.getListaComboRepeticoes(); //recebendo a lista do banco
+
+        try {
+            exercicios.populandoCombRepeticoes(); //atualizando o combobox com os dados do banco 
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            for(int i=0; i < listaRepeticoes.size();i++){ //populando o combobox com os dados
+                combRepeticoesA1.addItem(listaRepeticoes.get(i));
+                combRepeticoesA1_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesA1_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesA1_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesA1_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesA1_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesA1_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesA2.addItem(listaRepeticoes.get(i));
+                combRepeticoesA2_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesA2_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesA2_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesA2_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesA2_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesA2_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesA3.addItem(listaRepeticoes.get(i));
+                combRepeticoesA3_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesA3_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesA3_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesA3_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesA3_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesA3_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesA4.addItem(listaRepeticoes.get(i));
+                combRepeticoesA4_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesA4_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesA4_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesA4_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesA4_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesA4_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesA5.addItem(listaRepeticoes.get(i));
+                combRepeticoesA5_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesA5_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesA5_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesA5_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesA5_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesA5_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesB1.addItem(listaRepeticoes.get(i));
+                combRepeticoesB1_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesB1_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesB1_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesB1_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesB1_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesB1_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesB2.addItem(listaRepeticoes.get(i));
+                combRepeticoesB2_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesB2_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesB2_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesB2_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesB2_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesB2_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesB3.addItem(listaRepeticoes.get(i));
+                combRepeticoesB3_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesB3_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesB3_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesB3_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesB3_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesB3_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesB4.addItem(listaRepeticoes.get(i));
+                combRepeticoesB4_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesB4_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesB4_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesB4_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesB4_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesB4_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesB5.addItem(listaRepeticoes.get(i));
+                combRepeticoesB5_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesB5_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesB5_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesB5_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesB5_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesB5_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesC1.addItem(listaRepeticoes.get(i));
+                combRepeticoesC1_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesC1_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesC1_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesC1_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesC1_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesC1_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesC2.addItem(listaRepeticoes.get(i));
+                combRepeticoesC2_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesC2_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesC2_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesC2_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesC2_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesC2_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesC3.addItem(listaRepeticoes.get(i));
+                combRepeticoesC3_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesC3_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesC3_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesC3_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesC3_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesC3_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesC4.addItem(listaRepeticoes.get(i));
+                combRepeticoesC4_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesC4_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesC4_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesC4_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesC4_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesC4_6.addItem(listaRepeticoes.get(i));
+                
+                combRepeticoesC5.addItem(listaRepeticoes.get(i));
+                combRepeticoesC5_1.addItem(listaRepeticoes.get(i));
+                combRepeticoesC5_2.addItem(listaRepeticoes.get(i));
+                combRepeticoesC5_3.addItem(listaRepeticoes.get(i));
+                combRepeticoesC5_4.addItem(listaRepeticoes.get(i));
+                combRepeticoesC5_5.addItem(listaRepeticoes.get(i));
+                combRepeticoesC5_6.addItem(listaRepeticoes.get(i));
+                
+            }
+    }
+    
+    private void setandoCamposClasseCadastro_treino(){
+        treinos.setDt_inicio(dtInicial.getText());
+        treinos.setDt_fim(dtFinal.getText());
+        //codigo aluno ja setado antes de vir pra ca
+        treinos.setGrupo_muscularA1((String)combMusculoA1.getSelectedItem());        
+        treinos.setExercicioA1((String)combExercicioA1.getSelectedItem());
+        treinos.setRepeticaoA1((String)combRepeticoesA1.getSelectedItem());
+        treinos.setObservacaoA1(txtObservacoesA1.getText());        
+        treinos.setExercicioA1_1((String)combExercicioA1_1.getSelectedItem());
+        treinos.setRepeticaoA1_1((String)combRepeticoesA1_1.getSelectedItem());
+        treinos.setObservacaoA1_1(txtObservacoesA1_1.getText());
+        treinos.setExercicioA1_2((String)combExercicioA1_1.getSelectedItem());
+        treinos.setRepeticaoA1_2((String)combRepeticoesA1_1.getSelectedItem());
+        treinos.setObservacaoA1_2(txtObservacoesA1_1.getText());
+        treinos.setExercicioA1_3((String)combExercicioA1_1.getSelectedItem());
+        treinos.setRepeticaoA1_3((String)combRepeticoesA1_1.getSelectedItem());
+        treinos.setObservacaoA1_3(txtObservacoesA1_1.getText());
+        treinos.setExercicioA1_4((String)combExercicioA1_1.getSelectedItem());
+        treinos.setRepeticaoA1_4((String)combRepeticoesA1_1.getSelectedItem());
+        treinos.setObservacaoA1_4(txtObservacoesA1_1.getText());
+        treinos.setExercicioA1_5((String)combExercicioA1_1.getSelectedItem());
+        treinos.setRepeticaoA1_5((String)combRepeticoesA1_1.getSelectedItem());
+        treinos.setObservacaoA1_5(txtObservacoesA1_1.getText());
+        treinos.setExercicioA1_6((String)combExercicioA1_1.getSelectedItem());
+        treinos.setRepeticaoA1_6((String)combRepeticoesA1_1.getSelectedItem());
+        treinos.setObservacaoA1_6(txtObservacoesA1_1.getText());
+        
+        
+               
+    }
    
     /* --------------------------------------------------------------
     public static void main(String args[]) {
@@ -5457,7 +5427,6 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IdTreino;
-    private javax.swing.JFormattedTextField Tcad_dataDataInicial;
     private javax.swing.JTabbedPane abaTreinoA;
     private javax.swing.JTabbedPane abaTreinoB;
     private javax.swing.JTabbedPane abaTreinoC;
@@ -5717,7 +5686,8 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> combRepeticoesC5_4;
     private javax.swing.JComboBox<String> combRepeticoesC5_5;
     private javax.swing.JComboBox<String> combRepeticoesC5_6;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JFormattedTextField dtFinal;
+    private javax.swing.JFormattedTextField dtInicial;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu2;

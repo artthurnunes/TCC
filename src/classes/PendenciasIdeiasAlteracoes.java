@@ -4,12 +4,8 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        * Layout OK
-        * Parei em 2 lugares,fazendo o cadastro de repeticoes na tela cadastroExercicios e tentando melhorar o layout
-          e começando a fazer o botão salvar da tela de treinos, a tabela do bd ja esta pronta. Pensar em como vou 
-          fazer o insert com os codigos dos exercicios
-           - Pensei em fazer um select para recuperar os codigos, uma para os grupos e um para os exercicios e buscar o 
-             codigo sempre antes de fazer o insert
+        * começando a fazer o botão salvar da tela de treinos.
+        * Setando os campos da tela na classe e fazendo o insert devagar para ja ir testando. vai ficar grandinho
     
         * Quando entrar na tela de treinos, quando ocorrer alguma modificação, nao deixar sair sem salvar se não 
           será perdido.
@@ -70,6 +66,11 @@ public class PendenciasIdeiasAlteracoes {
     PONTOS LEGAIS PARA DIZER NA PARTE ESCRITA E NA APRESENTAÇÃO
     * 
      - A area de cadastro de Membros e exercicios ja corrige para salvar tudo em MAIUSCULO
+    */
+    
+    /* PROBLEMAS PORÉM ESTÁ FUNCIONANDO
+     * Tabela de treinos não conseguir fazer ela innodb para funcionar foreign key
+    
     */
     
     //FILME O PROTETOR

@@ -2,6 +2,7 @@
 package telas_internas_main.cadastro;
 
 import classes.ClasseCadastro;
+import classes.ClasseCadastro_treino;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
@@ -18,6 +19,7 @@ import javax.swing.JOptionPane;
 public class TelaCadastro extends javax.swing.JInternalFrame {
 
     ClasseCadastro classecadastro = new ClasseCadastro();
+    ClasseCadastro_treino treinos = new ClasseCadastro_treino();
     InsertBd inserts = new InsertBd();
     SelectBd selects = new SelectBd();
     UpdateBd updates = new UpdateBd();
@@ -517,6 +519,8 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         if("".equals(lblCodigoAluno.getText())){
             JOptionPane.showMessageDialog(null, "Não existe nenhum aluno selecionado !");
         }else{
+            treinos.setCd_registro(Integer.valueOf(lblCodigoAluno.getText()));
+            //System.out.println(treinos.getCd_registro()); //teste
             new TelaCadastro_treino(null,true).setVisible(true);
         }
         

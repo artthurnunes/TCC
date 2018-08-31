@@ -3,6 +3,7 @@ package conexoesbancodedados;
 
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
+import classes.ClasseCadastro_treino;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -107,6 +108,30 @@ public class InsertBd {
                                    
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"REPETIÇÃO SALVA COM SUCESSO !");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }        
+        
+    }
+    
+    public void insereTreinoA(ClasseCadastro_treino dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        System.out.println("No Insert :"+dados.getCd_registro()); 
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_TREINOSA (DT_INICIO,DT_FIM,CD_REGISTRO,GRUPO_MUSCULARA1,EXERCICIOA1,REPETICAOA1,OBSERVACAOA1) "
++ "VALUES ((?),(?),(?),(SELECT CD_MEMBRO FROM TB_MEMBROS WHERE NM_MEMBRO = '"+dados.getGrupo_muscularA1()+"'),(SELECT CD_EXERCICIO FROM TB_EXERCICIOS WHERE NM_EXERCICIO = '"+dados.getExercicioA1()+"'),(SELECT CD_REPETICAO FROM TB_REPETICOES WHERE NM_REPETICAO = '"+dados.getRepeticaoA1()+"'),(?)          )");           
+            
+            stmt.setString(1, dados.getDt_inicio());
+            stmt.setString(2, dados.getDt_fim());
+            stmt.setInt(3, dados.getCd_registro());
+            stmt.setString(4, dados.getObservacaoA1());
+                                   
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"TREINO SALVO !");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
