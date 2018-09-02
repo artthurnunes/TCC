@@ -5,6 +5,7 @@ import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
 import classes.ClasseCadastro_treino;
 import conexoesbancodedados.InsertBd;
+import conexoesbancodedados.SelectBd;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -39,8 +40,9 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     ClasseCadastro_treino treinos = new ClasseCadastro_treino();
     ClasseCadastro cadastro = new ClasseCadastro();
     InsertBd inserts = new InsertBd();
+    SelectBd selects = new SelectBd();
     
-    private boolean carregarPrimeiraVez = true; //variavel para não carregar toda hora que clicar na aba, somente 1 vez
+    //private boolean carregarPrimeiraVez = true; //variavel para não carregar toda hora que clicar na aba, somente 1 vez
  
     public TelaCadastro_treino(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -52,8 +54,14 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
             if(ClasseCadastro_treino.getTreinoNovo() == true){
                 this.carregarComboGrupos(); 
                 this.carregarComboRepeticoes();
+                //System.out.println("Entrei treino novo"); //teste
             }else{
-                this.getandoCamposClasseCadastro_treino();
+                try {
+                    this.getandoCamposClasseCadastro_treino();
+                    //System.out.println("entrei treino existente"); //teste
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaCadastro_treino.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         
         
@@ -603,11 +611,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         lblNomeAlunoTelaTreinos = new javax.swing.JLabel();
         IdTreino = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        btnSalvar = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        btnFechar = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        btnSalvar = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Treinos");
 
         jLabel3.setText("Início treino:");
@@ -3566,6 +3575,20 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         lblNomeAlunoTelaTreinos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblNomeAlunoTelaTreinos.setForeground(new java.awt.Color(51, 0, 255));
 
+        jMenu2.setText("Editar");
+        jMenuBar1.add(jMenu2);
+
+        btnFechar.setText("Fechar");
+        btnFechar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnFecharMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnFechar);
+
+        jMenu3.setText("Novo");
+        jMenuBar1.add(jMenu3);
+
         btnSalvar.setText("Salvar");
         btnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -3573,12 +3596,6 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
             }
         });
         jMenuBar1.add(btnSalvar);
-
-        jMenu2.setText("Editar");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Novo");
-        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -4475,30 +4492,32 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     }//GEN-LAST:event_btnLessC5ActionPerformed
 
     private void combMusculoA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoA1ActionPerformed
-        exercicios.setNm_membro((String)combMusculoA1.getSelectedItem()); //seta o nome do Grupo para a classe
-        try {
-            combExercicioA1.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioA1_1.removeAllItems();
-            combExercicioA1_2.removeAllItems();
-            combExercicioA1_3.removeAllItems();
-            combExercicioA1_4.removeAllItems();
-            combExercicioA1_5.removeAllItems();
-            combExercicioA1_6.removeAllItems();
-            exercicios.populandoCombExercicios(); //seta a listaExercicios para logo abaixo carregar os combos de exercicios
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoA1.getSelectedItem()); //seta o nome do Grupo para a classe
+            try {
+                combExercicioA1.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioA1_1.removeAllItems();
+                combExercicioA1_2.removeAllItems();
+                combExercicioA1_3.removeAllItems();
+                combExercicioA1_4.removeAllItems();
+                combExercicioA1_5.removeAllItems();
+                combExercicioA1_6.removeAllItems();
+                exercicios.populandoCombExercicios(); //seta a listaExercicios para logo abaixo carregar os combos de exercicios
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
 
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioA1.addItem(listaExercicios.get(i));
-            combExercicioA1_1.addItem(listaExercicios.get(i));
-            combExercicioA1_2.addItem(listaExercicios.get(i));
-            combExercicioA1_3.addItem(listaExercicios.get(i));
-            combExercicioA1_4.addItem(listaExercicios.get(i));
-            combExercicioA1_5.addItem(listaExercicios.get(i));
-            combExercicioA1_6.addItem(listaExercicios.get(i));
-            } 
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioA1.addItem(listaExercicios.get(i));
+                combExercicioA1_1.addItem(listaExercicios.get(i));
+                combExercicioA1_2.addItem(listaExercicios.get(i));
+                combExercicioA1_3.addItem(listaExercicios.get(i));
+                combExercicioA1_4.addItem(listaExercicios.get(i));
+                combExercicioA1_5.addItem(listaExercicios.get(i));
+                combExercicioA1_6.addItem(listaExercicios.get(i));
+                } 
+        }
     }//GEN-LAST:event_combMusculoA1ActionPerformed
 
     private void abaTreinoAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_abaTreinoAMouseClicked
@@ -4524,300 +4543,322 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     }//GEN-LAST:event_abaTreinoAMouseClicked
 
     private void combMusculoA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoA2ActionPerformed
-        exercicios.setNm_membro((String)combMusculoA2.getSelectedItem());
-        try {
-            combExercicioA2.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioA2_1.removeAllItems();
-            combExercicioA2_2.removeAllItems();
-            combExercicioA2_3.removeAllItems();
-            combExercicioA2_4.removeAllItems();
-            combExercicioA2_5.removeAllItems();
-            combExercicioA2_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoA2.getSelectedItem());
+            try {
+                combExercicioA2.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioA2_1.removeAllItems();
+                combExercicioA2_2.removeAllItems();
+                combExercicioA2_3.removeAllItems();
+                combExercicioA2_4.removeAllItems();
+                combExercicioA2_5.removeAllItems();
+                combExercicioA2_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
 
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioA2.addItem(listaExercicios.get(i));
-            combExercicioA2_1.addItem(listaExercicios.get(i));
-            combExercicioA2_2.addItem(listaExercicios.get(i));
-            combExercicioA2_3.addItem(listaExercicios.get(i));
-            combExercicioA2_4.addItem(listaExercicios.get(i));
-            combExercicioA2_5.addItem(listaExercicios.get(i));
-            combExercicioA2_6.addItem(listaExercicios.get(i));
-            } 
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioA2.addItem(listaExercicios.get(i));
+                combExercicioA2_1.addItem(listaExercicios.get(i));
+                combExercicioA2_2.addItem(listaExercicios.get(i));
+                combExercicioA2_3.addItem(listaExercicios.get(i));
+                combExercicioA2_4.addItem(listaExercicios.get(i));
+                combExercicioA2_5.addItem(listaExercicios.get(i));
+                combExercicioA2_6.addItem(listaExercicios.get(i));
+                } 
+        }
     }//GEN-LAST:event_combMusculoA2ActionPerformed
 
     private void combMusculoA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoA3ActionPerformed
-        exercicios.setNm_membro((String)combMusculoA3.getSelectedItem());
-        try {
-            combExercicioA3.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioA3_1.removeAllItems();
-            combExercicioA3_2.removeAllItems();
-            combExercicioA3_3.removeAllItems();
-            combExercicioA3_4.removeAllItems();
-            combExercicioA3_5.removeAllItems();
-            combExercicioA3_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoA3.getSelectedItem());
+            try {
+                combExercicioA3.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioA3_1.removeAllItems();
+                combExercicioA3_2.removeAllItems();
+                combExercicioA3_3.removeAllItems();
+                combExercicioA3_4.removeAllItems();
+                combExercicioA3_5.removeAllItems();
+                combExercicioA3_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
 
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioA3.addItem(listaExercicios.get(i));
-            combExercicioA3_1.addItem(listaExercicios.get(i));
-            combExercicioA3_2.addItem(listaExercicios.get(i));
-            combExercicioA3_3.addItem(listaExercicios.get(i));
-            combExercicioA3_4.addItem(listaExercicios.get(i));
-            combExercicioA3_5.addItem(listaExercicios.get(i));
-            combExercicioA3_6.addItem(listaExercicios.get(i));
-            } 
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioA3.addItem(listaExercicios.get(i));
+                combExercicioA3_1.addItem(listaExercicios.get(i));
+                combExercicioA3_2.addItem(listaExercicios.get(i));
+                combExercicioA3_3.addItem(listaExercicios.get(i));
+                combExercicioA3_4.addItem(listaExercicios.get(i));
+                combExercicioA3_5.addItem(listaExercicios.get(i));
+                combExercicioA3_6.addItem(listaExercicios.get(i));
+                } 
+        }
     }//GEN-LAST:event_combMusculoA3ActionPerformed
 
     private void combMusculoA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoA4ActionPerformed
-        exercicios.setNm_membro((String)combMusculoA4.getSelectedItem());
-        try {
-            combExercicioA4.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioA4_1.removeAllItems();
-            combExercicioA4_2.removeAllItems();
-            combExercicioA4_3.removeAllItems();
-            combExercicioA4_4.removeAllItems();
-            combExercicioA4_5.removeAllItems();
-            combExercicioA4_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioA4.addItem(listaExercicios.get(i));
-            combExercicioA4_1.addItem(listaExercicios.get(i));
-            combExercicioA4_2.addItem(listaExercicios.get(i));
-            combExercicioA4_3.addItem(listaExercicios.get(i));
-            combExercicioA4_4.addItem(listaExercicios.get(i));
-            combExercicioA4_5.addItem(listaExercicios.get(i));
-            combExercicioA4_6.addItem(listaExercicios.get(i));
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoA4.getSelectedItem());
+            try {
+                combExercicioA4.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioA4_1.removeAllItems();
+                combExercicioA4_2.removeAllItems();
+                combExercicioA4_3.removeAllItems();
+                combExercicioA4_4.removeAllItems();
+                combExercicioA4_5.removeAllItems();
+                combExercicioA4_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
             }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioA4.addItem(listaExercicios.get(i));
+                combExercicioA4_1.addItem(listaExercicios.get(i));
+                combExercicioA4_2.addItem(listaExercicios.get(i));
+                combExercicioA4_3.addItem(listaExercicios.get(i));
+                combExercicioA4_4.addItem(listaExercicios.get(i));
+                combExercicioA4_5.addItem(listaExercicios.get(i));
+                combExercicioA4_6.addItem(listaExercicios.get(i));
+                }
+        }
     }//GEN-LAST:event_combMusculoA4ActionPerformed
 
     private void combMusculoA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoA5ActionPerformed
-        exercicios.setNm_membro((String)combMusculoA5.getSelectedItem());
-        try {
-            combExercicioA5.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioA5_1.removeAllItems();
-            combExercicioA5_2.removeAllItems();
-            combExercicioA5_3.removeAllItems();
-            combExercicioA5_4.removeAllItems();
-            combExercicioA5_5.removeAllItems();
-            combExercicioA5_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoA5.getSelectedItem());
+            try {
+                combExercicioA5.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioA5_1.removeAllItems();
+                combExercicioA5_2.removeAllItems();
+                combExercicioA5_3.removeAllItems();
+                combExercicioA5_4.removeAllItems();
+                combExercicioA5_5.removeAllItems();
+                combExercicioA5_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
 
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioA5.addItem(listaExercicios.get(i));
-            combExercicioA5_1.addItem(listaExercicios.get(i));
-            combExercicioA5_2.addItem(listaExercicios.get(i));
-            combExercicioA5_3.addItem(listaExercicios.get(i));
-            combExercicioA5_4.addItem(listaExercicios.get(i));
-            combExercicioA5_5.addItem(listaExercicios.get(i));
-            combExercicioA5_6.addItem(listaExercicios.get(i));
-            } 
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioA5.addItem(listaExercicios.get(i));
+                combExercicioA5_1.addItem(listaExercicios.get(i));
+                combExercicioA5_2.addItem(listaExercicios.get(i));
+                combExercicioA5_3.addItem(listaExercicios.get(i));
+                combExercicioA5_4.addItem(listaExercicios.get(i));
+                combExercicioA5_5.addItem(listaExercicios.get(i));
+                combExercicioA5_6.addItem(listaExercicios.get(i));
+                } 
+        }
     }//GEN-LAST:event_combMusculoA5ActionPerformed
 
     private void combMusculoB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoB1ActionPerformed
-        exercicios.setNm_membro((String)combMusculoB1.getSelectedItem());
-        try {
-            combExercicioB1.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioB1_1.removeAllItems();
-            combExercicioB1_2.removeAllItems();
-            combExercicioB1_3.removeAllItems();
-            combExercicioB1_4.removeAllItems();
-            combExercicioB1_5.removeAllItems();
-            combExercicioB1_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioB1.addItem(listaExercicios.get(i));
-            combExercicioB1_1.addItem(listaExercicios.get(i));
-            combExercicioB1_2.addItem(listaExercicios.get(i));
-            combExercicioB1_3.addItem(listaExercicios.get(i));
-            combExercicioB1_4.addItem(listaExercicios.get(i));
-            combExercicioB1_5.addItem(listaExercicios.get(i));
-            combExercicioB1_6.addItem(listaExercicios.get(i));
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoB1.getSelectedItem());
+            try {
+                combExercicioB1.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioB1_1.removeAllItems();
+                combExercicioB1_2.removeAllItems();
+                combExercicioB1_3.removeAllItems();
+                combExercicioB1_4.removeAllItems();
+                combExercicioB1_5.removeAllItems();
+                combExercicioB1_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
             }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioB1.addItem(listaExercicios.get(i));
+                combExercicioB1_1.addItem(listaExercicios.get(i));
+                combExercicioB1_2.addItem(listaExercicios.get(i));
+                combExercicioB1_3.addItem(listaExercicios.get(i));
+                combExercicioB1_4.addItem(listaExercicios.get(i));
+                combExercicioB1_5.addItem(listaExercicios.get(i));
+                combExercicioB1_6.addItem(listaExercicios.get(i));
+                }
+        }
     }//GEN-LAST:event_combMusculoB1ActionPerformed
 
     private void combMusculoB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoB2ActionPerformed
-        exercicios.setNm_membro((String)combMusculoB2.getSelectedItem());
-        try {
-            combExercicioB2.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioB2_1.removeAllItems();
-            combExercicioB2_2.removeAllItems();
-            combExercicioB2_3.removeAllItems();
-            combExercicioB2_4.removeAllItems();
-            combExercicioB2_5.removeAllItems();
-            combExercicioB2_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioB2.addItem(listaExercicios.get(i));
-            combExercicioB2_1.addItem(listaExercicios.get(i));
-            combExercicioB2_2.addItem(listaExercicios.get(i));
-            combExercicioB2_3.addItem(listaExercicios.get(i));
-            combExercicioB2_4.addItem(listaExercicios.get(i));
-            combExercicioB2_5.addItem(listaExercicios.get(i));
-            combExercicioB2_6.addItem(listaExercicios.get(i));
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoB2.getSelectedItem());
+            try {
+                combExercicioB2.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioB2_1.removeAllItems();
+                combExercicioB2_2.removeAllItems();
+                combExercicioB2_3.removeAllItems();
+                combExercicioB2_4.removeAllItems();
+                combExercicioB2_5.removeAllItems();
+                combExercicioB2_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
             }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioB2.addItem(listaExercicios.get(i));
+                combExercicioB2_1.addItem(listaExercicios.get(i));
+                combExercicioB2_2.addItem(listaExercicios.get(i));
+                combExercicioB2_3.addItem(listaExercicios.get(i));
+                combExercicioB2_4.addItem(listaExercicios.get(i));
+                combExercicioB2_5.addItem(listaExercicios.get(i));
+                combExercicioB2_6.addItem(listaExercicios.get(i));
+                }
+        }
     }//GEN-LAST:event_combMusculoB2ActionPerformed
 
     private void combMusculoB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoB3ActionPerformed
-        exercicios.setNm_membro((String)combMusculoB3.getSelectedItem());
-        try {
-            combExercicioB3.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioB3_1.removeAllItems();
-            combExercicioB3_2.removeAllItems();
-            combExercicioB3_3.removeAllItems();
-            combExercicioB3_4.removeAllItems();
-            combExercicioB3_5.removeAllItems();
-            combExercicioB3_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioB3.addItem(listaExercicios.get(i));
-            combExercicioB3_1.addItem(listaExercicios.get(i));
-            combExercicioB3_2.addItem(listaExercicios.get(i));
-            combExercicioB3_3.addItem(listaExercicios.get(i));
-            combExercicioB3_4.addItem(listaExercicios.get(i));
-            combExercicioB3_5.addItem(listaExercicios.get(i));
-            combExercicioB3_6.addItem(listaExercicios.get(i));
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoB3.getSelectedItem());
+            try {
+                combExercicioB3.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioB3_1.removeAllItems();
+                combExercicioB3_2.removeAllItems();
+                combExercicioB3_3.removeAllItems();
+                combExercicioB3_4.removeAllItems();
+                combExercicioB3_5.removeAllItems();
+                combExercicioB3_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
             }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioB3.addItem(listaExercicios.get(i));
+                combExercicioB3_1.addItem(listaExercicios.get(i));
+                combExercicioB3_2.addItem(listaExercicios.get(i));
+                combExercicioB3_3.addItem(listaExercicios.get(i));
+                combExercicioB3_4.addItem(listaExercicios.get(i));
+                combExercicioB3_5.addItem(listaExercicios.get(i));
+                combExercicioB3_6.addItem(listaExercicios.get(i));
+                }
+        }
     }//GEN-LAST:event_combMusculoB3ActionPerformed
 
     private void combMusculoB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoB4ActionPerformed
-        exercicios.setNm_membro((String)combMusculoB4.getSelectedItem());
-        try {
-            combExercicioB4.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioB4_1.removeAllItems();
-            combExercicioB4_2.removeAllItems();
-            combExercicioB4_3.removeAllItems();
-            combExercicioB4_4.removeAllItems();
-            combExercicioB4_5.removeAllItems();
-            combExercicioB4_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioB4.addItem(listaExercicios.get(i));
-            combExercicioB4_1.addItem(listaExercicios.get(i));
-            combExercicioB4_2.addItem(listaExercicios.get(i));
-            combExercicioB4_3.addItem(listaExercicios.get(i));
-            combExercicioB4_4.addItem(listaExercicios.get(i));
-            combExercicioB4_5.addItem(listaExercicios.get(i));
-            combExercicioB4_6.addItem(listaExercicios.get(i));
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoB4.getSelectedItem());
+            try {
+                combExercicioB4.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioB4_1.removeAllItems();
+                combExercicioB4_2.removeAllItems();
+                combExercicioB4_3.removeAllItems();
+                combExercicioB4_4.removeAllItems();
+                combExercicioB4_5.removeAllItems();
+                combExercicioB4_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
             }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioB4.addItem(listaExercicios.get(i));
+                combExercicioB4_1.addItem(listaExercicios.get(i));
+                combExercicioB4_2.addItem(listaExercicios.get(i));
+                combExercicioB4_3.addItem(listaExercicios.get(i));
+                combExercicioB4_4.addItem(listaExercicios.get(i));
+                combExercicioB4_5.addItem(listaExercicios.get(i));
+                combExercicioB4_6.addItem(listaExercicios.get(i));
+                }
+        }
     }//GEN-LAST:event_combMusculoB4ActionPerformed
 
     private void combMusculoB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoB5ActionPerformed
-        exercicios.setNm_membro((String)combMusculoB5.getSelectedItem());
-        try {
-            combExercicioB5.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioB5_1.removeAllItems();
-            combExercicioB5_2.removeAllItems();
-            combExercicioB5_3.removeAllItems();
-            combExercicioB5_4.removeAllItems();
-            combExercicioB5_5.removeAllItems();
-            combExercicioB5_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioB5.addItem(listaExercicios.get(i));
-            combExercicioB5_1.addItem(listaExercicios.get(i));
-            combExercicioB5_2.addItem(listaExercicios.get(i));
-            combExercicioB5_3.addItem(listaExercicios.get(i));
-            combExercicioB5_4.addItem(listaExercicios.get(i));
-            combExercicioB5_5.addItem(listaExercicios.get(i));
-            combExercicioB5_6.addItem(listaExercicios.get(i));
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoB5.getSelectedItem());
+            try {
+                combExercicioB5.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioB5_1.removeAllItems();
+                combExercicioB5_2.removeAllItems();
+                combExercicioB5_3.removeAllItems();
+                combExercicioB5_4.removeAllItems();
+                combExercicioB5_5.removeAllItems();
+                combExercicioB5_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
             }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioB5.addItem(listaExercicios.get(i));
+                combExercicioB5_1.addItem(listaExercicios.get(i));
+                combExercicioB5_2.addItem(listaExercicios.get(i));
+                combExercicioB5_3.addItem(listaExercicios.get(i));
+                combExercicioB5_4.addItem(listaExercicios.get(i));
+                combExercicioB5_5.addItem(listaExercicios.get(i));
+                combExercicioB5_6.addItem(listaExercicios.get(i));
+                }
+        }
     }//GEN-LAST:event_combMusculoB5ActionPerformed
 
     private void combMusculoC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoC1ActionPerformed
-        exercicios.setNm_membro((String)combMusculoC1.getSelectedItem());
-        try {
-            combExercicioC1.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioC1_1.removeAllItems();
-            combExercicioC1_2.removeAllItems();
-            combExercicioC1_3.removeAllItems();
-            combExercicioC1_4.removeAllItems();
-            combExercicioC1_5.removeAllItems();
-            combExercicioC1_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioC1.addItem(listaExercicios.get(i));
-            combExercicioC1_1.addItem(listaExercicios.get(i));
-            combExercicioC1_2.addItem(listaExercicios.get(i));
-            combExercicioC1_3.addItem(listaExercicios.get(i));
-            combExercicioC1_4.addItem(listaExercicios.get(i));
-            combExercicioC1_5.addItem(listaExercicios.get(i));
-            combExercicioC1_6.addItem(listaExercicios.get(i));
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoC1.getSelectedItem());
+            try {
+                combExercicioC1.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioC1_1.removeAllItems();
+                combExercicioC1_2.removeAllItems();
+                combExercicioC1_3.removeAllItems();
+                combExercicioC1_4.removeAllItems();
+                combExercicioC1_5.removeAllItems();
+                combExercicioC1_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
             }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioC1.addItem(listaExercicios.get(i));
+                combExercicioC1_1.addItem(listaExercicios.get(i));
+                combExercicioC1_2.addItem(listaExercicios.get(i));
+                combExercicioC1_3.addItem(listaExercicios.get(i));
+                combExercicioC1_4.addItem(listaExercicios.get(i));
+                combExercicioC1_5.addItem(listaExercicios.get(i));
+                combExercicioC1_6.addItem(listaExercicios.get(i));
+                }
+        }
     }//GEN-LAST:event_combMusculoC1ActionPerformed
 
     private void combMusculoC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoC2ActionPerformed
-        exercicios.setNm_membro((String)combMusculoC2.getSelectedItem());
-        try {
-            combExercicioC2.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioC2_1.removeAllItems();
-            combExercicioC2_2.removeAllItems();
-            combExercicioC2_3.removeAllItems();
-            combExercicioC2_4.removeAllItems();
-            combExercicioC2_5.removeAllItems();
-            combExercicioC2_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioC2.addItem(listaExercicios.get(i));
-            combExercicioC2_1.addItem(listaExercicios.get(i));
-            combExercicioC2_2.addItem(listaExercicios.get(i));
-            combExercicioC2_3.addItem(listaExercicios.get(i));
-            combExercicioC2_4.addItem(listaExercicios.get(i));
-            combExercicioC2_5.addItem(listaExercicios.get(i));
-            combExercicioC2_6.addItem(listaExercicios.get(i));
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoC2.getSelectedItem());
+            try {
+                combExercicioC2.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioC2_1.removeAllItems();
+                combExercicioC2_2.removeAllItems();
+                combExercicioC2_3.removeAllItems();
+                combExercicioC2_4.removeAllItems();
+                combExercicioC2_5.removeAllItems();
+                combExercicioC2_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
             }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioC2.addItem(listaExercicios.get(i));
+                combExercicioC2_1.addItem(listaExercicios.get(i));
+                combExercicioC2_2.addItem(listaExercicios.get(i));
+                combExercicioC2_3.addItem(listaExercicios.get(i));
+                combExercicioC2_4.addItem(listaExercicios.get(i));
+                combExercicioC2_5.addItem(listaExercicios.get(i));
+                combExercicioC2_6.addItem(listaExercicios.get(i));
+                }
+        }
     }//GEN-LAST:event_combMusculoC2ActionPerformed
 
     private void combMusculoC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoC3ActionPerformed
@@ -4848,57 +4889,61 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     }//GEN-LAST:event_combMusculoC3ActionPerformed
 
     private void combMusculoC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoC4ActionPerformed
-        exercicios.setNm_membro((String)combMusculoC4.getSelectedItem());
-        try {
-            combExercicioC4.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioC4_1.removeAllItems();
-            combExercicioC4_2.removeAllItems();
-            combExercicioC4_3.removeAllItems();
-            combExercicioC4_4.removeAllItems();
-            combExercicioC4_5.removeAllItems();
-            combExercicioC4_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioC4.addItem(listaExercicios.get(i));
-            combExercicioC4_1.addItem(listaExercicios.get(i));
-            combExercicioC4_2.addItem(listaExercicios.get(i));
-            combExercicioC4_3.addItem(listaExercicios.get(i));
-            combExercicioC4_4.addItem(listaExercicios.get(i));
-            combExercicioC4_5.addItem(listaExercicios.get(i));
-            combExercicioC4_6.addItem(listaExercicios.get(i));
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoC4.getSelectedItem());
+            try {
+                combExercicioC4.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioC4_1.removeAllItems();
+                combExercicioC4_2.removeAllItems();
+                combExercicioC4_3.removeAllItems();
+                combExercicioC4_4.removeAllItems();
+                combExercicioC4_5.removeAllItems();
+                combExercicioC4_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
             }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioC4.addItem(listaExercicios.get(i));
+                combExercicioC4_1.addItem(listaExercicios.get(i));
+                combExercicioC4_2.addItem(listaExercicios.get(i));
+                combExercicioC4_3.addItem(listaExercicios.get(i));
+                combExercicioC4_4.addItem(listaExercicios.get(i));
+                combExercicioC4_5.addItem(listaExercicios.get(i));
+                combExercicioC4_6.addItem(listaExercicios.get(i));
+                }
+        }
     }//GEN-LAST:event_combMusculoC4ActionPerformed
 
     private void combMusculoC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combMusculoC5ActionPerformed
-        exercicios.setNm_membro((String)combMusculoC5.getSelectedItem());
-        try {
-            combExercicioC5.removeAllItems(); //limpar lixo quando o combo é clicado novamente
-            combExercicioC5_1.removeAllItems();
-            combExercicioC5_2.removeAllItems();
-            combExercicioC5_3.removeAllItems();
-            combExercicioC5_4.removeAllItems();
-            combExercicioC5_5.removeAllItems();
-            combExercicioC5_6.removeAllItems();
-            exercicios.populandoCombExercicios();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
-
-            for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
-            combExercicioC5.addItem(listaExercicios.get(i));
-            combExercicioC5_1.addItem(listaExercicios.get(i));
-            combExercicioC5_2.addItem(listaExercicios.get(i));
-            combExercicioC5_3.addItem(listaExercicios.get(i));
-            combExercicioC5_4.addItem(listaExercicios.get(i));
-            combExercicioC5_5.addItem(listaExercicios.get(i));
-            combExercicioC5_6.addItem(listaExercicios.get(i));
+        if(ClasseCadastro_treino.getTreinoNovo() == true){
+            exercicios.setNm_membro((String)combMusculoC5.getSelectedItem());
+            try {
+                combExercicioC5.removeAllItems(); //limpar lixo quando o combo é clicado novamente
+                combExercicioC5_1.removeAllItems();
+                combExercicioC5_2.removeAllItems();
+                combExercicioC5_3.removeAllItems();
+                combExercicioC5_4.removeAllItems();
+                combExercicioC5_5.removeAllItems();
+                combExercicioC5_6.removeAllItems();
+                exercicios.populandoCombExercicios();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastroExercicios.class.getName()).log(Level.SEVERE, null, ex);
             }
+            listaExercicios = exercicios.getListaComboExercicios(); //recebendo a lista do banco
+
+                for(int i=0; i < listaExercicios.size();i++){ //populando o combobox com os dados
+                combExercicioC5.addItem(listaExercicios.get(i));
+                combExercicioC5_1.addItem(listaExercicios.get(i));
+                combExercicioC5_2.addItem(listaExercicios.get(i));
+                combExercicioC5_3.addItem(listaExercicios.get(i));
+                combExercicioC5_4.addItem(listaExercicios.get(i));
+                combExercicioC5_5.addItem(listaExercicios.get(i));
+                combExercicioC5_6.addItem(listaExercicios.get(i));
+                }
+        }
     }//GEN-LAST:event_combMusculoC5ActionPerformed
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
@@ -4906,17 +4951,24 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null,"Escolha um grupo muscular !");
         }else{
             if("".equals(IdTreino.getText())){
-            //insert
-            this.setandoCamposClasseCadastro_treino();
-            inserts.insereTreinoA(treinos);
-            inserts.insereTreinoB(treinos);
-            inserts.insereTreinoC(treinos);
+                //insert
+                this.setandoCamposClasseCadastro_treino();
+                inserts.insereTreinoA(treinos);
+                inserts.insereTreinoB(treinos);
+                inserts.insereTreinoC(treinos);
             }else{
                 //update
             }
         }
-        
+
     }//GEN-LAST:event_btnSalvarMouseClicked
+
+    //BOTÃO FECHAR NA TELA PARA MODIFICAR VARIAVEL QUANDO TELA É FECHADA. VARIAVEL DE CONTROLE DE NOVO CADASTRO
+    //OU CADASTRO EXISTENTE
+    private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
+        ClasseCadastro_treino.setTreinoNovo(true);
+        this.dispose();
+    }//GEN-LAST:event_btnFecharMouseClicked
 
     
     //------------------FUNÇÕES/METODOS/PRODEDURES
@@ -5698,79 +5750,71 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         treinos.setObservacaoC5_6(txtObservacoesC2_1.getText());  
     }
    
-    private void getandoCamposClasseCadastro_treino(){
+    private void getandoCamposClasseCadastro_treino() throws SQLException{
         IdTreino.setText(Integer.toString(treinos.getCd_treino()));
         dtInicial.setText(treinos.getDt_inicio());
+        dtFinal.setText(treinos.getDt_fim());
+        combMusculoA1.addItem(selects.populandoTelaTreinosGruposMusculares(treinos));        
+        //combExercicioA1.setSelectedItem(treinos.getExercicioA1());     
+        //combRepeticoesA1.setSelectedItem(treinos.getRepeticaoA1());
+        txtObservacoesA1.setText(treinos.getObservacaoA1());
+        /*
+        combExercicioA1_1.setSelectedItem(treinos.getExercicioA1_1());     
+        combRepeticoesA1_1.setSelectedItem(treinos.getRepeticaoA1_1());
+        txtObservacoesA1_1.setText(treinos.getObservacaoA1_1());
+        combExercicioA1_2.setSelectedItem(treinos.getExercicioA1_2());     
+        combRepeticoesA1_2.setSelectedItem(treinos.getRepeticaoA1_2());
+        txtObservacoesA1_2.setText(treinos.getObservacaoA1_2());
+        combExercicioA1_3.setSelectedItem(treinos.getExercicioA1_3());     
+        combRepeticoesA1_3.setSelectedItem(treinos.getRepeticaoA1_3());
+        txtObservacoesA1_3.setText(treinos.getObservacaoA1_3());
+        combExercicioA1_4.setSelectedItem(treinos.getExercicioA1_4());     
+        combRepeticoesA1_4.setSelectedItem(treinos.getRepeticaoA1_4());
+        txtObservacoesA1_4.setText(treinos.getObservacaoA1_4());
+        combExercicioA1_5.setSelectedItem(treinos.getExercicioA1_5());     
+        combRepeticoesA1_5.setSelectedItem(treinos.getRepeticaoA1_5());
+        txtObservacoesA1_5.setText(treinos.getObservacaoA1_5());
+        combExercicioA1_6.setSelectedItem(treinos.getExercicioA1_6());     
+        combRepeticoesA1_6.setSelectedItem(treinos.getRepeticaoA1_6());
+        txtObservacoesA1_6.setText(treinos.getObservacaoA1_6());
+        combExercicioA2_1.setSelectedItem(treinos.getExercicioA2_1());     
+        combRepeticoesA2_1.setSelectedItem(treinos.getRepeticaoA2_1());
+        txtObservacoesA2_1.setText(treinos.getObservacaoA2_1());
+        combExercicioA2_2.setSelectedItem(treinos.getExercicioA2_2());     
+        combRepeticoesA2_2.setSelectedItem(treinos.getRepeticaoA2_2());
+        txtObservacoesA2_2.setText(treinos.getObservacaoA2_2());
+        combExercicioA2_3.setSelectedItem(treinos.getExercicioA2_3());     
+        combRepeticoesA2_3.setSelectedItem(treinos.getRepeticaoA2_3());
+        txtObservacoesA2_3.setText(treinos.getObservacaoA2_3());
+        combExercicioA2_4.setSelectedItem(treinos.getExercicioA2_4());     
+        combRepeticoesA2_4.setSelectedItem(treinos.getRepeticaoA2_4());
+        txtObservacoesA2_4.setText(treinos.getObservacaoA2_4());
+        combExercicioA2_5.setSelectedItem(treinos.getExercicioA2_5());     
+        combRepeticoesA2_5.setSelectedItem(treinos.getRepeticaoA2_5());
+        txtObservacoesA2_5.setText(treinos.getObservacaoA2_5());
+        combExercicioA2_6.setSelectedItem(treinos.getExercicioA2_6());     
+        combRepeticoesA2_6.setSelectedItem(treinos.getRepeticaoA2_6());
+        txtObservacoesA2_6.setText(treinos.getObservacaoA2_6());
+        combExercicioA3_1.setSelectedItem(treinos.getExercicioA3_1());     
+        combRepeticoesA3_1.setSelectedItem(treinos.getRepeticaoA3_1());
+        txtObservacoesA3_1.setText(treinos.getObservacaoA3_1());
+        combExercicioA3_2.setSelectedItem(treinos.getExercicioA3_2());     
+        combRepeticoesA3_2.setSelectedItem(treinos.getRepeticaoA3_2());
+        txtObservacoesA3_2.setText(treinos.getObservacaoA3_2());
+        combExercicioA3_3.setSelectedItem(treinos.getExercicioA3_3());     
+        combRepeticoesA3_3.setSelectedItem(treinos.getRepeticaoA3_3());
+        txtObservacoesA3_3.setText(treinos.getObservacaoA3_3());
+        combExercicioA3_4.setSelectedItem(treinos.getExercicioA3_4());     
+        combRepeticoesA3_4.setSelectedItem(treinos.getRepeticaoA3_4());
+        txtObservacoesA3_4.setText(treinos.getObservacaoA3_4());
+        combExercicioA3_5.setSelectedItem(treinos.getExercicioA3_5());     
+        combRepeticoesA3_5.setSelectedItem(treinos.getRepeticaoA3_5());
+        txtObservacoesA3_5.setText(treinos.getObservacaoA3_5());
+        combExercicioA3_6.setSelectedItem(treinos.getExercicioA3_6());     
+        combRepeticoesA3_6.setSelectedItem(treinos.getRepeticaoA3_6());
+        txtObservacoesA3_6.setText(treinos.getObservacaoA3_6());
 
         /* MODIFICAR TODOS ESTES ABAIXO IGUAL O DE CIMA....
-        treinos.setDt_fim(dtFinal.getText());
-        //codigo aluno ja setado antes de vir pra ca
-        treinos.setGrupo_muscularA1((String)combMusculoA1.getSelectedItem());        
-        treinos.setExercicioA1((String)combExercicioA1.getSelectedItem());
-        treinos.setRepeticaoA1((String)combRepeticoesA1.getSelectedItem());
-        treinos.setObservacaoA1(txtObservacoesA1.getText());        
-        treinos.setExercicioA1_1((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_1((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_1(txtObservacoesA1_1.getText());
-        treinos.setExercicioA1_2((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_2((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_2(txtObservacoesA1_1.getText());
-        treinos.setExercicioA1_3((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_3((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_3(txtObservacoesA1_1.getText());
-        treinos.setExercicioA1_4((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_4((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_4(txtObservacoesA1_1.getText());
-        treinos.setExercicioA1_5((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_5((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_5(txtObservacoesA1_1.getText());
-        treinos.setExercicioA1_6((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_6((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_6(txtObservacoesA1_1.getText());
-        treinos.setGrupo_muscularA2((String)combMusculoA2.getSelectedItem());        
-        treinos.setExercicioA2((String)combExercicioA2.getSelectedItem());
-        treinos.setRepeticaoA2((String)combRepeticoesA2.getSelectedItem());
-        treinos.setObservacaoA2(txtObservacoesA2.getText());        
-        treinos.setExercicioA2_1((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_1((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_1(txtObservacoesA2_1.getText());
-        treinos.setExercicioA2_2((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_2((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_2(txtObservacoesA2_1.getText());
-        treinos.setExercicioA2_3((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_3((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_3(txtObservacoesA2_1.getText());
-        treinos.setExercicioA2_4((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_4((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_4(txtObservacoesA2_1.getText());
-        treinos.setExercicioA2_5((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_5((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_5(txtObservacoesA2_1.getText());
-        treinos.setExercicioA2_6((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_6((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_6(txtObservacoesA2_1.getText());
-        treinos.setGrupo_muscularA3((String)combMusculoA2.getSelectedItem());        
-        treinos.setExercicioA3((String)combExercicioA2.getSelectedItem());
-        treinos.setRepeticaoA3((String)combRepeticoesA2.getSelectedItem());
-        treinos.setObservacaoA3(txtObservacoesA2.getText());        
-        treinos.setExercicioA3_1((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_1((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_1(txtObservacoesA2_1.getText());
-        treinos.setExercicioA3_2((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_2((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_2(txtObservacoesA2_1.getText());
-        treinos.setExercicioA3_3((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_3((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_3(txtObservacoesA2_1.getText());
-        treinos.setExercicioA3_4((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_4((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_4(txtObservacoesA2_1.getText());
-        treinos.setExercicioA3_5((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_5((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_5(txtObservacoesA2_1.getText());
-        treinos.setExercicioA3_6((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_6((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_6(txtObservacoesA2_1.getText());
         treinos.setGrupo_muscularA4((String)combMusculoA2.getSelectedItem());        
         treinos.setExercicioA4((String)combExercicioA2.getSelectedItem());
         treinos.setRepeticaoA4((String)combRepeticoesA2.getSelectedItem());
@@ -6091,6 +6135,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JTabbedPane abaTreinoA;
     private javax.swing.JTabbedPane abaTreinoB;
     private javax.swing.JTabbedPane abaTreinoC;
+    private javax.swing.JMenu btnFechar;
     private javax.swing.JButton btnLessA1;
     private javax.swing.JButton btnLessA2;
     private javax.swing.JButton btnLessA3;

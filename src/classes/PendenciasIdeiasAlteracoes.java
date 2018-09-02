@@ -4,6 +4,9 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
+    
+          *FIZ UM POUCO DO SELECT MAS NÃO FUNCIONOU. ANALISAR
+    
     * FAZENDO O SELECT PARA POPULAR A TELA TREINOS    
     *Começando a fazer o select dos treinos. Trazer o treino pelo CD_REGISTRO.Quando clicar no botão de editar do treino, quando salvar já salvar com novo CD_TREINO.
         

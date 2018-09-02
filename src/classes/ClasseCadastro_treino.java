@@ -6,12 +6,12 @@ public class ClasseCadastro_treino {
     private static boolean treinoNovo = true;
     private static int cd_treino;
     private static String dt_inicio;
-    private String dt_fim;
+    private static String dt_fim;
     private static int cd_registro;
-    private String grupo_muscularA1;
+    private static String grupo_muscularA1;
     private String exercicioA1;
     private String repeticaoA1;
-    private String observacaoA1;
+    private static String observacaoA1;
     private String exercicioA1_1;
     private String repeticaoA1_1;
     private String observacaoA1_1;
