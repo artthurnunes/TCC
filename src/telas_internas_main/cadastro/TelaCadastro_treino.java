@@ -66,6 +66,12 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
                 }
             }
         
+            //CONDIÇÃO PARA BOTÃO SALVAR FICAR APAGADO QUANDO O TREINO NÃO É NOVO, OBRIGANDO A FAZER OUTRO TREINO COM BOTÃO NOVO
+            //DEIXA OS BOTÕES DE PLUS E LESS APAGADOS TAMBÉM PARA TREINO NÃO SOFRER ALTERAÇÕES
+            if(!"".equals(IdTreino.getText())){
+                btnSalvar.setVisible(false);
+                this.ocultaBotoesPlusLess();
+            }
         
         
         
@@ -4949,18 +4955,23 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     }//GEN-LAST:event_combMusculoC5ActionPerformed
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
+        int op = 0;
         if(combMusculoA1.getSelectedItem() == ""){
             JOptionPane.showMessageDialog(null,"Escolha um grupo muscular !");
         }else{
-            if("".equals(IdTreino.getText())){
-                //insert
-                this.setandoCamposClasseCadastro_treino();
-                inserts.insereTreinoA(treinos);
-                inserts.insereTreinoB(treinos);
-                inserts.insereTreinoC(treinos);
-            }else{
-                //update
-            }
+            op = JOptionPane.showConfirmDialog(null,"<html>Tem certeza que deseja salvar ?<br>Após ter salvo o treino não será possível realizar alterações,<br>será necessário criar outro treino. </html>");
+                if(op == 0){
+                    this.setandoCamposClasseCadastro_treino();
+                    inserts.insereTreinoA(treinos);
+                    inserts.insereTreinoB(treinos);
+                    inserts.insereTreinoC(treinos);
+                    btnSalvar.setVisible(false);
+                    //OCULTAR BOTOES PARA ADICIONAR OU REMOVER TREINOS APÓS SALVAR
+                    this.ocultaBotoesPlusLess();
+                }else{
+                    
+                }
+                
         }
 
     }//GEN-LAST:event_btnSalvarMouseClicked
@@ -5250,6 +5261,41 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         txtObservacoesC5_6.setVisible(false);
         lblObservacoesC5_6.setVisible(false);
         
+    }
+    
+    private void ocultaBotoesPlusLess(){
+        btnPlusA1.setVisible(false);
+        btnLessA1.setVisible(false);
+        btnPlusA2.setVisible(false);
+        btnLessA2.setVisible(false);
+        btnPlusA3.setVisible(false);
+        btnLessA3.setVisible(false);
+        btnPlusA4.setVisible(false);
+        btnLessA4.setVisible(false);
+        btnPlusA5.setVisible(false);
+        btnLessA5.setVisible(false);
+        
+        btnPlusB1.setVisible(false);
+        btnLessB1.setVisible(false);
+        btnPlusB2.setVisible(false);
+        btnLessB2.setVisible(false);
+        btnPlusB3.setVisible(false);
+        btnLessB3.setVisible(false);
+        btnPlusB4.setVisible(false);
+        btnLessB4.setVisible(false);
+        btnPlusB5.setVisible(false);
+        btnLessB5.setVisible(false);
+        
+        btnPlusC1.setVisible(false);
+        btnLessC1.setVisible(false);
+        btnPlusC2.setVisible(false);
+        btnLessC2.setVisible(false);
+        btnPlusC3.setVisible(false);
+        btnLessC3.setVisible(false);
+        btnPlusC4.setVisible(false);
+        btnLessC4.setVisible(false);
+        btnPlusC5.setVisible(false);
+        btnLessC5.setVisible(false);
     }
     
     private void carregarComboGrupos(){
@@ -5873,15 +5919,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioA1_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_3()));     
         combRepeticoesA1_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_3()));
         txtObservacoesA1_3.setText(treinos.getObservacaoA1_3());
+            if(!"".equals(txtObservacoesA1_3.getText())){
+                combExercicioA1_3.setVisible(true);
+                combRepeticoesA1_3.setVisible(true);
+                lblObservacoesA1_3.setVisible(true);
+                txtObservacoesA1_3.setVisible(true);
+            }
         combExercicioA1_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_4()));     
         combRepeticoesA1_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_4()));
         txtObservacoesA1_4.setText(treinos.getObservacaoA1_4());
+            if(!"".equals(txtObservacoesA1_4.getText())){
+                combExercicioA1_4.setVisible(true);
+                combRepeticoesA1_4.setVisible(true);
+                lblObservacoesA1_4.setVisible(true);
+                txtObservacoesA1_4.setVisible(true);
+            }
         combExercicioA1_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_5()));     
         combRepeticoesA1_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_5()));
         txtObservacoesA1_5.setText(treinos.getObservacaoA1_5());
+            if(!"".equals(txtObservacoesA1_5.getText())){
+                combExercicioA1_5.setVisible(true);
+                combRepeticoesA1_5.setVisible(true);
+                lblObservacoesA1_5.setVisible(true);
+                txtObservacoesA1_5.setVisible(true);
+            }
         combExercicioA1_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_6()));     
         combRepeticoesA1_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_6()));
         txtObservacoesA1_6.setText(treinos.getObservacaoA1_6());
+            if(!"".equals(txtObservacoesA1_6.getText())){
+                combExercicioA1_6.setVisible(true);
+                combRepeticoesA1_6.setVisible(true);
+                lblObservacoesA1_6.setVisible(true);
+                txtObservacoesA1_6.setVisible(true);
+            }
         combMusculoA2.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularA2()));        
         combExercicioA2.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA2()));     
         combRepeticoesA2.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA2()));
@@ -5895,15 +5965,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioA2_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA2_3()));     
         combRepeticoesA2_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA2_3()));
         txtObservacoesA2_3.setText(treinos.getObservacaoA2_3());
+            if(!"".equals(txtObservacoesA2_3.getText())){
+                combExercicioA2_3.setVisible(true);
+                combRepeticoesA2_3.setVisible(true);
+                lblObservacoesA2_3.setVisible(true);
+                txtObservacoesA2_3.setVisible(true);
+            }
         combExercicioA2_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA2_4()));     
         combRepeticoesA2_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA2_4()));
         txtObservacoesA2_4.setText(treinos.getObservacaoA2_4());
+            if(!"".equals(txtObservacoesA2_4.getText())){
+                combExercicioA2_4.setVisible(true);
+                combRepeticoesA2_4.setVisible(true);
+                lblObservacoesA2_4.setVisible(true);
+                txtObservacoesA2_4.setVisible(true);
+            }
         combExercicioA2_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA2_5()));     
         combRepeticoesA2_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA2_5()));
         txtObservacoesA2_5.setText(treinos.getObservacaoA2_5());
+            if(!"".equals(txtObservacoesA2_5.getText())){
+                combExercicioA2_5.setVisible(true);
+                combRepeticoesA2_5.setVisible(true);
+                lblObservacoesA2_5.setVisible(true);
+                txtObservacoesA2_5.setVisible(true);
+            }
         combExercicioA2_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA2_6()));     
         combRepeticoesA2_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA2_6()));
         txtObservacoesA2_6.setText(treinos.getObservacaoA2_6());
+            if(!"".equals(txtObservacoesA2_6.getText())){
+                combExercicioA2_6.setVisible(true);
+                combRepeticoesA2_6.setVisible(true);
+                lblObservacoesA2_6.setVisible(true);
+                txtObservacoesA2_6.setVisible(true);
+            }
         combMusculoA3.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularA3()));        
         combExercicioA3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA3()));     
         combRepeticoesA3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA3()));
@@ -5917,15 +6011,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioA3_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA3_3()));     
         combRepeticoesA3_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA3_3()));
         txtObservacoesA3_3.setText(treinos.getObservacaoA3_3());
+            if(!"".equals(txtObservacoesA3_3.getText())){
+                combExercicioA3_3.setVisible(true);
+                combRepeticoesA3_3.setVisible(true);
+                lblObservacoesA3_3.setVisible(true);
+                txtObservacoesA3_3.setVisible(true);
+            }
         combExercicioA3_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA3_4()));     
         combRepeticoesA3_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA3_4()));
         txtObservacoesA3_4.setText(treinos.getObservacaoA3_4());
+            if(!"".equals(txtObservacoesA3_4.getText())){
+                combExercicioA3_4.setVisible(true);
+                combRepeticoesA3_4.setVisible(true);
+                lblObservacoesA3_4.setVisible(true);
+                txtObservacoesA3_4.setVisible(true);
+            }
         combExercicioA3_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA3_5()));     
         combRepeticoesA3_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA3_5()));
         txtObservacoesA3_5.setText(treinos.getObservacaoA3_5());
+            if(!"".equals(txtObservacoesA3_5.getText())){
+                    combExercicioA3_5.setVisible(true);
+                    combRepeticoesA3_5.setVisible(true);
+                    lblObservacoesA3_5.setVisible(true);
+                    txtObservacoesA3_5.setVisible(true);
+            }
         combExercicioA3_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA3_6()));     
         combRepeticoesA3_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA3_6()));
         txtObservacoesA3_6.setText(treinos.getObservacaoA3_6());
+            if(!"".equals(txtObservacoesA3_6.getText())){
+                combExercicioA3_6.setVisible(true);
+                combRepeticoesA3_6.setVisible(true);
+                lblObservacoesA3_6.setVisible(true);
+                txtObservacoesA3_6.setVisible(true);
+            }
         combMusculoA4.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularA4()));        
         combExercicioA4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA4()));     
         combRepeticoesA4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA4()));
@@ -5939,15 +6057,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioA4_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA4_3()));     
         combRepeticoesA4_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA4_3()));
         txtObservacoesA4_3.setText(treinos.getObservacaoA4_3());
+            if(!"".equals(txtObservacoesA4_3.getText())){
+                combExercicioA4_3.setVisible(true);
+                combRepeticoesA4_3.setVisible(true);
+                lblObservacoesA4_3.setVisible(true);
+                txtObservacoesA4_3.setVisible(true);
+            }
         combExercicioA4_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA4_4()));     
         combRepeticoesA4_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA4_4()));
         txtObservacoesA4_4.setText(treinos.getObservacaoA4_4());
+            if(!"".equals(txtObservacoesA4_4.getText())){
+                combExercicioA4_4.setVisible(true);
+                combRepeticoesA4_4.setVisible(true);
+                lblObservacoesA4_4.setVisible(true);
+                txtObservacoesA4_4.setVisible(true);
+            }
         combExercicioA4_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA4_5()));     
         combRepeticoesA4_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA4_5()));
         txtObservacoesA4_5.setText(treinos.getObservacaoA4_5());
+            if(!"".equals(txtObservacoesA4_5.getText())){
+                combExercicioA4_5.setVisible(true);
+                combRepeticoesA4_5.setVisible(true);
+                lblObservacoesA4_5.setVisible(true);
+                txtObservacoesA4_5.setVisible(true);
+            }
         combExercicioA4_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA4_6()));     
         combRepeticoesA4_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA4_6()));
         txtObservacoesA4_6.setText(treinos.getObservacaoA4_6());
+            if(!"".equals(txtObservacoesA4_3.getText())){
+                combExercicioA4_6.setVisible(true);
+                combRepeticoesA4_6.setVisible(true);
+                lblObservacoesA4_6.setVisible(true);
+                txtObservacoesA4_6.setVisible(true);
+            }
         combMusculoA5.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularA5()));        
         combExercicioA5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA5()));     
         combRepeticoesA5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA5()));
@@ -5961,17 +6103,40 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioA5_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA5_3()));     
         combRepeticoesA5_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA5_3()));
         txtObservacoesA5_3.setText(treinos.getObservacaoA5_3());
+            if(!"".equals(txtObservacoesA5_3.getText())){
+                combExercicioA5_3.setVisible(true);
+                combRepeticoesA5_3.setVisible(true);
+                lblObservacoesA5_3.setVisible(true);
+                txtObservacoesA5_3.setVisible(true);
+            }
         combExercicioA5_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA5_4()));     
         combRepeticoesA5_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA5_4()));
         txtObservacoesA5_4.setText(treinos.getObservacaoA5_4());
+            if(!"".equals(txtObservacoesA5_4.getText())){
+                combExercicioA5_4.setVisible(true);
+                combRepeticoesA5_4.setVisible(true);
+                lblObservacoesA5_4.setVisible(true);
+                txtObservacoesA5_4.setVisible(true);
+            }
         combExercicioA5_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA5_5()));     
         combRepeticoesA5_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA5_5()));
         txtObservacoesA5_5.setText(treinos.getObservacaoA5_5());
+            if(!"".equals(txtObservacoesA5_5.getText())){
+                combExercicioA5_5.setVisible(true);
+                combRepeticoesA5_5.setVisible(true);
+                lblObservacoesA5_5.setVisible(true);
+                txtObservacoesA5_5.setVisible(true);
+            }
         combExercicioA5_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA5_6()));     
         combRepeticoesA5_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA5_6()));
         txtObservacoesA5_6.setText(treinos.getObservacaoA5_6());
+            if(!"".equals(txtObservacoesA5_6.getText())){
+                combExercicioA5_6.setVisible(true);
+                combRepeticoesA5_6.setVisible(true);
+                lblObservacoesA5_6.setVisible(true);
+                txtObservacoesA5_6.setVisible(true);
+            }
       
-        
         //TREINOS B
         combMusculoB1.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularB1()));        
         combExercicioB1.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB1()));     
@@ -5986,15 +6151,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioB1_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB1_3()));     
         combRepeticoesB1_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB1_3()));
         txtObservacoesB1_3.setText(treinos.getObservacaoB1_3());
+            if(!"".equals(txtObservacoesB1_3.getText())){
+                combExercicioB1_3.setVisible(true);
+                combRepeticoesB1_3.setVisible(true);
+                lblObservacoesB1_3.setVisible(true);
+                txtObservacoesB1_3.setVisible(true);
+            }
         combExercicioB1_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB1_4()));    
         combRepeticoesB1_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB1_4()));
         txtObservacoesB1_4.setText(treinos.getObservacaoB1_4());
+            if(!"".equals(txtObservacoesB1_4.getText())){
+                combExercicioB1_4.setVisible(true);
+                combRepeticoesB1_4.setVisible(true);
+                lblObservacoesB1_4.setVisible(true);
+                txtObservacoesB1_4.setVisible(true);
+            }
         combExercicioB1_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB1_5()));     
         combRepeticoesB1_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB1_5()));
         txtObservacoesB1_5.setText(treinos.getObservacaoB1_5());
+            if(!"".equals(txtObservacoesB1_5.getText())){
+                combExercicioB1_5.setVisible(true);
+                combRepeticoesB1_5.setVisible(true);
+                lblObservacoesB1_5.setVisible(true);
+                txtObservacoesB1_5.setVisible(true);
+            }
         combExercicioB1_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB1_6()));     
         combRepeticoesB1_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB1_6()));
         txtObservacoesB1_6.setText(treinos.getObservacaoB1_6());
+            if(!"".equals(txtObservacoesB1_6.getText())){
+                combExercicioB1_6.setVisible(true);
+                combRepeticoesB1_6.setVisible(true);
+                lblObservacoesB1_6.setVisible(true);
+                txtObservacoesB1_6.setVisible(true);
+            }
         combMusculoB2.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularB2()));        
         combExercicioB2.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB2()));     
         combRepeticoesB2.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB2()));
@@ -6008,15 +6197,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioB2_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB2_3()));     
         combRepeticoesB2_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB2_3()));
         txtObservacoesB2_3.setText(treinos.getObservacaoB2_3());
+            if(!"".equals(txtObservacoesB2_3.getText())){
+                combExercicioB2_3.setVisible(true);
+                combRepeticoesB2_3.setVisible(true);
+                lblObservacoesB2_3.setVisible(true);
+                txtObservacoesB2_3.setVisible(true);
+            }
         combExercicioB2_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB2_4()));    
         combRepeticoesB2_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB2_4()));
         txtObservacoesB2_4.setText(treinos.getObservacaoB2_4());
+            if(!"".equals(txtObservacoesB2_4.getText())){
+                combExercicioB2_4.setVisible(true);
+                combRepeticoesB2_4.setVisible(true);
+                lblObservacoesB2_4.setVisible(true);
+                txtObservacoesB2_4.setVisible(true);
+            }
         combExercicioB2_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB2_5()));     
         combRepeticoesB2_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB2_5()));
         txtObservacoesB2_5.setText(treinos.getObservacaoB2_5());
+            if(!"".equals(txtObservacoesB2_5.getText())){
+                combExercicioB2_5.setVisible(true);
+                combRepeticoesB2_5.setVisible(true);
+                lblObservacoesB2_5.setVisible(true);
+                txtObservacoesB2_5.setVisible(true);
+            }
         combExercicioB2_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB2_6()));     
         combRepeticoesB2_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB2_6()));
         txtObservacoesB2_6.setText(treinos.getObservacaoB2_6());
+            if(!"".equals(txtObservacoesB2_6.getText())){
+                combExercicioB2_6.setVisible(true);
+                combRepeticoesB2_6.setVisible(true);
+                lblObservacoesB2_6.setVisible(true);
+                txtObservacoesB2_6.setVisible(true);
+            }
         combMusculoB3.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularB3()));        
         combExercicioB3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB3()));     
         combRepeticoesB3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB3()));
@@ -6030,15 +6243,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioB3_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB3_3()));     
         combRepeticoesB3_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB3_3()));
         txtObservacoesB3_3.setText(treinos.getObservacaoB3_3());
+            if(!"".equals(txtObservacoesB3_3.getText())){
+                combExercicioB3_3.setVisible(true);
+                combRepeticoesB3_3.setVisible(true);
+                lblObservacoesB3_3.setVisible(true);
+                txtObservacoesB3_3.setVisible(true);
+            }
         combExercicioB3_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB3_4()));    
         combRepeticoesB3_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB3_4()));
         txtObservacoesB3_4.setText(treinos.getObservacaoB3_4());
+            if(!"".equals(txtObservacoesB3_4.getText())){
+                combExercicioB3_4.setVisible(true);
+                combRepeticoesB3_4.setVisible(true);
+                lblObservacoesB3_4.setVisible(true);
+                txtObservacoesB3_4.setVisible(true);
+            }
         combExercicioB3_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB3_5()));     
         combRepeticoesB3_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB3_5()));
         txtObservacoesB3_5.setText(treinos.getObservacaoB3_5());
+            if(!"".equals(txtObservacoesB3_5.getText())){
+                    combExercicioB3_5.setVisible(true);
+                    combRepeticoesB3_5.setVisible(true);
+                    lblObservacoesB3_5.setVisible(true);
+                    txtObservacoesB3_5.setVisible(true);
+            }
         combExercicioB3_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB3_6()));     
         combRepeticoesB3_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB3_6()));
         txtObservacoesB3_6.setText(treinos.getObservacaoB3_6());
+            if(!"".equals(txtObservacoesB3_6.getText())){
+                combExercicioB3_6.setVisible(true);
+                combRepeticoesB3_6.setVisible(true);
+                lblObservacoesB3_6.setVisible(true);
+                txtObservacoesB3_6.setVisible(true);
+            }
         combMusculoB4.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularB4()));        
         combExercicioB4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB4()));     
         combRepeticoesB4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB4()));
@@ -6052,15 +6289,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioB4_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB4_3()));     
         combRepeticoesB4_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB4_3()));
         txtObservacoesB4_3.setText(treinos.getObservacaoB4_3());
+            if(!"".equals(txtObservacoesB4_3.getText())){
+                combExercicioB4_3.setVisible(true);
+                combRepeticoesB4_3.setVisible(true);
+                lblObservacoesB4_3.setVisible(true);
+                txtObservacoesB4_3.setVisible(true);
+            }
         combExercicioB4_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB4_4()));    
         combRepeticoesB4_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB4_4()));
         txtObservacoesB4_4.setText(treinos.getObservacaoB4_4());
+            if(!"".equals(txtObservacoesB4_4.getText())){
+                combExercicioB4_4.setVisible(true);
+                combRepeticoesB4_4.setVisible(true);
+                lblObservacoesB4_4.setVisible(true);
+                txtObservacoesB4_4.setVisible(true);
+            }
         combExercicioB4_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB4_5()));     
         combRepeticoesB4_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB4_5()));
         txtObservacoesB4_5.setText(treinos.getObservacaoB4_5());
+            if(!"".equals(txtObservacoesB4_5.getText())){
+                combExercicioB4_5.setVisible(true);
+                combRepeticoesB4_5.setVisible(true);
+                lblObservacoesB4_5.setVisible(true);
+                txtObservacoesB4_5.setVisible(true);
+            }
         combExercicioB4_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB4_6()));     
         combRepeticoesB4_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB4_6()));
         txtObservacoesB4_6.setText(treinos.getObservacaoB4_6());
+            if(!"".equals(txtObservacoesB4_6.getText())){
+                combExercicioB4_6.setVisible(true);
+                combRepeticoesB4_6.setVisible(true);
+                lblObservacoesB4_6.setVisible(true);
+                txtObservacoesB4_6.setVisible(true);
+            }
         combMusculoB5.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularB5()));        
         combExercicioB5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB5()));     
         combRepeticoesB5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB5()));
@@ -6074,15 +6335,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioB5_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB5_3()));     
         combRepeticoesB5_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB5_3()));
         txtObservacoesB5_3.setText(treinos.getObservacaoB5_3());
+            if(!"".equals(txtObservacoesB5_3.getText())){
+                combExercicioB5_3.setVisible(true);
+                combRepeticoesB5_3.setVisible(true);
+                lblObservacoesB5_3.setVisible(true);
+                txtObservacoesB5_3.setVisible(true);
+            }
         combExercicioB5_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB5_4()));    
         combRepeticoesB5_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB5_4()));
         txtObservacoesB5_4.setText(treinos.getObservacaoB5_4());
+            if(!"".equals(txtObservacoesB5_4.getText())){
+                    combExercicioB5_4.setVisible(true);
+                    combRepeticoesB5_4.setVisible(true);
+                    lblObservacoesB5_4.setVisible(true);
+                    txtObservacoesB5_4.setVisible(true);
+            }
         combExercicioB5_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB5_5()));     
         combRepeticoesB5_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB5_5()));
         txtObservacoesB5_5.setText(treinos.getObservacaoB5_5());
+            if(!"".equals(txtObservacoesB5_5.getText())){
+                combExercicioB5_5.setVisible(true);
+                combRepeticoesB5_5.setVisible(true);
+                lblObservacoesB5_5.setVisible(true);
+                txtObservacoesB5_5.setVisible(true);
+            }
         combExercicioB5_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB5_6()));     
         combRepeticoesB5_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB5_6()));
         txtObservacoesB5_6.setText(treinos.getObservacaoB5_6());
+            if(!"".equals(txtObservacoesB5_6.getText())){
+                combExercicioB5_6.setVisible(true);
+                combRepeticoesB5_6.setVisible(true);
+                lblObservacoesB5_6.setVisible(true);
+                txtObservacoesB5_6.setVisible(true);
+            }
         
         
         //TREINOS C
@@ -6099,16 +6384,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioC1_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC1_3()));     
         combRepeticoesC1_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC1_3()));
         txtObservacoesC1_3.setText(treinos.getObservacaoC1_3());
+            if(!"".equals(txtObservacoesC1_3.getText())){
+                combExercicioC1_3.setVisible(true);
+                combRepeticoesC1_3.setVisible(true);
+                lblObservacoesC1_3.setVisible(true);
+                txtObservacoesC1_3.setVisible(true);
+            }
         combExercicioC1_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC1_4()));    
         combRepeticoesC1_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC1_4()));
         txtObservacoesC1_4.setText(treinos.getObservacaoC1_4());
+            if(!"".equals(txtObservacoesC1_4.getText())){
+                combExercicioC1_4.setVisible(true);
+                combRepeticoesC1_4.setVisible(true);
+                lblObservacoesC1_4.setVisible(true);
+                txtObservacoesC1_4.setVisible(true);
+            }
         combExercicioC1_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC1_5()));     
         combRepeticoesC1_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC1_5()));
         txtObservacoesC1_5.setText(treinos.getObservacaoC1_5());
+            if(!"".equals(txtObservacoesC1_5.getText())){
+                combExercicioC1_5.setVisible(true);
+                combRepeticoesC1_5.setVisible(true);
+                lblObservacoesC1_5.setVisible(true);
+                txtObservacoesC1_5.setVisible(true);
+            }
         combExercicioC1_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC1_6()));     
         combRepeticoesC1_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC1_6()));
         txtObservacoesC1_6.setText(treinos.getObservacaoC1_6());
-        
+            if(!"".equals(txtObservacoesC1_6.getText())){
+                combExercicioC1_6.setVisible(true);
+                combRepeticoesC1_6.setVisible(true);
+                lblObservacoesC1_6.setVisible(true);
+                txtObservacoesC1_6.setVisible(true);
+            }
         combMusculoC2.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularC2()));        
         combExercicioC2.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC2()));     
         combRepeticoesC2.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC2()));
@@ -6122,16 +6430,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioC2_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC2_3()));     
         combRepeticoesC2_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC2_3()));
         txtObservacoesC2_3.setText(treinos.getObservacaoC2_3());
+            if(!"".equals(txtObservacoesC2_3.getText())){
+                combExercicioC2_3.setVisible(true);
+                combRepeticoesC2_3.setVisible(true);
+                lblObservacoesC2_3.setVisible(true);
+                txtObservacoesC2_3.setVisible(true);
+            }
         combExercicioC2_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC2_4()));    
         combRepeticoesC2_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC2_4()));
         txtObservacoesC2_4.setText(treinos.getObservacaoC2_4());
+            if(!"".equals(txtObservacoesC2_4.getText())){
+                combExercicioC2_4.setVisible(true);
+                combRepeticoesC2_4.setVisible(true);
+                lblObservacoesC2_4.setVisible(true);
+                txtObservacoesC2_4.setVisible(true);
+            }
         combExercicioC2_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC2_5()));     
         combRepeticoesC2_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC2_5()));
         txtObservacoesC2_5.setText(treinos.getObservacaoC2_5());
+            if(!"".equals(txtObservacoesC2_5.getText())){
+                combExercicioC2_5.setVisible(true);
+                combRepeticoesC2_5.setVisible(true);
+                lblObservacoesC2_5.setVisible(true);
+                txtObservacoesC2_5.setVisible(true);
+            }
         combExercicioC2_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC2_6()));     
         combRepeticoesC2_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC2_6()));
         txtObservacoesC2_6.setText(treinos.getObservacaoC2_6());
-        
+            if(!"".equals(txtObservacoesC2_6.getText())){
+                combExercicioC2_6.setVisible(true);
+                combRepeticoesC2_6.setVisible(true);
+                lblObservacoesC2_6.setVisible(true);
+                txtObservacoesC2_6.setVisible(true);
+            }
         combMusculoC3.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularC3()));        
         combExercicioC3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC3()));     
         combRepeticoesC3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC3()));
@@ -6145,16 +6476,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioC3_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC3_3()));     
         combRepeticoesC3_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC3_3()));
         txtObservacoesC3_3.setText(treinos.getObservacaoC3_3());
+            if(!"".equals(txtObservacoesC3_3.getText())){
+                combExercicioC3_3.setVisible(true);
+                combRepeticoesC3_3.setVisible(true);
+                lblObservacoesC3_3.setVisible(true);
+                txtObservacoesC3_3.setVisible(true);
+            }
         combExercicioC3_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC3_4()));    
         combRepeticoesC3_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC3_4()));
         txtObservacoesC3_4.setText(treinos.getObservacaoC3_4());
+            if(!"".equals(txtObservacoesC3_4.getText())){
+                combExercicioC3_4.setVisible(true);
+                combRepeticoesC3_4.setVisible(true);
+                lblObservacoesC3_4.setVisible(true);
+                txtObservacoesC3_4.setVisible(true);
+            }
         combExercicioC3_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC3_5()));     
         combRepeticoesC3_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC3_5()));
         txtObservacoesC3_5.setText(treinos.getObservacaoC3_5());
+            if(!"".equals(txtObservacoesC3_5.getText())){
+                combExercicioC3_5.setVisible(true);
+                combRepeticoesC3_5.setVisible(true);
+                lblObservacoesC3_5.setVisible(true);
+                txtObservacoesC3_5.setVisible(true);
+            }
         combExercicioC3_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC3_6()));     
         combRepeticoesC3_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC3_6()));
         txtObservacoesC3_6.setText(treinos.getObservacaoC3_6());
-        
+            if(!"".equals(txtObservacoesC3_6.getText())){
+                combExercicioC3_6.setVisible(true);
+                combRepeticoesC3_6.setVisible(true);
+                lblObservacoesC3_6.setVisible(true);
+                txtObservacoesC3_6.setVisible(true);
+            }
         combMusculoC4.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularC4()));        
         combExercicioC4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC4()));     
         combRepeticoesC4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC4()));
@@ -6168,16 +6522,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioC4_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC4_3()));     
         combRepeticoesC4_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC4_3()));
         txtObservacoesC4_3.setText(treinos.getObservacaoC4_3());
+            if(!"".equals(txtObservacoesC4_3.getText())){
+                combExercicioC4_3.setVisible(true);
+                combRepeticoesC4_3.setVisible(true);
+                lblObservacoesC4_3.setVisible(true);
+                txtObservacoesC4_3.setVisible(true);
+            }
         combExercicioC4_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC4_4()));    
         combRepeticoesC4_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC4_4()));
         txtObservacoesC4_4.setText(treinos.getObservacaoC4_4());
+            if(!"".equals(txtObservacoesC4_4.getText())){
+                combExercicioC4_4.setVisible(true);
+                combRepeticoesC4_4.setVisible(true);
+                lblObservacoesC4_4.setVisible(true);
+                txtObservacoesC4_4.setVisible(true);
+            }
         combExercicioC4_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC4_5()));     
         combRepeticoesC4_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC4_5()));
         txtObservacoesC4_5.setText(treinos.getObservacaoC4_5());
+            if(!"".equals(txtObservacoesC4_5.getText())){
+                combExercicioC4_5.setVisible(true);
+                combRepeticoesC4_5.setVisible(true);
+                lblObservacoesC4_5.setVisible(true);
+                txtObservacoesC4_5.setVisible(true);
+            }
         combExercicioC4_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC4_6()));     
         combRepeticoesC4_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC4_6()));
         txtObservacoesC4_6.setText(treinos.getObservacaoC4_6());
-        
+            if(!"".equals(txtObservacoesC4_6.getText())){
+                combExercicioC4_6.setVisible(true);
+                combRepeticoesC4_6.setVisible(true);
+                lblObservacoesC4_6.setVisible(true);
+                txtObservacoesC4_6.setVisible(true);
+            }
         combMusculoC5.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularC5()));        
         combExercicioC5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC5()));     
         combRepeticoesC5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC5()));
@@ -6191,15 +6568,39 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioC5_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC5_3()));     
         combRepeticoesC5_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC5_3()));
         txtObservacoesC5_3.setText(treinos.getObservacaoC5_3());
+            if(!"".equals(txtObservacoesC5_3.getText())){
+                combExercicioC5_3.setVisible(true);
+                combRepeticoesC5_3.setVisible(true);
+                lblObservacoesC5_3.setVisible(true);
+                txtObservacoesC5_3.setVisible(true);
+            }
         combExercicioC5_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC5_4()));    
         combRepeticoesC5_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC5_4()));
         txtObservacoesC5_4.setText(treinos.getObservacaoC5_4());
+            if(!"".equals(txtObservacoesC5_4.getText())){
+                combExercicioC5_4.setVisible(true);
+                combRepeticoesC5_4.setVisible(true);
+                lblObservacoesC5_4.setVisible(true);
+                txtObservacoesC5_4.setVisible(true);
+            }
         combExercicioC5_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC5_5()));     
         combRepeticoesC5_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC5_5()));
         txtObservacoesC5_5.setText(treinos.getObservacaoC5_5());
+            if(!"".equals(txtObservacoesC5_5.getText())){
+                combExercicioC5_5.setVisible(true);
+                combRepeticoesC5_5.setVisible(true);
+                lblObservacoesC5_5.setVisible(true);
+                txtObservacoesC5_5.setVisible(true);
+            }
         combExercicioC5_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioC5_6()));     
         combRepeticoesC5_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoC5_6()));
         txtObservacoesC5_6.setText(treinos.getObservacaoC5_6()); 
+            if(!"".equals(txtObservacoesC5_6.getText())){
+                combExercicioC5_6.setVisible(true);
+                combRepeticoesC5_6.setVisible(true);
+                lblObservacoesC5_6.setVisible(true);
+                txtObservacoesC5_6.setVisible(true);
+            }
     }
     
     

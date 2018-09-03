@@ -215,7 +215,7 @@ public class InsertBd {
             stmt.setString(38, dados.getObservacaoA5_6());
                                    
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"TREINO A SALVO !");
+            JOptionPane.showMessageDialog(null,"TREINO SALVO COM SUCESSO !");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
@@ -320,7 +320,7 @@ public class InsertBd {
             stmt.setString(36, dados.getObservacaoB5_6());
                                    
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"TREINO B SALVO !");
+            //JOptionPane.showMessageDialog(null,"TREINO B SALVO !");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
@@ -425,7 +425,7 @@ public class InsertBd {
             stmt.setString(36, dados.getObservacaoC5_6());
                                    
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"TREINO C SALVO !");
+            //JOptionPane.showMessageDialog(null,"TREINO C SALVO !");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
