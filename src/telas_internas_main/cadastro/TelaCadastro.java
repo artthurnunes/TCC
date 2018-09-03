@@ -527,7 +527,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                         //NÃO FAZ NADA, PRIMEIRO CADASTRO DE TREINO, FICA TUDO VAZIO
                     }else{
                         ClasseCadastro_treino.setTreinoNovo(false); //INDICANDO QUE NÃO PRECISA CARREGAR OS COMBOS DA TELA TREINOS POIS VAI VIR DO BD
-                        selects.populandoTelaTreinosStrings();
+                        selects.populandoTelaTreinosA();
                     }
             } catch (SQLException ex) {
                 Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);

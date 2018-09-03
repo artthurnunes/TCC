@@ -4,19 +4,11 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-    
-          *FIZ UM POUCO DO SELECT MAS NÃO FUNCIONOU. ANALISAR
-    
-    * FAZENDO O SELECT PARA POPULAR A TELA TREINOS    
-    *Começando a fazer o select dos treinos. Trazer o treino pelo CD_REGISTRO.Quando clicar no botão de editar do treino, quando salvar já salvar com novo CD_TREINO.
+
+    * FAZENDO O SELECT PARA POPULAR A TELA TREINOS (MEXENDO EM SELECTBD, TELACADASTRO_TREINO E CLASSECADASTRO_TREINOCODIGOS    
+    * Pensar em uma forma de habilitar os botoes ocultos caso haja exercicios neles. (pensei no campo obs se n'ao estiver vazio trazer.
+    * Ver se vai demorar muito para fazer o editar(update) se n'ao deixar somente opcao de novo.
         
-    
-        * ATUALIZAR TABELA DE TREINOS, MODIFIQUEI NO TRABALHO ((((((NÃO ESQUECER EM CASA !!!!))))))
-    
-        * Quando entrar na tela de treinos, quando ocorrer alguma modificação, nao deixar sair sem salvar se não 
-          será perdido.
-    
-        * Fazer Join para carregar o treino.
     */
     
     

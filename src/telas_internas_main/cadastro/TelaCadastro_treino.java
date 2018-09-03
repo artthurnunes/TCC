@@ -4,6 +4,7 @@ package telas_internas_main.cadastro;
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
 import classes.ClasseCadastro_treino;
+import classes.ClasseCadastro_treinoCodigos;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
 import java.sql.SQLException;
@@ -38,6 +39,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     ArrayList<String> listaRepeticoes = new ArrayList(); //lista de exercicios do banco
     ClasseCadastro_exercicios exercicios = new ClasseCadastro_exercicios();
     ClasseCadastro_treino treinos = new ClasseCadastro_treino();
+    ClasseCadastro_treinoCodigos treinosCodigos = new ClasseCadastro_treinoCodigos();
     ClasseCadastro cadastro = new ClasseCadastro();
     InsertBd inserts = new InsertBd();
     SelectBd selects = new SelectBd();
@@ -5419,671 +5421,474 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         treinos.setGrupo_muscularA1((String)combMusculoA1.getSelectedItem());        
         treinos.setExercicioA1((String)combExercicioA1.getSelectedItem());
         treinos.setRepeticaoA1((String)combRepeticoesA1.getSelectedItem());
-        treinos.setObservacaoA1(txtObservacoesA1.getText());        
+        treinos.setObservacaoA1(txtObservacoesA1.getText());   
+        
         treinos.setExercicioA1_1((String)combExercicioA1_1.getSelectedItem());
         treinos.setRepeticaoA1_1((String)combRepeticoesA1_1.getSelectedItem());
         treinos.setObservacaoA1_1(txtObservacoesA1_1.getText());
-        treinos.setExercicioA1_2((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_2((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_2(txtObservacoesA1_1.getText());
-        treinos.setExercicioA1_3((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_3((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_3(txtObservacoesA1_1.getText());
-        treinos.setExercicioA1_4((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_4((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_4(txtObservacoesA1_1.getText());
-        treinos.setExercicioA1_5((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_5((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_5(txtObservacoesA1_1.getText());
-        treinos.setExercicioA1_6((String)combExercicioA1_1.getSelectedItem());
-        treinos.setRepeticaoA1_6((String)combRepeticoesA1_1.getSelectedItem());
-        treinos.setObservacaoA1_6(txtObservacoesA1_1.getText());
+        
+        treinos.setExercicioA1_2((String)combExercicioA1_2.getSelectedItem());
+        treinos.setRepeticaoA1_2((String)combRepeticoesA1_2.getSelectedItem());
+        treinos.setObservacaoA1_2(txtObservacoesA1_2.getText());
+        
+        treinos.setExercicioA1_3((String)combExercicioA1_3.getSelectedItem());
+        treinos.setRepeticaoA1_3((String)combRepeticoesA1_3.getSelectedItem());
+        treinos.setObservacaoA1_3(txtObservacoesA1_3.getText());
+        
+        treinos.setExercicioA1_4((String)combExercicioA1_4.getSelectedItem());
+        treinos.setRepeticaoA1_4((String)combRepeticoesA1_4.getSelectedItem());
+        treinos.setObservacaoA1_4(txtObservacoesA1_4.getText());
+        
+        treinos.setExercicioA1_5((String)combExercicioA1_5.getSelectedItem());
+        treinos.setRepeticaoA1_5((String)combRepeticoesA1_5.getSelectedItem());
+        treinos.setObservacaoA1_5(txtObservacoesA1_5.getText());
+        
+        treinos.setExercicioA1_6((String)combExercicioA1_6.getSelectedItem());
+        treinos.setRepeticaoA1_6((String)combRepeticoesA1_6.getSelectedItem());
+        treinos.setObservacaoA1_6(txtObservacoesA1_6.getText());
+        
         treinos.setGrupo_muscularA2((String)combMusculoA2.getSelectedItem());        
         treinos.setExercicioA2((String)combExercicioA2.getSelectedItem());
         treinos.setRepeticaoA2((String)combRepeticoesA2.getSelectedItem());
-        treinos.setObservacaoA2(txtObservacoesA2.getText());        
+        treinos.setObservacaoA2(txtObservacoesA2.getText());   
+        
         treinos.setExercicioA2_1((String)combExercicioA2_1.getSelectedItem());
         treinos.setRepeticaoA2_1((String)combRepeticoesA2_1.getSelectedItem());
         treinos.setObservacaoA2_1(txtObservacoesA2_1.getText());
-        treinos.setExercicioA2_2((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_2((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_2(txtObservacoesA2_1.getText());
-        treinos.setExercicioA2_3((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_3((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_3(txtObservacoesA2_1.getText());
-        treinos.setExercicioA2_4((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_4((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_4(txtObservacoesA2_1.getText());
-        treinos.setExercicioA2_5((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_5((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_5(txtObservacoesA2_1.getText());
-        treinos.setExercicioA2_6((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA2_6((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA2_6(txtObservacoesA2_1.getText());
-        treinos.setGrupo_muscularA3((String)combMusculoA2.getSelectedItem());        
-        treinos.setExercicioA3((String)combExercicioA2.getSelectedItem());
-        treinos.setRepeticaoA3((String)combRepeticoesA2.getSelectedItem());
-        treinos.setObservacaoA3(txtObservacoesA2.getText());        
-        treinos.setExercicioA3_1((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_1((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_1(txtObservacoesA2_1.getText());
-        treinos.setExercicioA3_2((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_2((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_2(txtObservacoesA2_1.getText());
-        treinos.setExercicioA3_3((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_3((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_3(txtObservacoesA2_1.getText());
-        treinos.setExercicioA3_4((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_4((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_4(txtObservacoesA2_1.getText());
-        treinos.setExercicioA3_5((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_5((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_5(txtObservacoesA2_1.getText());
-        treinos.setExercicioA3_6((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA3_6((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA3_6(txtObservacoesA2_1.getText());
-        treinos.setGrupo_muscularA4((String)combMusculoA2.getSelectedItem());        
-        treinos.setExercicioA4((String)combExercicioA2.getSelectedItem());
-        treinos.setRepeticaoA4((String)combRepeticoesA2.getSelectedItem());
-        treinos.setObservacaoA4(txtObservacoesA2.getText());        
-        treinos.setExercicioA4_1((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_1((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_1(txtObservacoesA2_1.getText());
-        treinos.setExercicioA4_2((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_2((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_2(txtObservacoesA2_1.getText());
-        treinos.setExercicioA4_3((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_3((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_3(txtObservacoesA2_1.getText());
-        treinos.setExercicioA4_4((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_4((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_4(txtObservacoesA2_1.getText());
-        treinos.setExercicioA4_5((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_5((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_5(txtObservacoesA2_1.getText());
-        treinos.setExercicioA4_6((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_6((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_6(txtObservacoesA2_1.getText());
-        treinos.setGrupo_muscularA5((String)combMusculoA2.getSelectedItem());        
-        treinos.setExercicioA5((String)combExercicioA2.getSelectedItem());
-        treinos.setRepeticaoA5((String)combRepeticoesA2.getSelectedItem());
-        treinos.setObservacaoA5(txtObservacoesA2.getText());        
-        treinos.setExercicioA5_1((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_1((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_1(txtObservacoesA2_1.getText());
-        treinos.setExercicioA5_2((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_2((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_2(txtObservacoesA2_1.getText());
-        treinos.setExercicioA5_3((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_3((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_3(txtObservacoesA2_1.getText());
-        treinos.setExercicioA5_4((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_4((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_4(txtObservacoesA2_1.getText());
-        treinos.setExercicioA5_5((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_5((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_5(txtObservacoesA2_1.getText());
-        treinos.setExercicioA5_6((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_6((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_6(txtObservacoesA2_1.getText());     
+        
+        treinos.setExercicioA2_2((String)combExercicioA2_2.getSelectedItem());
+        treinos.setRepeticaoA2_2((String)combRepeticoesA2_2.getSelectedItem());
+        treinos.setObservacaoA2_2(txtObservacoesA2_2.getText());
+        
+        treinos.setExercicioA2_3((String)combExercicioA2_3.getSelectedItem());
+        treinos.setRepeticaoA2_3((String)combRepeticoesA2_3.getSelectedItem());
+        treinos.setObservacaoA2_3(txtObservacoesA2_3.getText());
+        
+        treinos.setExercicioA2_4((String)combExercicioA2_4.getSelectedItem());
+        treinos.setRepeticaoA2_4((String)combRepeticoesA2_4.getSelectedItem());
+        treinos.setObservacaoA2_4(txtObservacoesA2_4.getText());
+        
+        treinos.setExercicioA2_5((String)combExercicioA2_5.getSelectedItem());
+        treinos.setRepeticaoA2_5((String)combRepeticoesA2_5.getSelectedItem());
+        treinos.setObservacaoA2_5(txtObservacoesA2_5.getText());
+        
+        treinos.setExercicioA2_6((String)combExercicioA2_6.getSelectedItem());
+        treinos.setRepeticaoA2_6((String)combRepeticoesA2_6.getSelectedItem());
+        treinos.setObservacaoA2_6(txtObservacoesA2_6.getText());
+        
+        treinos.setGrupo_muscularA3((String)combMusculoA3.getSelectedItem());        
+        treinos.setExercicioA3((String)combExercicioA3.getSelectedItem());
+        treinos.setRepeticaoA3((String)combRepeticoesA3.getSelectedItem());
+        treinos.setObservacaoA3(txtObservacoesA3.getText());   
+        
+        treinos.setExercicioA3_1((String)combExercicioA3_1.getSelectedItem());
+        treinos.setRepeticaoA3_1((String)combRepeticoesA3_1.getSelectedItem());
+        treinos.setObservacaoA3_1(txtObservacoesA3_1.getText());
+        
+        treinos.setExercicioA3_2((String)combExercicioA3_2.getSelectedItem());
+        treinos.setRepeticaoA3_2((String)combRepeticoesA3_2.getSelectedItem());
+        treinos.setObservacaoA3_2(txtObservacoesA3_2.getText());
+        
+        treinos.setExercicioA3_3((String)combExercicioA3_3.getSelectedItem());
+        treinos.setRepeticaoA3_3((String)combRepeticoesA3_3.getSelectedItem());
+        treinos.setObservacaoA3_3(txtObservacoesA3_3.getText());
+        
+        treinos.setExercicioA3_4((String)combExercicioA3_4.getSelectedItem());
+        treinos.setRepeticaoA3_4((String)combRepeticoesA3_4.getSelectedItem());
+        treinos.setObservacaoA3_4(txtObservacoesA3_4.getText());
+        
+        treinos.setExercicioA3_5((String)combExercicioA3_5.getSelectedItem());
+        treinos.setRepeticaoA3_5((String)combRepeticoesA3_5.getSelectedItem());
+        treinos.setObservacaoA3_5(txtObservacoesA3_5.getText());
+        
+        treinos.setExercicioA3_6((String)combExercicioA3_6.getSelectedItem());
+        treinos.setRepeticaoA3_6((String)combRepeticoesA3_6.getSelectedItem());
+        treinos.setObservacaoA3_6(txtObservacoesA3_6.getText());
+        
+        treinos.setGrupo_muscularA4((String)combMusculoA4.getSelectedItem());        
+        treinos.setExercicioA4((String)combExercicioA4.getSelectedItem());
+        treinos.setRepeticaoA4((String)combRepeticoesA4.getSelectedItem());
+        treinos.setObservacaoA4(txtObservacoesA4.getText());      
+        
+        treinos.setExercicioA4_1((String)combExercicioA4_1.getSelectedItem());
+        treinos.setRepeticaoA4_1((String)combRepeticoesA4_1.getSelectedItem());
+        treinos.setObservacaoA4_1(txtObservacoesA4_1.getText());
+        
+        treinos.setExercicioA4_2((String)combExercicioA4_2.getSelectedItem());
+        treinos.setRepeticaoA4_2((String)combRepeticoesA4_2.getSelectedItem());
+        treinos.setObservacaoA4_2(txtObservacoesA4_2.getText());
+        
+        treinos.setExercicioA4_3((String)combExercicioA4_3.getSelectedItem());
+        treinos.setRepeticaoA4_3((String)combRepeticoesA4_3.getSelectedItem());
+        treinos.setObservacaoA4_3(txtObservacoesA4_3.getText());
+        
+        treinos.setExercicioA4_4((String)combExercicioA4_4.getSelectedItem());
+        treinos.setRepeticaoA4_4((String)combRepeticoesA4_4.getSelectedItem());
+        treinos.setObservacaoA4_4(txtObservacoesA4_4.getText());
+        
+        treinos.setExercicioA4_5((String)combExercicioA4_5.getSelectedItem());
+        treinos.setRepeticaoA4_5((String)combRepeticoesA4_5.getSelectedItem());
+        treinos.setObservacaoA4_5(txtObservacoesA4_5.getText());
+        
+        treinos.setExercicioA4_6((String)combExercicioA4_6.getSelectedItem());
+        treinos.setRepeticaoA4_6((String)combRepeticoesA4_6.getSelectedItem());
+        treinos.setObservacaoA4_6(txtObservacoesA4_6.getText());
+
+        treinos.setGrupo_muscularA5((String)combMusculoA5.getSelectedItem());        
+        treinos.setExercicioA5((String)combExercicioA5.getSelectedItem());
+        treinos.setRepeticaoA5((String)combRepeticoesA5.getSelectedItem());
+        treinos.setObservacaoA5(txtObservacoesA5.getText());   
+        
+        treinos.setExercicioA5_1((String)combExercicioA5_1.getSelectedItem());
+        treinos.setRepeticaoA5_1((String)combRepeticoesA5_1.getSelectedItem());
+        treinos.setObservacaoA5_1(txtObservacoesA5_1.getText());
+        
+        treinos.setExercicioA5_2((String)combExercicioA5_2.getSelectedItem());
+        treinos.setRepeticaoA5_2((String)combRepeticoesA5_2.getSelectedItem());
+        treinos.setObservacaoA5_2(txtObservacoesA5_2.getText());
+        
+        treinos.setExercicioA5_3((String)combExercicioA5_3.getSelectedItem());
+        treinos.setRepeticaoA5_3((String)combRepeticoesA5_3.getSelectedItem());
+        treinos.setObservacaoA5_3(txtObservacoesA5_3.getText());
+        
+        treinos.setExercicioA5_4((String)combExercicioA5_4.getSelectedItem());
+        treinos.setRepeticaoA5_4((String)combRepeticoesA5_4.getSelectedItem());
+        treinos.setObservacaoA5_4(txtObservacoesA5_4.getText());
+        
+        treinos.setExercicioA5_5((String)combExercicioA5_5.getSelectedItem());
+        treinos.setRepeticaoA5_5((String)combRepeticoesA5_5.getSelectedItem());
+        treinos.setObservacaoA5_5(txtObservacoesA5_5.getText());
+        
+        treinos.setExercicioA5_6((String)combExercicioA5_6.getSelectedItem());
+        treinos.setRepeticaoA5_6((String)combRepeticoesA5_6.getSelectedItem());
+        treinos.setObservacaoA5_6(txtObservacoesA5_6.getText());
+        
         
         treinos.setGrupo_muscularB1((String)combMusculoB1.getSelectedItem());        
         treinos.setExercicioB1((String)combExercicioB1.getSelectedItem());
         treinos.setRepeticaoB1((String)combRepeticoesB1.getSelectedItem());
-        treinos.setObservacaoB1(txtObservacoesB1.getText());        
+        treinos.setObservacaoB1(txtObservacoesB1.getText());   
+        
         treinos.setExercicioB1_1((String)combExercicioB1_1.getSelectedItem());
         treinos.setRepeticaoB1_1((String)combRepeticoesB1_1.getSelectedItem());
         treinos.setObservacaoB1_1(txtObservacoesB1_1.getText());
-        treinos.setExercicioB1_2((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_2((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_2(txtObservacoesB1_1.getText());
-        treinos.setExercicioB1_3((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_3((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_3(txtObservacoesB1_1.getText());
-        treinos.setExercicioB1_4((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_4((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_4(txtObservacoesB1_1.getText());
-        treinos.setExercicioB1_5((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_5((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_5(txtObservacoesB1_1.getText());
-        treinos.setExercicioB1_6((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_6((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_6(txtObservacoesB1_1.getText());
+        
+        treinos.setExercicioB1_2((String)combExercicioB1_2.getSelectedItem());
+        treinos.setRepeticaoB1_2((String)combRepeticoesB1_2.getSelectedItem());
+        treinos.setObservacaoB1_2(txtObservacoesB1_2.getText());
+        
+        treinos.setExercicioB1_3((String)combExercicioB1_3.getSelectedItem());
+        treinos.setRepeticaoB1_3((String)combRepeticoesB1_3.getSelectedItem());
+        treinos.setObservacaoB1_3(txtObservacoesB1_3.getText());
+        
+        treinos.setExercicioB1_4((String)combExercicioB1_4.getSelectedItem());
+        treinos.setRepeticaoB1_4((String)combRepeticoesB1_4.getSelectedItem());
+        treinos.setObservacaoB1_4(txtObservacoesB1_4.getText());
+        
+        treinos.setExercicioB1_5((String)combExercicioB1_5.getSelectedItem());
+        treinos.setRepeticaoB1_5((String)combRepeticoesB1_5.getSelectedItem());
+        treinos.setObservacaoB1_5(txtObservacoesB1_5.getText());
+        
+        treinos.setExercicioB1_6((String)combExercicioB1_6.getSelectedItem());
+        treinos.setRepeticaoB1_6((String)combRepeticoesB1_6.getSelectedItem());
+        treinos.setObservacaoB1_6(txtObservacoesB1_6.getText());
+        
         treinos.setGrupo_muscularB2((String)combMusculoB2.getSelectedItem());        
         treinos.setExercicioB2((String)combExercicioB2.getSelectedItem());
         treinos.setRepeticaoB2((String)combRepeticoesB2.getSelectedItem());
-        treinos.setObservacaoB2(txtObservacoesB2.getText());        
+        treinos.setObservacaoB2(txtObservacoesA2.getText());   
+        
         treinos.setExercicioB2_1((String)combExercicioB2_1.getSelectedItem());
         treinos.setRepeticaoB2_1((String)combRepeticoesB2_1.getSelectedItem());
         treinos.setObservacaoB2_1(txtObservacoesB2_1.getText());
-        treinos.setExercicioB2_2((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_2((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_2(txtObservacoesB2_1.getText());
-        treinos.setExercicioB2_3((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_3((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_3(txtObservacoesB2_1.getText());
-        treinos.setExercicioB2_4((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_4((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_4(txtObservacoesB2_1.getText());
-        treinos.setExercicioB2_5((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_5((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_5(txtObservacoesB2_1.getText());
-        treinos.setExercicioB2_6((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_6((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_6(txtObservacoesB2_1.getText());
-        treinos.setGrupo_muscularB3((String)combMusculoB2.getSelectedItem());        
-        treinos.setExercicioB3((String)combExercicioB2.getSelectedItem());
-        treinos.setRepeticaoB3((String)combRepeticoesB2.getSelectedItem());
-        treinos.setObservacaoB3(txtObservacoesB2.getText());        
-        treinos.setExercicioB3_1((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_1((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_1(txtObservacoesB2_1.getText());
-        treinos.setExercicioB3_2((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_2((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_2(txtObservacoesB2_1.getText());
-        treinos.setExercicioB3_3((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_3((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_3(txtObservacoesB2_1.getText());
-        treinos.setExercicioB3_4((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_4((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_4(txtObservacoesB2_1.getText());
-        treinos.setExercicioB3_5((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_5((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_5(txtObservacoesB2_1.getText());
-        treinos.setExercicioB3_6((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_6((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_6(txtObservacoesB2_1.getText());
-        treinos.setGrupo_muscularB4((String)combMusculoB2.getSelectedItem());        
-        treinos.setExercicioB4((String)combExercicioB2.getSelectedItem());
-        treinos.setRepeticaoB4((String)combRepeticoesB2.getSelectedItem());
-        treinos.setObservacaoB4(txtObservacoesB2.getText());        
-        treinos.setExercicioB4_1((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_1((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_1(txtObservacoesB2_1.getText());
-        treinos.setExercicioB4_2((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_2((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_2(txtObservacoesB2_1.getText());
-        treinos.setExercicioB4_3((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_3((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_3(txtObservacoesB2_1.getText());
-        treinos.setExercicioB4_4((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_4((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_4(txtObservacoesB2_1.getText());
-        treinos.setExercicioB4_5((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_5((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_5(txtObservacoesB2_1.getText());
-        treinos.setExercicioB4_6((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_6((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_6(txtObservacoesB2_1.getText());
-        treinos.setGrupo_muscularB5((String)combMusculoB2.getSelectedItem());        
-        treinos.setExercicioB5((String)combExercicioB2.getSelectedItem());
-        treinos.setRepeticaoB5((String)combRepeticoesB2.getSelectedItem());
-        treinos.setObservacaoB5(txtObservacoesB2.getText());        
-        treinos.setExercicioB5_1((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_1((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_1(txtObservacoesB2_1.getText());
-        treinos.setExercicioB5_2((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_2((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_2(txtObservacoesB2_1.getText());
-        treinos.setExercicioB5_3((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_3((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_3(txtObservacoesB2_1.getText());
-        treinos.setExercicioB5_4((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_4((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_4(txtObservacoesB2_1.getText());
-        treinos.setExercicioB5_5((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_5((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_5(txtObservacoesB2_1.getText());
-        treinos.setExercicioB5_6((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_6((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_6(txtObservacoesB2_1.getText());  
+        
+        treinos.setExercicioB2_2((String)combExercicioB2_2.getSelectedItem());
+        treinos.setRepeticaoB2_2((String)combRepeticoesB2_2.getSelectedItem());
+        treinos.setObservacaoB2_2(txtObservacoesB2_2.getText());
+        
+        treinos.setExercicioB2_3((String)combExercicioB2_3.getSelectedItem());
+        treinos.setRepeticaoB2_3((String)combRepeticoesB2_3.getSelectedItem());
+        treinos.setObservacaoB2_3(txtObservacoesB2_3.getText());
+        
+        treinos.setExercicioB2_4((String)combExercicioB2_4.getSelectedItem());
+        treinos.setRepeticaoB2_4((String)combRepeticoesB2_4.getSelectedItem());
+        treinos.setObservacaoB2_4(txtObservacoesB2_4.getText());
+        
+        treinos.setExercicioB2_5((String)combExercicioB2_5.getSelectedItem());
+        treinos.setRepeticaoB2_5((String)combRepeticoesB2_5.getSelectedItem());
+        treinos.setObservacaoB2_5(txtObservacoesB2_5.getText());
+        
+        treinos.setExercicioB2_6((String)combExercicioB2_6.getSelectedItem());
+        treinos.setRepeticaoB2_6((String)combRepeticoesB2_6.getSelectedItem());
+        treinos.setObservacaoB2_6(txtObservacoesB2_6.getText());
+        
+        treinos.setGrupo_muscularB3((String)combMusculoB3.getSelectedItem());        
+        treinos.setExercicioB3((String)combExercicioB3.getSelectedItem());
+        treinos.setRepeticaoB3((String)combRepeticoesB3.getSelectedItem());
+        treinos.setObservacaoB3(txtObservacoesB3.getText());   
+        
+        treinos.setExercicioB3_1((String)combExercicioB3_1.getSelectedItem());
+        treinos.setRepeticaoB3_1((String)combRepeticoesB3_1.getSelectedItem());
+        treinos.setObservacaoB3_1(txtObservacoesB3_1.getText());
+        
+        treinos.setExercicioB3_2((String)combExercicioB3_2.getSelectedItem());
+        treinos.setRepeticaoB3_2((String)combRepeticoesB3_2.getSelectedItem());
+        treinos.setObservacaoB3_2(txtObservacoesB3_2.getText());
+        
+        treinos.setExercicioB3_3((String)combExercicioB3_3.getSelectedItem());
+        treinos.setRepeticaoB3_3((String)combRepeticoesB3_3.getSelectedItem());
+        treinos.setObservacaoB3_3(txtObservacoesB3_3.getText());
+        
+        treinos.setExercicioB3_4((String)combExercicioB3_4.getSelectedItem());
+        treinos.setRepeticaoB3_4((String)combRepeticoesB3_4.getSelectedItem());
+        treinos.setObservacaoB3_4(txtObservacoesB3_4.getText());
+        
+        treinos.setExercicioB3_5((String)combExercicioB3_5.getSelectedItem());
+        treinos.setRepeticaoB3_5((String)combRepeticoesB3_5.getSelectedItem());
+        treinos.setObservacaoB3_5(txtObservacoesB3_5.getText());
+        
+        treinos.setExercicioB3_6((String)combExercicioB3_6.getSelectedItem());
+        treinos.setRepeticaoB3_6((String)combRepeticoesB3_6.getSelectedItem());
+        treinos.setObservacaoB3_6(txtObservacoesB3_6.getText());
+        
+        treinos.setGrupo_muscularB4((String)combMusculoB4.getSelectedItem());        
+        treinos.setExercicioB4((String)combExercicioB4.getSelectedItem());
+        treinos.setRepeticaoB4((String)combRepeticoesB4.getSelectedItem());
+        treinos.setObservacaoB4(txtObservacoesB4.getText());      
+        
+        treinos.setExercicioB4_1((String)combExercicioB4_1.getSelectedItem());
+        treinos.setRepeticaoB4_1((String)combRepeticoesB4_1.getSelectedItem());
+        treinos.setObservacaoB4_1(txtObservacoesB4_1.getText());
+        
+        treinos.setExercicioB4_2((String)combExercicioB4_2.getSelectedItem());
+        treinos.setRepeticaoB4_2((String)combRepeticoesB4_2.getSelectedItem());
+        treinos.setObservacaoB4_2(txtObservacoesB4_2.getText());
+        
+        treinos.setExercicioB4_3((String)combExercicioB4_3.getSelectedItem());
+        treinos.setRepeticaoB4_3((String)combRepeticoesB4_3.getSelectedItem());
+        treinos.setObservacaoB4_3(txtObservacoesB4_3.getText());
+        
+        treinos.setExercicioB4_4((String)combExercicioB4_4.getSelectedItem());
+        treinos.setRepeticaoB4_4((String)combRepeticoesB4_4.getSelectedItem());
+        treinos.setObservacaoB4_4(txtObservacoesB4_4.getText());
+        
+        treinos.setExercicioB4_5((String)combExercicioB4_5.getSelectedItem());
+        treinos.setRepeticaoB4_5((String)combRepeticoesB4_5.getSelectedItem());
+        treinos.setObservacaoB4_5(txtObservacoesB4_5.getText());
+        
+        treinos.setExercicioB4_6((String)combExercicioB4_6.getSelectedItem());
+        treinos.setRepeticaoB4_6((String)combRepeticoesB4_6.getSelectedItem());
+        treinos.setObservacaoB4_6(txtObservacoesB4_6.getText());
+
+        treinos.setGrupo_muscularB5((String)combMusculoB5.getSelectedItem());        
+        treinos.setExercicioB5((String)combExercicioB5.getSelectedItem());
+        treinos.setRepeticaoB5((String)combRepeticoesB5.getSelectedItem());
+        treinos.setObservacaoB5(txtObservacoesB5.getText());   
+        
+        treinos.setExercicioB5_1((String)combExercicioB5_1.getSelectedItem());
+        treinos.setRepeticaoB5_1((String)combRepeticoesB5_1.getSelectedItem());
+        treinos.setObservacaoB5_1(txtObservacoesB5_1.getText());
+        
+        treinos.setExercicioB5_2((String)combExercicioB5_2.getSelectedItem());
+        treinos.setRepeticaoB5_2((String)combRepeticoesB5_2.getSelectedItem());
+        treinos.setObservacaoB5_2(txtObservacoesB5_2.getText());
+        
+        treinos.setExercicioB5_3((String)combExercicioB5_3.getSelectedItem());
+        treinos.setRepeticaoB5_3((String)combRepeticoesB5_3.getSelectedItem());
+        treinos.setObservacaoB5_3(txtObservacoesB5_3.getText());
+        
+        treinos.setExercicioB5_4((String)combExercicioB5_4.getSelectedItem());
+        treinos.setRepeticaoB5_4((String)combRepeticoesB5_4.getSelectedItem());
+        treinos.setObservacaoB5_4(txtObservacoesB5_4.getText());
+        
+        treinos.setExercicioB5_5((String)combExercicioB5_5.getSelectedItem());
+        treinos.setRepeticaoB5_5((String)combRepeticoesB5_5.getSelectedItem());
+        treinos.setObservacaoB5_5(txtObservacoesB5_5.getText());
+        
+        treinos.setExercicioB5_6((String)combExercicioB5_6.getSelectedItem());
+        treinos.setRepeticaoB5_6((String)combRepeticoesB5_6.getSelectedItem());
+        treinos.setObservacaoB5_6(txtObservacoesB5_6.getText());
+        
         
         treinos.setGrupo_muscularC1((String)combMusculoC1.getSelectedItem());        
         treinos.setExercicioC1((String)combExercicioC1.getSelectedItem());
         treinos.setRepeticaoC1((String)combRepeticoesC1.getSelectedItem());
-        treinos.setObservacaoC1(txtObservacoesC1.getText());        
+        treinos.setObservacaoC1(txtObservacoesC1.getText());   
+        
         treinos.setExercicioC1_1((String)combExercicioC1_1.getSelectedItem());
         treinos.setRepeticaoC1_1((String)combRepeticoesC1_1.getSelectedItem());
         treinos.setObservacaoC1_1(txtObservacoesC1_1.getText());
-        treinos.setExercicioC1_2((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_2((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_2(txtObservacoesC1_1.getText());
-        treinos.setExercicioC1_3((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_3((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_3(txtObservacoesC1_1.getText());
-        treinos.setExercicioC1_4((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_4((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_4(txtObservacoesC1_1.getText());
-        treinos.setExercicioC1_5((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_5((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_5(txtObservacoesC1_1.getText());
-        treinos.setExercicioC1_6((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_6((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_6(txtObservacoesC1_1.getText());
+        
+        treinos.setExercicioC1_2((String)combExercicioC1_2.getSelectedItem());
+        treinos.setRepeticaoC1_2((String)combRepeticoesC1_2.getSelectedItem());
+        treinos.setObservacaoC1_2(txtObservacoesC1_2.getText());
+        
+        treinos.setExercicioC1_3((String)combExercicioC1_3.getSelectedItem());
+        treinos.setRepeticaoC1_3((String)combRepeticoesC1_3.getSelectedItem());
+        treinos.setObservacaoC1_3(txtObservacoesC1_3.getText());
+        
+        treinos.setExercicioC1_4((String)combExercicioC1_4.getSelectedItem());
+        treinos.setRepeticaoC1_4((String)combRepeticoesC1_4.getSelectedItem());
+        treinos.setObservacaoC1_4(txtObservacoesC1_4.getText());
+       
+        treinos.setExercicioC1_5((String)combExercicioC1_5.getSelectedItem());
+        treinos.setRepeticaoC1_5((String)combRepeticoesC1_5.getSelectedItem());
+        treinos.setObservacaoC1_5(txtObservacoesC1_5.getText());
+        
+        treinos.setExercicioC1_6((String)combExercicioC1_6.getSelectedItem());
+        treinos.setRepeticaoC1_6((String)combRepeticoesC1_6.getSelectedItem());
+        treinos.setObservacaoC1_6(txtObservacoesC1_6.getText());
+        
         treinos.setGrupo_muscularC2((String)combMusculoC2.getSelectedItem());        
         treinos.setExercicioC2((String)combExercicioC2.getSelectedItem());
         treinos.setRepeticaoC2((String)combRepeticoesC2.getSelectedItem());
-        treinos.setObservacaoC2(txtObservacoesC2.getText());        
+        treinos.setObservacaoC2(txtObservacoesC2.getText());   
+        
         treinos.setExercicioC2_1((String)combExercicioC2_1.getSelectedItem());
         treinos.setRepeticaoC2_1((String)combRepeticoesC2_1.getSelectedItem());
         treinos.setObservacaoC2_1(txtObservacoesC2_1.getText());
-        treinos.setExercicioC2_2((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_2((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_2(txtObservacoesC2_1.getText());
-        treinos.setExercicioC2_3((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_3((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_3(txtObservacoesC2_1.getText());
-        treinos.setExercicioC2_4((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_4((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_4(txtObservacoesC2_1.getText());
-        treinos.setExercicioC2_5((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_5((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_5(txtObservacoesC2_1.getText());
-        treinos.setExercicioC2_6((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_6((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_6(txtObservacoesC2_1.getText());
-        treinos.setGrupo_muscularC3((String)combMusculoC2.getSelectedItem());        
-        treinos.setExercicioC3((String)combExercicioC2.getSelectedItem());
-        treinos.setRepeticaoC3((String)combRepeticoesC2.getSelectedItem());
-        treinos.setObservacaoC3(txtObservacoesC2.getText());        
-        treinos.setExercicioC3_1((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_1((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_1(txtObservacoesC2_1.getText());
-        treinos.setExercicioC3_2((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_2((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_2(txtObservacoesC2_1.getText());
-        treinos.setExercicioC3_3((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_3((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_3(txtObservacoesC2_1.getText());
-        treinos.setExercicioC3_4((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_4((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_4(txtObservacoesC2_1.getText());
-        treinos.setExercicioC3_5((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_5((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_5(txtObservacoesC2_1.getText());
-        treinos.setExercicioC3_6((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_6((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_6(txtObservacoesC2_1.getText());
-        treinos.setGrupo_muscularC4((String)combMusculoC2.getSelectedItem());        
-        treinos.setExercicioC4((String)combExercicioC2.getSelectedItem());
-        treinos.setRepeticaoC4((String)combRepeticoesC2.getSelectedItem());
-        treinos.setObservacaoC4(txtObservacoesC2.getText());        
-        treinos.setExercicioC4_1((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_1((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_1(txtObservacoesC2_1.getText());
-        treinos.setExercicioC4_2((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_2((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_2(txtObservacoesC2_1.getText());
-        treinos.setExercicioC4_3((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_3((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_3(txtObservacoesC2_1.getText());
-        treinos.setExercicioC4_4((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_4((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_4(txtObservacoesC2_1.getText());
-        treinos.setExercicioC4_5((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_5((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_5(txtObservacoesC2_1.getText());
-        treinos.setExercicioC4_6((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_6((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_6(txtObservacoesC2_1.getText());
-        treinos.setGrupo_muscularC5((String)combMusculoC2.getSelectedItem());        
-        treinos.setExercicioC5((String)combExercicioC2.getSelectedItem());
-        treinos.setRepeticaoC5((String)combRepeticoesC2.getSelectedItem());
-        treinos.setObservacaoC5(txtObservacoesC2.getText());        
-        treinos.setExercicioC5_1((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_1((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_1(txtObservacoesC2_1.getText());
-        treinos.setExercicioC5_2((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_2((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_2(txtObservacoesC2_1.getText());
-        treinos.setExercicioC5_3((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_3((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_3(txtObservacoesC2_1.getText());
-        treinos.setExercicioC5_4((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_4((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_4(txtObservacoesC2_1.getText());
-        treinos.setExercicioC5_5((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_5((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_5(txtObservacoesC2_1.getText());
-        treinos.setExercicioC5_6((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_6((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_6(txtObservacoesC2_1.getText());  
+        
+        treinos.setExercicioC2_2((String)combExercicioC2_2.getSelectedItem());
+        treinos.setRepeticaoC2_2((String)combRepeticoesC2_2.getSelectedItem());
+        treinos.setObservacaoC2_2(txtObservacoesC2_2.getText());
+        
+        treinos.setExercicioC2_3((String)combExercicioC2_3.getSelectedItem());
+        treinos.setRepeticaoC2_3((String)combRepeticoesC2_3.getSelectedItem());
+        treinos.setObservacaoC2_3(txtObservacoesC2_3.getText());
+        
+        treinos.setExercicioC2_4((String)combExercicioC2_4.getSelectedItem());
+        treinos.setRepeticaoC2_4((String)combRepeticoesC2_4.getSelectedItem());
+        treinos.setObservacaoC2_4(txtObservacoesC2_4.getText());
+        
+        treinos.setExercicioC2_5((String)combExercicioC2_5.getSelectedItem());
+        treinos.setRepeticaoC2_5((String)combRepeticoesC2_5.getSelectedItem());
+        treinos.setObservacaoC2_5(txtObservacoesC2_5.getText());
+        
+        treinos.setExercicioC2_6((String)combExercicioC2_6.getSelectedItem());
+        treinos.setRepeticaoC2_6((String)combRepeticoesC2_6.getSelectedItem());
+        treinos.setObservacaoC2_6(txtObservacoesC2_6.getText());
+        
+        treinos.setGrupo_muscularC3((String)combMusculoC3.getSelectedItem());        
+        treinos.setExercicioC3((String)combExercicioC3.getSelectedItem());
+        treinos.setRepeticaoC3((String)combRepeticoesC3.getSelectedItem());
+        treinos.setObservacaoC3(txtObservacoesC3.getText());   
+        
+        treinos.setExercicioC3_1((String)combExercicioC3_1.getSelectedItem());
+        treinos.setRepeticaoC3_1((String)combRepeticoesC3_1.getSelectedItem());
+        treinos.setObservacaoC3_1(txtObservacoesC3_1.getText());
+        
+        treinos.setExercicioC3_2((String)combExercicioC3_2.getSelectedItem());
+        treinos.setRepeticaoC3_2((String)combRepeticoesC3_2.getSelectedItem());
+        treinos.setObservacaoC3_2(txtObservacoesC3_2.getText());
+        
+        treinos.setExercicioC3_3((String)combExercicioC3_3.getSelectedItem());
+        treinos.setRepeticaoC3_3((String)combRepeticoesC3_3.getSelectedItem());
+        treinos.setObservacaoC3_3(txtObservacoesC3_3.getText());
+        
+        treinos.setExercicioC3_4((String)combExercicioC3_4.getSelectedItem());
+        treinos.setRepeticaoC3_4((String)combRepeticoesC3_4.getSelectedItem());
+        treinos.setObservacaoC3_4(txtObservacoesC3_4.getText());
+        
+        treinos.setExercicioC3_5((String)combExercicioC3_5.getSelectedItem());
+        treinos.setRepeticaoC3_5((String)combRepeticoesC3_5.getSelectedItem());
+        treinos.setObservacaoC3_5(txtObservacoesC3_5.getText());
+        
+        treinos.setExercicioC3_6((String)combExercicioC3_6.getSelectedItem());
+        treinos.setRepeticaoC3_6((String)combRepeticoesC3_6.getSelectedItem());
+        treinos.setObservacaoC3_6(txtObservacoesC3_6.getText());
+        
+        treinos.setGrupo_muscularC4((String)combMusculoC4.getSelectedItem());        
+        treinos.setExercicioC4((String)combExercicioC4.getSelectedItem());
+        treinos.setRepeticaoC4((String)combRepeticoesC4.getSelectedItem());
+        treinos.setObservacaoC4(txtObservacoesC4.getText());      
+        
+        treinos.setExercicioC4_1((String)combExercicioC4_1.getSelectedItem());
+        treinos.setRepeticaoC4_1((String)combRepeticoesC4_1.getSelectedItem());
+        treinos.setObservacaoC4_1(txtObservacoesC4_1.getText());
+        
+        treinos.setExercicioC4_2((String)combExercicioC4_2.getSelectedItem());
+        treinos.setRepeticaoC4_2((String)combRepeticoesC4_2.getSelectedItem());
+        treinos.setObservacaoC4_2(txtObservacoesC4_2.getText());
+        
+        treinos.setExercicioC4_3((String)combExercicioC4_3.getSelectedItem());
+        treinos.setRepeticaoC4_3((String)combRepeticoesC4_3.getSelectedItem());
+        treinos.setObservacaoC4_3(txtObservacoesC4_3.getText());
+        
+        treinos.setExercicioC4_4((String)combExercicioC4_4.getSelectedItem());
+        treinos.setRepeticaoC4_4((String)combRepeticoesC4_4.getSelectedItem());
+        treinos.setObservacaoC4_4(txtObservacoesC4_4.getText());
+        
+        treinos.setExercicioC4_5((String)combExercicioC4_5.getSelectedItem());
+        treinos.setRepeticaoC4_5((String)combRepeticoesC4_5.getSelectedItem());
+        treinos.setObservacaoC4_5(txtObservacoesC4_5.getText());
+        
+        treinos.setExercicioC4_6((String)combExercicioC4_6.getSelectedItem());
+        treinos.setRepeticaoC4_6((String)combRepeticoesC4_6.getSelectedItem());
+        treinos.setObservacaoC4_6(txtObservacoesC4_6.getText());
+
+        treinos.setGrupo_muscularC5((String)combMusculoC5.getSelectedItem());        
+        treinos.setExercicioC5((String)combExercicioC5.getSelectedItem());
+        treinos.setRepeticaoC5((String)combRepeticoesC5.getSelectedItem());
+        treinos.setObservacaoC5(txtObservacoesC5.getText());   
+        
+        treinos.setExercicioC5_1((String)combExercicioC5_1.getSelectedItem());
+        treinos.setRepeticaoC5_1((String)combRepeticoesC5_1.getSelectedItem());
+        treinos.setObservacaoC5_1(txtObservacoesC5_1.getText());
+        
+        treinos.setExercicioC5_2((String)combExercicioC5_2.getSelectedItem());
+        treinos.setRepeticaoC5_2((String)combRepeticoesC5_2.getSelectedItem());
+        treinos.setObservacaoC5_2(txtObservacoesC5_2.getText());
+        
+        treinos.setExercicioC5_3((String)combExercicioC5_3.getSelectedItem());
+        treinos.setRepeticaoC5_3((String)combRepeticoesC5_3.getSelectedItem());
+        treinos.setObservacaoC5_3(txtObservacoesC5_3.getText());
+        
+        treinos.setExercicioC5_4((String)combExercicioC5_4.getSelectedItem());
+        treinos.setRepeticaoC5_4((String)combRepeticoesC5_4.getSelectedItem());
+        treinos.setObservacaoC5_4(txtObservacoesC5_4.getText());
+        
+        treinos.setExercicioC5_5((String)combExercicioC5_5.getSelectedItem());
+        treinos.setRepeticaoC5_5((String)combRepeticoesC5_5.getSelectedItem());
+        treinos.setObservacaoC5_5(txtObservacoesC5_5.getText());
+        
+        treinos.setExercicioC5_6((String)combExercicioC5_6.getSelectedItem());
+        treinos.setRepeticaoC5_6((String)combRepeticoesC5_6.getSelectedItem());
+        treinos.setObservacaoC5_6(txtObservacoesC5_6.getText());
     }
    
     private void getandoCamposClasseCadastro_treino() throws SQLException{
         IdTreino.setText(Integer.toString(treinos.getCd_treino()));
         dtInicial.setText(treinos.getDt_inicio());
         dtFinal.setText(treinos.getDt_fim());
-        combMusculoA1.addItem(selects.populandoTelaTreinosGruposMusculares(treinos));        
-        //combExercicioA1.setSelectedItem(treinos.getExercicioA1());     
-        //combRepeticoesA1.setSelectedItem(treinos.getRepeticaoA1());
+        combMusculoA1.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularA1()));        
+        combExercicioA1.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1()));     
+        combRepeticoesA1.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1()));
         txtObservacoesA1.setText(treinos.getObservacaoA1());
-        /*
-        combExercicioA1_1.setSelectedItem(treinos.getExercicioA1_1());     
-        combRepeticoesA1_1.setSelectedItem(treinos.getRepeticaoA1_1());
-        txtObservacoesA1_1.setText(treinos.getObservacaoA1_1());
-        combExercicioA1_2.setSelectedItem(treinos.getExercicioA1_2());     
-        combRepeticoesA1_2.setSelectedItem(treinos.getRepeticaoA1_2());
-        txtObservacoesA1_2.setText(treinos.getObservacaoA1_2());
-        combExercicioA1_3.setSelectedItem(treinos.getExercicioA1_3());     
-        combRepeticoesA1_3.setSelectedItem(treinos.getRepeticaoA1_3());
-        txtObservacoesA1_3.setText(treinos.getObservacaoA1_3());
-        combExercicioA1_4.setSelectedItem(treinos.getExercicioA1_4());     
-        combRepeticoesA1_4.setSelectedItem(treinos.getRepeticaoA1_4());
-        txtObservacoesA1_4.setText(treinos.getObservacaoA1_4());
-        combExercicioA1_5.setSelectedItem(treinos.getExercicioA1_5());     
-        combRepeticoesA1_5.setSelectedItem(treinos.getRepeticaoA1_5());
-        txtObservacoesA1_5.setText(treinos.getObservacaoA1_5());
-        combExercicioA1_6.setSelectedItem(treinos.getExercicioA1_6());     
-        combRepeticoesA1_6.setSelectedItem(treinos.getRepeticaoA1_6());
-        txtObservacoesA1_6.setText(treinos.getObservacaoA1_6());
-        combExercicioA2_1.setSelectedItem(treinos.getExercicioA2_1());     
-        combRepeticoesA2_1.setSelectedItem(treinos.getRepeticaoA2_1());
-        txtObservacoesA2_1.setText(treinos.getObservacaoA2_1());
-        combExercicioA2_2.setSelectedItem(treinos.getExercicioA2_2());     
-        combRepeticoesA2_2.setSelectedItem(treinos.getRepeticaoA2_2());
-        txtObservacoesA2_2.setText(treinos.getObservacaoA2_2());
-        combExercicioA2_3.setSelectedItem(treinos.getExercicioA2_3());     
-        combRepeticoesA2_3.setSelectedItem(treinos.getRepeticaoA2_3());
-        txtObservacoesA2_3.setText(treinos.getObservacaoA2_3());
-        combExercicioA2_4.setSelectedItem(treinos.getExercicioA2_4());     
-        combRepeticoesA2_4.setSelectedItem(treinos.getRepeticaoA2_4());
-        txtObservacoesA2_4.setText(treinos.getObservacaoA2_4());
-        combExercicioA2_5.setSelectedItem(treinos.getExercicioA2_5());     
-        combRepeticoesA2_5.setSelectedItem(treinos.getRepeticaoA2_5());
-        txtObservacoesA2_5.setText(treinos.getObservacaoA2_5());
-        combExercicioA2_6.setSelectedItem(treinos.getExercicioA2_6());     
-        combRepeticoesA2_6.setSelectedItem(treinos.getRepeticaoA2_6());
-        txtObservacoesA2_6.setText(treinos.getObservacaoA2_6());
-        combExercicioA3_1.setSelectedItem(treinos.getExercicioA3_1());     
-        combRepeticoesA3_1.setSelectedItem(treinos.getRepeticaoA3_1());
-        txtObservacoesA3_1.setText(treinos.getObservacaoA3_1());
-        combExercicioA3_2.setSelectedItem(treinos.getExercicioA3_2());     
-        combRepeticoesA3_2.setSelectedItem(treinos.getRepeticaoA3_2());
-        txtObservacoesA3_2.setText(treinos.getObservacaoA3_2());
-        combExercicioA3_3.setSelectedItem(treinos.getExercicioA3_3());     
-        combRepeticoesA3_3.setSelectedItem(treinos.getRepeticaoA3_3());
-        txtObservacoesA3_3.setText(treinos.getObservacaoA3_3());
-        combExercicioA3_4.setSelectedItem(treinos.getExercicioA3_4());     
-        combRepeticoesA3_4.setSelectedItem(treinos.getRepeticaoA3_4());
-        txtObservacoesA3_4.setText(treinos.getObservacaoA3_4());
-        combExercicioA3_5.setSelectedItem(treinos.getExercicioA3_5());     
-        combRepeticoesA3_5.setSelectedItem(treinos.getRepeticaoA3_5());
-        txtObservacoesA3_5.setText(treinos.getObservacaoA3_5());
-        combExercicioA3_6.setSelectedItem(treinos.getExercicioA3_6());     
-        combRepeticoesA3_6.setSelectedItem(treinos.getRepeticaoA3_6());
-        txtObservacoesA3_6.setText(treinos.getObservacaoA3_6());
 
-        /* MODIFICAR TODOS ESTES ABAIXO IGUAL O DE CIMA....
-        treinos.setGrupo_muscularA4((String)combMusculoA2.getSelectedItem());        
-        treinos.setExercicioA4((String)combExercicioA2.getSelectedItem());
-        treinos.setRepeticaoA4((String)combRepeticoesA2.getSelectedItem());
-        treinos.setObservacaoA4(txtObservacoesA2.getText());        
-        treinos.setExercicioA4_1((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_1((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_1(txtObservacoesA2_1.getText());
-        treinos.setExercicioA4_2((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_2((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_2(txtObservacoesA2_1.getText());
-        treinos.setExercicioA4_3((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_3((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_3(txtObservacoesA2_1.getText());
-        treinos.setExercicioA4_4((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_4((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_4(txtObservacoesA2_1.getText());
-        treinos.setExercicioA4_5((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_5((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_5(txtObservacoesA2_1.getText());
-        treinos.setExercicioA4_6((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA4_6((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA4_6(txtObservacoesA2_1.getText());
-        treinos.setGrupo_muscularA5((String)combMusculoA2.getSelectedItem());        
-        treinos.setExercicioA5((String)combExercicioA2.getSelectedItem());
-        treinos.setRepeticaoA5((String)combRepeticoesA2.getSelectedItem());
-        treinos.setObservacaoA5(txtObservacoesA2.getText());        
-        treinos.setExercicioA5_1((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_1((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_1(txtObservacoesA2_1.getText());
-        treinos.setExercicioA5_2((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_2((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_2(txtObservacoesA2_1.getText());
-        treinos.setExercicioA5_3((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_3((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_3(txtObservacoesA2_1.getText());
-        treinos.setExercicioA5_4((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_4((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_4(txtObservacoesA2_1.getText());
-        treinos.setExercicioA5_5((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_5((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_5(txtObservacoesA2_1.getText());
-        treinos.setExercicioA5_6((String)combExercicioA2_1.getSelectedItem());
-        treinos.setRepeticaoA5_6((String)combRepeticoesA2_1.getSelectedItem());
-        treinos.setObservacaoA5_6(txtObservacoesA2_1.getText());     
+        combExercicioA1_1.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_1()));     
+        combRepeticoesA1_1.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_1()));
+        txtObservacoesA1_1.setText(treinos.getObservacaoA1_1());
         
-        treinos.setGrupo_muscularB1((String)combMusculoB1.getSelectedItem());        
-        treinos.setExercicioB1((String)combExercicioB1.getSelectedItem());
-        treinos.setRepeticaoB1((String)combRepeticoesB1.getSelectedItem());
-        treinos.setObservacaoB1(txtObservacoesB1.getText());        
-        treinos.setExercicioB1_1((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_1((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_1(txtObservacoesB1_1.getText());
-        treinos.setExercicioB1_2((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_2((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_2(txtObservacoesB1_1.getText());
-        treinos.setExercicioB1_3((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_3((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_3(txtObservacoesB1_1.getText());
-        treinos.setExercicioB1_4((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_4((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_4(txtObservacoesB1_1.getText());
-        treinos.setExercicioB1_5((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_5((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_5(txtObservacoesB1_1.getText());
-        treinos.setExercicioB1_6((String)combExercicioB1_1.getSelectedItem());
-        treinos.setRepeticaoB1_6((String)combRepeticoesB1_1.getSelectedItem());
-        treinos.setObservacaoB1_6(txtObservacoesB1_1.getText());
-        treinos.setGrupo_muscularB2((String)combMusculoB2.getSelectedItem());        
-        treinos.setExercicioB2((String)combExercicioB2.getSelectedItem());
-        treinos.setRepeticaoB2((String)combRepeticoesB2.getSelectedItem());
-        treinos.setObservacaoB2(txtObservacoesB2.getText());        
-        treinos.setExercicioB2_1((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_1((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_1(txtObservacoesB2_1.getText());
-        treinos.setExercicioB2_2((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_2((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_2(txtObservacoesB2_1.getText());
-        treinos.setExercicioB2_3((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_3((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_3(txtObservacoesB2_1.getText());
-        treinos.setExercicioB2_4((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_4((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_4(txtObservacoesB2_1.getText());
-        treinos.setExercicioB2_5((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_5((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_5(txtObservacoesB2_1.getText());
-        treinos.setExercicioB2_6((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB2_6((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB2_6(txtObservacoesB2_1.getText());
-        treinos.setGrupo_muscularB3((String)combMusculoB2.getSelectedItem());        
-        treinos.setExercicioB3((String)combExercicioB2.getSelectedItem());
-        treinos.setRepeticaoB3((String)combRepeticoesB2.getSelectedItem());
-        treinos.setObservacaoB3(txtObservacoesB2.getText());        
-        treinos.setExercicioB3_1((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_1((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_1(txtObservacoesB2_1.getText());
-        treinos.setExercicioB3_2((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_2((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_2(txtObservacoesB2_1.getText());
-        treinos.setExercicioB3_3((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_3((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_3(txtObservacoesB2_1.getText());
-        treinos.setExercicioB3_4((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_4((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_4(txtObservacoesB2_1.getText());
-        treinos.setExercicioB3_5((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_5((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_5(txtObservacoesB2_1.getText());
-        treinos.setExercicioB3_6((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB3_6((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB3_6(txtObservacoesB2_1.getText());
-        treinos.setGrupo_muscularB4((String)combMusculoB2.getSelectedItem());        
-        treinos.setExercicioB4((String)combExercicioB2.getSelectedItem());
-        treinos.setRepeticaoB4((String)combRepeticoesB2.getSelectedItem());
-        treinos.setObservacaoB4(txtObservacoesB2.getText());        
-        treinos.setExercicioB4_1((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_1((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_1(txtObservacoesB2_1.getText());
-        treinos.setExercicioB4_2((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_2((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_2(txtObservacoesB2_1.getText());
-        treinos.setExercicioB4_3((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_3((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_3(txtObservacoesB2_1.getText());
-        treinos.setExercicioB4_4((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_4((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_4(txtObservacoesB2_1.getText());
-        treinos.setExercicioB4_5((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_5((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_5(txtObservacoesB2_1.getText());
-        treinos.setExercicioB4_6((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB4_6((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB4_6(txtObservacoesB2_1.getText());
-        treinos.setGrupo_muscularB5((String)combMusculoB2.getSelectedItem());        
-        treinos.setExercicioB5((String)combExercicioB2.getSelectedItem());
-        treinos.setRepeticaoB5((String)combRepeticoesB2.getSelectedItem());
-        treinos.setObservacaoB5(txtObservacoesB2.getText());        
-        treinos.setExercicioB5_1((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_1((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_1(txtObservacoesB2_1.getText());
-        treinos.setExercicioB5_2((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_2((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_2(txtObservacoesB2_1.getText());
-        treinos.setExercicioB5_3((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_3((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_3(txtObservacoesB2_1.getText());
-        treinos.setExercicioB5_4((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_4((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_4(txtObservacoesB2_1.getText());
-        treinos.setExercicioB5_5((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_5((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_5(txtObservacoesB2_1.getText());
-        treinos.setExercicioB5_6((String)combExercicioB2_1.getSelectedItem());
-        treinos.setRepeticaoB5_6((String)combRepeticoesB2_1.getSelectedItem());
-        treinos.setObservacaoB5_6(txtObservacoesB2_1.getText());  
+        combExercicioA1_2.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_2()));     
+        combRepeticoesA1_2.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_2()));
+        txtObservacoesA1_2.setText(treinos.getObservacaoA1_2());
+
+        combExercicioA1_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_3()));     
+        combRepeticoesA1_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_3()));
+        txtObservacoesA1_3.setText(treinos.getObservacaoA1_3());
+
+        combExercicioA1_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_4()));     
+        combRepeticoesA1_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_4()));
+        txtObservacoesA1_4.setText(treinos.getObservacaoA1_4());
         
-        treinos.setGrupo_muscularC1((String)combMusculoC1.getSelectedItem());        
-        treinos.setExercicioC1((String)combExercicioC1.getSelectedItem());
-        treinos.setRepeticaoC1((String)combRepeticoesC1.getSelectedItem());
-        treinos.setObservacaoC1(txtObservacoesC1.getText());        
-        treinos.setExercicioC1_1((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_1((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_1(txtObservacoesC1_1.getText());
-        treinos.setExercicioC1_2((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_2((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_2(txtObservacoesC1_1.getText());
-        treinos.setExercicioC1_3((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_3((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_3(txtObservacoesC1_1.getText());
-        treinos.setExercicioC1_4((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_4((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_4(txtObservacoesC1_1.getText());
-        treinos.setExercicioC1_5((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_5((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_5(txtObservacoesC1_1.getText());
-        treinos.setExercicioC1_6((String)combExercicioC1_1.getSelectedItem());
-        treinos.setRepeticaoC1_6((String)combRepeticoesC1_1.getSelectedItem());
-        treinos.setObservacaoC1_6(txtObservacoesC1_1.getText());
-        treinos.setGrupo_muscularC2((String)combMusculoC2.getSelectedItem());        
-        treinos.setExercicioC2((String)combExercicioC2.getSelectedItem());
-        treinos.setRepeticaoC2((String)combRepeticoesC2.getSelectedItem());
-        treinos.setObservacaoC2(txtObservacoesC2.getText());        
-        treinos.setExercicioC2_1((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_1((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_1(txtObservacoesC2_1.getText());
-        treinos.setExercicioC2_2((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_2((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_2(txtObservacoesC2_1.getText());
-        treinos.setExercicioC2_3((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_3((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_3(txtObservacoesC2_1.getText());
-        treinos.setExercicioC2_4((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_4((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_4(txtObservacoesC2_1.getText());
-        treinos.setExercicioC2_5((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_5((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_5(txtObservacoesC2_1.getText());
-        treinos.setExercicioC2_6((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC2_6((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC2_6(txtObservacoesC2_1.getText());
-        treinos.setGrupo_muscularC3((String)combMusculoC2.getSelectedItem());        
-        treinos.setExercicioC3((String)combExercicioC2.getSelectedItem());
-        treinos.setRepeticaoC3((String)combRepeticoesC2.getSelectedItem());
-        treinos.setObservacaoC3(txtObservacoesC2.getText());        
-        treinos.setExercicioC3_1((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_1((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_1(txtObservacoesC2_1.getText());
-        treinos.setExercicioC3_2((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_2((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_2(txtObservacoesC2_1.getText());
-        treinos.setExercicioC3_3((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_3((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_3(txtObservacoesC2_1.getText());
-        treinos.setExercicioC3_4((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_4((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_4(txtObservacoesC2_1.getText());
-        treinos.setExercicioC3_5((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_5((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_5(txtObservacoesC2_1.getText());
-        treinos.setExercicioC3_6((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC3_6((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC3_6(txtObservacoesC2_1.getText());
-        treinos.setGrupo_muscularC4((String)combMusculoC2.getSelectedItem());        
-        treinos.setExercicioC4((String)combExercicioC2.getSelectedItem());
-        treinos.setRepeticaoC4((String)combRepeticoesC2.getSelectedItem());
-        treinos.setObservacaoC4(txtObservacoesC2.getText());        
-        treinos.setExercicioC4_1((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_1((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_1(txtObservacoesC2_1.getText());
-        treinos.setExercicioC4_2((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_2((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_2(txtObservacoesC2_1.getText());
-        treinos.setExercicioC4_3((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_3((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_3(txtObservacoesC2_1.getText());
-        treinos.setExercicioC4_4((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_4((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_4(txtObservacoesC2_1.getText());
-        treinos.setExercicioC4_5((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_5((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_5(txtObservacoesC2_1.getText());
-        treinos.setExercicioC4_6((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC4_6((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC4_6(txtObservacoesC2_1.getText());
-        treinos.setGrupo_muscularC5((String)combMusculoC2.getSelectedItem());        
-        treinos.setExercicioC5((String)combExercicioC2.getSelectedItem());
-        treinos.setRepeticaoC5((String)combRepeticoesC2.getSelectedItem());
-        treinos.setObservacaoC5(txtObservacoesC2.getText());        
-        treinos.setExercicioC5_1((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_1((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_1(txtObservacoesC2_1.getText());
-        treinos.setExercicioC5_2((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_2((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_2(txtObservacoesC2_1.getText());
-        treinos.setExercicioC5_3((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_3((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_3(txtObservacoesC2_1.getText());
-        treinos.setExercicioC5_4((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_4((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_4(txtObservacoesC2_1.getText());
-        treinos.setExercicioC5_5((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_5((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_5(txtObservacoesC2_1.getText());
-        treinos.setExercicioC5_6((String)combExercicioC2_1.getSelectedItem());
-        treinos.setRepeticaoC5_6((String)combRepeticoesC2_1.getSelectedItem());
-        treinos.setObservacaoC5_6(txtObservacoesC2_1.getText()); */
+        combExercicioA1_5.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_5()));     
+        combRepeticoesA1_5.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_5()));
+        txtObservacoesA1_5.setText(treinos.getObservacaoA1_5());
         
-        
-        
+        combExercicioA1_6.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_6()));     
+        combRepeticoesA1_6.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_6()));
+        txtObservacoesA1_6.setText(treinos.getObservacaoA1_6());
+      
     }
     
     

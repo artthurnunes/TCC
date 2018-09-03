@@ -4,6 +4,7 @@ package conexoesbancodedados;
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
 import classes.ClasseCadastro_treino;
+import classes.ClasseCadastro_treinoCodigos;
 import classes.ClasseEsqueceuSenha;
 import classes.ClasseSenhaInicial;
 import java.sql.Connection;
@@ -18,6 +19,7 @@ public class SelectBd {
     ClasseSenhaInicial cSenha = new ClasseSenhaInicial();
     ClasseEsqueceuSenha cEsqSenha = new ClasseEsqueceuSenha();
     ClasseCadastro_treino treinos = new ClasseCadastro_treino();
+    ClasseCadastro_treinoCodigos treinosCodigos = new ClasseCadastro_treinoCodigos();
     
     PreparedStatement stmt = null;
     ResultSet rs = null;
@@ -200,7 +202,8 @@ public class SelectBd {
         return n;
     }
 
-    public void populandoTelaTreinosStrings() throws SQLException{
+    //setar strings no objeto treinos e numeros no objeto treinosCodigos
+    public void populandoTelaTreinosA() throws SQLException{
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
         
@@ -211,96 +214,106 @@ public class SelectBd {
                 treinos.setCd_treino(rs.getInt("CD_TREINOA"));
                 treinos.setDt_inicio(rs.getString("DT_INICIO"));
                 treinos.setDt_fim(rs.getString("DT_FIM"));
-                //treinos.setGrupo_muscularA1(rs.getString("GRUPO_MUSCULARA1"));
-                //treinos.setExercicioA1("EXERCICIOA1");
-                //treinos.setRepeticaoA1("REPETICAOA1");
+                treinosCodigos.setGrupo_muscularA1(rs.getInt("GRUPO_MUSCULARA1"));
+                treinosCodigos.setExercicioA1(rs.getInt("EXERCICIOA1"));
+                treinosCodigos.setRepeticaoA1(rs.getInt("REPETICAOA1"));
                 treinos.setObservacaoA1(rs.getString("OBSERVACAOA1"));
-                /*
-                treinos.setExercicioA1_1("EXERCICIOA1_1");
-                treinos.setRepeticaoA1_1("REPETICAOA1_1");
-                treinos.setObservacaoA1_1("OBSERVACAOA1_1");
-                treinos.setExercicioA1_2("EXERCICIOA1_2");
-                treinos.setRepeticaoA1_2("REPETICAOA1_2");
-                treinos.setObservacaoA1_2("OBSERVACAOA1_2");
-                treinos.setExercicioA1_3("EXERCICIOA1_3");
-                treinos.setRepeticaoA1_3("REPETICAOA1_3");
-                treinos.setObservacaoA1_3("OBSERVACAOA1_3");
-                treinos.setExercicioA1_4("EXERCICIOA1_4");
-                treinos.setRepeticaoA1_4("REPETICAOA1_4");
-                treinos.setObservacaoA1_4("OBSERVACAOA1_4");
-                treinos.setExercicioA1_5("EXERCICIOA1_5");
-                treinos.setRepeticaoA1_5("REPETICAOA1_5");
-                treinos.setObservacaoA1_5("OBSERVACAOA1_5");
-                treinos.setExercicioA1_6("EXERCICIOA1_6");
-                treinos.setRepeticaoA1_6("REPETICAOA1_6");
-                treinos.setObservacaoA1_6("OBSERVACAOA1_6");
-                treinos.setGrupo_muscularA2("GRUPO_MUSCULARA2");
-                treinos.setExercicioA2("EXERCICIOA2");
-                treinos.setRepeticaoA2("REPETICAOA2");
-                treinos.setObservacaoA2("OBSERVACAOA2");
-                treinos.setExercicioA2_1("EXERCICIOA2_1");
-                treinos.setRepeticaoA2_1("REPETICAOA2_1");
-                treinos.setObservacaoA2_1("OBSERVACAOA2_1");
-                treinos.setExercicioA2_2("EXERCICIOA2_2");
-                treinos.setRepeticaoA2_2("REPETICAOA2_2");
-                treinos.setObservacaoA2_2("OBSERVACAOA2_2");
-                treinos.setExercicioA2_3("EXERCICIOA2_3");
-                treinos.setRepeticaoA2_3("REPETICAOA2_3");
-                treinos.setObservacaoA2_3("OBSERVACAOA2_3");
-                treinos.setExercicioA2_4("EXERCICIOA2_4");
-                treinos.setRepeticaoA2_4("REPETICAOA2_4");
-                treinos.setObservacaoA2_4("OBSERVACAOA2_4");
-                treinos.setExercicioA2_5("EXERCICIOA2_5");
-                treinos.setRepeticaoA2_5("REPETICAOA2_5");
-                treinos.setObservacaoA2_5("OBSERVACAOA2_5");
-                treinos.setExercicioA2_6("EXERCICIOA2_6");
-                treinos.setRepeticaoA2_6("REPETICAOA2_6");
-                treinos.setObservacaoA2_6("OBSERVACAOA2_6"); 
-                treinos.setGrupo_muscularA3("GRUPO_MUSCULARA3");
-                treinos.setExercicioA3("EXERCICIOA3");
-                treinos.setRepeticaoA3("REPETICAOA3");
-                treinos.setObservacaoA3("OBSERVACAOA3");
-                treinos.setExercicioA3_1("EXERCICIOA3_1");
-                treinos.setRepeticaoA3_1("REPETICAOA3_1");
-                treinos.setObservacaoA3_1("OBSERVACAOA3_1");
-                treinos.setExercicioA3_2("EXERCICIOA3_2");
-                treinos.setRepeticaoA3_2("REPETICAOA3_2");
-                treinos.setObservacaoA3_2("OBSERVACAOA3_2");
-                treinos.setExercicioA3_3("EXERCICIOA3_3");
-                treinos.setRepeticaoA3_3("REPETICAOA3_3");
-                treinos.setObservacaoA3_3("OBSERVACAOA3_3");
-                treinos.setExercicioA3_4("EXERCICIOA3_4");
-                treinos.setRepeticaoA3_4("REPETICAOA3_4");
-                treinos.setObservacaoA3_4("OBSERVACAOA3_4");
-                treinos.setExercicioA3_5("EXERCICIOA3_5");
-                treinos.setRepeticaoA3_5("REPETICAOA3_5");
-                treinos.setObservacaoA3_5("OBSERVACAOA3_5");
-                treinos.setExercicioA3_6("EXERCICIOA3_6");
-                treinos.setRepeticaoA3_6("REPETICAOA3_6");
-                treinos.setObservacaoA3_6("OBSERVACAOA3_6"); */
+                treinosCodigos.setExercicioA1_1(rs.getInt("EXERCICIOA1_1"));
+                treinosCodigos.setRepeticaoA1_1(rs.getInt("REPETICAOA1_1"));
+                treinos.setObservacaoA1_1(rs.getString("OBSERVACAOA1_1"));
+                treinosCodigos.setExercicioA1_2(rs.getInt("EXERCICIOA1_2"));
+                treinosCodigos.setRepeticaoA1_2(rs.getInt("REPETICAOA1_2"));
+                treinos.setObservacaoA1_2(rs.getString("OBSERVACAOA1_2"));
+                treinosCodigos.setExercicioA1_3(rs.getInt("EXERCICIOA1_3"));
+                treinosCodigos.setRepeticaoA1_3(rs.getInt("REPETICAOA1_3"));
+                treinos.setObservacaoA1_3(rs.getString("OBSERVACAOA1_3"));
+                treinosCodigos.setExercicioA1_4(rs.getInt("EXERCICIOA1_4"));
+                treinosCodigos.setRepeticaoA1_4(rs.getInt("REPETICAOA1_4"));
+                treinos.setObservacaoA1_4(rs.getString("OBSERVACAOA1_4"));
+                treinosCodigos.setExercicioA1_5(rs.getInt("EXERCICIOA1_5"));
+                treinosCodigos.setRepeticaoA1_5(rs.getInt("REPETICAOA1_5"));
+                treinos.setObservacaoA1_5(rs.getString("OBSERVACAOA1_5"));
+                treinosCodigos.setExercicioA1_6(rs.getInt("EXERCICIOA1_6"));
+                treinosCodigos.setRepeticaoA1_6(rs.getInt("REPETICAOA1_6"));
+                treinos.setObservacaoA1_6(rs.getString("OBSERVACAOA1_6"));
+                
+                treinosCodigos.setGrupo_muscularA2(rs.getInt("GRUPO_MUSCULARA2"));
+                treinosCodigos.setExercicioA2(rs.getInt("EXERCICIOA2"));
+                treinosCodigos.setRepeticaoA2(rs.getInt("REPETICAOA2"));
+                treinos.setObservacaoA2(rs.getString("OBSERVACAOA2"));
+                treinosCodigos.setExercicioA2_1(rs.getInt("EXERCICIOA2_1"));
+                treinosCodigos.setRepeticaoA2_1(rs.getInt("REPETICAOA2_1"));
+                treinos.setObservacaoA2_1(rs.getString("OBSERVACAOA2_1"));
+                treinosCodigos.setExercicioA2_2(rs.getInt("EXERCICIOA2_2"));
+                treinosCodigos.setRepeticaoA2_2(rs.getInt("REPETICAOA2_2"));
+                treinos.setObservacaoA2_2(rs.getString("OBSERVACAOA2_2"));
+                treinosCodigos.setExercicioA2_3(rs.getInt("EXERCICIOA2_3"));
+                treinosCodigos.setRepeticaoA2_3(rs.getInt("REPETICAOA2_3"));
+                treinos.setObservacaoA2_3(rs.getString("OBSERVACAOA2_3"));
+                treinosCodigos.setExercicioA2_4(rs.getInt("EXERCICIOA2_4"));
+                treinosCodigos.setRepeticaoA2_4(rs.getInt("REPETICAOA2_4"));
+                treinos.setObservacaoA2_4(rs.getString("OBSERVACAOA2_4"));
+                treinosCodigos.setExercicioA2_5(rs.getInt("EXERCICIOA2_5"));
+                treinosCodigos.setRepeticaoA2_5(rs.getInt("REPETICAOA2_5"));
+                treinos.setObservacaoA2_5(rs.getString("OBSERVACAOA2_5"));
+                treinosCodigos.setExercicioA2_6(rs.getInt("EXERCICIOA2_6"));
+                treinosCodigos.setRepeticaoA2_6(rs.getInt("REPETICAOA2_6"));
+                treinos.setObservacaoA2_6(rs.getString("OBSERVACAOA2_6"));
                 
                 
                 
+                
+  
             } 
-            //System.out.println(treinos.getGrupo_muscularA1()); //teste
-            //System.out.println(dados.getCd_membro()); //teste
+            
     }
     
-    public String populandoTelaTreinosGruposMusculares(ClasseCadastro_treino codigo) throws SQLException{
+    
+    public String populandoTelaTreinosGruposMusculares(int codigo) throws SQLException{
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
         String nome = "";
-        String sql = "SELECT NM_MEMBRO FROM TB_MEMBROS A,TB_TREINOSA B, TB_ALUNOS C WHERE A.CD_MEMBRO = B.GRUPO_MUSCULARA1 AND C.CD_REGISTRO = '"+codigo.getCd_registro()+"' ";
+        String sql = "SELECT NM_MEMBRO FROM TB_MEMBROS WHERE CD_MEMBRO = '"+codigo+"' ";
    
         rs = stmt.executeQuery(sql);
         
             if(rs.next())
                 nome = rs.getString("NM_MEMBRO"); 
             
-        return nome;        
-          
+        return nome;             
     }
   
+    public String populandoTelaTreinosExercicios(int codigo) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String nome = "";
+        String sql = "SELECT NM_EXERCICIO FROM TB_EXERCICIOS WHERE CD_EXERCICIO = '"+codigo+"' ";
+   
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next())
+                nome = rs.getString("NM_EXERCICIO"); 
+            
+        return nome;             
+    }
+    
+     public String populandoTelaTreinosRepeticoes(int codigo) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String nome = "";
+        String sql = "SELECT NM_REPETICAO FROM TB_REPETICOES WHERE CD_REPETICAO = '"+codigo+"' ";
+   
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next())
+                nome = rs.getString("NM_REPETICAO"); 
+            
+        return nome;             
+    }
+    
+    
+    
+    
 }
     
     
