@@ -5,9 +5,7 @@ public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
 
-    * FAZENDO O SELECT PARA POPULAR A TELA TREINOS (MEXENDO EM SELECTBD, TELACADASTRO_TREINO E CLASSECADASTRO_TREINOCODIGOS    
-    * Pensar em uma forma de habilitar os botoes ocultos caso haja exercicios neles. (pensei no campo obs se n'ao estiver vazio trazer.
-    * Ver se vai demorar muito para fazer o editar(update) se n'ao deixar somente opcao de novo.
+    * COMEÇAR A FAZER O BOTÃO NOVO DA TELA DE TREINOS.
         
     */
     
