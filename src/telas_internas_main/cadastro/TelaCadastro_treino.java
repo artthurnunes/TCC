@@ -619,7 +619,6 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         lblNomeAlunoTelaTreinos = new javax.swing.JLabel();
         IdTreino = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
         btnFechar = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         btnSalvar = new javax.swing.JMenu();
@@ -3582,9 +3581,6 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
 
         lblNomeAlunoTelaTreinos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblNomeAlunoTelaTreinos.setForeground(new java.awt.Color(51, 0, 255));
-
-        jMenu2.setText("Editar");
-        jMenuBar1.add(jMenu2);
 
         btnFechar.setText("Fechar");
         btnFechar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -6913,7 +6909,6 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField dtInicial;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
