@@ -436,11 +436,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 btnSalvarMouseClicked(evt);
             }
         });
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
         jMenuBar1.add(btnSalvar);
 
         btnExcluir.setText("Excluir");
@@ -539,24 +534,23 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_Tcad_btnTreinoActionPerformed
 
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
-    
         //se estiver vazio o campo de codigo quer dizer que o cadastro e novo, caso nao esteja, nao sera feito 
         //um insert e sim um update do cadastro
         if("".equals(lblCodigoAluno.getText())){
-            if("".equals(Tcad_txtCpf.getText())){
+            if("".equals(Tcad_txtNome.getText())){
+                JOptionPane.showMessageDialog(null, "Campo NOME não pode estar vazio.");
+            }else if("".equals(Tcad_txtCpf.getText())){
                 JOptionPane.showMessageDialog(null, "Campo CPF não pode estar vazio.");
             }else{
                 this.setarCamposParaClasse();
                 inserts.insertCadastro(classecadastro);
+                this.limparCampos();
             }  
         }else{
             this.setarCamposParaClasse();
             updates.alterarCadastroAluno(classecadastro);
+            
         }
         
         
@@ -639,8 +633,8 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Ultimo registro para esta busca !");
         }
         
-        System.out.println("Somou na linha ? : "+selects.getLinha_atual_select());//teste
-        System.out.println("------");//teste
+        //System.out.println("Somou na linha ? : "+selects.getLinha_atual_select());//teste
+        //System.out.println("------");//teste
         //System.out.println("Nome do proximo :"+classecadastro.getNome());//teste
         
         this.setarCamposDaClasse();

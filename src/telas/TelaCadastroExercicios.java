@@ -132,12 +132,10 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
 
         jLabel4.setText("Grupo muscular:");
 
-        combMembros1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         combMembros1.setSelectedIndex(-1);
 
         jLabel5.setText("Grupos musculares cadastrados:");
 
-        combMembros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         combMembros.setSelectedIndex(-1);
 
         jLabel6.setText("____________________________________________________________________________");
@@ -169,7 +167,6 @@ public class TelaCadastroExercicios extends javax.swing.JFrame {
 
         jLabel14.setText("____________________________________________________________________________");
 
-        combMembros2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         combMembros2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combMembros2ActionPerformed(evt);

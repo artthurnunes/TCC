@@ -51,7 +51,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         btnCadastroExercicios = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        btnCadastroModalidades = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         btnNovoUsuarioAcesso = new javax.swing.JMenuItem();
@@ -185,12 +185,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu4.setText("Ferramentas");
 
-        btnCadastroExercicios.setText("Cadastro de exercícios");
-        btnCadastroExercicios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCadastroExerciciosMouseClicked(evt);
-            }
-        });
+        btnCadastroExercicios.setText("Cadastrar exercícios");
         btnCadastroExercicios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastroExerciciosActionPerformed(evt);
@@ -198,8 +193,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(btnCadastroExercicios);
 
-        jMenuItem2.setText("Cadastro de modalidades (caso a tela de cadastro de exercícios funcione)");
-        jMenu4.add(jMenuItem2);
+        btnCadastroModalidades.setText("Cadastrar modalidades");
+        btnCadastroModalidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroModalidadesActionPerformed(evt);
+            }
+        });
+        jMenu4.add(btnCadastroModalidades);
 
         jMenuBar1.add(jMenu4);
 
@@ -295,13 +295,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         new TelaAlunosInativos().setVisible(true);
     }//GEN-LAST:event_btnAlunosInativosActionPerformed
 
-    private void btnCadastroExerciciosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastroExerciciosMouseClicked
-        
-    }//GEN-LAST:event_btnCadastroExerciciosMouseClicked
-
     private void btnCadastroExerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroExerciciosActionPerformed
         new TelaCadastroExercicios().setVisible(true);
     }//GEN-LAST:event_btnCadastroExerciciosActionPerformed
+
+    private void btnCadastroModalidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroModalidadesActionPerformed
+        new TelaCadastroModalidades().setVisible(true); 
+    }//GEN-LAST:event_btnCadastroModalidadesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,6 +349,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAtalhoFinanceiro;
     private javax.swing.JButton btnAtalhoTreinos;
     private javax.swing.JMenuItem btnCadastroExercicios;
+    private javax.swing.JMenuItem btnCadastroModalidades;
     private javax.swing.JMenu btnMenuImport;
     private javax.swing.JMenuItem btnNovoUsuarioAcesso;
     private javax.swing.JDesktopPane espacoTelas;
@@ -359,7 +360,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;

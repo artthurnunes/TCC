@@ -72,17 +72,19 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="btnCadastroExercicios">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastro de exerc&#xed;cios"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar exerc&#xed;cios"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCadastroExerciciosMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastroExerciciosActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="btnCadastroModalidades">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cadastro de modalidades (caso a tela de cadastro de exerc&#xed;cios funcione)"/>
+                <Property name="text" type="java.lang.String" value="Cadastrar modalidades"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastroModalidadesActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

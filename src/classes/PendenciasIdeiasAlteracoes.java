@@ -4,9 +4,9 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-
-    * COMEÇAR A FAZER O BOTÃO NOVO DA TELA DE TREINOS.
-        
+        * Criar a tela de modalidades no treino. Não esquecer de vincular a modalidade com o aluno. Campo já criado na 
+          tabela do cadastro do aluno.
+    
     */
     
     
@@ -20,7 +20,7 @@ public class PendenciasIdeiasAlteracoes {
         * Importação e exportação de bkp do banco
         * Tentar fazer import/export/bkp do banco pela aplicação
         * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.
-        * Se der certo a tela de treinos clicando no + e aparecendo, criar a tela de modalidades no mesmo sentido.  
+         
         * Exibir hora e data no rodapé
     */
     

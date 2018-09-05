@@ -434,4 +434,23 @@ public class InsertBd {
         }        
         
     }
+    
+    public void insereModalidade(String dado){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_MODALIDADES (NM_MODALIDADE) VALUES (?)");           
+            
+            stmt.setString(1, dado);                                   
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"MODALIDADE SALVA COM SUCESSO !");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }        
+        
+    }
 }

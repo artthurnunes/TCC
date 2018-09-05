@@ -2,6 +2,7 @@
 package conexoesbancodedados;
 
 import classes.ClasseCadastro_exercicios;
+import classes.ClasseCadastro_modalidades;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -64,5 +65,20 @@ public class DeleteBd {
         
     }
     
+    public void apagarModalidade(ClasseCadastro_modalidades dados) throws SQLException{
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("DELETE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_modalidade()+"'");
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>MODALIDADE: <b>"+dados.getNm_modalidade()+"</b> <br>EXLCUIDA COM SUCESSO !!!</html>");
+        }catch(SQLException ex){
+            //JOptionPane.showMessageDialog(null,"ERRO AO EXCLUIR !"+ex); //exibir o erro
+            JOptionPane.showMessageDialog(null, "Esta modalidade não pode ser excluída pois está sendo utilizada para algum cadastro de aluno.");
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }   
+    }
     
 }

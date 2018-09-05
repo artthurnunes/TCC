@@ -620,7 +620,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         IdTreino = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         btnFechar = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        btnNovo = new javax.swing.JMenu();
         btnSalvar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -3590,8 +3590,13 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         });
         jMenuBar1.add(btnFechar);
 
-        jMenu3.setText("Novo");
-        jMenuBar1.add(jMenu3);
+        btnNovo.setText("Novo");
+        btnNovo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNovoMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnNovo);
 
         btnSalvar.setText("Salvar");
         btnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -4963,7 +4968,8 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
                     inserts.insereTreinoC(treinos);
                     btnSalvar.setVisible(false);
                     //OCULTAR BOTOES PARA ADICIONAR OU REMOVER TREINOS APÓS SALVAR
-                    this.ocultaBotoesPlusLess();
+                    //this.ocultaBotoesPlusLess();
+                    this.dispose();   
                 }else{
                     
                 }
@@ -4978,6 +4984,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         ClasseCadastro_treino.setTreinoNovo(true);
         this.dispose();
     }//GEN-LAST:event_btnFecharMouseClicked
+
+    private void btnNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNovoMouseClicked
+        int op = JOptionPane.showConfirmDialog(null, "<html>O treino atual será substituído. <br><b>Deseja continuar ? </htmal>");
+            if(op == 0){
+                btnSalvar.setVisible(true);
+                IdTreino.setText("");
+                ClasseCadastro_treino.setTreinoNovo(true);
+                this.dispose();
+                new TelaCadastro_treino(null,true).setVisible(true);
+            } 
+    }//GEN-LAST:event_btnNovoMouseClicked
 
     
     //------------------FUNÇÕES/METODOS/PRODEDURES
@@ -5324,7 +5341,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     }
     
     private void carregarComboRepeticoes(){
-        System.out.println("Chamei metodo repeticoes");
+        //System.out.println("Chamei metodo repeticoes"); //teste
         listaRepeticoes = exercicios.getListaComboRepeticoes(); //recebendo a lista do banco
 
         try {
@@ -6664,6 +6681,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JButton btnLessC3;
     private javax.swing.JButton btnLessC4;
     private javax.swing.JButton btnLessC5;
+    private javax.swing.JMenu btnNovo;
     private javax.swing.JButton btnPlusA1;
     private javax.swing.JButton btnPlusA2;
     private javax.swing.JButton btnPlusA3;
@@ -6909,7 +6927,6 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField dtInicial;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
