@@ -2,6 +2,7 @@
 package telas_internas_main.cadastro;
 
 import classes.ClasseCadastro;
+import classes.ClasseCadastro_modalidades;
 import classes.ClasseCadastro_treino;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
@@ -20,6 +21,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
     ClasseCadastro classecadastro = new ClasseCadastro();
     ClasseCadastro_treino treinos = new ClasseCadastro_treino();
+    ClasseCadastro_modalidades mod = new ClasseCadastro_modalidades();
     InsertBd inserts = new InsertBd();
     SelectBd selects = new SelectBd();
     UpdateBd updates = new UpdateBd();
@@ -507,7 +509,23 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Tcad_btnFinanceiroActionPerformed
 
     private void Tcad_btnModalidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tcad_btnModalidadeActionPerformed
-        new TelaCadastro_modalidades(null,true).setVisible(true);
+        if("".equals(lblCodigoAluno.getText())){
+            JOptionPane.showMessageDialog(null, "Não existe nenhum aluno selecionado !");
+        }else{
+            treinos.setCd_registro(Integer.valueOf(lblCodigoAluno.getText())); //JÁ É SETADO O CD_REGISTRO PARA A CLASSECADASTRO_TREINO
+            try {
+                //SELECT PARA PESQUISAR SE O ALUNO JÁ TEM CADASTROS DE MODALIDADES
+                //treinos.setCd_treino(selects.selectExisteTreino(treinos)); //FAZER SELECT PARA MODALIDADE EXISTENTE
+                    //if(treinos.getCd_treino() == 0){ //MUDAR PARA MODALIDADES
+                        //NÃO FAZ NADA, PRIMEIRO CADASTRO DE MODALIDADE, FICA TUDO VAZIO
+                    //}else{
+                        mod.populandoCombMod(); //POPULANDO LISTA COM AS MODALIDADES NA CLASSE
+                    //}
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            new TelaCadastro_modalidades(null,true).setVisible(true);
+        }
     }//GEN-LAST:event_Tcad_btnModalidadeActionPerformed
 
     private void Tcad_btnTreinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tcad_btnTreinoActionPerformed

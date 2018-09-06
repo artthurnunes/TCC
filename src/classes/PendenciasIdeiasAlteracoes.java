@@ -4,7 +4,8 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        * Criar a tela de modalidades no treino. Não esquecer de vincular a modalidade com o aluno. Campo já criado na 
+     -- PROBLEMAS NO LAYOUT DA TELACADASTRO_MODALIDADES   
+    * Criar a tela de modalidades no treino. Não esquecer de vincular a modalidade com o aluno. Campo já criado na 
           tabela do cadastro do aluno.
     
     */

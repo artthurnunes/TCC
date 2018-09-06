@@ -13,7 +13,7 @@ public class ClasseCadastro_modalidades {
     
     private int cd_modalidade;
     private String nm_modalidade;
-    private ArrayList<String> listaMod = new ArrayList();
+    private static ArrayList<String> listaMod = new ArrayList();
     Connection con;
     ResultSet rs = null;
     
