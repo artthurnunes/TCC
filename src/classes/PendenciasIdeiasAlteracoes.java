@@ -4,7 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-     -- PROBLEMAS NO LAYOUT DA TELACADASTRO_MODALIDADES   
+     -- COMEÇAR A FAZER O BOTÃO SALVAR DA TELACADASTRO_MODALIDADES  
     * Criar a tela de modalidades no treino. Não esquecer de vincular a modalidade com o aluno. Campo já criado na 
           tabela do cadastro do aluno.
     

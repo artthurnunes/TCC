@@ -32,8 +32,7 @@ public class TelaCadastroModalidades extends javax.swing.JFrame {
         
         
     }
-
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

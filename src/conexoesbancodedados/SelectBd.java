@@ -607,8 +607,10 @@ public class SelectBd {
         
             if(rs.next())
                 nome = rs.getString("NM_EXERCICIO"); 
-            
-        return nome;             
+          
+        con.close();    
+        return nome; 
+        
     }
     
      public String populandoTelaTreinosRepeticoes(int codigo) throws SQLException{

@@ -19,6 +19,7 @@ public class ClasseCadastro_modalidades {
     
     public void populandoCombMod() throws SQLException{
         
+        listaMod.clear();
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
         
@@ -29,6 +30,7 @@ public class ClasseCadastro_modalidades {
             while(rs.next()){
                 listaMod.add(rs.getString("NM_MODALIDADE"));
             } 
+            System.out.println(listaMod);
     }
 
     public ArrayList<String> getListaMod() {

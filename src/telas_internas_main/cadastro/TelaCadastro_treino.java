@@ -60,7 +60,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
             }else{
                 try {
                     this.getandoCamposClasseCadastro_treino();
-                    //System.out.println("entrei treino existente"); //teste
+                    System.out.println("entrei treino existente"); //teste
                 } catch (SQLException ex) {
                     Logger.getLogger(TelaCadastro_treino.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -5932,6 +5932,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioA1_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioA1_3()));     
         combRepeticoesA1_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoA1_3()));
         txtObservacoesA1_3.setText(treinos.getObservacaoA1_3());
+        
             if(!"".equals(txtObservacoesA1_3.getText())){
                 combExercicioA1_3.setVisible(true);
                 combRepeticoesA1_3.setVisible(true);
@@ -6348,15 +6349,17 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         combExercicioB5_3.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB5_3()));     
         combRepeticoesB5_3.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB5_3()));
         txtObservacoesB5_3.setText(treinos.getObservacaoB5_3());
+        
             if(!"".equals(txtObservacoesB5_3.getText())){
                 combExercicioB5_3.setVisible(true);
                 combRepeticoesB5_3.setVisible(true);
                 lblObservacoesB5_3.setVisible(true);
                 txtObservacoesB5_3.setVisible(true);
             }
+
         combExercicioB5_4.addItem(selects.populandoTelaTreinosExercicios(treinosCodigos.getExercicioB5_4()));    
         combRepeticoesB5_4.addItem(selects.populandoTelaTreinosRepeticoes(treinosCodigos.getRepeticaoB5_4()));
-        txtObservacoesB5_4.setText(treinos.getObservacaoB5_4());
+        txtObservacoesB5_4.setText(treinos.getObservacaoB5_4());  
             if(!"".equals(txtObservacoesB5_4.getText())){
                     combExercicioB5_4.setVisible(true);
                     combRepeticoesB5_4.setVisible(true);
@@ -6381,7 +6384,6 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
                 lblObservacoesB5_6.setVisible(true);
                 txtObservacoesB5_6.setVisible(true);
             }
-        
         
         //TREINOS C
         combMusculoC1.addItem(selects.populandoTelaTreinosGruposMusculares(treinosCodigos.getGrupo_muscularC1()));        
@@ -6613,18 +6615,18 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
                 combRepeticoesC5_6.setVisible(true);
                 lblObservacoesC5_6.setVisible(true);
                 txtObservacoesC5_6.setVisible(true);
-            }
+            } 
     }
     
     
-    /* --------------------------------------------------------------
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-    /* --------------------------------------------------------------
+    
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -6644,7 +6646,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        /* --------------------------------------------------------------
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastro_treino dialog = new TelaCadastro_treino(new javax.swing.JFrame(), true);
@@ -6658,7 +6660,7 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
                 
             }
         });
-    } ------------------------------------------------------*/
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IdTreino;
