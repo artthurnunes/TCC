@@ -3,24 +3,45 @@ package telas_internas_main.cadastro;
 
 import classes.ClasseCadastro_modalidades;
 import classes.ClasseCadastro_treino;
+import conexoesbancodedados.InsertBd;
+import conexoesbancodedados.SelectBd;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class TelaCadastro_modalidades extends javax.swing.JDialog {
 
     ClasseCadastro_treino treino = new ClasseCadastro_treino();
     ClasseCadastro_modalidades mod = new ClasseCadastro_modalidades();
+    InsertBd inserts = new InsertBd();
+    SelectBd selects = new SelectBd();
     ArrayList<String> listaMod = new ArrayList();
-    int controlePlus = 0;
+    int controlePlus = 1;
     int controleLess = 0;
     
     public TelaCadastro_modalidades(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        cd_aluno.setText(Integer.toString(treino.getCd_registro()));
         listaMod = mod.getListaMod();
         this.ocultarCombos();
-            for(int i=0; i < listaMod.size();i++){ //populando o combobox com os dados
+        btnSalvarAlt.setVisible(false);
+            //SE JÁ EXIRTIR MODALIDADE CADASTRADA PARA O ALUNO, VIRÁ COMO FALSE COM AS MODALIDADES JÁ ESTABELECIDAS
+            if(mod.getNovo() == false){
+                btnSalvarAlt.setVisible(true);
+                btnPlus.setVisible(false);
+                btnLess.setVisible(false);
+                btnSalvar.setVisible(false);
+                try {
+                    this.limparCombos();
+                    this.getandoClasseCadastro_modalidades();
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaCadastro_modalidades.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }else{
+                for(int i=0; i < listaMod.size();i++){ //populando o combobox com os dados
                 combMod1.addItem(listaMod.get(i));
                 combMod2.addItem(listaMod.get(i));
                 combMod3.addItem(listaMod.get(i));
@@ -29,7 +50,8 @@ public class TelaCadastro_modalidades extends javax.swing.JDialog {
                 combMod6.addItem(listaMod.get(i));
                 combMod7.addItem(listaMod.get(i));
                 combMod8.addItem(listaMod.get(i));
-            }
+                }
+            }   
     }
 
 
@@ -41,7 +63,6 @@ public class TelaCadastro_modalidades extends javax.swing.JDialog {
         btnPlus = new javax.swing.JButton();
         btnLess = new javax.swing.JButton();
         combMod1 = new javax.swing.JComboBox<>();
-        cd_aluno = new javax.swing.JLabel();
         combMod2 = new javax.swing.JComboBox<>();
         combMod3 = new javax.swing.JComboBox<>();
         combMod4 = new javax.swing.JComboBox<>();
@@ -50,10 +71,12 @@ public class TelaCadastro_modalidades extends javax.swing.JDialog {
         combMod7 = new javax.swing.JComboBox<>();
         combMod8 = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        btnEditar = new javax.swing.JMenu();
+        btnFechar = new javax.swing.JMenu();
+        btnSalvar = new javax.swing.JMenu();
+        btnSalvarAlt = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Cadastro de modalidades");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
@@ -79,11 +102,48 @@ public class TelaCadastro_modalidades extends javax.swing.JDialog {
             }
         });
 
-        jMenu1.setText("Editar");
-        jMenuBar1.add(jMenu1);
+        combMod1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
 
-        jMenu2.setText("Salvar");
-        jMenuBar1.add(jMenu2);
+        combMod2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        combMod3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        combMod4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        combMod5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        combMod6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        combMod7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        combMod8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+
+        btnEditar.setText("Editar");
+        btnEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditarMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnEditar);
+
+        btnFechar.setText("Fechar");
+        btnFechar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnFecharMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnFechar);
+
+        btnSalvar.setText("Salvar");
+        btnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalvarMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnSalvar);
+
+        btnSalvarAlt.setText("Salvar alterações");
+        jMenuBar1.add(btnSalvarAlt);
 
         setJMenuBar(jMenuBar1);
 
@@ -95,33 +155,28 @@ public class TelaCadastro_modalidades extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(combMod1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(combMod5, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(combMod2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(combMod6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(combMod3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(combMod7, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(combMod4, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(combMod8, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(75, Short.MAX_VALUE))
+                        .addComponent(combMod1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combMod5, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(combMod2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combMod6, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(combMod3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combMod7, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(combMod4, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(combMod8, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(btnPlus, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnLess, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cd_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))))
+                        .addComponent(btnLess, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,8 +185,7 @@ public class TelaCadastro_modalidades extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(btnPlus)
-                    .addComponent(btnLess)
-                    .addComponent(cd_aluno, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLess))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(combMod1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,54 +210,115 @@ public class TelaCadastro_modalidades extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusActionPerformed
-        if(controlePlus == 0){
+        if(controlePlus == 1 && combMod1.getSelectedItem() != ""){
             combMod2.setVisible(true);
             controlePlus++;
-        }else if(controlePlus == 1){
+        }else if(controlePlus == 2 && combMod2.getSelectedItem() != ""){
             combMod3.setVisible(true);
             controlePlus++;
-        }else if(controlePlus == 2){
+        }else if(controlePlus == 3 && combMod3.getSelectedItem() != ""){
             combMod4.setVisible(true);
             controlePlus++;
-        }else if(controlePlus == 3){
+        }else if(controlePlus == 4 && combMod4.getSelectedItem() != ""){
             combMod5.setVisible(true);
             controlePlus++;
-        }else if(controlePlus == 4){
+        }else if(controlePlus == 5 && combMod5.getSelectedItem() != ""){
             combMod6.setVisible(true);
             controlePlus++;
-        }else if(controlePlus == 5){
+        }else if(controlePlus == 6 && combMod6.getSelectedItem() != ""){
             combMod7.setVisible(true);
             controlePlus++;
-        }else if(controlePlus == 6){
+        }else if(controlePlus == 7 && combMod7.getSelectedItem() != ""){
             combMod8.setVisible(true);
-            controlePlus++;
+        }else{
+            JOptionPane.showMessageDialog(null, "Combo atual vazio !");
         }
     }//GEN-LAST:event_btnPlusActionPerformed
 
     private void btnLessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLessActionPerformed
         if(controlePlus == 7){
             combMod8.setVisible(false);
+            combMod8.setSelectedIndex(0);
             controlePlus--;
         }else if(controlePlus == 6){
             combMod7.setVisible(false);
+            combMod7.setSelectedIndex(0);
             controlePlus--;
         }else if(controlePlus == 5){
             combMod6.setVisible(false);
+            combMod6.setSelectedIndex(0);
             controlePlus--;
         }else if(controlePlus == 4){
             combMod5.setVisible(false);
+            combMod5.setSelectedIndex(0);
             controlePlus--;
         }else if(controlePlus == 3){
             combMod4.setVisible(false);
+            combMod4.setSelectedIndex(0);
             controlePlus--;
         }else if(controlePlus == 2){
             combMod3.setVisible(false);
+            combMod3.setSelectedIndex(0);
             controlePlus--;
         }else if(controlePlus == 1){
             combMod2.setVisible(false);
-            controlePlus--;
+            combMod2.setSelectedIndex(0);
+            //controlePlus--;
         }
     }//GEN-LAST:event_btnLessActionPerformed
+
+    private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
+        if(combMod1.getSelectedItem() == ""){
+            JOptionPane.showMessageDialog(null, "Nenhuma modalidade foi selecionada !");
+        }else{
+            int i = JOptionPane.showConfirmDialog(null, "Deseja salvar Modalidades ? ");
+            switch(i){
+            case 0:{
+                //SETAR DADOS DA TELA PARA CLASSE E DEPOIS CHAMAR O INSERT 
+                if(combMod1.getSelectedItem() == ""){
+                    //FAZ NADA
+                }else{mod.setNm_mod_comb1((String)combMod1.getSelectedItem());}
+
+                if(combMod2.getSelectedItem() == ""){
+                    //COMBO EM BRANCO, NÃO SETA NADA PARA A CLASSE
+                }else{mod.setNm_mod_comb2((String)combMod2.getSelectedItem());}
+
+                if(combMod3.getSelectedItem() == ""){
+                    //COMBO EM BRANCO, NÃO SETA NADA PARA A CLASSE
+                }else{mod.setNm_mod_comb3((String)combMod3.getSelectedItem());}
+
+                btnPlus.setVisible(false);
+                btnLess.setVisible(false);
+                btnSalvar.setVisible(false);
+                inserts.insereModAluno(mod);
+                break;
+            }
+            default:{
+                
+            }
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+            
+    }//GEN-LAST:event_btnSalvarMouseClicked
+
+    private void btnEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditarMouseClicked
+        btnSalvarAlt.setVisible(true);
+        btnPlus.setVisible(true);
+        btnLess.setVisible(true);
+    }//GEN-LAST:event_btnEditarMouseClicked
+
+    private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
+        mod.setNovo(true);
+        this.dispose();
+    }//GEN-LAST:event_btnFecharMouseClicked
 
     private void ocultarCombos(){
         combMod2.setVisible(false);
@@ -214,6 +329,25 @@ public class TelaCadastro_modalidades extends javax.swing.JDialog {
         combMod7.setVisible(false);
         combMod8.setVisible(false);
     }
+    
+    private void getandoClasseCadastro_modalidades() throws SQLException{
+        combMod1.addItem(selects.populandoTelaModalidadesAlunos(mod.getCd_mod_comb1()));
+        combMod2.addItem(selects.populandoTelaModalidadesAlunos(mod.getCd_mod_comb2()));
+        combMod2.setVisible(true);
+    }
+    
+    private void limparCombos(){
+        combMod1.removeAllItems();
+        combMod2.removeAllItems();
+        combMod3.removeAllItems();
+        combMod4.removeAllItems();
+        combMod5.removeAllItems();
+        combMod6.removeAllItems();
+        combMod7.removeAllItems();
+        combMod8.removeAllItems();
+    }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -255,9 +389,12 @@ public class TelaCadastro_modalidades extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btnEditar;
+    private javax.swing.JMenu btnFechar;
     private javax.swing.JButton btnLess;
     private javax.swing.JButton btnPlus;
-    private javax.swing.JLabel cd_aluno;
+    private javax.swing.JMenu btnSalvar;
+    private javax.swing.JMenu btnSalvarAlt;
     private javax.swing.JComboBox<String> combMod1;
     private javax.swing.JComboBox<String> combMod2;
     private javax.swing.JComboBox<String> combMod3;
@@ -267,8 +404,6 @@ public class TelaCadastro_modalidades extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> combMod7;
     private javax.swing.JComboBox<String> combMod8;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

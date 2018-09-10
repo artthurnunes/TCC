@@ -4,9 +4,10 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-     -- COMEÇAR A FAZER O BOTÃO SALVAR DA TELACADASTRO_MODALIDADES  
-    * Criar a tela de modalidades no treino. Não esquecer de vincular a modalidade com o aluno. Campo já criado na 
-          tabela do cadastro do aluno.
+     * FAZENDO A TELA MODALIDADE. JA ESTA PRONTO EM PARTES. COMEÇAR A FAZER O INSERT MODALIDADE 2 EM DIANTE E DEPOIS 
+       TERMINAR DE FAZER A RECUPERAÇÃO DE MODALIDADES DE ALUNOS JÁ CADASTRADOS 
+      MEXENDO EM (TELACADASTRO_MODALIDADE, CLASSECADASTRO_MODALIDADE, INSERT, TELACADASTRO E SELECT)
+    
     
     */
     
@@ -14,6 +15,8 @@ public class PendenciasIdeiasAlteracoes {
     
     
     /* PENDÊNCIAS SEM RELEVÂNCIAS SE FUNCIONAR LEGAL....
+        * Fazer histórico(relatório de modalidades de um certo aluno)
+        * Fazer histórico (de treinos)
         * Verificar a possibilidade de criar barra de rolagem nas telas para resoluções de telas menores. 800x600 corta
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
         * Se der certo enviar o email, vazer verificação para prómixo login com senha nova, seja pedido para criar uma nova senha pessoal.

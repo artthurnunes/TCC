@@ -3,6 +3,7 @@ package conexoesbancodedados;
 
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
+import classes.ClasseCadastro_modalidades;
 import classes.ClasseCadastro_treino;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -450,7 +451,31 @@ public class InsertBd {
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
         }finally{
             ConectaBd.closeConnection(con, stmt);
-        }        
-        
+        }          
     }
+    
+    public void insereModAluno(ClasseCadastro_modalidades dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_MOD_ALUNOS (CD_REGISTRO,CD_MODALIDADE1) "
+                    + "VALUES (?,(SELECT CD_MODALIDADE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_mod_comb1()+"'))");           
+            
+            stmt.setInt(1, dados.getCd_registro());
+            //stmt.setInt(2, dados.getCd_registro());
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"MODALIDADE DO ALUNO SALVA COM SUCESSO !");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }          
+    }
+    
+    
+    
+    
+    
 }

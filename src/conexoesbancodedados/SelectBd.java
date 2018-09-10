@@ -3,6 +3,7 @@ package conexoesbancodedados;
 
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
+import classes.ClasseCadastro_modalidades;
 import classes.ClasseCadastro_treino;
 import classes.ClasseCadastro_treinoCodigos;
 import classes.ClasseEsqueceuSenha;
@@ -200,6 +201,22 @@ public class SelectBd {
                 n = rs.getInt("CD_TREINOA");
             } 
         return n;
+    }
+    
+    public int selectExisteModalidadeAluno(ClasseCadastro_modalidades dados) throws SQLException{
+        int n = 0;
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+                
+        String sql = "SELECT MAX(CD_MOD_ALUNO) FROM TB_MOD_ALUNOS WHERE CD_REGISTRO = '"+dados.getCd_registro()+"' ";
+        
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next()){
+                n = rs.getInt("MAX(CD_MOD_ALUNO)");
+            } 
+        return n;
+        
     }
 
     //setar strings no objeto treinos e numeros no objeto treinosCodigos
@@ -583,6 +600,7 @@ public class SelectBd {
             }    
     }
     
+    //SELECT PARA TRAZER O NOMEO DO MEMBRO TENDO SOMENTE O CÓDIGO
     public String populandoTelaTreinosGruposMusculares(int codigo) throws SQLException{
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
@@ -613,7 +631,7 @@ public class SelectBd {
         
     }
     
-     public String populandoTelaTreinosRepeticoes(int codigo) throws SQLException{
+    public String populandoTelaTreinosRepeticoes(int codigo) throws SQLException{
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
         String nome = "";
@@ -627,6 +645,20 @@ public class SelectBd {
         return nome;             
     }
     
+    //SELECT PARA TRAZER O NOME DA MODALIDADE TENDO SOMENTE O CÓDIGO
+    public String populandoTelaModalidadesAlunos(int codigo) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String nome = "";
+        String sql = "SELECT NM_MODALIDADE FROM TB_MODALIDADES WHERE CD_MODALIDADE = '"+codigo+"' ";
+   
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next())
+                nome = rs.getString("NM_MODALIDADE"); 
+            
+        return nome;             
+    }
     
     
     

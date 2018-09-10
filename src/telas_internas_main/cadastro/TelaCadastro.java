@@ -515,12 +515,13 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             treinos.setCd_registro(Integer.valueOf(lblCodigoAluno.getText())); //JÁ É SETADO O CD_REGISTRO PARA A CLASSECADASTRO_TREINO
             try {
                 //SELECT PARA PESQUISAR SE O ALUNO JÁ TEM CADASTROS DE MODALIDADES
-                //treinos.setCd_treino(selects.selectExisteTreino(treinos)); //FAZER SELECT PARA MODALIDADE EXISTENTE
-                    //if(treinos.getCd_treino() == 0){ //MUDAR PARA MODALIDADES
-                        //NÃO FAZ NADA, PRIMEIRO CADASTRO DE MODALIDADE, FICA TUDO VAZIO
-                    //}else{
+                mod.setCd_mod_aluno(selects.selectExisteModalidadeAluno(mod)); //FAZER SELECT PARA MODALIDADE EXISTENTE
+                    if(mod.getCd_mod_aluno() == 0){
                         mod.populandoCombMod(); //POPULANDO LISTA COM AS MODALIDADES NA CLASSE
-                    //}
+                    }else{
+                        mod.setNovo(false);
+                        mod.populandoCombModCadAluno();
+                    }
             } catch (SQLException ex) {
                 Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
             }
