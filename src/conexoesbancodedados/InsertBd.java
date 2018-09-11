@@ -459,8 +459,16 @@ public class InsertBd {
         PreparedStatement stmt = null;
         
         try{
-            stmt = con.prepareStatement("INSERT INTO TB_MOD_ALUNOS (CD_REGISTRO,CD_MODALIDADE1) "
-                    + "VALUES (?,(SELECT CD_MODALIDADE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_mod_comb1()+"'))");           
+            stmt = con.prepareStatement("INSERT INTO TB_MOD_ALUNOS (CD_REGISTRO,CD_MODALIDADE1,CD_MODALIDADE2,CD_MODALIDADE3,CD_MODALIDADE4,CD_MODALIDADE5,CD_MODALIDADE6,CD_MODALIDADE7,CD_MODALIDADE8) "
+                    + "VALUES (?,(SELECT CD_MODALIDADE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_mod_comb1()+"')"
+                    + ",(SELECT CD_MODALIDADE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_mod_comb2()+"')"
+                    + ",(SELECT CD_MODALIDADE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_mod_comb3()+"')"
+                    + ",(SELECT CD_MODALIDADE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_mod_comb4()+"')"
+                    + ",(SELECT CD_MODALIDADE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_mod_comb5()+"')"
+                    + ",(SELECT CD_MODALIDADE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_mod_comb6()+"')"
+                    + ",(SELECT CD_MODALIDADE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_mod_comb7()+"')"
+                    + ",(SELECT CD_MODALIDADE FROM TB_MODALIDADES WHERE NM_MODALIDADE = '"+dados.getNm_mod_comb8()+"')"   
+                    + ")");           
             
             stmt.setInt(1, dados.getCd_registro());
             //stmt.setInt(2, dados.getCd_registro());

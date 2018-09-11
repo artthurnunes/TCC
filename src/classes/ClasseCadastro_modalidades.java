@@ -49,7 +49,9 @@ public class ClasseCadastro_modalidades extends ClasseCadastro {
             while(rs.next()){
                 listaMod.add(rs.getString("NM_MODALIDADE"));
             } 
-            System.out.println(listaMod);
+            //System.out.println(listaMod); //teste
+           
+        con.close();
     }
     
     public void populandoCombModCadAluno() throws SQLException{
@@ -62,8 +64,14 @@ public class ClasseCadastro_modalidades extends ClasseCadastro {
         if(rs.next()){
             this.cd_mod_comb1 = rs.getInt("CD_MODALIDADE1");
             this.cd_mod_comb2 = rs.getInt("CD_MODALIDADE2");
+            this.cd_mod_comb3 = rs.getInt("CD_MODALIDADE3");
+            this.cd_mod_comb4 = rs.getInt("CD_MODALIDADE4");
+            this.cd_mod_comb5 = rs.getInt("CD_MODALIDADE5");
+            this.cd_mod_comb6 = rs.getInt("CD_MODALIDADE6");
+            this.cd_mod_comb7 = rs.getInt("CD_MODALIDADE7");
+            this.cd_mod_comb8 = rs.getInt("CD_MODALIDADE8");
         }
-        System.out.println("Modalidade 2 no select "+this.cd_mod_comb2);
+        //System.out.println("Modalidade 2 no select "+this.cd_mod_comb2); //teste
     
     }
 
