@@ -4,7 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-     * 
+     * FAZENDO A TELA DE PLANOS (CADASTRO E TELA DO ALUNO) 
     
     
     */

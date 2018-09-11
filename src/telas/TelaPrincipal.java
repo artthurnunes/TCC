@@ -5,6 +5,7 @@ import telas_internas_main.cadastro.TelaCadastro;
 import telas_internas_main.TelaEquipamentos;
 import telas_internas_main.TelaFinanceiro;
 import telas_internas_main.TelaCatraca;
+import telas_internas_main.cadastro.TelaCadastro_financeiro;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -52,6 +53,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         btnCadastroExercicios = new javax.swing.JMenuItem();
         btnCadastroModalidades = new javax.swing.JMenuItem();
+        btnCadPlanos = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         btnNovoUsuarioAcesso = new javax.swing.JMenuItem();
@@ -201,6 +203,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(btnCadastroModalidades);
 
+        btnCadPlanos.setText("Cadastrar planos");
+        btnCadPlanos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadPlanosMouseClicked(evt);
+            }
+        });
+        btnCadPlanos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadPlanosActionPerformed(evt);
+            }
+        });
+        jMenu4.add(btnCadPlanos);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Opções");
@@ -303,6 +318,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         new TelaCadastroModalidades().setVisible(true); 
     }//GEN-LAST:event_btnCadastroModalidadesActionPerformed
 
+    private void btnCadPlanosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadPlanosMouseClicked
+        
+    }//GEN-LAST:event_btnCadPlanosMouseClicked
+
+    private void btnCadPlanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPlanosActionPerformed
+        new TelaCadastroPlanos().setVisible(true);
+    }//GEN-LAST:event_btnCadPlanosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -348,6 +371,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAtalhoEquipamentos;
     private javax.swing.JButton btnAtalhoFinanceiro;
     private javax.swing.JButton btnAtalhoTreinos;
+    private javax.swing.JMenuItem btnCadPlanos;
     private javax.swing.JMenuItem btnCadastroExercicios;
     private javax.swing.JMenuItem btnCadastroModalidades;
     private javax.swing.JMenu btnMenuImport;

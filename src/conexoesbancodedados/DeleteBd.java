@@ -3,6 +3,7 @@ package conexoesbancodedados;
 
 import classes.ClasseCadastro_exercicios;
 import classes.ClasseCadastro_modalidades;
+import classes.ClasseCadastro_planos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -80,5 +81,24 @@ public class DeleteBd {
             ConectaBd.closeConnection(con, stmt);
         }   
     }
+    
+    public void apagarPlano(ClasseCadastro_planos dados) throws SQLException{
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("DELETE FROM TB_PLANOS_VALORES WHERE NM_PLANO = '"+dados.getNm_plano()+"'");
+            stmt.executeUpdate();
+            //JOptionPane.showMessageDialog(null,"<html>MODALIDADE: <b>"+dados.getNm_modalidade()+"</b> <br>EXLCUIDA COM SUCESSO !!!</html>");
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO EXCLUIR !"+ex); //exibir o erro
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }   
+    }
+    
+    
+    
+    
     
 }
