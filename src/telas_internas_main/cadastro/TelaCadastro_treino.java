@@ -104,7 +104,19 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         dtInicial = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
+            dtInicial = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         dtFinal = new javax.swing.JFormattedTextField();
+        try{ 
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
+            dtFinal = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         painelAbas = new javax.swing.JTabbedPane();
         abaTreinoA = new javax.swing.JTabbedPane();
         jPanel10 = new javax.swing.JPanel();

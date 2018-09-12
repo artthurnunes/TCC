@@ -18,7 +18,7 @@ public class UpdateBd {
             stmt = con.prepareStatement("UPDATE TB_ALUNOS SET SITUACAO = FALSE WHERE CD_REGISTRO =(?)");
             stmt.setInt(1,cd_registro);
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"<html>CADASTRO INATIVO !!!<br>Para ativar o cadastro novamente, vá para ?????</html>");
+            JOptionPane.showMessageDialog(null,"<html>CADASTRO INATIVO !!!<br>Para ativar o cadastro novamente, vá para EXIBIR/EXIBIR ALUNOS INATIVOS</html>");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);

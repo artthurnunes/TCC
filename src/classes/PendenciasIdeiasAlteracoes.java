@@ -4,10 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-     * PAREI NO BOTÃO SALVAR DA TELA DE PLANOS
-     * Obrigar . e não , no valor desta tela
-     * Salvar nomes dos planos tudo em maiúsculo
-    
+     * Colcando mascaras (TESTAR A TELA DE TREINOS AS DATAS....   
     
     */
     
@@ -24,22 +21,17 @@ public class PendenciasIdeiasAlteracoes {
         * Importação e exportação de bkp do banco
         * Tentar fazer import/export/bkp do banco pela aplicação
         * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.
-         
+        * Fazer uma telinha no canto inferior direito sempre aparecendo com o nome dos alunos que estão para vencer 
+           o treino e os alunos que faz tempo que não vão para academia de acordo com a catraca 
         * Exibir hora e data no rodapé
     */
     
     
     /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
-        * Criar uma classe mãe para menu para que as outras telas herdão dela as funcões do menu
-        * Quando clicar em salvar, bloquear as opções e quando clicar em editar desbloquear. Não 
-           deixar fechar a tela sem salvar. Fazer em todas as telas que tem SALVAR E EDITAR.
-        * Fazer uma telinha no canto inferior direito sempre aparecendo com o nome dos alunos que estão para vencer 
-           o treino
+        * Obrigar . e não , no valor da tela de valor do plano e nos valores pagos na mensalidade também.
         * Fazer mascara para os campos de data
         * Pensar nas esteiras, bicicletas e equipamentos aerobicos na tela de equipametos, para colocar os 
           periódicos 
-        * Fazer mensagem para cpf igual no banco, as x o aluno esta inativo mais voltou quando for cadastrar novamente.
-        * Quando não tem nenhum aluno inativo mostar uma mensagem se não da erro do banco, retorna vazio.
     
             TELAS A FAZER
                 - LIBERAÇÃO DE CATRACA
@@ -57,7 +49,6 @@ public class PendenciasIdeiasAlteracoes {
     
     /*
     LEMBRAR
-        * Tenho que salvar a quantidade de + presionado no banco para excluir ou adicionar depois de já salvo o treino
         * Email deve ser obrigatorio na criação de usuário para recuperação de senha.
         * Usuario deve ser unico
     */
@@ -69,7 +60,6 @@ public class PendenciasIdeiasAlteracoes {
     */
     
     /* PROBLEMAS PORÉM ESTÁ FUNCIONANDO
-     * Tabela de treinos não conseguir fazer ela innodb para funcionar foreign key
     
     */
     

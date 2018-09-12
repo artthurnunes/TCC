@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
@@ -25,7 +27,7 @@ public class TelaAlunosInativos extends javax.swing.JFrame {
 
     public TelaAlunosInativos() {
         initComponents();
-        preencherTabela("SELECT * FROM TB_ALUNOS WHERE SITUACAO = FALSE");  
+        this.preencherTabela("SELECT * FROM TB_ALUNOS WHERE SITUACAO = FALSE");  
     }
     
     //metodo para retornar rs para exibir ArrayList
@@ -48,21 +50,29 @@ public class TelaAlunosInativos extends javax.swing.JFrame {
         ArrayList dados = new ArrayList();
         String[] colunas = new String[]{"CODIGO","NOME","CPF","TELEFONE"};
         Connection con = ConectaBd.getConnection();
-        ResultSet rs = this.executaSql(Sql);        
-
-        try{
-            rs.first();
-            do{
-                dados.add(new Object[]{rs.getInt("CD_REGISTRO"),rs.getString("NOME"),rs.getString("CPF"),rs.getString("TEL1")});
-                //já é armazenado o código de todos os alunos inativos nesse vetor.
-                //codAluno_linha[contador_linhas] = rs.getInt("CD_REGISTRO"); //armazena o codigo do aluno na linha especifica para seleção
-                //contador_linhas++;
-            }while(rs.next());
-            
-        }catch(SQLException ex){
-           JOptionPane.showMessageDialog(null, "ERRO AO PREENCHER O ARRAYLIST"+ex);
-        }        
+        ResultSet rs = this.executaSql(Sql);     
         
+        //SE A LISTA DE INATIVOS ESTIVER VAZIA NÃO FAZ NADA PARA NÃO DAR ERRO, SE NÃO ELE EXECUTA E PREENCHE O JTABLE
+        try {
+            if(rs.next()){
+                try{
+                rs.first();
+                    do{
+                        dados.add(new Object[]{rs.getInt("CD_REGISTRO"),rs.getString("NOME"),rs.getString("CPF"),rs.getString("TEL1")});
+                        //já é armazenado o código de todos os alunos inativos nesse vetor.
+                        //codAluno_linha[contador_linhas] = rs.getInt("CD_REGISTRO"); //armazena o codigo do aluno na linha especifica para seleção
+                        //contador_linhas++;
+                    }while(rs.next());
+                }catch(SQLException ex){
+                   JOptionPane.showMessageDialog(null, "ERRO AO PREENCHER O ARRAYLIST"+ex);
+                }   
+            }else{
+               //NÃO FAZ NADA
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaAlunosInativos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         ClassejTableSelect modelo = new ClassejTableSelect(dados, colunas);
         
         tabela.setModel(modelo);

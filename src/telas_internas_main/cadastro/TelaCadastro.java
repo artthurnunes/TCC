@@ -44,6 +44,12 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtRg = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         Tcad_txtCpf = new javax.swing.JTextField();
+        try{ 
+            javax.swing.text.MaskFormatter cpf= new javax.swing.text.MaskFormatter("###.###.###-##");
+            Tcad_txtCpf = new javax.swing.JFormattedTextField(cpf);
+        }
+        catch (Exception e){
+        }
         jLabel5 = new javax.swing.JLabel();
         Tcad_txtTel1 = new javax.swing.JTextField();
         Tcad_txtTel2 = new javax.swing.JTextField();
