@@ -517,7 +517,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                     if(planos.getCd_plano() == 0){
                         planos.populandoCombPlanos(); //POPULANDO LISTA COM OS PLANOS NA CLASSE
                     }else{
-                        //planos.setPlano_novo(false);
+                        planos.setPlano_novo(false);
                         //planos.populandoCombPlanoAluno();
                     }
             } catch (SQLException ex) {

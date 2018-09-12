@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class TelaCadastro_financeiro extends javax.swing.JDialog {
 
@@ -18,13 +19,21 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         lblDesconto.setText("0");
-        lblTotal.setText("");
+            try {
+                planos.populandoCombPlanoAluno();
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastro_financeiro.class.getName()).log(Level.SEVERE, null, ex);
+            }
         listaPlanos = planos.getListaPlanos();
-        if(planos.getPlano_novo() == false){
-            
-        }else{
-            for(int i=0; i < listaPlanos.size();i++) //populando o combobox com os dados
-                combNm_plano.addItem(listaPlanos.get(i));
+            if(planos.getPlano_novo() == false){
+                combVencimento.removeAllItems();
+                combDesconto.removeAllItems();
+                lblDesconto.setEditable(false);
+                btnSalvar.setEnabled(false);
+                this.getarCombosClasse();
+            }else{
+                for(int i=0; i < listaPlanos.size();i++) //populando o combobox com os dados
+                    combNm_plano.addItem(listaPlanos.get(i));
         
         planos.setNm_plano((String)combNm_plano.getSelectedItem());
             try {
@@ -47,7 +56,16 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
         planos.setVencimento_plano(Integer.parseInt((String)combVencimento.getSelectedItem()));
         planos.setTp_desconto_plano((String)combDesconto.getSelectedItem());
         planos.setDesconto_plano(Float.parseFloat(lblDesconto.getText()));
-        planos.setValor_plano(Float.parseFloat(lblTotal.getText()));
+        planos.setTotal_plano(Float.parseFloat(lblTotal.getText()));
+    }
+    
+    public void getarCombosClasse(){
+        combNm_plano.addItem(planos.getNm_plano());
+        combVencimento.addItem(Integer.toString(planos.getVencimento_plano()));
+        combDesconto.addItem(planos.getTp_desconto_plano());
+        lblDesconto.setText(Float.toString(planos.getDesconto_plano()));
+        lblTotal.setText(Float.toString(planos.getTotal_plano()));
+        
     }
     
 
@@ -65,13 +83,22 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
         combDesconto = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JTextField();
-        btnSalvar8 = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
         combVencimento = new javax.swing.JComboBox<>();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        btnNovo = new javax.swing.JMenu();
+        btnFechar = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Financeiro do Aluno");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Plano"));
+
+        combNm_plano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combNm_planoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -104,14 +131,32 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
 
         lblTotal.setEditable(false);
 
-        btnSalvar8.setText("SALVAR");
-        btnSalvar8.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setText("SALVAR");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvar8ActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
         combVencimento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        btnNovo.setText("Novo");
+        btnNovo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnNovoMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnNovo);
+
+        btnFechar.setText("Fechar");
+        btnFechar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnFecharMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(btnFechar);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,14 +186,14 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSalvar8, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -167,15 +212,15 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnSalvar8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalvar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvar8ActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         float valor = Float.parseFloat(lblValorVista.getText());
         float desconto = Float.parseFloat(lblDesconto.getText());
         if(combDesconto.getSelectedItem() == "%")
@@ -185,7 +230,31 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
         
         this.setarCamposClasse();
         inserts.inserePlanosAlunos(planos);
-    }//GEN-LAST:event_btnSalvar8ActionPerformed
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void combNm_planoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combNm_planoActionPerformed
+        planos.setNm_plano((String)combNm_plano.getSelectedItem());
+        try {
+                lblValorVista.setText(Float.toString(planos.populandoValorPlano()));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastro_financeiro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_combNm_planoActionPerformed
+
+    private void btnNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNovoMouseClicked
+        int i = JOptionPane.showConfirmDialog(null, "<html>Deseja cadastrar um <b>novo</b> plano para o aluno ? </html>");
+            if(i == 0){
+                planos.setPlano_novo(true);
+                this.dispose();
+                new TelaCadastro_financeiro(null,true).setVisible(true);
+            }
+        
+    }//GEN-LAST:event_btnNovoMouseClicked
+
+    private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
+        planos.setPlano_novo(true);
+        this.dispose();
+    }//GEN-LAST:event_btnFecharMouseClicked
 
     /**
      * @param args the command line arguments
@@ -236,7 +305,9 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalvar8;
+    private javax.swing.JMenu btnFechar;
+    private javax.swing.JMenu btnNovo;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> combDesconto;
     private javax.swing.JComboBox<String> combNm_plano;
     private javax.swing.JComboBox<String> combVencimento;
@@ -244,6 +315,7 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lblDesconto;
     private javax.swing.JTextField lblTotal;

@@ -511,7 +511,7 @@ public class InsertBd {
             
             stmt.setInt(1, dados.getCd_registro());
             stmt.setInt(2, dados.getCd_plano());
-            stmt.setFloat(3, dados.getValor_plano());
+            stmt.setFloat(3, dados.getTotal_plano());
             stmt.setString(4, dados.getTp_desconto_plano());
             stmt.setFloat(5, dados.getDesconto_plano());
             stmt.setInt(6, dados.getVencimento_plano());

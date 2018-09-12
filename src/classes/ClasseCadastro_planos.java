@@ -16,6 +16,7 @@ public class ClasseCadastro_planos extends ClasseCadastro {
     private static int vencimento_plano;
     private static String tp_desconto_plano;
     private static float desconto_plano;
+    private static float total_plano;
     private static boolean plano_novo = true;
     private static ArrayList<String> listaPlanos = new ArrayList();
     Connection con;
@@ -44,20 +45,18 @@ public class ClasseCadastro_planos extends ClasseCadastro {
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
         
-        String sql = "SELECT * FROM TB_PLANOS_ALUNOS WHERE CD_PLANO_ALUNO = '"+this.getCd_plano()+"' ";
+        String sql = "SELECT * FROM TB_PLANOS_ALUNOS A INNER JOIN TB_PLANOS_VALORES B ON B.CD_PLANO = A.CD_PLANO "
+                                    + "WHERE CD_PLANO_ALUNO = '"+this.getCd_plano()+"' ";
         rs = stmt.executeQuery(sql);
         
         if(rs.next()){
-//            this.cd_mod_comb1 = rs.getInt("CD_MODALIDADE1");
-//            this.cd_mod_comb2 = rs.getInt("CD_MODALIDADE2");
-//            this.cd_mod_comb3 = rs.getInt("CD_MODALIDADE3");
-//            this.cd_mod_comb4 = rs.getInt("CD_MODALIDADE4");
-//            this.cd_mod_comb5 = rs.getInt("CD_MODALIDADE5");
-//            this.cd_mod_comb6 = rs.getInt("CD_MODALIDADE6");
-//            this.cd_mod_comb7 = rs.getInt("CD_MODALIDADE7");
-//            this.cd_mod_comb8 = rs.getInt("CD_MODALIDADE8");
+            this.setNm_plano(rs.getString("NM_PLANO"));
+            this.setVencimento_plano(rs.getInt("VENCIMENTO"));
+            this.setTp_desconto_plano(rs.getString("TP_DESCONTO"));
+            this.setDesconto_plano(rs.getFloat("DESCONTO"));
+            this.setTotal_plano(rs.getFloat("VALOR"));
         }
-        //System.out.println("Modalidade 2 no select "+this.cd_mod_comb2); //teste
+        //System.out.println("Nome do plano no select :"+this.getNm_plano()); //teste
     
     }
     
@@ -91,6 +90,14 @@ public class ClasseCadastro_planos extends ClasseCadastro {
             this.setCd_plano(rs.getInt("CD_PLANO"));   
         
         con.close();
+    }
+
+    public float getTotal_plano() {
+        return total_plano;
+    }
+
+    public void setTotal_plano(float total_plano) {
+        ClasseCadastro_planos.total_plano = total_plano;
     }
     
     public boolean getPlano_novo() {
