@@ -4,6 +4,7 @@ package conexoesbancodedados;
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
 import classes.ClasseCadastro_modalidades;
+import classes.ClasseCadastro_planos;
 import classes.ClasseCadastro_treino;
 import classes.ClasseCadastro_treinoCodigos;
 import classes.ClasseEsqueceuSenha;
@@ -215,8 +216,22 @@ public class SelectBd {
             if(rs.next()){
                 n = rs.getInt("MAX(CD_MOD_ALUNO)");
             } 
-        return n;
+        return n;    
+    }
+    
+    public int selectExistePlanoAluno(ClasseCadastro_planos dados) throws SQLException{
+        int n = 0;
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+                
+        String sql = "SELECT MAX(CD_PLANO_ALUNO) FROM TB_PLANOS_ALUNOS WHERE CD_REGISTRO = '"+dados.getCd_registro()+"' ";
         
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next()){
+                n = rs.getInt("MAX(CD_PLANO_ALUNO)");
+            } 
+        return n;    
     }
 
     //setar strings no objeto treinos e numeros no objeto treinosCodigos

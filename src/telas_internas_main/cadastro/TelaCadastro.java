@@ -3,6 +3,7 @@ package telas_internas_main.cadastro;
 
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_modalidades;
+import classes.ClasseCadastro_planos;
 import classes.ClasseCadastro_treino;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
@@ -22,6 +23,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     ClasseCadastro classecadastro = new ClasseCadastro();
     ClasseCadastro_treino treinos = new ClasseCadastro_treino();
     ClasseCadastro_modalidades mod = new ClasseCadastro_modalidades();
+    ClasseCadastro_planos planos = new ClasseCadastro_planos();
     InsertBd inserts = new InsertBd();
     SelectBd selects = new SelectBd();
     UpdateBd updates = new UpdateBd();
@@ -505,7 +507,24 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Tcad_btnFinanceiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tcad_btnFinanceiroActionPerformed
-        new TelaCadastro_financeiro(null,true).setVisible(true);
+        if("".equals(lblCodigoAluno.getText())){
+            JOptionPane.showMessageDialog(null, "Não existe nenhum aluno selecionado !");
+        }else{
+            classecadastro.setCd_registro(Integer.parseInt(lblCodigoAluno.getText()));
+            try {
+                //SELECT PARA PESQUISAR SE O ALUNO JÁ TEM PLANO CADASTRADO
+                planos.setCd_plano(selects.selectExistePlanoAluno(planos)); //FAZER SELECT PARA PLANO EXISTENTE
+                    if(planos.getCd_plano() == 0){
+                        planos.populandoCombPlanos(); //POPULANDO LISTA COM OS PLANOS NA CLASSE
+                    }else{
+                        //planos.setPlano_novo(false);
+                        //planos.populandoCombPlanoAluno();
+                    }
+            } catch (SQLException ex) {
+               Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            new TelaCadastro_financeiro(null,true).setVisible(true);
+        }
     }//GEN-LAST:event_Tcad_btnFinanceiroActionPerformed
 
     private void Tcad_btnModalidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tcad_btnModalidadeActionPerformed

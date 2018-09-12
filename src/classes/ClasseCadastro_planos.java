@@ -16,10 +16,12 @@ public class ClasseCadastro_planos extends ClasseCadastro {
     private static int vencimento_plano;
     private static String tp_desconto_plano;
     private static float desconto_plano;
+    private static boolean plano_novo = true;
     private static ArrayList<String> listaPlanos = new ArrayList();
     Connection con;
     ResultSet rs = null;
     
+    //TRAZ TODOS OS PLANOS
     public void populandoCombPlanos() throws SQLException{
         
         listaPlanos.clear();
@@ -35,6 +37,68 @@ public class ClasseCadastro_planos extends ClasseCadastro {
             } 
            
         con.close();
+    }
+
+    //TRAZ O PLANO DO ALUNO
+    public void populandoCombPlanoAluno() throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        
+        String sql = "SELECT * FROM TB_PLANOS_ALUNOS WHERE CD_PLANO_ALUNO = '"+this.getCd_plano()+"' ";
+        rs = stmt.executeQuery(sql);
+        
+        if(rs.next()){
+//            this.cd_mod_comb1 = rs.getInt("CD_MODALIDADE1");
+//            this.cd_mod_comb2 = rs.getInt("CD_MODALIDADE2");
+//            this.cd_mod_comb3 = rs.getInt("CD_MODALIDADE3");
+//            this.cd_mod_comb4 = rs.getInt("CD_MODALIDADE4");
+//            this.cd_mod_comb5 = rs.getInt("CD_MODALIDADE5");
+//            this.cd_mod_comb6 = rs.getInt("CD_MODALIDADE6");
+//            this.cd_mod_comb7 = rs.getInt("CD_MODALIDADE7");
+//            this.cd_mod_comb8 = rs.getInt("CD_MODALIDADE8");
+        }
+        //System.out.println("Modalidade 2 no select "+this.cd_mod_comb2); //teste
+    
+    }
+    
+    public float populandoValorPlano() throws SQLException{
+       
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        
+        String sql = "SELECT VALOR FROM TB_PLANOS_VALORES WHERE NM_PLANO = '"+this.getNm_plano()+"' ";
+        
+        rs = stmt.executeQuery(sql);
+        
+        if(rs.next())
+            this.setValor_plano(rs.getFloat("VALOR"));
+      
+        
+        con.close();
+        return (this.getValor_plano());
+    }
+
+    public void codigoPlano() throws SQLException{
+       
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        
+        String sql = "SELECT CD_PLANO FROM TB_PLANOS_VALORES WHERE NM_PLANO = '"+this.getNm_plano()+"' ";
+        
+        rs = stmt.executeQuery(sql);
+        
+        if(rs.next())
+            this.setCd_plano(rs.getInt("CD_PLANO"));   
+        
+        con.close();
+    }
+    
+    public boolean getPlano_novo() {
+        return plano_novo;
+    }
+
+    public void setPlano_novo(boolean treino_novo) {
+        this.plano_novo = treino_novo;
     }
 
     public ArrayList<String> getListaPlanos() {

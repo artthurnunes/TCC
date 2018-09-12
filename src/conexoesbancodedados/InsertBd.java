@@ -483,7 +483,7 @@ public class InsertBd {
         }          
     }
     
-    public void inserePlanosAlunos(ClasseCadastro_planos dados){
+    public void inserePlanosNovos(ClasseCadastro_planos dados){
         Connection con = ConectaBd.getConnection();
         PreparedStatement stmt = null;
         
@@ -493,6 +493,31 @@ public class InsertBd {
             stmt.setString(1, dados.getNm_plano());                                   
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"PLANO CADASTRADO COM SUCESSO !");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }          
+    }
+    
+    public void inserePlanosAlunos(ClasseCadastro_planos dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_PLANOS_ALUNOS (CD_REGISTRO,CD_PLANO,VALOR,TP_DESCONTO,DESCONTO,VENCIMENTO) "
+                    + "VALUES (?,?,?,?,?,?)");           
+            
+            stmt.setInt(1, dados.getCd_registro());
+            stmt.setInt(2, dados.getCd_plano());
+            stmt.setFloat(3, dados.getValor_plano());
+            stmt.setString(4, dados.getTp_desconto_plano());
+            stmt.setFloat(5, dados.getDesconto_plano());
+            stmt.setInt(6, dados.getVencimento_plano());
+            
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Salvo !!!");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);

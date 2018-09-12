@@ -2,6 +2,7 @@
 package conexoesbancodedados;
 
 import classes.ClasseCadastro;
+import classes.ClasseCadastro_planos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -84,5 +85,25 @@ public class UpdateBd {
             ConectaBd.closeConnection(con, stmt);
         }  
     }
+    
+    public void alteraValorPlanos(ClasseCadastro_planos dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+        
+        try{
+            stmt = con.prepareStatement("UPDATE TB_PLANOS_VALORES SET VALOR = (?) WHERE NM_PLANO = '"+dados.getNm_plano()+"'");
+            
+            stmt.setFloat(1,dados.getValor_plano());
+           
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>Plano atualizado com sucesso !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
+    
     
 }

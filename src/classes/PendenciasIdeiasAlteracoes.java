@@ -4,7 +4,9 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-     * FAZENDO A TELA DE PLANOS (CADASTRO E TELA DO ALUNO) 
+     * PAREI NO BOTÃO SALVAR DA TELA DE PLANOS
+     * Obrigar . e não , no valor desta tela
+     * Salvar nomes dos planos tudo em maiúsculo
     
     
     */

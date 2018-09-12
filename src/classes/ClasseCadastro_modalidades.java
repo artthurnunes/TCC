@@ -36,6 +36,7 @@ public class ClasseCadastro_modalidades extends ClasseCadastro {
     Connection con;
     ResultSet rs = null;
     
+    //TRAZ TODAS AS MODALIDADES
     public void populandoCombMod() throws SQLException{
         
         listaMod.clear();
@@ -54,6 +55,7 @@ public class ClasseCadastro_modalidades extends ClasseCadastro {
         con.close();
     }
     
+    //TRAZ SOMENTE AS MODALIDADES CADASTRADAS PARA O ALUNO
     public void populandoCombModCadAluno() throws SQLException{
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
