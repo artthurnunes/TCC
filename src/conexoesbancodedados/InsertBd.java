@@ -6,6 +6,7 @@ import classes.ClasseCadastro_exercicios;
 import classes.ClasseCadastro_modalidades;
 import classes.ClasseCadastro_planos;
 import classes.ClasseCadastro_treino;
+import classes.ClasseCatraca;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -525,6 +526,29 @@ public class InsertBd {
             ConectaBd.closeConnection(con, stmt);
         }          
     }
+    
+    public void insereFrequenciaAluno(ClasseCatraca dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_FREQUENCIA_ALUNOS (CD_REGISTRO,DT_ENTRADA,HR_ENTRADA) "
+                    + "VALUES (?,?,?)");           
+            
+            stmt.setInt(1, dados.getCd_registro());
+            stmt.setString(2, dados.getData_entrada());
+            stmt.setString(3, dados.getHorario_entrada());
+            
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"LIBERADO !!!");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }          
+    }
+    
     
     
     

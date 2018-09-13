@@ -675,7 +675,37 @@ public class SelectBd {
         return nome;             
     }
     
+    //SELECT PARA TRAZER O NOME DO ALUNO TENDO SOMENTE O CODIGO
+    public String retornaNomeAluno(int codigo) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String nome = "";
+        String sql = "SELECT NOME FROM TB_ALUNOS WHERE CD_REGISTRO = '"+codigo+"' ";
+   
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next())
+                nome = rs.getString("NOME"); 
+            
+        return nome;             
+    }
     
+    public boolean retornaAlunoEntrandoOuSaindo(int codigo) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String nome = "";
+        String sql = "SELECT HR_SAIDA FROM TB_FREQUENCIA_ALUNOS WHERE CD_REGISTRO = '"+codigo+"' ORDER BY CD_FREQUENCIA DESC LIMIT 1";
+        //String sql = "SELECT HR_SAIDA FROM TB_FREQUENCIA_ALUNOS WHERE CD_REGISTRO = '"+codigo+"' ";
+   
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next()){ 
+                return false;
+            }else{ //retorna vazio BEM VINDO
+                return true;
+            }
+                            
+    }
     
 }
     

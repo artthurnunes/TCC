@@ -4,7 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-     * Colcando mascaras (TESTAR A TELA DE TREINOS AS DATAS....   
+        Aluno entra na catraca, sai, depois para entrar novamente não está funcionando
     
     */
     
@@ -29,16 +29,12 @@ public class PendenciasIdeiasAlteracoes {
     
     /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
         * Obrigar . e não , no valor da tela de valor do plano e nos valores pagos na mensalidade também.
-        * Fazer mascara para os campos de data
         * Pensar nas esteiras, bicicletas e equipamentos aerobicos na tela de equipametos, para colocar os 
           periódicos 
     
             TELAS A FAZER
                 - LIBERAÇÃO DE CATRACA
                 - CONTATO
-                - ALUNOS INATIVOS (trazer do banco uma lista dos alunos inativos. Fazer esta tela depois de terminar
-                                   a tela de cadastros de alunos já salvando cadastros no banco para testar alunos
-                                   inativos)
     */
     
     

@@ -3,6 +3,7 @@ package conexoesbancodedados;
 
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_planos;
+import classes.ClasseCatraca;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -104,6 +105,27 @@ public class UpdateBd {
             ConectaBd.closeConnection(con, stmt);
         }  
     }
+    
+    public void salvaDataSaida(ClasseCatraca dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+        
+        try{
+//            stmt = con.prepareStatement("UPDATE TB_FREQUENCIA_ALUNOS SET HR_SAIDA = (?) WHERE NM_PLANO = '"+dados.getNm_plano()+"'");
+//            
+//            stmt.setFloat(1,dados.getValor_plano());
+           
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>Plano atualizado com sucesso !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
+    
+    
     
     
 }
