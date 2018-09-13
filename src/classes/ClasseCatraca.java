@@ -7,6 +7,15 @@ public class ClasseCatraca {
     private static String data_entrada;
     private static String horario_entrada;
     private static String horario_saida;
+    private static boolean on_off;
+
+    public boolean isOn_off() {
+        return on_off;
+    }
+
+    public void setOn_off(boolean on_off) {
+        this.on_off = on_off;
+    }
 
     public int getCd_registro() {
         return cd_registro;

@@ -110,13 +110,16 @@ public class UpdateBd {
         Connection con = ConectaBd.getConnection();
         PreparedStatement stmt = null; 
         
-        try{
-//            stmt = con.prepareStatement("UPDATE TB_FREQUENCIA_ALUNOS SET HR_SAIDA = (?) WHERE NM_PLANO = '"+dados.getNm_plano()+"'");
-//            
-//            stmt.setFloat(1,dados.getValor_plano());
+        try{    
+            stmt = con.prepareStatement("UPDATE TB_FREQUENCIA_ALUNOS SET HR_SAIDA = (?),ON_OFF = FALSE "
+            + "WHERE CD_REGISTRO = (?) AND DT_ENTRADA = (?) ");
+            
+            stmt.setString(1,dados.getHorario_saida());
+            stmt.setInt(2,dados.getCd_registro());
+            stmt.setString(3,dados.getData_entrada());
            
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"<html>Plano atualizado com sucesso !</html>");
+            JOptionPane.showMessageDialog(null,"<html>Liberado !</html>");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);

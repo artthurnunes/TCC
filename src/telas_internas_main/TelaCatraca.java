@@ -8,6 +8,7 @@ package telas_internas_main;
 import classes.ClasseCatraca;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
+import conexoesbancodedados.UpdateBd;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -28,6 +29,7 @@ public class TelaCatraca extends javax.swing.JInternalFrame {
     ClasseCatraca catraca = new ClasseCatraca();
     SelectBd selects = new SelectBd();
     InsertBd inserts = new InsertBd();
+    UpdateBd updates = new UpdateBd();
     
     public TelaCatraca() {
         initComponents();
@@ -52,6 +54,7 @@ public class TelaCatraca extends javax.swing.JInternalFrame {
         catraca.setCd_registro(Integer.parseInt(cd_aluno.getText()));
         catraca.setData_entrada(lblData.getText());
         catraca.setHorario_entrada(lblHora.getText());
+        catraca.setHorario_saida(lblHora.getText());
     }
 
     
@@ -193,9 +196,13 @@ public class TelaCatraca extends javax.swing.JInternalFrame {
                             if(entrando){//true ele esta entrando (hr_saida vazio)
                                 JOptionPane.showMessageDialog(null, "Seja bem vindo !");
                                 inserts.insereFrequenciaAluno(catraca);//faz insert na tabela
+                                cd_aluno.setText("");
+                                nome_aluno.setText("");
                             }else{ //false ele esta saindo (ja existe hr_saida)
                                 JOptionPane.showMessageDialog(null, "Até logo");
-                                //faz update do hoario de saida
+                                updates.salvaDataSaida(catraca);
+                                cd_aluno.setText("");
+                                nome_aluno.setText("");
                             }
                         }
                 } catch (SQLException ex) {

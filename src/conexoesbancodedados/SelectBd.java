@@ -694,17 +694,21 @@ public class SelectBd {
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
         String nome = "";
-        String sql = "SELECT HR_SAIDA FROM TB_FREQUENCIA_ALUNOS WHERE CD_REGISTRO = '"+codigo+"' ORDER BY CD_FREQUENCIA DESC LIMIT 1";
+        String sql = "SELECT * FROM TB_FREQUENCIA_ALUNOS WHERE CD_REGISTRO = '"+codigo+"' ORDER BY CD_FREQUENCIA DESC LIMIT 1";
         //String sql = "SELECT HR_SAIDA FROM TB_FREQUENCIA_ALUNOS WHERE CD_REGISTRO = '"+codigo+"' ";
    
         rs = stmt.executeQuery(sql);
         
-            if(rs.next()){ 
+            if(rs.next() && rs.getBoolean("ON_OFF") == true){ 
                 return false;
-            }else{ //retorna vazio BEM VINDO
+            }else if(rs.next() && rs.getBoolean("ON_OFF") == false){ //retorna vazio BEM VINDO
+                return true;
+            }else{
                 return true;
             }
-                            
+            
+            //se retornar linha o aluno esta dentro da academia
+                           
     }
     
 }

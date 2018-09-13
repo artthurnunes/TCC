@@ -532,8 +532,8 @@ public class InsertBd {
         PreparedStatement stmt = null;
         
         try{
-            stmt = con.prepareStatement("INSERT INTO TB_FREQUENCIA_ALUNOS (CD_REGISTRO,DT_ENTRADA,HR_ENTRADA) "
-                    + "VALUES (?,?,?)");           
+            stmt = con.prepareStatement("INSERT INTO TB_FREQUENCIA_ALUNOS (CD_REGISTRO,DT_ENTRADA,HR_ENTRADA,ON_OFF) "
+                    + "VALUES (?,?,?,true)");           
             
             stmt.setInt(1, dados.getCd_registro());
             stmt.setString(2, dados.getData_entrada());

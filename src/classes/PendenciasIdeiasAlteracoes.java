@@ -4,7 +4,8 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        Aluno entra na catraca, sai, depois para entrar novamente não está funcionando
+        * Exportar banco no servico, mudou as tabelas
+        * Comecando a fazer a tela de equipamentos
     
     */
     
