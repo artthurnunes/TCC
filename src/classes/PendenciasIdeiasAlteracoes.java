@@ -5,7 +5,8 @@ public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
         * Exportar banco no servico, mudou as tabelas
-        * Comecando a fazer a tela de equipamentos
+        * Insert Tela Equipamentos OK. Comecar a fazer o botão pesquisar e os botoes frente e traz.
+        
     
     */
     
@@ -29,7 +30,8 @@ public class PendenciasIdeiasAlteracoes {
     
     
     /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
-        * Obrigar . e não , no valor da tela de valor do plano e nos valores pagos na mensalidade também.
+        * Obrigar . nos valores float (tela de planos e cadastro equipamentos)
+        * Campo valor equipamento deve ser somente numero com . (não pode ser vazio o campo)
         * Pensar nas esteiras, bicicletas e equipamentos aerobicos na tela de equipametos, para colocar os 
           periódicos 
     

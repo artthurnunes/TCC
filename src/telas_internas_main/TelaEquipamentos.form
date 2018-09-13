@@ -4,20 +4,58 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="btnNovo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Salvar"/>
+            <Property name="text" type="java.lang.String" value="Novo"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnNovoMouseClicked"/>
+          </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Editar"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="btnPesquisar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pesquisar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnPesquisarMouseClicked"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="btnSalvar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Salvar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSalvarMouseClicked"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="btnExcluir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Excluir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnExcluirMouseClicked"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="btnVoltar">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/1486485553-ago-arrow-arrow-left-back-previous-direction-left_81160.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnVoltarMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="btnProximo">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagens/setadireita.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnProximoMouseClicked"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
@@ -56,7 +94,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,16 +116,26 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <Component id="txtValorEqui" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="valor_equipamento" min="-2" pref="115" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txtGarantia" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="dt_garantia_equipamento" min="-2" pref="103" max="-2" attributes="0"/>
+                          <EmptySpace pref="791" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="txtNomeEqui" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblNomeEqui" min="-2" pref="467" max="-2" attributes="0"/>
+                                  <Component id="nm_equipamento" min="-2" pref="467" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="txtFornecedor" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblFornecedor" max="32767" attributes="0"/>
+                                  <Component id="fornecedor_equipamento" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -95,26 +143,19 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="txtDaCompra" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblDaCompra" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="dt_compra_equipamento" min="-2" pref="125" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="txtNf" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblNf" max="32767" attributes="0"/>
+                                  <Component id="nota_equipamento" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="txtValorEqui" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblValorEqui" min="-2" pref="115" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtGarantia" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblGarantia" min="-2" pref="103" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="cd_equipamento" min="-2" pref="76" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="299" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
@@ -125,30 +166,35 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="txtNomeEqui" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblNomeEqui" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="txtNomeEqui" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nm_equipamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="txtDaCompra" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dt_compra_equipamento" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                          <Component id="txtDaCompra" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblDaCompra" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="cd_equipamento" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fornecedor_equipamento" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtNf" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblNf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="nota_equipamento" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtValorEqui" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblValorEqui" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="valor_equipamento" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtGarantia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblGarantia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dt_garantia_equipamento" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
@@ -163,42 +209,42 @@
             <Property name="text" type="java.lang.String" value="Nome do equipamento:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="lblNomeEqui">
+        <Component class="javax.swing.JTextField" name="nm_equipamento">
         </Component>
         <Component class="javax.swing.JLabel" name="txtDaCompra">
           <Properties>
             <Property name="text" type="java.lang.String" value="Data da compra:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="lblDaCompra">
+        <Component class="javax.swing.JTextField" name="dt_compra_equipamento">
         </Component>
         <Component class="javax.swing.JLabel" name="txtFornecedor">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fornecedor:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="lblFornecedor">
+        <Component class="javax.swing.JTextField" name="fornecedor_equipamento">
         </Component>
         <Component class="javax.swing.JLabel" name="txtNf">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nota Fiscal:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="lblNf">
+        <Component class="javax.swing.JTextField" name="nota_equipamento">
         </Component>
         <Component class="javax.swing.JLabel" name="txtValorEqui">
           <Properties>
             <Property name="text" type="java.lang.String" value="Valor:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="lblValorEqui">
+        <Component class="javax.swing.JTextField" name="valor_equipamento">
         </Component>
         <Component class="javax.swing.JLabel" name="txtGarantia">
           <Properties>
             <Property name="text" type="java.lang.String" value="Garantia:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="lblGarantia">
+        <Component class="javax.swing.JTextField" name="dt_garantia_equipamento">
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel7">
           <Properties>
@@ -218,24 +264,24 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="txtUltMan" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblUltMan" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="dt_ultima_manutencao" min="-2" pref="112" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtEmpresa" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblEmpresa" min="-2" pref="431" max="-2" attributes="0"/>
+                              <Component id="empresa_manutencao" min="-2" pref="431" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtGarantiaM" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblGarantiaM" min="-2" pref="154" max="-2" attributes="0"/>
+                              <Component id="dt_garantia_manutencao" min="-2" pref="154" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="txtProMan" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblProMan" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="dt_proxima_manutencao" min="-2" pref="112" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtEmpresaM" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblEmpresaM" max="32767" attributes="0"/>
+                              <Component id="proxima_empresa" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="23" max="32767" attributes="0"/>
@@ -248,21 +294,21 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtUltMan" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblUltMan" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dt_ultima_manutencao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="empresa_manutencao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtGarantiaM" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblGarantiaM" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dt_garantia_manutencao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="txtEmpresaM" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEmpresaM" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="proxima_empresa" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="txtProMan" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblProMan" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="dt_proxima_manutencao" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="64" max="32767" attributes="0"/>
@@ -276,38 +322,40 @@
                 <Property name="text" type="java.lang.String" value="Data ultima manuten&#xe7;&#xe3;o : "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="lblUltMan">
+            <Component class="javax.swing.JTextField" name="dt_ultima_manutencao">
             </Component>
             <Component class="javax.swing.JLabel" name="txtProMan">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pr&#xf3;xima manuten&#xe7;&#xe3;o:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="lblProMan">
+            <Component class="javax.swing.JTextField" name="dt_proxima_manutencao">
             </Component>
             <Component class="javax.swing.JLabel" name="txtEmpresa">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Empresa:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="lblEmpresa">
+            <Component class="javax.swing.JTextField" name="empresa_manutencao">
             </Component>
             <Component class="javax.swing.JLabel" name="txtGarantiaM">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Garantia:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="lblGarantiaM">
+            <Component class="javax.swing.JTextField" name="dt_garantia_manutencao">
             </Component>
             <Component class="javax.swing.JLabel" name="txtEmpresaM">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Empresa que far&#xe1; a manuten&#xe7;&#xe3;o:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="lblEmpresaM">
+            <Component class="javax.swing.JTextField" name="proxima_empresa">
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="cd_equipamento">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
