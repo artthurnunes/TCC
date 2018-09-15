@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
 
-public class TelaAlunosInativos extends javax.swing.JFrame {
+public class TelaListaAlunosInativos extends javax.swing.JFrame {
 
     UpdateBd updates = new UpdateBd();
     
@@ -25,7 +25,7 @@ public class TelaAlunosInativos extends javax.swing.JFrame {
     int codAluno_selecionado;
     String nmAluno_selecionado;
 
-    public TelaAlunosInativos() {
+    public TelaListaAlunosInativos() {
         initComponents();
         this.preencherTabela("SELECT * FROM TB_ALUNOS WHERE SITUACAO = FALSE");  
     }
@@ -70,7 +70,7 @@ public class TelaAlunosInativos extends javax.swing.JFrame {
                //NÃO FAZ NADA
             }
         } catch (SQLException ex) {
-            Logger.getLogger(TelaAlunosInativos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaListaAlunosInativos.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         ClassejTableSelect modelo = new ClassejTableSelect(dados, colunas);
@@ -190,13 +190,13 @@ public class TelaAlunosInativos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -204,7 +204,7 @@ public class TelaAlunosInativos extends javax.swing.JFrame {
          /* -----------------------------------
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaAlunosInativos().setVisible(true);
+                new TelaListaAlunosInativos().setVisible(true);
             }
         });
     } -----------------------------------------------------*/

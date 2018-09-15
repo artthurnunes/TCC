@@ -1,6 +1,7 @@
 
 package telas;
 
+import javax.swing.JDesktopPane;
 import telas_internas_main.cadastro.TelaCadastro;
 import telas_internas_main.TelaEquipamentos;
 import telas_internas_main.TelaFinanceiro;
@@ -21,7 +22,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         espacoTelas.add(telaTreinos);
         espacoTelas.add(telaEquipamentos);
         espacoTelas.add(telaFinanceiro);
-    }
+    }    
     
     private void limpaFundoInternalFrame(){
         this.telaCadastro.setVisible(false);
@@ -49,8 +50,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnMenuImport = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        btnAlunosAtivos = new javax.swing.JMenuItem();
         btnAlunosInativos = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -159,7 +161,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Arquivo");
 
-        btnMenuImport.setText("Importar/Exportar backup");
+        btnMenuImport.setText("Importar/Exportar backup(fazer)");
         btnMenuImport.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMenuImportMouseClicked(evt);
@@ -178,8 +180,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu2.setText("Alunos");
 
-        jMenuItem2.setText("Cadastrados");
-        jMenu2.add(jMenuItem2);
+        btnAlunosAtivos.setText("Ativos");
+        btnAlunosAtivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlunosAtivosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(btnAlunosAtivos);
 
         btnAlunosInativos.setText("Inativos");
         btnAlunosInativos.addActionListener(new java.awt.event.ActionListener() {
@@ -189,11 +196,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(btnAlunosInativos);
 
+        jMenuItem2.setText("Ausentes(fazer)");
+        jMenu2.add(jMenuItem2);
+
         jMenu3.add(jMenu2);
 
         jMenu7.setText("Equipamentos");
 
-        jMenuItem3.setText("Cadastrados");
+        jMenuItem3.setText("Ativos");
         jMenu7.add(jMenuItem3);
 
         jMenuItem1.setText("Inativos");
@@ -258,7 +268,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu6.setText("Ajuda");
 
-        jMenuItem8.setText("Contato");
+        jMenuItem8.setText("Contato(fazer)");
         jMenu6.add(jMenuItem8);
 
         jMenuItem9.setText("Relatar problemas(Criar se o envio de email funcionar)");
@@ -325,7 +335,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNovoUsuarioAcessoActionPerformed
 
     private void btnAlunosInativosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlunosInativosActionPerformed
-        new TelaAlunosInativos().setVisible(true);
+        new TelaListaAlunosInativos().setVisible(true);
     }//GEN-LAST:event_btnAlunosInativosActionPerformed
 
     private void btnCadastroExerciciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroExerciciosActionPerformed
@@ -343,6 +353,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void btnCadPlanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPlanosActionPerformed
         new TelaCadastroPlanos().setVisible(true);
     }//GEN-LAST:event_btnCadPlanosActionPerformed
+
+    private void btnAlunosAtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlunosAtivosActionPerformed
+        new TelaListaAlunosAtivos().setVisible(true);
+    }//GEN-LAST:event_btnAlunosAtivosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -384,6 +398,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem btnAlunosAtivos;
     private javax.swing.JMenuItem btnAlunosInativos;
     private javax.swing.JButton btnAtalhoCadastro;
     private javax.swing.JButton btnAtalhoEquipamentos;
@@ -394,7 +409,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnCadastroModalidades;
     private javax.swing.JMenu btnMenuImport;
     private javax.swing.JMenuItem btnNovoUsuarioAcesso;
-    private javax.swing.JDesktopPane espacoTelas;
+    public javax.swing.JDesktopPane espacoTelas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

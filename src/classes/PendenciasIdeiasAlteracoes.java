@@ -4,8 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        * Exportar banco no servico, mudou as tabelas
-        * Insert Tela Equipamentos OK. Comecar a fazer o botão pesquisar e os botoes frente e traz.
+        
         
     
     */
@@ -34,10 +33,7 @@ public class PendenciasIdeiasAlteracoes {
         * Campo valor equipamento deve ser somente numero com . (não pode ser vazio o campo)
         * Pensar nas esteiras, bicicletas e equipamentos aerobicos na tela de equipametos, para colocar os 
           periódicos 
-    
-            TELAS A FAZER
-                - LIBERAÇÃO DE CATRACA
-                - CONTATO
+        * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno
     */
     
     
