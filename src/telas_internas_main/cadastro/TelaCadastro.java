@@ -646,7 +646,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         
         //Try para contar quantas linhas o select vai retornar
         try{
-            selects.setQt_linhas_select(selects.selectQtLinhasSelectOrderNome(classecadastro));
+            selects.setQt_linhas_select(selects.selectQtLinhasTelaCadastro(classecadastro));
         }catch(SQLException ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -744,32 +744,32 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     
     public void setarCamposParaClasse(){
         classecadastro.setSituacao(true);
-                classecadastro.setNome(Tcad_txtNome.getText());
-                classecadastro.setTel1(Tcad_txtTel1.getText());
-                classecadastro.setTel2(Tcad_txtTel2.getText());
-                classecadastro.setProfissao(Tcad_txtProfissao.getText());
-                    if(radioMasculino.isSelected()){
-                        classecadastro.setSexo("Masculino");
-                        System.out.println(classecadastro.getSexo());
-                    }else if(radioFeminino.isSelected()){
-                        classecadastro.setSexo("Feminino");
-                        System.out.println(classecadastro.getSexo());
-                    }
-                classecadastro.setEstado_civil(combEstadoCivil.getSelectedIndex());
-                classecadastro.setRg(Tcad_txtRg.getText());
-                classecadastro.setCpf(Tcad_txtCpf.getText());
-                classecadastro.setDt_nascimento(Tcad_txtNascimento.getText());
-                classecadastro.setNm_mae(Tcad_txtMae.getText());
-                classecadastro.setNm_pai(Tcad_txtPai.getText());
-                classecadastro.setNm_emer(Tcad_txtEmergencia.getText());
-                classecadastro.setTel_emer(Tcad_txtTelEmergencia.getText());
-                classecadastro.setParentesco(combParente.getSelectedIndex());
-                classecadastro.setEnd_rua(Tcad_txtRua.getText());
-                classecadastro.setEnd_numero(Tcad_txtNumero.getText());
-                classecadastro.setEnd_bairro(Tcad_txtBairro.getText());
-                classecadastro.setEnd_cidade(Tcad_txtCidade.getText());
-                classecadastro.setEnd_estado(combEstado.getSelectedIndex());
-                classecadastro.setEnd_cep(Tcad_txtCep.getText()); 
+        classecadastro.setNome(Tcad_txtNome.getText());
+        classecadastro.setTel1(Tcad_txtTel1.getText());
+        classecadastro.setTel2(Tcad_txtTel2.getText());
+        classecadastro.setProfissao(Tcad_txtProfissao.getText());
+            if(radioMasculino.isSelected()){
+                classecadastro.setSexo("Masculino");
+                System.out.println(classecadastro.getSexo());
+            }else if(radioFeminino.isSelected()){
+                classecadastro.setSexo("Feminino");
+                System.out.println(classecadastro.getSexo());
+            }
+        classecadastro.setEstado_civil(combEstadoCivil.getSelectedIndex());
+        classecadastro.setRg(Tcad_txtRg.getText());
+        classecadastro.setCpf(Tcad_txtCpf.getText());
+        classecadastro.setDt_nascimento(Tcad_txtNascimento.getText());
+        classecadastro.setNm_mae(Tcad_txtMae.getText());
+        classecadastro.setNm_pai(Tcad_txtPai.getText());
+        classecadastro.setNm_emer(Tcad_txtEmergencia.getText());
+        classecadastro.setTel_emer(Tcad_txtTelEmergencia.getText());
+        classecadastro.setParentesco(combParente.getSelectedIndex());
+        classecadastro.setEnd_rua(Tcad_txtRua.getText());
+        classecadastro.setEnd_numero(Tcad_txtNumero.getText());
+        classecadastro.setEnd_bairro(Tcad_txtBairro.getText());
+        classecadastro.setEnd_cidade(Tcad_txtCidade.getText());
+        classecadastro.setEnd_estado(combEstado.getSelectedIndex());
+        classecadastro.setEnd_cep(Tcad_txtCep.getText()); 
     }
     
     public void setarCamposDaClasse(){

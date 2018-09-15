@@ -4,6 +4,10 @@ package telas_internas_main;
 import classes.ClasseEquipamentos;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
+import conexoesbancodedados.UpdateBd;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class TelaEquipamentos extends javax.swing.JInternalFrame {
@@ -11,6 +15,7 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
     ClasseEquipamentos equipamentos = new ClasseEquipamentos();
     SelectBd selects = new SelectBd();
     InsertBd inserts = new InsertBd();
+    UpdateBd updates = new UpdateBd();
 
     public TelaEquipamentos() {
         initComponents();
@@ -32,6 +37,21 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
         proxima_empresa.setText("");
     }
 
+    private void limparClasseEquipamentos(){
+        equipamentos.setCd_equipamento(Integer.parseInt("0"));
+        equipamentos.setNm_equipamento("");
+        equipamentos.setDt_compra_equipamento("");
+        equipamentos.setFornecedor_equipamento("");
+        equipamentos.setNota_equipamento("");
+        equipamentos.setValor_equipamento(Float.parseFloat("0"));
+        equipamentos.setDt_garantia_equipamento("");
+        equipamentos.setDt_ultima_manutencao("");
+        equipamentos.setEmpresa_manutencao("");
+        equipamentos.setDt_garantia_manutencao("");
+        equipamentos.setDt_proxima_manutencao("");
+        equipamentos.setProxima_empresa("");
+    }
+    
     private void setarCamposParaClasse(){
         equipamentos.setNm_equipamento(nm_equipamento.getText());
         equipamentos.setDt_compra_equipamento(dt_compra_equipamento.getText());
@@ -45,6 +65,21 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
         equipamentos.setDt_proxima_manutencao(dt_proxima_manutencao.getText());
         equipamentos.setProxima_empresa(proxima_empresa.getText());
     }
+    
+    private void setarCamposDaClasse(){
+        cd_equipamento.setText(Integer.toString(equipamentos.getCd_equipamento()));
+        nm_equipamento.setText(equipamentos.getNm_equipamento());
+        dt_compra_equipamento.setText(equipamentos.getDt_compra_equipamento());
+        fornecedor_equipamento.setText(equipamentos.getFornecedor_equipamento());
+        nota_equipamento.setText(equipamentos.getNota_equipamento());
+        valor_equipamento.setText(Float.toString(equipamentos.getValor_equipamento()));
+        dt_garantia_equipamento.setText(equipamentos.getDt_garantia_equipamento());
+        dt_ultima_manutencao.setText(equipamentos.getDt_ultima_manutencao());
+        empresa_manutencao.setText(equipamentos.getEmpresa_manutencao());
+        dt_garantia_manutencao.setText(equipamentos.getDt_garantia_manutencao());
+        dt_proxima_manutencao.setText(equipamentos.getDt_proxima_manutencao());
+        proxima_empresa.setText(equipamentos.getProxima_empresa());
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -55,6 +90,12 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
         nm_equipamento = new javax.swing.JTextField();
         txtDaCompra = new javax.swing.JLabel();
         dt_compra_equipamento = new javax.swing.JTextField();
+        try{ 
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
+            dt_compra_equipamento = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         txtFornecedor = new javax.swing.JLabel();
         fornecedor_equipamento = new javax.swing.JTextField();
         txtNf = new javax.swing.JLabel();
@@ -66,14 +107,27 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
         jPanel7 = new javax.swing.JPanel();
         txtUltMan = new javax.swing.JLabel();
         dt_ultima_manutencao = new javax.swing.JTextField();
+        try{ 
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
+            dt_ultima_manutencao = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         txtProMan = new javax.swing.JLabel();
         dt_proxima_manutencao = new javax.swing.JTextField();
+        try{ 
+            javax.swing.text.MaskFormatter data= new javax.swing.text.MaskFormatter("##/##/####");
+            dt_proxima_manutencao = new javax.swing.JFormattedTextField(data);
+        }
+        catch (Exception e){
+        }
         txtEmpresa = new javax.swing.JLabel();
         empresa_manutencao = new javax.swing.JTextField();
         txtGarantiaM = new javax.swing.JLabel();
         dt_garantia_manutencao = new javax.swing.JTextField();
         txtEmpresaM = new javax.swing.JLabel();
         proxima_empresa = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         cd_equipamento = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         btnNovo = new javax.swing.JMenu();
@@ -163,8 +217,10 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtProMan)
                         .addComponent(dt_proxima_manutencao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
+
+        jLabel1.setText("CÓDIGO:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -203,8 +259,10 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(nota_equipamento)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cd_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cd_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68))))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -212,17 +270,17 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtNomeEqui)
-                                .addComponent(nm_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtDaCompra)
-                                .addComponent(dt_compra_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(cd_equipamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNomeEqui)
+                        .addComponent(nm_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtDaCompra)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dt_compra_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(cd_equipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFornecedor)
@@ -306,7 +364,7 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -314,29 +372,28 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
 
     private void btnNovoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNovoMouseClicked
         this.limparCampos();
+        this.limparClasseEquipamentos();
         selects.setLinha_atual_select(1);//reseta a contagem do retorno de select com vários registros
     }//GEN-LAST:event_btnNovoMouseClicked
 
     private void btnPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPesquisarMouseClicked
-//        classecadastro.setNome(Tcad_txtNome.getText());
-//        this.limparCampos();
-//
-//        //Try para contar quantas linhas o select vai retornar
-//        try{
-//            selects.setQt_linhas_select(selects.selectQtLinhasSelectOrderNome(classecadastro));
-//        }catch(SQLException ex) {
-//            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        //System.out.println("retorno de contagem com encapsulamento: "+selects.getQt_linhas_select()); //teste
-//
-//        try {
-//            selects.selectCadastroAlfabetico(classecadastro);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        this.setarCamposDaClasse();
+        equipamentos.setNm_equipamento(nm_equipamento.getText());
+        this.limparCampos();
 
+        //Try para contar quantas linhas o select vai retornar
+        try{
+            selects.setQt_linhas_select(selects.selectQtLinhasTelaEquipamentos(equipamentos));
+        }catch(SQLException ex) {
+            Logger.getLogger(TelaEquipamentos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //System.out.println("retorno de contagem com encapsulamento: "+selects.getQt_linhas_select()); //teste
+
+        try {
+            selects.selectCadEquipAlfabetico(equipamentos);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaEquipamentos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setarCamposDaClasse();
     }//GEN-LAST:event_btnPesquisarMouseClicked
 
     private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
@@ -353,39 +410,39 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
                 this.limparCampos();
             }
         }else{
-//            this.setarCamposParaClasse();
-//            updates.alterarCadastroAluno(classecadastro);
-//
+            this.setarCamposParaClasse();
+            updates.alterarCadastroEquipamento(equipamentos);
         }
 
     }//GEN-LAST:event_btnSalvarMouseClicked
 
     private void btnExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirMouseClicked
-//        //sim = 0 - não = 1
-//        if("".equals(lblCodigoAluno.getText())){//if para não dar erro se ainda não existir nenhum registro pesquisado
-//
-//        }else{
-//            int op = JOptionPane.showConfirmDialog(null, "O cadastro não será excluído, o aluno será inativado.\n"
-//                + "<html><b>Deseja continuar ?</b></html>");
-//            if(op == 0){
-//                updates.inativaCadastro(Integer.parseInt(lblCodigoAluno.getText()));
-//                lblSituacaoAluno.setText("INATIVO");
-//            }else{}
-//        }
+        //sim = 0 - não = 1
+        if("".equals(cd_equipamento.getText())){//if para não dar erro se ainda não existir nenhum registro pesquisado
+
+        }else{
+            int op = JOptionPane.showConfirmDialog(null, "O cadastro não será excluído, será inativado.\n"
+                + "<html><b>Deseja continuar ?</b></html>");
+            if(op == 0){
+                updates.inativaCadEquipamento(Integer.parseInt(cd_equipamento.getText()));
+                this.limparCampos();
+                this.limparClasseEquipamentos();
+            }else{}
+        }
     }//GEN-LAST:event_btnExcluirMouseClicked
 
     private void btnVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseClicked
-//        if((selects.getLinha_atual_select()-1) >= 1){
-//            selects.setLinha_atual_select(selects.getLinha_atual_select()-1);
-//            this.limparCampos();
-//            classecadastro.setNome("");
-//            try {
-//                selects.selectCadastroAlfabetico(classecadastro);
-//            } catch (SQLException ex) {
-//                Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
-//        this.setarCamposDaClasse();
+        if((selects.getLinha_atual_select()-1) >= 1){
+            selects.setLinha_atual_select(selects.getLinha_atual_select()-1);
+            this.limparCampos();
+            equipamentos.setNm_equipamento("");
+            try {
+                selects.selectCadEquipAlfabetico(equipamentos);
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaEquipamentos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        this.setarCamposDaClasse();
     }//GEN-LAST:event_btnVoltarMouseClicked
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -394,20 +451,19 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
 
     private void btnProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProximoMouseClicked
 
-//        if(selects.getLinha_atual_select() < selects.getQt_linhas_select()){
-//            selects.setLinha_atual_select(selects.getLinha_atual_select()+1);
-//            this.limparCampos();
-//            classecadastro.setNome("");
-//            try {
-//                selects.selectCadastroAlfabetico(classecadastro);
-//            } catch (SQLException ex) {
-//                Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }else{
-//            JOptionPane.showMessageDialog(null, "Ultimo registro para esta busca !");
-//        }
-//
-//        this.setarCamposDaClasse();
+        if(selects.getLinha_atual_select() < selects.getQt_linhas_select()){
+            selects.setLinha_atual_select(selects.getLinha_atual_select()+1);
+            this.limparCampos();
+            equipamentos.setNm_equipamento("");
+            try {
+                selects.selectCadEquipAlfabetico(equipamentos);
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaEquipamentos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Ultimo registro para esta busca !");
+        }
+        this.setarCamposDaClasse();
     }//GEN-LAST:event_btnProximoMouseClicked
 
 
@@ -426,6 +482,7 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField dt_ultima_manutencao;
     private javax.swing.JTextField empresa_manutencao;
     private javax.swing.JTextField fornecedor_equipamento;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;

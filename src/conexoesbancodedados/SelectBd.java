@@ -7,6 +7,7 @@ import classes.ClasseCadastro_modalidades;
 import classes.ClasseCadastro_planos;
 import classes.ClasseCadastro_treino;
 import classes.ClasseCadastro_treinoCodigos;
+import classes.ClasseEquipamentos;
 import classes.ClasseEsqueceuSenha;
 import classes.ClasseSenhaInicial;
 import java.sql.Connection;
@@ -148,9 +149,46 @@ public class SelectBd {
         }
     }
         
+    public void selectCadEquipAlfabetico(ClasseEquipamentos dados) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+
+        String sql = "SELECT * FROM TB_EQUIPAMENTOS WHERE ATIVO = TRUE AND NM_EQUIPAMENTO LIKE '%"+dados.getNm_equipamento()+"%'"
+                                            + "ORDER BY NM_EQUIPAMENTO ASC ";
+        
+        rs = stmt.executeQuery(sql);
+        //System.out.println("Logo quando recebe o sql no rs :"+rs.getRow()); //teste
+         
+       //O rs começa com 0 mas o primeiro registro válido é o next que no caso é o 1. O 0 não retorna nada do sql
+       while(rs.next()){ //while e if para que eu consiga manipular as linhas retornadas
+       //System.out.println("Entrei no While :"+rs.getRow()); //teste
+              if(rs.getRow() == this.linha_atual_select){
+            //if(rs.next()){ //if caso retorno somente 1 row
+                //System.out.println("Primeira linha do rs.next numero :"+rs.getRow()); //teste
+                
+                dados.setCd_equipamento(rs.getInt("CD_EQUIPAMENTO"));
+                dados.setNm_equipamento(rs.getString("NM_EQUIPAMENTO"));
+                dados.setDt_compra_equipamento(rs.getString("DT_COMPRA_EQUIPAMENTO"));
+                dados.setFornecedor_equipamento(rs.getString("FORNECEDOR_EQUIPAMENTO"));
+                dados.setNota_equipamento(rs.getString("NOTA_EQUIPAMENTO"));
+                dados.setValor_equipamento(rs.getFloat("VALOR_EQUIPAMENTO"));
+                dados.setDt_garantia_equipamento(rs.getString("DT_GARANTIA_EQUIPAMENTO"));
+                dados.setDt_ultima_manutencao(rs.getString("DT_ULTIMA_MANUTENCAO"));
+                dados.setEmpresa_manutencao(rs.getString("EMPRESA_MANUTENCAO"));
+                dados.setDt_garantia_manutencao(rs.getString("DT_GARANTIA_MANUTENCAO"));
+                dados.setDt_proxima_manutencao(rs.getString("DT_PROXIMA_MANUTENCAO"));
+                dados.setProxima_empresa(rs.getString("PROXIMA_EMPRESA"));
+                                
+                this.linha_atual_select = rs.getRow();
+                
+                //System.out.println("Linha atual do select :"+rs.getRow());//teste
+            } 
+        }
+    }
+    
     //select para contar a quantidade de linhas retornadas pelo select para que quando o select retornar mais de uma linha
     //o botão frente e traz da tela cadastro funcione.
-    public int selectQtLinhasSelectOrderNome(ClasseCadastro dados) throws SQLException{
+    public int selectQtLinhasTelaCadastro(ClasseCadastro dados) throws SQLException{
         con = ConectaBd.getConnection();
         Statement Stmt = con.createStatement();
         ResultSet rsContagem = null;
@@ -168,8 +206,23 @@ public class SelectBd {
                 //System.out.println("Passei no next da contagem: "+i);//teste
                 i++;
             }
-                
-        
+        return(i);
+    }
+    
+    public int selectQtLinhasTelaEquipamentos(ClasseEquipamentos dados) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement Stmt = con.createStatement();
+        ResultSet rsContagem = null;
+
+        String sql = "SELECT * FROM TB_EQUIPAMENTOS WHERE ATIVO = TRUE AND NM_EQUIPAMENTO LIKE '%"+dados.getNm_equipamento()+"%'"
+                                            + "ORDER BY NM_EQUIPAMENTO ASC ";
+
+        rsContagem = Stmt.executeQuery(sql);
+        int i = 0; //contar a quantidade de linhas que o select Retornou
+
+            while(rsContagem.next())
+                i++;
+            
         return(i);
     }
     

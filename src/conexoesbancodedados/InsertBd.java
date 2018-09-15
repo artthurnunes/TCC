@@ -557,8 +557,8 @@ public class InsertBd {
         try{
             stmt = con.prepareStatement("INSERT INTO TB_EQUIPAMENTOS (NM_EQUIPAMENTO,DT_COMPRA_EQUIPAMENTO,"
                  + "FORNECEDOR_EQUIPAMENTO,NOTA_EQUIPAMENTO,VALOR_EQUIPAMENTO,DT_GARANTIA_EQUIPAMENTO,"
-                 + "DT_ULTIMA_MANUTENCAO,EMPRESA_MANUTENCAO,DT_GARANTIA_MANUTENCAO,DT_PROXIMA_MANUTENCAO,PROXIMA_EMPRESA) "
-                 + "VALUES (?,?,?,?,?,?,?,?,?,?,?)   ");           
+                 + "DT_ULTIMA_MANUTENCAO,EMPRESA_MANUTENCAO,DT_GARANTIA_MANUTENCAO,DT_PROXIMA_MANUTENCAO,PROXIMA_EMPRESA,ATIVO) "
+                 + "VALUES (?,?,?,?,?,?,?,?,?,?,?,TRUE)   ");           
             
             stmt.setString(1, dados.getNm_equipamento());
             stmt.setString(2, dados.getDt_compra_equipamento());

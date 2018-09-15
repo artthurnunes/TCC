@@ -48,8 +48,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         btnMenuImport = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         btnAlunosInativos = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         btnCadastroExercicios = new javax.swing.JMenuItem();
         btnCadastroModalidades = new javax.swing.JMenuItem();
@@ -172,16 +176,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Exibir");
 
-        btnAlunosInativos.setText("Exibir alunos inativos");
+        jMenu2.setText("Alunos");
+
+        jMenuItem2.setText("Cadastrados");
+        jMenu2.add(jMenuItem2);
+
+        btnAlunosInativos.setText("Inativos");
         btnAlunosInativos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAlunosInativosActionPerformed(evt);
             }
         });
-        jMenu3.add(btnAlunosInativos);
+        jMenu2.add(btnAlunosInativos);
 
-        jMenuItem3.setText("Exibir equipamentos ");
-        jMenu3.add(jMenuItem3);
+        jMenu3.add(jMenu2);
+
+        jMenu7.setText("Equipamentos");
+
+        jMenuItem3.setText("Cadastrados");
+        jMenu7.add(jMenuItem3);
+
+        jMenuItem1.setText("Inativos");
+        jMenu7.add(jMenuItem1);
+
+        jMenu3.add(jMenu7);
 
         jMenuBar1.add(jMenu3);
 
@@ -378,12 +396,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnNovoUsuarioAcesso;
     private javax.swing.JDesktopPane espacoTelas;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;

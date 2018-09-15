@@ -4,6 +4,7 @@ package conexoesbancodedados;
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_planos;
 import classes.ClasseCatraca;
+import classes.ClasseEquipamentos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -20,6 +21,23 @@ public class UpdateBd {
             stmt.setInt(1,cd_registro);
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"<html>CADASTRO INATIVO !!!<br>Para ativar o cadastro novamente, vá para EXIBIR/EXIBIR ALUNOS INATIVOS</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
+    
+        public void inativaCadEquipamento(int codigo){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("UPDATE TB_EQUIPAMENTOS SET ATIVO = FALSE WHERE CD_EQUIPAMENTO =(?)");
+            stmt.setInt(1,codigo);
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>CADASTRO INATIVO !!!<br>Para ativar o cadastro novamente, vá para EXIBIR/EXIBIR EQUIPAMENTOS INATIVOS</html>");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
@@ -79,6 +97,38 @@ public class UpdateBd {
             stmt.setInt(21,dados.getCd_registro());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"<html>CADASTRO ATUALIZADO COM SUCESSO !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
+    
+    public void alterarCadastroEquipamento(ClasseEquipamentos dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+        
+        try{
+            stmt = con.prepareStatement("UPDATE TB_EQUIPAMENTOS SET NM_EQUIPAMENTO = (?),DT_COMPRA_EQUIPAMENTO = (?),FORNECEDOR_EQUIPAMENTO = (?),NOTA_EQUIPAMENTO = (?)"
+                                                        + ",VALOR_EQUIPAMENTO = (?),DT_GARANTIA_EQUIPAMENTO = (?),DT_ULTIMA_MANUTENCAO = (?),EMPRESA_MANUTENCAO = (?)"
+                                                        + ",DT_GARANTIA_MANUTENCAO = (?),DT_PROXIMA_MANUTENCAO = (?),PROXIMA_EMPRESA = (?)"
+                                                        + " WHERE CD_EQUIPAMENTO = (?)");
+            stmt.setString(1,dados.getNm_equipamento());
+            stmt.setString(2, dados.getDt_compra_equipamento());
+            stmt.setString(3, dados.getFornecedor_equipamento());
+            stmt.setString(4, dados.getNota_equipamento());
+            stmt.setFloat(5,dados.getValor_equipamento());
+            stmt.setString(6, dados.getDt_garantia_equipamento());
+            stmt.setString(7, dados.getDt_ultima_manutencao());
+            stmt.setString(8, dados.getEmpresa_manutencao());
+            stmt.setString(9, dados.getDt_garantia_manutencao());
+            stmt.setString(10,dados.getDt_proxima_manutencao());
+            stmt.setString(11, dados.getProxima_empresa());
+            stmt.setInt(12, dados.getCd_equipamento());
+
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>CADASTRO DE EQUIPAMENTO ATUALIZADO COM SUCESSO !</html>");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
