@@ -46,7 +46,7 @@ public class UpdateBd {
         }  
     }
     
-    public void ativarCadastro(int cd_registro){
+    public void ativarCadastroAluno(int cd_registro){
         Connection con = ConectaBd.getConnection();
         PreparedStatement stmt = null;
         
@@ -56,6 +56,22 @@ public class UpdateBd {
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"<html>CADASTRO ATIVADO COM SUCESSO !!!<br>Para editar os dados cadastrais vá para a tela de Cadastro</html>");
         
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
+    
+    public void ativarCadastroEquipamento(int codigo){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        try{
+            stmt = con.prepareStatement("UPDATE TB_EQUIPAMENTOS SET ATIVO = TRUE WHERE CD_EQUIPAMENTO =(?)");
+            stmt.setInt(1,codigo);
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>CADASTRO ATIVADO COM SUCESSO !!!<br>Para editar os dados cadastrais vá para a tela de Cadastro</html>");
+
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
         }finally{
@@ -156,12 +172,12 @@ public class UpdateBd {
         }  
     }
     
-    public void salvaDataSaida(ClasseCatraca dados){
+    public void salvaDataSaidaHistorico(ClasseCatraca dados){
         Connection con = ConectaBd.getConnection();
         PreparedStatement stmt = null; 
         
         try{    
-            stmt = con.prepareStatement("UPDATE TB_FREQUENCIA_ALUNOS SET HR_SAIDA = (?),ON_OFF = FALSE "
+            stmt = con.prepareStatement("UPDATE TB_FREQUENCIA_ALUNOS_HISTORICO SET HR_SAIDA = (?),ON_OFF = FALSE "
             + "WHERE CD_REGISTRO = (?) AND DT_ENTRADA = (?) ");
             
             stmt.setString(1,dados.getHorario_saida());
@@ -178,6 +194,25 @@ public class UpdateBd {
         }  
     }
     
+    public void atualizaDataUltimoTreino(ClasseCatraca dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+        
+        try{    
+            stmt = con.prepareStatement("UPDATE TB_FREQUENCIA_ALUNOS SET DT_ENTRADA = (?) WHERE CD_REGISTRO = (?) ");
+            
+            stmt.setString(1,dados.getData_entrada());
+            stmt.setInt(2,dados.getCd_registro());
+           
+            stmt.executeUpdate();
+            //JOptionPane.showMessageDialog(null,"<html>Liberado !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
     
     
     

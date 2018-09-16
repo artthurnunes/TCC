@@ -528,12 +528,12 @@ public class InsertBd {
         }          
     }
     
-    public void insereFrequenciaAluno(ClasseCatraca dados){
+    public void insereFrequenciaAlunoHistorico(ClasseCatraca dados){
         Connection con = ConectaBd.getConnection();
         PreparedStatement stmt = null;
         
         try{
-            stmt = con.prepareStatement("INSERT INTO TB_FREQUENCIA_ALUNOS (CD_REGISTRO,DT_ENTRADA,HR_ENTRADA,ON_OFF) "
+            stmt = con.prepareStatement("INSERT INTO TB_FREQUENCIA_ALUNOS_HISTORICO (CD_REGISTRO,DT_ENTRADA,HR_ENTRADA,ON_OFF) "
                     + "VALUES (?,?,?,true)");           
             
             stmt.setInt(1, dados.getCd_registro());
@@ -542,6 +542,27 @@ public class InsertBd {
             
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"LIBERADO !!!");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }          
+    }
+    
+    public void salvaDataUltimoTreino(ClasseCatraca dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_FREQUENCIA_ALUNOS (CD_REGISTRO,DT_ENTRADA) "
+                    + "VALUES (?,?)");           
+            
+            stmt.setInt(1, dados.getCd_registro());
+            stmt.setString(2, dados.getData_entrada());
+            
+            stmt.executeUpdate();
+            //JOptionPane.showMessageDialog(null,"LIBERADO !!!");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);

@@ -747,7 +747,7 @@ public class SelectBd {
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
         String nome = "";
-        String sql = "SELECT * FROM TB_FREQUENCIA_ALUNOS WHERE CD_REGISTRO = '"+codigo+"' ORDER BY CD_FREQUENCIA DESC LIMIT 1";
+        String sql = "SELECT * FROM TB_FREQUENCIA_ALUNOS_HISTORICO WHERE CD_REGISTRO = '"+codigo+"' ORDER BY CD_FREQUENCIA DESC LIMIT 1";
         //String sql = "SELECT HR_SAIDA FROM TB_FREQUENCIA_ALUNOS WHERE CD_REGISTRO = '"+codigo+"' ";
    
         rs = stmt.executeQuery(sql);
@@ -764,6 +764,20 @@ public class SelectBd {
                            
     }
     
+    public boolean retornaAlunoPrimeiroTreino(int codigo) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String nome = "";
+        String sql = "SELECT * FROM TB_FREQUENCIA_ALUNOS WHERE CD_REGISTRO = '"+codigo+"' ";
+   
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next()){ 
+                return false;
+            }else{
+                return true;
+            }                           
+    }
 }
     
     

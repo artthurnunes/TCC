@@ -139,7 +139,7 @@ public class TelaListaAlunosInativos extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 10, Short.MAX_VALUE))))
+                        .addGap(0, 21, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +164,7 @@ public class TelaListaAlunosInativos extends javax.swing.JFrame {
         //System.out.println("codigo aluno selecionado : "+codAluno_selecionado);
         int op = JOptionPane.showConfirmDialog(null, "<html>O aluno <b>"+nmAluno_selecionado+"</b> será ativado. Desejá continuar ?</html>");
             if(op == 0){
-                updates.ativarCadastro(codAluno_selecionado);
+                updates.ativarCadastroAluno(codAluno_selecionado);
                 JOptionPane.showMessageDialog(null, "ALUNO ATIVO !!!");
                 this.dispose();
             }

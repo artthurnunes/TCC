@@ -71,10 +71,13 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlunosInativosActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+                <MenuItem class="javax.swing.JMenuItem" name="btnAlunosAusentes">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Ausentes(fazer)"/>
+                    <Property name="text" type="java.lang.String" value="Ausentes"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlunosAusentesActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -83,15 +86,21 @@
                 <Property name="text" type="java.lang.String" value="Equipamentos"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+                <MenuItem class="javax.swing.JMenuItem" name="bntEquipamentosAtivos">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ativos"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntEquipamentosAtivosActionPerformed"/>
+                  </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+                <MenuItem class="javax.swing.JMenuItem" name="bntEquipamentosInativos">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Inativos"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntEquipamentosInativosActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -136,7 +145,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Alterar senha de acesso"/>
+                <Property name="text" type="java.lang.String" value="Alterar senha de acesso(fazer)"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="btnNovoUsuarioAcesso">

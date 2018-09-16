@@ -3,7 +3,7 @@ package telas;
 
 import classes.ClassejTableSelect;
 import conexoesbancodedados.ConectaBd;
-import conexoesbancodedados.SelectBd;
+import conexoesbancodedados.UpdateBd;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,23 +13,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
-import telas_internas_main.cadastro.TelaCadastro;
 
 
-public class TelaListaAlunosAtivos extends javax.swing.JFrame {
+public class TelaListaEquipamentosInativos extends javax.swing.JFrame {
 
-    SelectBd selects = new SelectBd();
-    
-    
-    //int[] codAluno_linha = new int[100]; //vetor para armazenar codigos de alunos com mesmo nome para listar
-    //int contador_linhas=0; //contagem de linhas da lista de contagem de nomes iguais
+    UpdateBd updates = new UpdateBd();    
     int linha_selecionada;
-    int codAluno_selecionado;
-    String nmAluno_selecionado;
+    int codEquipamento_selecionado;
+    String nmEquipamento_selecionado;
 
-    public TelaListaAlunosAtivos() {
+    public TelaListaEquipamentosInativos() {
         initComponents();
-        this.preencherTabela("SELECT * FROM TB_ALUNOS WHERE SITUACAO = TRUE");  
+        this.preencherTabela("SELECT * FROM TB_EQUIPAMENTOS WHERE ATIVO = FALSE");  
     }
     
     //metodo para retornar rs para exibir ArrayList
@@ -50,17 +45,17 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
 
     public void preencherTabela(String Sql){
         ArrayList dados = new ArrayList();
-        String[] colunas = new String[]{"CODIGO","NOME","TELEFONE"};
+        String[] colunas = new String[]{"CODIGO","NOME EQUIPAMENTO","DATA COMPRA","DATA ÚLT. MANUT."};
         Connection con = ConectaBd.getConnection();
         ResultSet rs = this.executaSql(Sql);     
         
-        //SE A LISTA DE ALUNOS ESTIVER VAZIA NÃO FAZ NADA PARA NÃO DAR ERRO, SE NÃO ELE EXECUTA E PREENCHE O JTABLE
+        //SE A LISTA DE INATIVOS ESTIVER VAZIA NÃO FAZ NADA PARA NÃO DAR ERRO, SE NÃO ELE EXECUTA E PREENCHE O JTABLE
         try {
             if(rs.next()){
                 try{
                 rs.first();
                     do{
-                        dados.add(new Object[]{rs.getInt("CD_REGISTRO"),rs.getString("NOME"),rs.getString("TEL1")});
+                        dados.add(new Object[]{rs.getInt("CD_EQUIPAMENTO"),rs.getString("NM_EQUIPAMENTO"),rs.getString("DT_COMPRA_EQUIPAMENTO"),rs.getString("DT_ULTIMA_MANUTENCAO")});
                     }while(rs.next());
                 }catch(SQLException ex){
                    JOptionPane.showMessageDialog(null, "ERRO AO PREENCHER O ARRAYLIST"+ex);
@@ -69,7 +64,7 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
                //NÃO FAZ NADA
             }
         } catch (SQLException ex) {
-            Logger.getLogger(TelaListaAlunosAtivos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaListaEquipamentosInativos.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         ClassejTableSelect modelo = new ClassejTableSelect(dados, colunas);
@@ -81,6 +76,8 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
         tabela.getColumnModel().getColumn(1).setResizable(false);
         tabela.getColumnModel().getColumn(2).setPreferredWidth(110);
         tabela.getColumnModel().getColumn(2).setResizable(false);
+        tabela.getColumnModel().getColumn(3).setPreferredWidth(130);
+        tabela.getColumnModel().getColumn(3).setResizable(false);
         tabela.getTableHeader().setReorderingAllowed(false);
         tabela.setAutoResizeMode(tabela.AUTO_RESIZE_OFF);
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);        
@@ -92,11 +89,11 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
-        btnAvancar = new javax.swing.JButton();
+        btnAtivarAluno = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Alunos cadastrados");
+        setTitle("Equipamentos inativos");
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,27 +108,26 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabela);
 
-        btnAvancar.setText("AVANÇAR");
-        btnAvancar.addActionListener(new java.awt.event.ActionListener() {
+        btnAtivarAluno.setText("ATIVAR");
+        btnAtivarAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvancarActionPerformed(evt);
+                btnAtivarAlunoActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Ir para tela de cadastro do aluno ? ");
+        jLabel1.setText("Caso deseje ativar algum cadastro da lista, selecione a linha do cadastro desejada e clique em ATIVAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAtivarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAvancar, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -142,40 +138,30 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAvancar)
-                .addGap(15, 15, 15))
+                .addComponent(btnAtivarAluno)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
-        //linha_selecionada = tabela.getSelectedRow(); //seleciona a linha que o usuário clicou na tabela
-        //codAluno_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
-        //nmAluno_selecionado = (String) tabela.getValueAt(linha_selecionada, 1); //armazena o nome do aluno selecionado
-        TelaPrincipal tela_principal = new TelaPrincipal();
-        TelaCadastro telaCadastro = new TelaCadastro();
-        
-        int op = JOptionPane.showConfirmDialog(null, "<html>Ir para o cadastro do aluno <b>"+nmAluno_selecionado+"</b> ?</html>");
+    private void btnAtivarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtivarAlunoActionPerformed
+        linha_selecionada = tabela.getSelectedRow(); //seleciona a linha que o usuário clicou na tabela
+        codEquipamento_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
+        nmEquipamento_selecionado = (String) tabela.getValueAt(linha_selecionada, 1); //armazena o nome do aluno selecionado
+        //System.out.println("codigo aluno selecionado : "+codAluno_selecionado);
+        int op = JOptionPane.showConfirmDialog(null, "<html>O equipamento <b>"+nmEquipamento_selecionado+"</b> será ativado. Desejá continuar ?</html>");
             if(op == 0){
-                
-                /* TENTANDO FAZER A TELA DE CADASTRO APARECER QUANDO CLICAR EM AVAÇAR
-                //new TelaPrincipal().espacoTelas.add(telaCadastro);
-                new TelaPrincipal().telaCadastro.setVisible(true);
-                //updates.ativarCadastro(codAluno_selecionado);
-                //tela_principal.getParent().add(telaCadastro);
-                //tela_principal.add(telaCadastro);
-                //telaCadastro.setVisible(true);
+                updates.ativarCadastroEquipamento(codEquipamento_selecionado);
+                JOptionPane.showMessageDialog(null, "EQUIPAMENTO ATIVO !!!");
                 this.dispose();
-                */
-            }
-        //   
-    }//GEN-LAST:event_btnAvancarActionPerformed
+            }  
+    }//GEN-LAST:event_btnAtivarAlunoActionPerformed
 
     
     
@@ -216,7 +202,7 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
     } -----------------------------------------------------*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAvancar;
+    private javax.swing.JButton btnAtivarAluno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabela;
