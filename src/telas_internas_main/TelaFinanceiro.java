@@ -48,7 +48,7 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cash_icon-icons.com_51090.png"))); // NOI18N
-        jButton2.setText("DISPEZAS PROGRAMADAS");
+        jButton2.setText("DESPESAS PROGRAMADAS");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton2.addActionListener(new java.awt.event.ActionListener() {

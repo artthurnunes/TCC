@@ -8,7 +8,8 @@ public class PendenciasIdeiasAlteracoes {
     ** IMPORTAR BD
     - Problemas para trazer a data do vencimento do treino quando o aluno tem mais de 1 treino cadastrado. Ele 
     esta trazendo todos as datas dos treinos.
-        
+    * Mostrar total de alunos nesta lista    
+    
     
     */
     
@@ -16,7 +17,6 @@ public class PendenciasIdeiasAlteracoes {
     
     
     /* PENDÊNCIAS SEM RELEVÂNCIAS SE FUNCIONAR LEGAL....
-        * Fazer histórico(relatório de modalidades de um certo aluno)
         * Fazer histórico (de treinos)
         * Verificar a possibilidade de criar barra de rolagem nas telas para resoluções de telas menores. 800x600 corta
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
@@ -27,7 +27,7 @@ public class PendenciasIdeiasAlteracoes {
         * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.
         * Fazer uma telinha no canto inferior direito sempre aparecendo com o nome dos alunos que estão para vencer 
            o treino e os alunos que faz tempo que não vão para academia de acordo com a catraca 
-        * Exibir hora e data no rodapé
+        * Travar entrada de aluno com mensalidade vencida
     */
     
     
@@ -35,8 +35,6 @@ public class PendenciasIdeiasAlteracoes {
         * Obrigar . nos valores float (tela de planos e cadastro equipamentos)
         * Campo valor equipamento deve ser somente numero com . (não pode ser vazio o campo)
         * Digitar somente numeros no codigo do aluno na catraca
-        * Pensar nas esteiras, bicicletas e equipamentos aerobicos na tela de equipametos, para colocar os 
-          periódicos 
         * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno
     */
     
