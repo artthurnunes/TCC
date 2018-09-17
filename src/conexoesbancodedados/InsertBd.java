@@ -11,9 +11,33 @@ import classes.ClasseEquipamentos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class InsertBd {
+    
+    public void insereNovoUserPass(ArrayList dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_SENHAS (USUARIO,NOME,SENHA,EMAIL) VALUES (?,?,?,?)");           
+            
+            stmt.setString(1, (String) dados.get(1)); //indice do array usuario
+            stmt.setString(2, (String) dados.get(0)); //nome
+            stmt.setString(3, (String) dados.get(2)); //senha
+            stmt.setString(4, (String) dados.get(3)); //email
+                       
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"NOVO USUÁRIO SALVO COM SUCESSO !");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }        
+        
+    }
     
     public void insertCadastro(ClasseCadastro dados){
         

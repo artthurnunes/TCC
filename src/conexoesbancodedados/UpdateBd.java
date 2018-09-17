@@ -1,6 +1,7 @@
 
 package conexoesbancodedados;
 
+import classes.ClasseAltSenha;
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_planos;
 import classes.ClasseCatraca;
@@ -11,6 +12,25 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class UpdateBd {
+    
+    public void alteraSenhaAcesso(ClasseAltSenha dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+
+        try{
+            stmt = con.prepareStatement("UPDATE TB_SENHAS SET SENHA = (?) WHERE USUARIO = '"+dados.getUsuario()+"'");
+            
+            stmt.setString(1,dados.getNovaSenha());
+           
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>Senha atualizada com sucesso !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
     
     public void inativaCadastro(int cd_registro){
         Connection con = ConectaBd.getConnection();
@@ -29,7 +49,7 @@ public class UpdateBd {
         }  
     }
     
-        public void inativaCadEquipamento(int codigo){
+    public void inativaCadEquipamento(int codigo){
         Connection con = ConectaBd.getConnection();
         PreparedStatement stmt = null;
         

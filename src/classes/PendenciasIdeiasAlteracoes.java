@@ -4,7 +4,10 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-        
+    COMEÇANDO A FAZER A TELALISTAALUNOSFREQUENCIA. 
+    ** IMPORTAR BD
+    - Problemas para trazer a data do vencimento do treino quando o aluno tem mais de 1 treino cadastrado. Ele 
+    esta trazendo todos as datas dos treinos.
         
     
     */
@@ -31,6 +34,7 @@ public class PendenciasIdeiasAlteracoes {
     /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
         * Obrigar . nos valores float (tela de planos e cadastro equipamentos)
         * Campo valor equipamento deve ser somente numero com . (não pode ser vazio o campo)
+        * Digitar somente numeros no codigo do aluno na catraca
         * Pensar nas esteiras, bicicletas e equipamentos aerobicos na tela de equipametos, para colocar os 
           periódicos 
         * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno
@@ -52,6 +56,7 @@ public class PendenciasIdeiasAlteracoes {
     PONTOS LEGAIS PARA DIZER NA PARTE ESCRITA E NA APRESENTAÇÃO
     * 
      - A area de cadastro de Membros e exercicios ja corrige para salvar tudo em MAIUSCULO
+     - Falar sobrea as diversas formas de manipular dados entre as classes, com array(tela novouserpass), com retorno, com getter e setter
     */
     
     /* PROBLEMAS PORÉM ESTÁ FUNCIONANDO

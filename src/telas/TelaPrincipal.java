@@ -61,7 +61,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnCadastroModalidades = new javax.swing.JMenuItem();
         btnCadPlanos = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        btnAltUserAcesso = new javax.swing.JMenuItem();
         btnNovoUsuarioAcesso = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -263,8 +263,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu5.setText("Opções");
 
-        jMenuItem6.setText("Alterar senha de acesso(fazer)");
-        jMenu5.add(jMenuItem6);
+        btnAltUserAcesso.setText("Alterar senha de acesso");
+        btnAltUserAcesso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAltUserAcessoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(btnAltUserAcesso);
 
         btnNovoUsuarioAcesso.setText("Criar novo usuário de acesso");
         btnNovoUsuarioAcesso.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -385,6 +390,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         new TelaListaAlunosAusentes().setVisible(true);
     }//GEN-LAST:event_btnAlunosAusentesActionPerformed
 
+    private void btnAltUserAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltUserAcessoActionPerformed
+        new TelaAltSenhaAcesso(null,true).setVisible(true);
+    }//GEN-LAST:event_btnAltUserAcessoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -427,6 +436,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem bntEquipamentosAtivos;
     private javax.swing.JMenuItem bntEquipamentosInativos;
+    private javax.swing.JMenuItem btnAltUserAcesso;
     private javax.swing.JMenuItem btnAlunosAtivos;
     private javax.swing.JMenuItem btnAlunosAusentes;
     private javax.swing.JMenuItem btnAlunosInativos;
@@ -449,7 +459,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;

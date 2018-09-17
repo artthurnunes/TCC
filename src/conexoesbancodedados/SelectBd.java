@@ -58,7 +58,7 @@ public class SelectBd {
         
             if(rs.next()){
                 cSenha.setNome(rs.getString("NOME"));
-            }   
+            }
     }
 
     public boolean verificaSenha(ClasseSenhaInicial login){

@@ -143,10 +143,13 @@
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="btnAltUserAcesso">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Alterar senha de acesso(fazer)"/>
+                <Property name="text" type="java.lang.String" value="Alterar senha de acesso"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAltUserAcessoActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="btnNovoUsuarioAcesso">
               <Properties>
