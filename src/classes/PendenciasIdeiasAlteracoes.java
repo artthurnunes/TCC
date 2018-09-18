@@ -4,11 +4,15 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-    COMEÇANDO A FAZER A TELALISTAALUNOSFREQUENCIA. 
-    ** IMPORTAR BD
-    - Problemas para trazer a data do vencimento do treino quando o aluno tem mais de 1 treino cadastrado. Ele 
-    esta trazendo todos as datas dos treinos.
-    * Mostrar total de alunos nesta lista    
+    COMEÇANDO A FAZER A Tela de despesas programadas. Deixar o campo data e valor obrigatorio
+    para usar os valores na situacao mensal da academia.
+    
+    * Pensando em fazer um insert logo quando e criado um novo cadastro de aluno para uma tabela de mensalidades.
+    Fazer o campo de planos de mensalidade obrigatorios para poder salvar os valores e o vencimento ja correto 
+    na tabela de mensalidades.
+    
+    
+ 
     
     
     */
@@ -58,7 +62,8 @@ public class PendenciasIdeiasAlteracoes {
     */
     
     /* PROBLEMAS PORÉM ESTÁ FUNCIONANDO
-    
+    - Problemas para trazer a data do vencimento do treino quando o aluno tem mais de 1 treino cadastrado. Ele 
+    esta trazendo todos as datas dos treinos.
     */
     
     //FILME O PROTETOR

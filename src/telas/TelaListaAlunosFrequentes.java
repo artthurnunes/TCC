@@ -18,11 +18,12 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
     int linha_selecionada;
     int codAluno_selecionado;
+    int contLinhas=0;
     String nmAluno_selecionado;
 
     public TelaListaAlunosFrequentes() {
         initComponents();
-        this.preencherTabela("SELECT B.NOME,B.TEL1, DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y'), DATEDIFF(NOW(),A.DT_ENTRADA) FROM TB_FREQUENCIA_ALUNOS A INNER JOIN TB_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO WHERE DATEDIFF(NOW(),DT_ENTRADA) > 7"); 
+        this.preencherTabela("SELECT B.NOME,B.TEL1, DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y'), DATEDIFF(NOW(),A.DT_ENTRADA) ,C.DT_FIM FROM TB_FREQUENCIA_ALUNOS A INNER JOIN TB_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO LEFT JOIN TB_TREINOSA C ON C.CD_REGISTRO = A.CD_REGISTRO"); 
     }
     
     //metodo para retornar rs para exibir ArrayList
@@ -43,7 +44,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
     public void preencherTabela(String Sql){
         ArrayList dados = new ArrayList();
-        String[] colunas = new String[]{"NOME","TELEFONE","DT ULT. TREINO","DT VENC. TREINO"};
+        String[] colunas = new String[]{"NOME","TELEFONE","DT ULT.TREINO","DIAS AUS.","DT VENC.TREINO"};
         Connection con = ConectaBd.getConnection();
         ResultSet rs = this.executaSql(Sql);     
         
@@ -53,7 +54,8 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
                 try{
                 rs.first();
                     do{
-                        dados.add(new Object[]{rs.getString("B.NOME"),rs.getString("B.TEL1"),rs.getString("DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y')"),rs.getString("DATEDIFF(NOW(),A.DT_ENTRADA)")});
+                        dados.add(new Object[]{rs.getString("B.NOME"),rs.getString("B.TEL1"),rs.getString("DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y')"),rs.getString("DATEDIFF(NOW(),A.DT_ENTRADA)"),rs.getString("C.DT_FIM")});
+                        contLinhas++;
                     }while(rs.next());
                 }catch(SQLException ex){
                    JOptionPane.showMessageDialog(null, "ERRO AO PREENCHER O ARRAYLIST"+ex);
@@ -65,6 +67,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
             Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        total.setText(contLinhas+" alunos");
         ClassejTableSelect modelo = new ClassejTableSelect(dados, colunas);
         
         tabela.setModel(modelo);
@@ -74,8 +77,10 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         tabela.getColumnModel().getColumn(1).setResizable(false);
         tabela.getColumnModel().getColumn(2).setPreferredWidth(110);
         tabela.getColumnModel().getColumn(2).setResizable(false);
-        tabela.getColumnModel().getColumn(3).setPreferredWidth(120);
+        tabela.getColumnModel().getColumn(3).setPreferredWidth(80);
         tabela.getColumnModel().getColumn(3).setResizable(false);
+        tabela.getColumnModel().getColumn(4).setPreferredWidth(110);
+        tabela.getColumnModel().getColumn(4).setResizable(false);
         tabela.getTableHeader().setReorderingAllowed(false);
         tabela.setAutoResizeMode(tabela.AUTO_RESIZE_OFF);
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);        
@@ -90,9 +95,11 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         btnAtivarAluno = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        total = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Alunos Inativos");
+        setTitle("Alunos frequentes");
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,7 +123,9 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
         jLabel1.setText("Ir para a tela de Cadastro do aluno ?");
 
-        jLabel2.setText("ALUNOS COM AUSENCIA DE 7 OU MAIS DIAS DE FREQUÊNCIA");
+        jLabel2.setText("LISTA DE ALUNOS FREQUENTES NA ACADEMIA");
+
+        jLabel3.setText("TOTAL :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,25 +136,33 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
                 .addComponent(btnAtivarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel2)
-                .addGap(30, 30, 30)
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAtivarAluno)
@@ -212,7 +229,9 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
     private javax.swing.JButton btnAtivarAluno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabela;
+    private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 }
