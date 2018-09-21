@@ -32,7 +32,7 @@
                   <Group type="102" attributes="0">
                       <Component id="btnDespesasProgramadas" min="-2" pref="230" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                      <Component id="jButton5" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="btnDespesasNaoProgramadas" min="-2" pref="230" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jButton1" min="-2" pref="230" max="-2" attributes="0"/>
@@ -60,7 +60,7 @@
               </Group>
               <EmptySpace pref="92" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton5" min="-2" pref="222" max="-2" attributes="0"/>
+                  <Component id="btnDespesasNaoProgramadas" min="-2" pref="222" max="-2" attributes="0"/>
                   <Component id="jButton6" min="-2" pref="222" max="-2" attributes="0"/>
                   <Component id="btnDespesasProgramadas" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
               </Group>
@@ -75,10 +75,13 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/negative-sign_icon-icons.com_70439.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="ALUNOS EM ATRAZO"/>
+        <Property name="text" type="java.lang.String" value="ALUNOS EM ATRASO"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDespesasProgramadas">
       <Properties>
@@ -106,9 +109,9 @@
     <Component class="javax.swing.JButton" name="btnFrequencia">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/imagens/investment_78404.png"/>
+          <Image iconType="3" name="/imagens/stocks-512x512_97224.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Frequ&#xea;ncia dos alunos (MUDAR IMAGEM)"/>
+        <Property name="text" type="java.lang.String" value="FREQU&#xca;NCIA DOS ALUNOS"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
@@ -116,7 +119,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFrequenciaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton5">
+    <Component class="javax.swing.JButton" name="btnDespesasNaoProgramadas">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/business-economic-finance-interprise-point-of-services_88994 (2).png"/>
@@ -125,6 +128,9 @@
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDespesasNaoProgramadasActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton6">
       <Properties>

@@ -635,7 +635,7 @@ public class InsertBd {
         
         try{
             stmt = con.prepareStatement("INSERT INTO TB_DESPESAS_PROGRAMADAS (NM_DESPESA,VALOR,"
-                 + "VENCIMENTO,PAGO) VALUES (?,?,?,false)   ");           
+                 + "VENCIMENTO,PAGO,PROGRAMADA) VALUES (?,?,?,false,true)   ");           
             
             stmt.setString(1, dados.getNome());
             stmt.setFloat(2, dados.getValor());
@@ -651,5 +651,26 @@ public class InsertBd {
         }          
     }
     
+    public void insereDespesasNaoProgramadas(ClasseDespesas dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_DESPESAS_PROGRAMADAS (NM_DESPESA,VALOR,"
+                 + "VENCIMENTO,PAGO,PROGRAMADA) VALUES (?,?,?,false,false)   ");           
+            
+            stmt.setString(1, dados.getNome());
+            stmt.setFloat(2, dados.getValor());
+            stmt.setDate(3, (Date) dados.getVencimento());
+                        
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Despesa Cadastrada !!!");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }          
+    }
     
 }

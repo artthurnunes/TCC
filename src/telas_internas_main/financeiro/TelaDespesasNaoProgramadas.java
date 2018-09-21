@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package telas;
+package telas_internas_main.financeiro;
 
 import classes.ClasseDespesas;
 import conexoesbancodedados.InsertBd;
@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class TelaDespesasProgramadas extends javax.swing.JDialog {
+public class TelaDespesasNaoProgramadas extends javax.swing.JDialog {
 
     boolean novaDespesa = true;
     ClasseDespesas despesas = new ClasseDespesas();
@@ -27,7 +27,7 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
     UpdateBd updates = new UpdateBd();
     SimpleDateFormat formatoPT = new SimpleDateFormat("dd/MM/yyyy");
     
-    public TelaDespesasProgramadas(java.awt.Frame parent, boolean modal) {
+    public TelaDespesasNaoProgramadas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -82,16 +82,16 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
         }
         catch (Exception e){
         }
-        jButton1 = new javax.swing.JButton();
+        btnLista = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
         btnPago = new javax.swing.JButton();
         btnPesquisar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Despesas programadas");
+        setTitle("Despesas não programadas");
 
-        jLabel1.setText("DESPESAS FIXAS NÃO PAGAS");
+        jLabel1.setText("DESPESAS EXTRAS NÃO PAGAS");
 
         jLabel2.setText("Despesa:");
 
@@ -99,7 +99,12 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
 
         jLabel4.setText("Vencimento:");
 
-        jButton1.setText("LISTAR DESPESAS");
+        btnLista.setText("LISTAR DESPESAS");
+        btnLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaActionPerformed(evt);
+            }
+        });
 
         btnSalvar.setText("SALVAR");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +172,7 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
                             .addComponent(btnPago)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addComponent(btnLista)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -190,7 +195,7 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
                     .addComponent(btnSalvar)
                     .addComponent(btnNovo)
                     .addComponent(btnPesquisar)
-                    .addComponent(jButton1))
+                    .addComponent(btnLista))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -209,15 +214,15 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
                         try { //TRY PARA CONVERTER DATA FORMATO EN PARA BANCO
                             this.setarCamposParaClasse();
                         } catch (ParseException ex) {
-                            Logger.getLogger(TelaDespesasProgramadas.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(TelaDespesasNaoProgramadas.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        inserts.insereDespesasProgramadas(despesas);
+                        inserts.insereDespesasNaoProgramadas(despesas);
                         this.limparCampos();   
                          }else{ //SENÃO FAZ UPDATE NA QUE ESTÁ NA TELA
                             try {
                                 this.setarCamposParaClasse();
                             } catch (ParseException ex) {
-                                Logger.getLogger(TelaDespesasProgramadas.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(TelaDespesasNaoProgramadas.class.getName()).log(Level.SEVERE, null, ex);
                             }
                             updates.alteraValorDespesas(despesas); 
                          }
@@ -230,16 +235,16 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
         despesas.setNome(nome.getText());
                
         try {
-            selects.verificaDespesas(despesas);
+            selects.verificaNaoDespesasProgramadas(despesas);
         } catch (SQLException ex) {
-            Logger.getLogger(TelaDespesasProgramadas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaDespesasNaoProgramadas.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setarCamposDaClasse();
         //PEGANDO O NOME DA DESPESA DEPOIS DO RETORNO DO SELECT PARA PEGAR O NOME CORRETO
         try { //DEIXANDO O CODIGO DA DESPESA SETADA NA CLASSE CASO HAJA NECESSIDADE DE ALTERAR A DESPESA COM UPDATE
                 despesas.setCodigo(selects.codigoDespesa(nome.getText()));
             } catch (SQLException ex) {
-                Logger.getLogger(TelaDespesasProgramadas.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TelaDespesasNaoProgramadas.class.getName()).log(Level.SEVERE, null, ex);
             }   
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
@@ -248,7 +253,7 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
         try {
             this.limparClasse();
         } catch (ParseException ex) {
-            Logger.getLogger(TelaDespesasProgramadas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaDespesasNaoProgramadas.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNovoActionPerformed
 
@@ -258,6 +263,11 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
             updates.pagaDespesa(despesas);
         }
     }//GEN-LAST:event_btnPagoActionPerformed
+
+    private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
+        this.dispose();
+        new TelaListaDespesasNaoProgramadas().setVisible(true);
+    }//GEN-LAST:event_btnListaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,20 +286,21 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaDespesasProgramadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDespesasNaoProgramadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaDespesasProgramadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDespesasNaoProgramadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaDespesasProgramadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDespesasNaoProgramadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaDespesasProgramadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaDespesasNaoProgramadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TelaDespesasProgramadas dialog = new TelaDespesasProgramadas(new javax.swing.JFrame(), true);
+                TelaDespesasNaoProgramadas dialog = new TelaDespesasNaoProgramadas(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -302,11 +313,11 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLista;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnPago;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

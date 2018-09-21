@@ -4,7 +4,7 @@ package telas;
 import javax.swing.JDesktopPane;
 import telas_internas_main.cadastro.TelaCadastro;
 import telas_internas_main.TelaEquipamentos;
-import telas_internas_main.TelaFinanceiro;
+import telas_internas_main.financeiro.TelaFinanceiro;
 import telas_internas_main.TelaCatraca;
 import telas_internas_main.cadastro.TelaCadastro_financeiro;
 

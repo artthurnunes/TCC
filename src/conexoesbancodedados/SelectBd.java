@@ -780,13 +780,31 @@ public class SelectBd {
             }                           
     }
     
-    public void verificaDespesas(ClasseDespesas despesas) throws SQLException{
+    public void verificaDespesasProgramadas(ClasseDespesas despesas) throws SQLException{
         con = ConectaBd.getConnection();
         Statement Stmt = con.createStatement();
         ResultSet rs = null;
 
         String sql = "SELECT NM_DESPESA,VALOR,VENCIMENTO FROM TB_DESPESAS_PROGRAMADAS WHERE NM_DESPESA LIKE '%"+despesas.getNome()+"%' "
-                + "AND PAGO <> TRUE";
+                + "AND PAGO <> TRUE AND PROGRAMADA = TRUE";
+
+        rs = Stmt.executeQuery(sql);
+
+        if(rs.next()){
+            despesas.setNome(rs.getString("NM_DESPESA"));
+            despesas.setValor(rs.getFloat("VALOR"));
+            despesas.setVencimento(rs.getDate("VENCIMENTO"));
+        }
+            
+    }
+    
+    public void verificaNaoDespesasProgramadas(ClasseDespesas despesas) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement Stmt = con.createStatement();
+        ResultSet rs = null;
+
+        String sql = "SELECT NM_DESPESA,VALOR,VENCIMENTO FROM TB_DESPESAS_PROGRAMADAS WHERE NM_DESPESA LIKE '%"+despesas.getNome()+"%' "
+                + "AND PAGO <> TRUE AND PROGRAMADA = FALSE";
 
         rs = Stmt.executeQuery(sql);
 
