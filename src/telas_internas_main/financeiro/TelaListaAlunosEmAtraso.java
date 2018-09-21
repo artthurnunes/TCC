@@ -34,24 +34,20 @@ public class TelaListaAlunosEmAtraso extends javax.swing.JFrame {
                 + "INNER JOIN TB_HISTORICO_PAGAMENTOS_ALUNOS C ON C.CD_REGISTRO = A.CD_REGISTRO "
                 + "INNER JOIN TB_FREQUENCIA_ALUNOS D ON D.CD_REGISTRO = A.CD_REGISTRO WHERE C.PROXIMO_VENCIMENTO < NOW()"); 
         
-        //total.setText("R$ "+Float.toString(this.somaDespesas())+" de despesas à pagar");
+        total.setText("R$ "+Float.toString(this.somaDespesas())+" de débitos à receber");
     }
-    /*
+    
     public float somaDespesas(){
         int qt_linhas_retornadas=0;
         float soma = 0;
         qt_linhas_retornadas = tabela.getRowCount(); //seleciona a linha que o usuário clicou na tabela
 //        System.out.println("Numero de linas da tabela "+qt_linhas_retornadas);
 //        System.out.println("Linha selecionada "+tabela.getSelectedRow());
-            for(int i=0;i < qt_linhas_retornadas;i++){
-                if((boolean)tabela.getValueAt(i,3) == true){
-                    
-                }else{
-                    soma += (Float)tabela.getValueAt(i, 1);
-                }
-            }
+            for(int i=0;i < qt_linhas_retornadas;i++)
+                soma += (Float)tabela.getValueAt(i, 4);
+                
         return soma;
-    }*/
+    }
     
     //metodo para retornar rs para exibir ArrayList
      public ResultSet executaSql(String sql){

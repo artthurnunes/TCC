@@ -4,16 +4,11 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
+    FAZER    
     
-    - IMPORTAR BD EM CASA, ATUALIZADO NO SERVIÇO. TERMINAR A TELA DE ATRASOS. FAZER SOMAR OS ATRASOS E DEPOIS PARTIR PARA A TELA DE MENSALIDADES.
+    1) FAZER PLANO DO ALUNO SER OBRIGATÓRIO, NÃO SALVAR O CADASTRO COM O PLANO EM BRANCO SE NÃO VAI DAR PROBLEMA NOS RELATORIOS DE MENSALIDADES.
     
-    - FAZER PLANO DO ALUNO SER OBRIGATÓRIO, NÃO SALVAR O CADASTRO COM O PLANO EM BRANCO SE NÃO VAI DAR PROBLEMA NOS RELATORIOS DE MENSALIDADES.
-    
-    * Pensando nas elas de alunos em atraso, recebimento de mensalidade
-    
-    * Criar tabela histórico pagamentos - OK
-    
-    * Fazer um insert junto com o cadastro do aluno na tabela histórico pagamentos (cd_pagamento,cd_registro,
+    2) Fazer um insert junto com o cadastro do aluno na tabela histórico pagamentos (cd_pagamento,cd_registro,
         proximo_vencimento,dt_pagamento, valor). No insert já preencher o cd_pagamento, cd_registro e pensar
     em uma forma de pegar o dia que o aluno escolheu pra pagamento e já jogar 1 mes pra frente (data escolhida 
     do próximo mes) já salvar esta data também nesta tabela, esta data servira para aparecer na tela de alnunos
@@ -23,11 +18,8 @@ public class PendenciasIdeiasAlteracoes {
     uma nova linha na tabela para o mes seguinte para mnater o historico de pagamentos.
     UPDATE TB_HISTORICO_PAGAMENTOS_ALUNOS SET VALOR_PAGO = ??,DT_PAGAMENTO = ?? WHERE CD_REGISTRO = 3 AND DT_PAGAMENTO IS NULL;
     
-    * Pensando em fazer um insert logo quando e criado um novo cadastro de aluno para uma tabela de mensalidades.
-    Fazer o campo de planos de mensalidade obrigatorios para poder salvar os valores e o vencimento ja correto 
-    na tabela de mensalidades.
-    
-    
+        
+    * A tela de Situação financeira pode usar o total de alunos em atraso também para calcular uma probabilidade.
  
     
     
@@ -54,9 +46,8 @@ public class PendenciasIdeiasAlteracoes {
     /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
         * Obrigar . nos valores float (tela de planos e cadastro equipamentos, despesas programadas)
         * Campos datas com mascara tentar colocar obrigatorio. como a mascara ja vem / não da como vazio. (tela de despesas, planos, cadastro equipamentos)
-        * Campo valor equipamento deve ser somente numero com . (não pode ser vazio o campo)
         * Digitar somente numeros no codigo do aluno na catraca
-        * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno
+        * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno(IMPORTANTE TODAS AS LISTAS VÃO USAR)
     */
     
     
