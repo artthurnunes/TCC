@@ -30,7 +30,7 @@
               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jButton2" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="btnDespesasProgramadas" min="-2" pref="230" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                       <Component id="jButton5" min="-2" pref="230" max="-2" attributes="0"/>
                   </Group>
@@ -62,7 +62,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jButton5" min="-2" pref="222" max="-2" attributes="0"/>
                   <Component id="jButton6" min="-2" pref="222" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
+                  <Component id="btnDespesasProgramadas" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
           </Group>
@@ -80,7 +80,7 @@
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnDespesasProgramadas">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/cash_icon-icons.com_51090.png"/>
@@ -90,7 +90,7 @@
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDespesasProgramadasActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">

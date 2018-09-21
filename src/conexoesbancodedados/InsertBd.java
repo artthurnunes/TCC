@@ -7,8 +7,10 @@ import classes.ClasseCadastro_modalidades;
 import classes.ClasseCadastro_planos;
 import classes.ClasseCadastro_treino;
 import classes.ClasseCatraca;
+import classes.ClasseDespesas;
 import classes.ClasseEquipamentos;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -627,6 +629,27 @@ public class InsertBd {
         }          
     }
     
+    public void insereDespesasProgramadas(ClasseDespesas dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_DESPESAS_PROGRAMADAS (NM_DESPESA,VALOR,"
+                 + "VENCIMENTO,PAGO) VALUES (?,?,?,false)   ");           
+            
+            stmt.setString(1, dados.getNome());
+            stmt.setFloat(2, dados.getValor());
+            stmt.setDate(3, (Date) dados.getVencimento());
+                        
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Despesa Cadastrada !!!");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }          
+    }
     
     
 }

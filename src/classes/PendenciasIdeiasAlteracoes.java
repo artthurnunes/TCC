@@ -4,8 +4,8 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
-    COMEÇANDO A FAZER A Tela de despesas programadas. Deixar o campo data e valor obrigatorio
-    para usar os valores na situacao mensal da academia.
+    - FALTANDO FAZER A LISTA DE DESPESAS NA TELA
+    - CRIAR TABELA DE DESPESAS NO SERVICO
     
     * Pensando em fazer um insert logo quando e criado um novo cadastro de aluno para uma tabela de mensalidades.
     Fazer o campo de planos de mensalidade obrigatorios para poder salvar os valores e o vencimento ja correto 
@@ -36,7 +36,7 @@ public class PendenciasIdeiasAlteracoes {
     
     
     /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
-        * Obrigar . nos valores float (tela de planos e cadastro equipamentos)
+        * Obrigar . nos valores float (tela de planos e cadastro equipamentos, despesas programadas)
         * Campo valor equipamento deve ser somente numero com . (não pode ser vazio o campo)
         * Digitar somente numeros no codigo do aluno na catraca
         * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno

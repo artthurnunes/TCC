@@ -5,8 +5,10 @@ import classes.ClasseAltSenha;
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_planos;
 import classes.ClasseCatraca;
+import classes.ClasseDespesas;
 import classes.ClasseEquipamentos;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -234,6 +236,45 @@ public class UpdateBd {
         }  
     }
     
+    public void alteraValorDespesas(ClasseDespesas despesas){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+        
+        try{    
+            stmt = con.prepareStatement("UPDATE TB_DESPESAS_PROGRAMADAS SET NM_DESPESA = (?)"
+                    + ",VALOR = (?),VENCIMENTO = (?)  WHERE CD_DESPESA = '"+despesas.getCodigo()+"' ");
+            
+            stmt.setString(1,despesas.getNome());
+            stmt.setFloat(2,despesas.getValor());
+            stmt.setDate(3, (Date) despesas.getVencimento());
+                       
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>Dados atualizados !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
+    
+    public void pagaDespesa(ClasseDespesas despesas){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+        
+        try{    
+            stmt = con.prepareStatement("UPDATE TB_DESPESAS_PROGRAMADAS SET PAGO = TRUE"
+                    + " WHERE CD_DESPESA = '"+despesas.getCodigo()+"' ");
+                       
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>Despesa PAGA !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
     
     
 }

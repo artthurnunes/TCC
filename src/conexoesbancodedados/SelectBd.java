@@ -7,6 +7,7 @@ import classes.ClasseCadastro_modalidades;
 import classes.ClasseCadastro_planos;
 import classes.ClasseCadastro_treino;
 import classes.ClasseCadastro_treinoCodigos;
+import classes.ClasseDespesas;
 import classes.ClasseEquipamentos;
 import classes.ClasseEsqueceuSenha;
 import classes.ClasseSenhaInicial;
@@ -778,11 +779,44 @@ public class SelectBd {
                 return true;
             }                           
     }
+    
+    public void verificaDespesas(ClasseDespesas despesas) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement Stmt = con.createStatement();
+        ResultSet rs = null;
+
+        String sql = "SELECT NM_DESPESA,VALOR,VENCIMENTO FROM TB_DESPESAS_PROGRAMADAS WHERE NM_DESPESA LIKE '%"+despesas.getNome()+"%' "
+                + "AND PAGO <> TRUE";
+
+        rs = Stmt.executeQuery(sql);
+
+        if(rs.next()){
+            despesas.setNome(rs.getString("NM_DESPESA"));
+            despesas.setValor(rs.getFloat("VALOR"));
+            despesas.setVencimento(rs.getDate("VENCIMENTO"));
+        }
+            
+    }
+    
+    public int codigoDespesa(String nome) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String sql = "SELECT CD_DESPESA FROM TB_DESPESAS_PROGRAMADAS WHERE NM_DESPESA = '"+nome+"' ";
+        int codigo = 0;
+        
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next())
+                codigo = rs.getInt("CD_DESPESA");
+        
+        return codigo;
+    
+    }
+    
 }
     
+
     
-    
-    
-    
+
     
 
