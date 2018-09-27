@@ -3,6 +3,7 @@ package telas_internas_main.cadastro;
 
 import classes.ClasseCadastro_planos;
 import conexoesbancodedados.InsertBd;
+import conexoesbancodedados.SelectBd;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -14,6 +15,7 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
     ClasseCadastro_planos planos = new ClasseCadastro_planos();
     static ArrayList<String> listaPlanos = new ArrayList();
     InsertBd inserts = new InsertBd();
+    SelectBd selects = new SelectBd();
 
     public TelaCadastro_financeiro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -233,6 +235,23 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
         
         this.setarCamposClasse();
         inserts.inserePlanosAlunos(planos);
+        
+        //INSERINDO OS DADOS NA TABELA DE TB_HISTORICO_PAGAMENTOS_ALUNOS
+        //SE JÁ EXISTIR REGISTRO NA TABELA, NÃO É PRA SALVAR NADA,SELECT RETORNA FALSE 
+        //SE O ALUNO FOR NOVO, INSERIR O REGISTRO
+        boolean temRegistro = false;
+        try {
+            temRegistro = selects.existeRegistroTbHistoricoPagamentos(planos.getCd_registro());
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastro_financeiro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if(temRegistro == true){
+            //não faz nada
+        }else{
+            //salvar cd_registro, proximo_vencimento
+            inserts.insereHistoricoPagamentos(planos.getCd_registro(),Integer.parseInt((String)combVencimento.getSelectedItem()));
+        }  
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void combNm_planoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combNm_planoActionPerformed

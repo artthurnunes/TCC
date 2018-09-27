@@ -831,6 +831,19 @@ public class SelectBd {
     
     }
     
+    public boolean existeRegistroTbHistoricoPagamentos(int codigo) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String sql = "SELECT * FROM TB_HISTORICO_PAGAMENTOS_ALUNOS WHERE CD_REGISTRO = '"+codigo+"' ";
+        
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next())
+                return true;
+            else
+                return false;    
+    }
+    
 }
     
 

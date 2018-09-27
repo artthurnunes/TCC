@@ -5,27 +5,20 @@ public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ----------------------------
     FAZER    
-    
-    1) Fazer um insert junto com o cadastro do aluno na tabela histórico pagamentos (cd_pagamento,cd_registro,
-        proximo_vencimento,dt_pagamento, valor). No insert já preencher o cd_pagamento, cd_registro e pensar
-    em uma forma de pegar o dia que o aluno escolheu pra pagamento e já jogar 1 mes pra frente (data escolhida 
-    do próximo mes) já salvar esta data também nesta tabela, esta data servira para aparecer na tela de alnunos
-    em atraso se for menor que a data atual do sistema.
-    
-    2) Testar a tela de alunos atrasados. Fazer um cadastro de 2 planos para o aluno e ver se não vai aparecer 
-       duplicado o nome do aluno por ele ter dois valores diferentes, um mais antigo e um mais novo, sempre 
-       mostrar somente o mais recente. Testar todas as telas do financeiro nesse sentido. 
-    
-    3) COMEÇAR UM BANCO NOVO COM DADOS REAIS PARA TESTES SE ESTÁ TUDO FUNCIONANDO. SALVAR PELO MENOS 3 REGISTROS
+        
+    1) COMEÇAR UM BANCO NOVO COM DADOS REAIS PARA TESTES SE ESTÁ TUDO FUNCIONANDO. SALVAR PELO MENOS 5 REGISTROS
        DE CADA TELA. ANOTAR OS CAMPOS OBRIGATORIOS E AS OBSERVAÇÕES DE CADA TELA PARA ESCREVER NA PARTE ESCRITA. 
         - NA PARTE FINANCEIRA, CADASTRAR ALUNOS QUE A MENSALIDADE JÁ VENCEU. 
         - NOS PLANOS, CADASTRAR PLANOS PARA OS ALUNOS E ATUALIZAR PLANOS PARA FICAR COM MAIS DE UM PLANO E VER SE ESTA 
           PUXANDO SOMENTE O ULTIMO.
         - NA CATRACA, CADASTRAR ALUNOS COM MAIS DE 7 DIAS DE AUSENCIA. 
         - TELA DE TREINOS, FAZER MAIS DE UM TREINO PRA VER SE ESTA PUXANDO O VENCIMENTO SOMENTE DO ULTIMO TREINO
-          NA TELA DE FREQUENCIA DO ALUNO.
+          NA TELA DE FREQUENCIA DO ALUNO E FAZER TAMBÉM ALUNOS COM TREINOS ATRASADOS.
+        - NA TELA DE ALUNOS FREQUENTES, TESTAR SE O GROUP BY ESTÁ FUNCIONANDO CORRETAMENTE
+        - FAZER UPDATE PARA QUE EXISTA ALUNOS ATRASADOS NA MENSALIDADE E ALUNOS COM MAIS DE 7 DIAS DE FALTA
+        - CADASTRAR DESPESAS PROGRAMADAS E NÃO PROGRAMADAS, PAGAS E NÃO PAGAS
     
-    4) COMEÇAR A TELA DE RECEBIMENTO DE MENSALIDADES
+    2) COMEÇAR A TELA DE RECEBIMENTO DE MENSALIDADES
         * A tela de mensalidades usar esta mesma tabela, só salvando a data de pagamento e o valor pago e já gerando 
         uma nova linha na tabela para o mes seguinte para mnater o historico de pagamentos.
         UPDATE TB_HISTORICO_PAGAMENTOS_ALUNOS SET VALOR_PAGO = ??,DT_PAGAMENTO = ?? WHERE CD_REGISTRO = 3 AND DT_PAGAMENTO IS NULL;

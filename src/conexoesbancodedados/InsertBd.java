@@ -673,4 +673,25 @@ public class InsertBd {
         }          
     }
     
+    public void insereHistoricoPagamentos(int codigo, int pVencimento){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+                
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_HISTORICO_PAGAMENTOS_ALUNOS (CD_REGISTRO,PROXIMO_VENCIMENTO)"
+                 + " VALUES (?,ADDDATE(DATE_FORMAT(now(),'%Y-%m-"+pVencimento+"'),INTERVAL 1 MONTH))   ");           
+            
+            stmt.setInt(1, codigo);
+            //stmt.setInt(2, pVencimento);
+                        
+            stmt.executeUpdate();
+            //JOptionPane.showMessageDialog(null,"Despesa Cadastrada !!!");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR NA TABELA DE HISTÓRICO DE PAGAMENTOS!"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }          
+    }
+    
 }

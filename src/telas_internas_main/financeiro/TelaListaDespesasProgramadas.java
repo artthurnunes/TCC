@@ -30,7 +30,7 @@ public class TelaListaDespesasProgramadas extends javax.swing.JFrame {
 
     public TelaListaDespesasProgramadas() {
         initComponents();
-        this.preencherTabela("SELECT NM_DESPESA,VALOR,DATE_FORMAT(VENCIMENTO,'%e/%m/%Y'),PAGO FROM TB_DESPESAS_PROGRAMADAS WHERE PROGRAMADA = TRUE"); 
+        this.preencherTabela("SELECT NM_DESPESA,VALOR,DATE_FORMAT(VENCIMENTO,'%e/%m/%Y'),PAGO FROM TB_DESPESAS_PROGRAMADAS WHERE PROGRAMADA = TRUE ORDER BY 1"); 
         total.setText("R$ "+Float.toString(this.somaDespesas())+" de despesas à pagar");
     }
     
