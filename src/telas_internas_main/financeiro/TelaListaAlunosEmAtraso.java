@@ -100,7 +100,7 @@ public class TelaListaAlunosEmAtraso extends javax.swing.JFrame {
         tabela.getColumnModel().getColumn(1).setResizable(false);
         tabela.getColumnModel().getColumn(2).setPreferredWidth(100);
         tabela.getColumnModel().getColumn(2).setResizable(false);
-        tabela.getColumnModel().getColumn(3).setPreferredWidth(80);
+        tabela.getColumnModel().getColumn(3).setPreferredWidth(90);
         tabela.getColumnModel().getColumn(3).setResizable(false);
         tabela.getColumnModel().getColumn(4).setPreferredWidth(50);
         tabela.getColumnModel().getColumn(4).setResizable(false);

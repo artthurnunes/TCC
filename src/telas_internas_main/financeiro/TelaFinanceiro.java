@@ -6,7 +6,6 @@
 package telas_internas_main.financeiro;
 
 import telas_internas_main.financeiro.TelaDespesasProgramadas;
-import telas.TelaListaAlunosFrequentes;
 
 /**
  *

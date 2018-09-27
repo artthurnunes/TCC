@@ -12,12 +12,13 @@ import javax.swing.JOptionPane;
 public class TelaCadastro_financeiro extends javax.swing.JDialog {
 
     ClasseCadastro_planos planos = new ClasseCadastro_planos();
-    ArrayList<String> listaPlanos = new ArrayList();
+    static ArrayList<String> listaPlanos = new ArrayList();
     InsertBd inserts = new InsertBd();
 
     public TelaCadastro_financeiro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        //System.out.println("Entrei no construtor"); //teste
         lblDesconto.setText("0");
             try {
                 planos.populandoCombPlanoAluno();
@@ -32,16 +33,18 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
                 btnSalvar.setEnabled(false);
                 this.getarCombosClasse();
             }else{
+//                System.out.println("entrei no else do construtor"); //teste
+//                System.out.println(listaPlanos.size()); //teste
                 for(int i=0; i < listaPlanos.size();i++) //populando o combobox com os dados
                     combNm_plano.addItem(listaPlanos.get(i));
-        
-        planos.setNm_plano((String)combNm_plano.getSelectedItem());
-            try {
-                lblValorVista.setText(Float.toString(planos.populandoValorPlano()));
-            } catch (SQLException ex) {
-                Logger.getLogger(TelaCadastro_financeiro.class.getName()).log(Level.SEVERE, null, ex);
+
+                planos.setNm_plano((String)combNm_plano.getSelectedItem());
+                try {
+                    lblValorVista.setText(Float.toString(planos.populandoValorPlano()));
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaCadastro_financeiro.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        }
     }
     
     public void setarCamposClasse(){
@@ -246,14 +249,23 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
             if(i == 0){
                 planos.setPlano_novo(true);
                 this.dispose();
+                    try {
+                        planos.populandoCombPlanos();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(TelaCadastro_financeiro.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 new TelaCadastro_financeiro(null,true).setVisible(true);
             }
         
     }//GEN-LAST:event_btnNovoMouseClicked
 
     private void btnFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFecharMouseClicked
-        planos.setPlano_novo(true);
-        this.dispose();
+        if("".equals(lblTotal.getText())){
+            JOptionPane.showMessageDialog(null, "É obrigatório cadastrar um plano para o aluno.");
+        }else{
+            planos.setPlano_novo(true);
+            this.dispose();
+        } 
     }//GEN-LAST:event_btnFecharMouseClicked
 
     /**

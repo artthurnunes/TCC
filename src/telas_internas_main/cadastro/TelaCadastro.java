@@ -516,6 +516,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         if("".equals(lblCodigoAluno.getText())){
             JOptionPane.showMessageDialog(null, "Não existe nenhum aluno selecionado !");
         }else{
+            //SETANDO O CODIGO DO REGISTRO PARA CLASSE PARA SALVAR PLANO SEM ERRO. PLANO PRECISA DO CODIGO
             classecadastro.setCd_registro(Integer.parseInt(lblCodigoAluno.getText()));
             try {
                 //SELECT PARA PESQUISAR SE O ALUNO JÁ TEM PLANO CADASTRADO
@@ -589,7 +590,32 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             }else{
                 this.setarCamposParaClasse();
                 inserts.insertCadastro(classecadastro);
+                
+                //SELECT PARA POPULAR A TELA COM O NOVO CADASTRO
+                classecadastro.setNome(Tcad_txtNome.getText());
+                try {
+                    selects.selectCadastroAlfabetico(classecadastro);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.setarCamposDaClasse();
+                
+                //SETAR NA CLASSE POIS O PLANO USA O CD_REGISTRO DO ALUNO PARA TRAZER O SELECT
+                classecadastro.setCd_registro(Integer.parseInt(lblCodigoAluno.getText()));
+                try {
+                    //SELECT PARA PESQUISAR SE O ALUNO JÁ TEM PLANO CADASTRADO
+                    planos.setCd_plano(selects.selectExistePlanoAluno(planos)); //FAZER SELECT PARA PLANO EXISTENTE
+                        if(planos.getCd_plano() == 0){
+                            planos.populandoCombPlanos(); //POPULANDO LISTA COM OS PLANOS NA CLASSE
+                        }else{
+                            planos.setPlano_novo(false);
+                        }
+                } catch (SQLException ex) {
+                   Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                new TelaCadastro_financeiro(null,true).setVisible(true);
                 this.limparCampos();
+
             }  
         }else{
             this.setarCamposParaClasse();
@@ -770,6 +796,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         classecadastro.setEnd_cidade(Tcad_txtCidade.getText());
         classecadastro.setEnd_estado(combEstado.getSelectedIndex());
         classecadastro.setEnd_cep(Tcad_txtCep.getText()); 
+        
     }
     
     public void setarCamposDaClasse(){

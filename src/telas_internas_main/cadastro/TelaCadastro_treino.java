@@ -4971,6 +4971,8 @@ public class TelaCadastro_treino extends javax.swing.JDialog {
         int op = 0;
         if(combMusculoA1.getSelectedItem() == ""){
             JOptionPane.showMessageDialog(null,"Escolha um grupo muscular !");
+        }else if ("  /  /    ".equals(dtFinal.getText())){
+            JOptionPane.showMessageDialog(null,"Data de vencimento do treino deve ser preenchida !");
         }else{
             op = JOptionPane.showConfirmDialog(null,"<html>Tem certeza que deseja salvar ?<br>Após ter salvo o treino não será possível realizar alterações,<br>será necessário criar outro treino. </html>");
                 if(op == 0){

@@ -6,21 +6,34 @@ public class PendenciasIdeiasAlteracoes {
     /*   ONDE PAREI ----------------------------
     FAZER    
     
-    1) FAZER PLANO DO ALUNO SER OBRIGATÓRIO, NÃO SALVAR O CADASTRO COM O PLANO EM BRANCO SE NÃO VAI DAR PROBLEMA NOS RELATORIOS DE MENSALIDADES.
-    
-    2) Fazer um insert junto com o cadastro do aluno na tabela histórico pagamentos (cd_pagamento,cd_registro,
+    1) Fazer um insert junto com o cadastro do aluno na tabela histórico pagamentos (cd_pagamento,cd_registro,
         proximo_vencimento,dt_pagamento, valor). No insert já preencher o cd_pagamento, cd_registro e pensar
     em uma forma de pegar o dia que o aluno escolheu pra pagamento e já jogar 1 mes pra frente (data escolhida 
     do próximo mes) já salvar esta data também nesta tabela, esta data servira para aparecer na tela de alnunos
     em atraso se for menor que a data atual do sistema.
     
-    * A tela de mensalidades usar esta mesma tabela, só salvando a data de pagamento e o valor pago e já gerando 
-    uma nova linha na tabela para o mes seguinte para mnater o historico de pagamentos.
-    UPDATE TB_HISTORICO_PAGAMENTOS_ALUNOS SET VALOR_PAGO = ??,DT_PAGAMENTO = ?? WHERE CD_REGISTRO = 3 AND DT_PAGAMENTO IS NULL;
+    2) Testar a tela de alunos atrasados. Fazer um cadastro de 2 planos para o aluno e ver se não vai aparecer 
+       duplicado o nome do aluno por ele ter dois valores diferentes, um mais antigo e um mais novo, sempre 
+       mostrar somente o mais recente. Testar todas as telas do financeiro nesse sentido. 
+    
+    3) COMEÇAR UM BANCO NOVO COM DADOS REAIS PARA TESTES SE ESTÁ TUDO FUNCIONANDO. SALVAR PELO MENOS 3 REGISTROS
+       DE CADA TELA. ANOTAR OS CAMPOS OBRIGATORIOS E AS OBSERVAÇÕES DE CADA TELA PARA ESCREVER NA PARTE ESCRITA. 
+        - NA PARTE FINANCEIRA, CADASTRAR ALUNOS QUE A MENSALIDADE JÁ VENCEU. 
+        - NOS PLANOS, CADASTRAR PLANOS PARA OS ALUNOS E ATUALIZAR PLANOS PARA FICAR COM MAIS DE UM PLANO E VER SE ESTA 
+          PUXANDO SOMENTE O ULTIMO.
+        - NA CATRACA, CADASTRAR ALUNOS COM MAIS DE 7 DIAS DE AUSENCIA. 
+        - TELA DE TREINOS, FAZER MAIS DE UM TREINO PRA VER SE ESTA PUXANDO O VENCIMENTO SOMENTE DO ULTIMO TREINO
+          NA TELA DE FREQUENCIA DO ALUNO.
+    
+    4) COMEÇAR A TELA DE RECEBIMENTO DE MENSALIDADES
+        * A tela de mensalidades usar esta mesma tabela, só salvando a data de pagamento e o valor pago e já gerando 
+        uma nova linha na tabela para o mes seguinte para mnater o historico de pagamentos.
+        UPDATE TB_HISTORICO_PAGAMENTOS_ALUNOS SET VALOR_PAGO = ??,DT_PAGAMENTO = ?? WHERE CD_REGISTRO = 3 AND DT_PAGAMENTO IS NULL;
     
         
     * A tela de Situação financeira pode usar o total de alunos em atraso também para calcular uma probabilidade.
  
+
     
     
     */
@@ -40,12 +53,14 @@ public class PendenciasIdeiasAlteracoes {
         * Fazer uma telinha no canto inferior direito sempre aparecendo com o nome dos alunos que estão para vencer 
            o treino e os alunos que faz tempo que não vão para academia de acordo com a catraca 
         * Travar entrada de aluno com mensalidade vencida
+        * Fazer botão frente e traz nas telas de despezas 
     */
     
     
     /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
         * Obrigar . nos valores float (tela de planos e cadastro equipamentos, despesas programadas)
         * Campos datas com mascara tentar colocar obrigatorio. como a mascara ja vem / não da como vazio. (tela de despesas, planos, cadastro equipamentos)
+          (resolvi problema acima na tela de treinosA, copiar o elseif de la nas outras telas)
         * Digitar somente numeros no codigo do aluno na catraca
         * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno(IMPORTANTE TODAS AS LISTAS VÃO USAR)
     */

@@ -1,5 +1,5 @@
 
-package telas;
+package telas_internas_main.financeiro;
 
 import classes.ClassejTableSelect;
 import conexoesbancodedados.ConectaBd;
@@ -23,7 +23,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
     public TelaListaAlunosFrequentes() {
         initComponents();
-        this.preencherTabela("SELECT B.NOME,B.TEL1, DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y'), DATEDIFF(NOW(),A.DT_ENTRADA) ,C.DT_FIM FROM TB_FREQUENCIA_ALUNOS A INNER JOIN TB_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO LEFT JOIN TB_TREINOSA C ON C.CD_REGISTRO = A.CD_REGISTRO"); 
+        this.preencherTabela("SELECT B.NOME,B.TEL1, DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y'), DATEDIFF(NOW(),A.DT_ENTRADA), MAX(C.DT_FIM) FROM TB_FREQUENCIA_ALUNOS A INNER JOIN TB_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO LEFT JOIN TB_TREINOSA C ON C.CD_REGISTRO = A.CD_REGISTRO GROUP BY A.CD_REGISTRO ORDER BY 4"); 
     }
     
     //metodo para retornar rs para exibir ArrayList
@@ -54,7 +54,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
                 try{
                 rs.first();
                     do{
-                        dados.add(new Object[]{rs.getString("B.NOME"),rs.getString("B.TEL1"),rs.getString("DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y')"),rs.getString("DATEDIFF(NOW(),A.DT_ENTRADA)"),rs.getString("C.DT_FIM")});
+                        dados.add(new Object[]{rs.getString("B.NOME"),rs.getString("B.TEL1"),rs.getString("DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y')"),rs.getString("DATEDIFF(NOW(),A.DT_ENTRADA)"),rs.getString("MAX(C.DT_FIM)")});
                         contLinhas++;
                     }while(rs.next());
                 }catch(SQLException ex){
