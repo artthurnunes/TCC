@@ -206,7 +206,7 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         if("".equals(nome.getText())){
             JOptionPane.showMessageDialog(null, "Campo NOME não pode estar vazio.");
-            }else if("".equals(vencimento.getText())){
+            }else if("  /  /    ".equals(vencimento.getText())){
                 JOptionPane.showMessageDialog(null, "Campo VENCIMENTO não pode estar vazio.");
                 }else if("".equals(valor.getText())){
                     JOptionPane.showMessageDialog(null, "Campo VALOR não pode estar vazio.");

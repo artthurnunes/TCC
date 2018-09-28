@@ -6,21 +6,6 @@ public class PendenciasIdeiasAlteracoes {
     /*   ONDE PAREI ----------------------------
     FAZER    
     
-    ** O BANCO ESTA NOVO, FAZER CADASTROS REAIS, NÃO COLOCAR QUALQUER COISA. IMPORTAR NO TRAMPO.
-    ** CADASTRAR MAIS DADOS PELOS MENOS UNS 5 COM TODAS AS SITUAÇÕES ABAIXO PARA DEPOIS AVANÇAR.
-    
-    1) COMEÇAR UM BANCO NOVO COM DADOS REAIS PARA TESTES SE ESTÁ TUDO FUNCIONANDO. SALVAR PELO MENOS 5 REGISTROS
-       DE CADA TELA. ANOTAR OS CAMPOS OBRIGATORIOS E AS OBSERVAÇÕES DE CADA TELA PARA ESCREVER NA PARTE ESCRITA. 
-        - NA PARTE FINANCEIRA, CADASTRAR ALUNOS QUE A MENSALIDADE JÁ VENCEU. 
-        - NOS PLANOS, CADASTRAR PLANOS PARA OS ALUNOS E ATUALIZAR PLANOS PARA FICAR COM MAIS DE UM PLANO E VER SE ESTA 
-          PUXANDO SOMENTE O ULTIMO.
-        - NA CATRACA, CADASTRAR ALUNOS COM MAIS DE 7 DIAS DE AUSENCIA. 
-        - TELA DE TREINOS, FAZER MAIS DE UM TREINO PRA VER SE ESTA PUXANDO O VENCIMENTO SOMENTE DO ULTIMO TREINO
-          NA TELA DE FREQUENCIA DO ALUNO E FAZER TAMBÉM ALUNOS COM TREINOS ATRASADOS.
-        - NA TELA DE ALUNOS FREQUENTES, TESTAR SE O GROUP BY ESTÁ FUNCIONANDO CORRETAMENTE
-        - FAZER UPDATE PARA QUE EXISTA ALUNOS ATRASADOS NA MENSALIDADE E ALUNOS COM MAIS DE 7 DIAS DE FALTA
-        - CADASTRAR DESPESAS PROGRAMADAS E NÃO PROGRAMADAS, PAGAS E NÃO PAGAS
-    
     2) COMEÇAR A TELA DE RECEBIMENTO DE MENSALIDADES
         * A tela de mensalidades usar esta mesma tabela, só salvando a data de pagamento e o valor pago e já gerando 
         uma nova linha na tabela para o mes seguinte para mnater o historico de pagamentos.
@@ -34,6 +19,16 @@ public class PendenciasIdeiasAlteracoes {
     
     */
     
+    /* TESTES DE CONSISTENCIA DO BANCO
+        - Treino Vencido. Ok
+        - Mais de um treino cadastrado. Ok
+        - Mais de um plano cadastrado para o aluno. Ok
+        - Aluno Inativo. Ok
+        - Aluno Ausente. Ok
+        - Mensalidade Vencida. Ok
+    
+    
+    */
     
     
     
@@ -50,6 +45,9 @@ public class PendenciasIdeiasAlteracoes {
            o treino e os alunos que faz tempo que não vão para academia de acordo com a catraca 
         * Travar entrada de aluno com mensalidade vencida
         * Fazer botão frente e traz nas telas de despezas 
+        * Colocar mascara nos telefones do cadastro do aluno
+        * Colcar mascara no campo de CEP do cadastro do aluno
+        * Pintar a data de vermelho quando o treino do aluno estiver vencido
     */
     
     
@@ -78,6 +76,15 @@ public class PendenciasIdeiasAlteracoes {
     * 
      - A area de cadastro de Membros e exercicios ja corrige para salvar tudo em MAIUSCULO
      - Falar sobrea as diversas formas de manipular dados entre as classes, com array(tela novouserpass), com retorno, com getter e setter
+     - Quando o aluno muda de plano, o proximo vencimento não é alterado, so altera valor e dia de vencimento caso haja diferença
+     - Aluno sem treino aparece data em braco. Dança por exemplo não tem treino.
+     - O aluno com até 7 dias está na lista de alunos frequentes. passado disso vai para lista de ausencia
+    
+    
+    
+    
+    
+    
     */
     
     /* PROBLEMAS PORÉM ESTÁ FUNCIONANDO

@@ -239,7 +239,7 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
         inserts.inserePlanosAlunos(planos);
         
         //INSERINDO OS DADOS NA TABELA DE TB_HISTORICO_PAGAMENTOS_ALUNOS
-        //SE JÁ EXISTIR REGISTRO NA TABELA, NÃO É PRA SALVAR NADA,SELECT RETORNA FALSE 
+        //SE JÁ EXISTIR REGISTRO NA TABELA, É FEITO SOMENTE UM UDATE DO DIA DO VENCIMENTO 
         //SE O ALUNO FOR NOVO, INSERIR O REGISTRO
         boolean temRegistro = false;
         try {
