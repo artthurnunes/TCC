@@ -4,6 +4,7 @@ package telas_internas_main.cadastro;
 import classes.ClasseCadastro_planos;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
+import conexoesbancodedados.UpdateBd;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -16,6 +17,7 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
     static ArrayList<String> listaPlanos = new ArrayList();
     InsertBd inserts = new InsertBd();
     SelectBd selects = new SelectBd();
+    UpdateBd updates = new UpdateBd();
 
     public TelaCadastro_financeiro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -246,12 +248,12 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
             Logger.getLogger(TelaCadastro_financeiro.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        if(temRegistro == true){
-            //não faz nada
-        }else{
-            //salvar cd_registro, proximo_vencimento
+        //SE O ALUNO JA POSSUI UM PLANO, QUANDO E CRIADO UM NOVO PLANO, A DATA DE PAGAMENTO E ATUALIZADA NA TABELA DE PAGAMENTOS
+        if(temRegistro == true)
+            updates.alteraVencimento(planos.getCd_registro(),Integer.parseInt((String)combVencimento.getSelectedItem()));
+        else
             inserts.insereHistoricoPagamentos(planos.getCd_registro(),Integer.parseInt((String)combVencimento.getSelectedItem()));
-        }  
+          
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void combNm_planoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combNm_planoActionPerformed

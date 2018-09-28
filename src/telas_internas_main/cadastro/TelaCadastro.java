@@ -230,7 +230,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
         jLabel15.setText("Parentesco:");
 
-        combParente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Pai", "Mãe", "Irmão", "Avô", "Avó", "Tio", "Tia", "Primo", "Prima", "Amigo", "Cunhado", "Cunhada" }));
+        combParente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pai", "Mãe", "Irmão", "Esposa(o)", "Avô", "Avó", "Tio", "Tia", "Primo", "Prima", "Amigo", "Cunhado", "Cunhada" }));
         combParente.setToolTipText("");
 
         jLabel19.setText("Código Resgistro:");

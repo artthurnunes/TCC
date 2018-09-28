@@ -276,5 +276,22 @@ public class UpdateBd {
         }  
     }
     
+    public void alteraVencimento(int codigo, int vencimento){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+        
+        try{    
+            stmt = con.prepareStatement("UPDATE TB_HISTORICO_PAGAMENTOS_ALUNOS SET PROXIMO_VENCIMENTO = DATE_FORMAT(PROXIMO_VENCIMENTO,'%Y-%m-"+vencimento+"')"
+                    + " WHERE CD_REGISTRO = "+codigo+" ");
+                       
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null,"<html>Vencimento atualizado !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO ATUALIZAR VENCIMENTO !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
     
 }
