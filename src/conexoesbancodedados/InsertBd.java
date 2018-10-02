@@ -639,7 +639,7 @@ public class InsertBd {
             
             stmt.setString(1, dados.getNome());
             stmt.setFloat(2, dados.getValor());
-            stmt.setDate(3, (Date) dados.getVencimento());
+            stmt.setDate(3, (Date)dados.getVencimento());
                         
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"Despesa Cadastrada !!!");
@@ -692,6 +692,26 @@ public class InsertBd {
         }finally{
             ConectaBd.closeConnection(con, stmt);
         }          
+    }
+    
+    //INSERE OUTRA LINHA NA TABELA DE HISTÓRICO QUANDO ALUNO PAGA A MENSALIDADE, JÁ INSERE PARA O PRÓXIMO MÊS.
+    public void insereHistoricoPagamentos(int codigo){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+                
+//        try{
+//            stmt = con.prepareStatement("INSERT INTO TB_HISTORICO_PAGAMENTOS_ALUNOS (CD_REGISTRO,PROXIMO_VENCIMENTO)"
+//                 + " VALUES (?,ADDDATE(DATE_FORMAT(now(),'%Y-%m-"+pVencimento+"'),INTERVAL 1 MONTH))   ");           
+//            
+//            stmt.setInt(1, codigo);
+//                        
+//            stmt.executeUpdate();
+//        
+//        }catch(SQLException ex){
+//            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR NA TABELA DE HISTÓRICO DE PAGAMENTOS!"+ex);
+//        }finally{
+//            ConectaBd.closeConnection(con, stmt);
+//        }          
     }
     
 }

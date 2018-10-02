@@ -7,6 +7,7 @@ import classes.ClasseCadastro_planos;
 import classes.ClasseCatraca;
 import classes.ClasseDespesas;
 import classes.ClasseEquipamentos;
+import classes.ClassePagamentoMensalidade;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -289,6 +290,26 @@ public class UpdateBd {
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO ATUALIZAR VENCIMENTO !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
+    
+    public void atualizaValoresMensalidade(ClassePagamentoMensalidade dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+        
+        try{    
+            stmt = con.prepareStatement("UPDATE TB_HISTORICO_PAGAMENTOS_ALUNOS "
+                    + "SET DT_PAGAMENTO = '"+(Date)dados.getDtPagamento()+"' "
+                    + ",VALOR_PAGO = "+dados.getValorPago()+" WHERE CD_REGISTRO = "+dados.getCodigo()+" "
+                    + "ORDER BY CD_PAGAMENTO DESC LIMIT 1");
+                       
+            stmt.executeUpdate();
+            //JOptionPane.showMessageDialog(null,"<html>Vencimento atualizado !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO RECEBER MENSALIDADE !"+ex);
         }finally{
             ConectaBd.closeConnection(con, stmt);
         }  

@@ -62,6 +62,11 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
         jButton3.setText("RECEBIMENTO DE MENSALIDADES");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         btnFrequencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/stocks-512x512_97224.png"))); // NOI18N
         btnFrequencia.setText("FREQUÊNCIA DOS ALUNOS");
@@ -143,6 +148,10 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new TelaListaAlunosEmAtraso().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new TelaRecebimentoMensalidade().setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

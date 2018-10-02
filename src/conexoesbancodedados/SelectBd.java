@@ -1,6 +1,7 @@
 
 package conexoesbancodedados;
 
+import classes.ClassePagamentoMensalidade;
 import classes.ClasseCadastro;
 import classes.ClasseCadastro_exercicios;
 import classes.ClasseCadastro_modalidades;
@@ -226,6 +227,33 @@ public class SelectBd {
             
         return(i);
     }
+    
+    public int selectQtLinhasTelaMensalidade(ClassePagamentoMensalidade dados) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement Stmt = con.createStatement();
+        ResultSet rsContagem = null;
+
+        
+        String sql = "SELECT A.CD_REGISTRO, A.NOME, DATE_FORMAT(B.PROXIMO_VENCIMENTO,'%e-%m-%Y'), C.VALOR "
+                + "FROM TB_ALUNOS A INNER JOIN TB_HISTORICO_PAGAMENTOS_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO "
+                + "INNER JOIN TB_PLANOS_ALUNOS C ON C.CD_REGISTRO = A.CD_REGISTRO "
+                + "WHERE NOME LIKE '%"+dados.getNome()+"%' ORDER BY A.NOME";
+        
+        /*
+        String sql = "SELECT * FROM TB_EQUIPAMENTOS WHERE ATIVO = TRUE AND NM_EQUIPAMENTO LIKE '%"+dados.getNm_equipamento()+"%'"
+                                            + "ORDER BY NM_EQUIPAMENTO ASC ";
+
+        */
+
+        rsContagem = Stmt.executeQuery(sql);
+        int i = 0; //contar a quantidade de linhas que o select Retornou
+
+            while(rsContagem.next())
+                i++;
+            
+        return(i);
+    }
+    
     
     //selec para retornar o numero do cd do grupo muscular para a tela de cadastro de exercicios
     public void retornaCdGrupoMuscular(ClasseCadastro_exercicios dados) throws SQLException{
@@ -843,6 +871,38 @@ public class SelectBd {
             else
                 return false;    
     }
+    
+    public void retornaPagamentoMensalidade(ClassePagamentoMensalidade dados) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+
+        String sql = "SELECT A.CD_REGISTRO, A.NOME, B.PROXIMO_VENCIMENTO, C.VALOR FROM TB_ALUNOS A "
+                + "INNER JOIN TB_HISTORICO_PAGAMENTOS_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO "
+                + "INNER JOIN TB_PLANOS_ALUNOS C ON C.CD_REGISTRO = A.CD_REGISTRO "
+                + "WHERE NOME LIKE '%"+dados.getNome()+"%' ORDER BY A.NOME";
+        
+        rs = stmt.executeQuery(sql);
+         
+       //O rs começa com 0 mas o primeiro registro válido é o next que no caso é o 1. O 0 não retorna nada do sql
+       while(rs.next()){ //while e if para que eu consiga manipular as linhas retornadas
+       //System.out.println("Entrei no While :"+rs.getRow()); //teste
+              if(rs.getRow() == this.linha_atual_select){
+                //if(rs.next()){ //if caso retorno somente 1 row
+                //System.out.println("Primeira linha do rs.next numero :"+rs.getRow()); //teste
+                
+                dados.setCodigo(rs.getInt("A.CD_REGISTRO"));
+                dados.setNome(rs.getString("A.NOME"));
+                dados.setDtVencimento(rs.getDate("B.PROXIMO_VENCIMENTO"));
+                dados.setValorMensalidade(rs.getFloat("C.VALOR"));   
+              }
+        }
+    }
+    
+    
+    
+    
+    
+    
     
 }
     

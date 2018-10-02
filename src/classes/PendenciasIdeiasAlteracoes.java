@@ -6,6 +6,10 @@ public class PendenciasIdeiasAlteracoes {
     /*   ONDE PAREI ----------------------------
     FAZER    
     
+    FAZENDO A TELA DE PAGAMENTO DE MENSALIDADE. JÁ ESTA FAZENDO O UPDATE PARA PAGAR MENSALIDADE. 
+    FALTA FAZER O INSERT DE UMA NOVA LINHA PARA MENSALIDADE DO MES SEGUINTE E FAZER O BOTÃO 
+    FRENTE E TRAZ QUANDO PESQUISAR. O BOTÃO FRENTE E TRAZ TEM NA TELA DE CADASTRO, ESTOU SEGUINDO IGUAL. 
+    
     2) COMEÇAR A TELA DE RECEBIMENTO DE MENSALIDADES
         * A tela de mensalidades usar esta mesma tabela, só salvando a data de pagamento e o valor pago e já gerando 
         uma nova linha na tabela para o mes seguinte para mnater o historico de pagamentos.
