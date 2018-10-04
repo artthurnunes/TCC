@@ -12,7 +12,9 @@ import classes.ClasseEquipamentos;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -695,23 +697,33 @@ public class InsertBd {
     }
     
     //INSERE OUTRA LINHA NA TABELA DE HISTÓRICO QUANDO ALUNO PAGA A MENSALIDADE, JÁ INSERE PARA O PRÓXIMO MÊS.
-    public void insereHistoricoPagamentos(int codigo){
+    public void insereHistoricoPagamentos(int codigo) throws SQLException{
         Connection con = ConectaBd.getConnection();
         PreparedStatement stmt = null;
-                
-//        try{
-//            stmt = con.prepareStatement("INSERT INTO TB_HISTORICO_PAGAMENTOS_ALUNOS (CD_REGISTRO,PROXIMO_VENCIMENTO)"
-//                 + " VALUES (?,ADDDATE(DATE_FORMAT(now(),'%Y-%m-"+pVencimento+"'),INTERVAL 1 MONTH))   ");           
-//            
-//            stmt.setInt(1, codigo);
-//                        
-//            stmt.executeUpdate();
-//        
-//        }catch(SQLException ex){
-//            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR NA TABELA DE HISTÓRICO DE PAGAMENTOS!"+ex);
-//        }finally{
-//            ConectaBd.closeConnection(con, stmt);
-//        }          
+        Statement diaVen = con.createStatement();
+        ResultSet rs = null;
+        int diaVencimento = 0;
+        String sql = "SELECT VENCIMENTO FROM TB_PLANOS_ALUNOS WHERE CD_REGISTRO = "+codigo+"";
+        rs = diaVen.executeQuery(sql);
+        if(rs.next()){
+                diaVencimento = rs.getInt("VENCIMENTO");
+            }
+        
+        //System.out.println(diaVencimento);
+        
+        try{
+            stmt = con.prepareStatement("INSERT INTO TB_HISTORICO_PAGAMENTOS_ALUNOS (CD_REGISTRO,PROXIMO_VENCIMENTO)"
+                 + " VALUES (?,ADDDATE(DATE_FORMAT(now(),'%Y-%m-"+diaVencimento+"'),INTERVAL 1 MONTH))   ");           
+            
+            stmt.setInt(1, codigo);
+                        
+            stmt.executeUpdate();
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR NA TABELA DE HISTÓRICO DE PAGAMENTOS!"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }          
     }
     
 }

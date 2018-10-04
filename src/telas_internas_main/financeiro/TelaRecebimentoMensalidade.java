@@ -48,7 +48,7 @@ public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
         mensalidade.setDtPagamento(dataSql);
         
         mensalidade.setValorPago(Float.parseFloat(valorPago.getText()));
-        System.out.println(mensalidade.getValorPago());
+        //System.out.println(mensalidade.getValorPago());
 
         
     }
@@ -294,14 +294,12 @@ public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
                 Logger.getLogger(TelaRecebimentoMensalidade.class.getName()).log(Level.SEVERE, null, ex);
             }
             updates.atualizaValoresMensalidade(mensalidade);
-            //COLOCAR O INSERT AQUI 
-            //FAZER MENSAGEM DE MENSALIDADE SALVA COM SUCESSO
+                try {
+                    inserts.insereHistoricoPagamentos(mensalidade.getCodigo());
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaRecebimentoMensalidade.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
-        
-        
-        
-        //ARRUMAR O INSERT AINDA
-        //inserts.insereHistoricoPagamentos(mensalidade.getCodigo());
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

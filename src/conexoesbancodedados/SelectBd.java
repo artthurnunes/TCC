@@ -879,7 +879,7 @@ public class SelectBd {
         String sql = "SELECT A.CD_REGISTRO, A.NOME, B.PROXIMO_VENCIMENTO, C.VALOR FROM TB_ALUNOS A "
                 + "INNER JOIN TB_HISTORICO_PAGAMENTOS_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO "
                 + "INNER JOIN TB_PLANOS_ALUNOS C ON C.CD_REGISTRO = A.CD_REGISTRO "
-                + "WHERE NOME LIKE '%"+dados.getNome()+"%' ORDER BY A.NOME";
+                + "WHERE NOME LIKE '%"+dados.getNome()+"%' ORDER BY A.NOME ASC,B.CD_PAGAMENTO DESC LIMIT 1";
         
         rs = stmt.executeQuery(sql);
          
