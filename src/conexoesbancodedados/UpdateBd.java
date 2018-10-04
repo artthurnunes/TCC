@@ -11,7 +11,9 @@ import classes.ClassePagamentoMensalidade;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class UpdateBd {
@@ -277,13 +279,23 @@ public class UpdateBd {
         }  
     }
     
-    public void alteraVencimento(int codigo, int vencimento){
+    //FAZ UM SELECT PARA PEGAR O ULTIMO REGISTRO E ALTERA SOMENTE O ULTIMO VENCIMENTO, OS 
+    //OUTROS DO HISTÓRICO SÃO MANTIDOS
+    public void alteraVencimento(int codigo, int vencimento) throws SQLException{
         Connection con = ConectaBd.getConnection();
         PreparedStatement stmt = null; 
-        
+        Statement ultReg = con.createStatement();
+        ResultSet rs = null;
+        int ultRegistro = 0;
+        String sql = "SELECT CD_PAGAMENTO FROM TB_HISTORICO_PAGAMENTOS_ALUNOS WHERE CD_REGISTRO = "+codigo+" ORDER BY CD_PAGAMENTO DESC LIMIT 1";
+        rs = ultReg.executeQuery(sql);
+        if(rs.next()){
+                ultRegistro = rs.getInt("CD_PAGAMENTO");
+            }
+
         try{    
             stmt = con.prepareStatement("UPDATE TB_HISTORICO_PAGAMENTOS_ALUNOS SET PROXIMO_VENCIMENTO = DATE_FORMAT(PROXIMO_VENCIMENTO,'%Y-%m-"+vencimento+"')"
-                    + " WHERE CD_REGISTRO = "+codigo+" ");
+                    + " WHERE CD_REGISTRO = "+codigo+" AND CD_PAGAMENTO = "+ultRegistro+" ");
                        
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"<html>Vencimento atualizado !</html>");

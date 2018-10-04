@@ -250,7 +250,11 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
         
         //SE O ALUNO JA POSSUI UM PLANO, QUANDO E CRIADO UM NOVO PLANO, A DATA DE PAGAMENTO E ATUALIZADA NA TABELA DE PAGAMENTOS
         if(temRegistro == true)
-            updates.alteraVencimento(planos.getCd_registro(),Integer.parseInt((String)combVencimento.getSelectedItem()));
+            try {
+                updates.alteraVencimento(planos.getCd_registro(),Integer.parseInt((String)combVencimento.getSelectedItem()));
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaCadastro_financeiro.class.getName()).log(Level.SEVERE, null, ex);
+            }
         else
             inserts.insereHistoricoPagamentos(planos.getCd_registro(),Integer.parseInt((String)combVencimento.getSelectedItem()));
           

@@ -49,6 +49,8 @@ public class PendenciasIdeiasAlteracoes {
         * Colocar mascara nos telefones do cadastro do aluno
         * Colcar mascara no campo de CEP do cadastro do aluno
         * Pintar a data de vermelho quando o treino do aluno estiver vencido
+        * Quando o aluno tem dois valores de plano ou mais e está em atraso, não esta trazendo o valor correto
+          do plano na listaAlunosAtrasos
     */
     
     

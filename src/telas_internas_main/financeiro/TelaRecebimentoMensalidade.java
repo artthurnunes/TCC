@@ -33,6 +33,8 @@ public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
         codigo.setText("");
         dtVencimento.setText("");
         vlMensalidade.setText("");
+        valorPago.setText("");
+        dtPagamento.setText("");
     }
     
     private void setaCamposParaClasse() throws ParseException{
@@ -299,18 +301,19 @@ public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
                 } catch (SQLException ex) {
                     Logger.getLogger(TelaRecebimentoMensalidade.class.getName()).log(Level.SEVERE, null, ex);
                 }
+        JOptionPane.showMessageDialog(null, "<html>MENSALIDADE DE: <i>"+nome.getText()+"</i> <br><br><b><center>PAGO !!!</center></html>");    
+        this.limparCampos();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    /* -----------------------------------
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+    /* --------------------------------
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -330,12 +333,13 @@ public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+    /* --------------------------------------
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaRecebimentoMensalidade().setVisible(true);
             }
         });
-    }
+    }  --------------------------------------------------*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvancar;
