@@ -5,8 +5,9 @@ public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ---------------------------- 
     
-    * ATUALIZAR TABELA DE DESPEZAS NO SERVICO   
+    * CRIAR VIEW NO BANCO DE CASA. ESTA NAS CREATE TABLE DO WORKBENCH  
     * Telas PRONTAS. Começar a fazer as PENDÊNCIAS RELEVANTES
+    * Marcel fez o select da tela de mensalidades, tentar fazer igual para os atrasos de alunos
     
     /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
         * Obrigar . nos valores float (tela de planos e cadastro equipamentos, despesas programadas)
@@ -16,6 +17,8 @@ public class PendenciasIdeiasAlteracoes {
         * Criar botão de carregar foto e salvar no BD dentro campo foto (PRONTO, SO FALTA SALVAR A FOTO)
         * Tela de contato
         * Pintar a data de vermelho quando o treino do aluno estiver vencido
+        * Corrigir select da tela de alunos em atraso com o select que o marcel fez para a tela de mensalidades, 
+          mesma idéia, tentar fazer igual. Esta nos selects la no final no workbench
     */
     
     
@@ -38,10 +41,6 @@ public class PendenciasIdeiasAlteracoes {
     
     
     /* PENDÊNCIAS SEM RELEVÂNCIAS SE FUNCIONAR LEGAL....
-        * Melhorar a pesquisa da tela de pagamento de mensalidade, esta trazendo valores repetidos. se resolver, 
-            fazer o botão frente e traz funcionar também igual o da tela de cadastro de alunos. 
-            - Este erro também esta acontecendo na tela de alunos em atrazo. 
-            - Esta funcionando porém com o valor da mensalidade repedita(mensalidade) ou igual em todos (atrasos)
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
         * Se der certo enviar o email, vazer verificação para prómixo login com senha nova, seja pedido para criar uma nova senha pessoal.
         * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.    

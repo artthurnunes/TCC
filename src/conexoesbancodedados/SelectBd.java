@@ -890,10 +890,12 @@ public class SelectBd {
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();
 
-        String sql = "SELECT A.CD_REGISTRO, A.NOME, B.PROXIMO_VENCIMENTO, C.VALOR FROM TB_ALUNOS A "
+        String sql = "SELECT A.CD_REGISTRO, A.NOME, MAX(B.PROXIMO_VENCIMENTO), C.VALOR "
+                + "FROM TB_ALUNOS A "
                 + "INNER JOIN TB_HISTORICO_PAGAMENTOS_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO "
                 + "INNER JOIN TB_PLANOS_ALUNOS C ON C.CD_REGISTRO = A.CD_REGISTRO "
-                + "WHERE NOME LIKE '%"+dados.getNome()+"%' ORDER BY A.NOME ASC,B.CD_PAGAMENTO DESC LIMIT 1";
+                + "INNER JOIN V_MAX_CD_REGISTRO V ON (C.CD_REGISTRO=V.cd_registro and c.cd_plano_aluno = v.max1) "
+                + "WHERE NOME LIKE '%"+dados.getNome()+"%' GROUP BY A.CD_REGISTRO,A.NOME,C.VALOR";
         
         rs = stmt.executeQuery(sql);
          
@@ -906,7 +908,7 @@ public class SelectBd {
                 
                 dados.setCodigo(rs.getInt("A.CD_REGISTRO"));
                 dados.setNome(rs.getString("A.NOME"));
-                dados.setDtVencimento(rs.getDate("B.PROXIMO_VENCIMENTO"));
+                dados.setDtVencimento(rs.getDate("MAX(B.PROXIMO_VENCIMENTO)"));
                 dados.setValorMensalidade(rs.getFloat("C.VALOR"));   
               }
         }
