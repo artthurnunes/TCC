@@ -266,7 +266,7 @@ public class UpdateBd {
         PreparedStatement stmt = null; 
         
         try{    
-            stmt = con.prepareStatement("UPDATE TB_DESPESAS_PROGRAMADAS SET PAGO = TRUE"
+            stmt = con.prepareStatement("UPDATE TB_DESPESAS_PROGRAMADAS SET PAGO = TRUE, DATA_PAGAMENTO = '"+despesas.getDtPagamento()+"'"
                     + " WHERE CD_DESPESA = '"+despesas.getCodigo()+"' ");
                        
             stmt.executeUpdate();

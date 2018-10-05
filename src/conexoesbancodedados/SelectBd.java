@@ -12,6 +12,7 @@ import classes.ClasseDespesas;
 import classes.ClasseEquipamentos;
 import classes.ClasseEsqueceuSenha;
 import classes.ClasseSenhaInicial;
+import classes.ClasseSituacaoFinanceira;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,6 +33,7 @@ public class SelectBd {
     String sqlselectCadastroAlfabetico;
     private int qt_linhas_select;
     private int linha_atual_select = 1;
+    private boolean retornoVazio = false;
 
     public int getQt_linhas_select() {
         return qt_linhas_select;
@@ -48,6 +50,16 @@ public class SelectBd {
     public void setLinha_atual_select(int linha_atual_select) {
         this.linha_atual_select = linha_atual_select;
     }
+
+    public boolean getRetornoVazio() {
+        return retornoVazio;
+    }
+
+    public void setRetornoVazio(boolean retornoVazio) {
+        this.retornoVazio = retornoVazio;
+    }
+    
+    
        
     public void verificaUsuario(ClasseSenhaInicial login) throws SQLException{
         
@@ -822,6 +834,8 @@ public class SelectBd {
             despesas.setNome(rs.getString("NM_DESPESA"));
             despesas.setValor(rs.getFloat("VALOR"));
             despesas.setVencimento(rs.getDate("VENCIMENTO"));
+        }else{
+            retornoVazio = true;
         }
             
     }
@@ -898,6 +912,35 @@ public class SelectBd {
         }
     }
     
+    public void retornaDespesasPagas(ClasseSituacaoFinanceira finan) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement Stmt = con.createStatement();
+        ResultSet despesas,saldo = null;
+        String sqlD,sqlS;
+
+        
+        sqlD = "SELECT SUM(VALOR) FROM TB_DESPESAS_PROGRAMADAS "
+                + "WHERE DATA_PAGAMENTO BETWEEN '"+finan.getDataInicial()+"' AND '"+finan.getDataFinal()+"' "
+                + "AND PAGO = 1";
+
+        despesas = Stmt.executeQuery(sqlD);
+
+        if(despesas.next()){
+            finan.setGastos(despesas.getFloat("SUM(VALOR)"));
+        }
+        
+        sqlS = "SELECT SUM(VALOR_PAGO) FROM TB_HISTORICO_PAGAMENTOS_ALUNOS "
+                + "WHERE DT_PAGAMENTO BETWEEN '"+finan.getDataInicial()+"' AND '"+finan.getDataFinal()+"' ";
+         
+        saldo = Stmt.executeQuery(sqlS);
+        
+        if(saldo.next()){
+            finan.setMensalidade(saldo.getFloat("SUM(VALOR_PAGO)"));
+        }
+        
+        finan.setTotal(finan.getMensalidade() - finan.getGastos());
+        
+    }
     
     
     

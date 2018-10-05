@@ -6,8 +6,17 @@ import java.util.Date;
 public class ClasseDespesas {
     private static String nome;
     private static Date vencimento;
+    private static Date dtPagamento;
     private static float valor;
     private static int codigo;
+
+    public Date getDtPagamento() {
+        return dtPagamento;
+    }
+
+    public void setDtPagamento(Date dtPagamento) {
+        this.dtPagamento = dtPagamento;
+    }
 
     public int getCodigo() {
         return codigo;

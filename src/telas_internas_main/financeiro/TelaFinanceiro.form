@@ -35,15 +35,15 @@
                       <Component id="btnDespesasNaoProgramadas" min="-2" pref="230" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jButton1" min="-2" pref="230" max="-2" attributes="0"/>
+                      <Component id="btnAtrasos" min="-2" pref="230" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                       <Component id="btnFrequencia" min="-2" pref="230" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jButton3" min="-2" pref="230" max="-2" attributes="0"/>
-                  <Component id="jButton6" min="-2" pref="230" max="-2" attributes="0"/>
+                  <Component id="btnMensalidades" min="-2" pref="230" max="-2" attributes="0"/>
+                  <Component id="btnFinancas" min="-2" pref="230" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
           </Group>
@@ -54,14 +54,14 @@
           <Group type="102" attributes="0">
               <EmptySpace min="45" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton3" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
+                  <Component id="btnMensalidades" alignment="0" min="-2" pref="219" max="-2" attributes="0"/>
                   <Component id="btnFrequencia" min="-2" pref="222" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="222" max="-2" attributes="0"/>
+                  <Component id="btnAtrasos" min="-2" pref="222" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="92" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnDespesasNaoProgramadas" min="-2" pref="222" max="-2" attributes="0"/>
-                  <Component id="jButton6" min="-2" pref="222" max="-2" attributes="0"/>
+                  <Component id="btnFinancas" min="-2" pref="222" max="-2" attributes="0"/>
                   <Component id="btnDespesasProgramadas" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
@@ -70,7 +70,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnAtrasos">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/negative-sign_icon-icons.com_70439.png"/>
@@ -80,7 +80,7 @@
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtrasosActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDespesasProgramadas">
@@ -96,7 +96,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDespesasProgramadasActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnMensalidades">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/receiptofcash_cash_money_4581.png"/>
@@ -106,7 +106,7 @@
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMensalidadesActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnFrequencia">
@@ -135,15 +135,18 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDespesasNaoProgramadasActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
+    <Component class="javax.swing.JButton" name="btnFinancas">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/1486564180-finance-financial-report_81493.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="SITUA&#xc7;&#xc3;O FINANCEIRA MENSAL"/>
+        <Property name="text" type="java.lang.String" value="SITUA&#xc7;&#xc3;O FINANCEIRA"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFinancasActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

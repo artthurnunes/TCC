@@ -3,22 +3,22 @@ package classes;
 
 public class PendenciasIdeiasAlteracoes {
     
-    /*   ONDE PAREI ----------------------------
-    FAZER    
+    /*   ONDE PAREI ---------------------------- 
     
-    FAZENDO A TELA DE PAGAMENTO DE MENSALIDADE. 
-    1) ARRUMAR O SELECT. ESTA NOS SELECTS DO WORKBENCH
-    2) FAZER O BOTÃO FRENTE E TRAZ QUANDO PESQUISAR. O BOTÃO FRENTE E TRAZ TEM NA TELA DE CADASTRO, ESTOU SEGUINDO IGUAL.
+    * ATUALIZAR TABELA DE DESPEZAS NO SERVICO   
+    * Telas PRONTAS. Começar a fazer as PENDÊNCIAS RELEVANTES
     
-    
-    
-        
-    * A tela de Situação financeira pode usar o total de alunos em atraso também para calcular uma probabilidade.
- 
-
-    
-    
+    /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
+        * Obrigar . nos valores float (tela de planos e cadastro equipamentos, despesas programadas)
+        * Digitar somente numeros no codigo do aluno na catraca
+        * Travar entrada de aluno com mensalidade vencida
+        * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno(IMPORTANTE TODAS AS LISTAS VÃO USAR)
+        * Criar botão de carregar foto e salvar no BD dentro campo foto (PRONTO, SO FALTA SALVAR A FOTO)
+        * Tela de contato
+        * Pintar a data de vermelho quando o treino do aluno estiver vencido
     */
+    
+    
     
     /* TESTES DE CONSISTENCIA DO BANCO
         - Treino Vencido. Ok
@@ -27,6 +27,10 @@ public class PendenciasIdeiasAlteracoes {
         - Aluno Inativo. Ok
         - Aluno Ausente. Ok
         - Mensalidade Vencida. Ok
+        - Conferir tela de alunos em atraso, se o valor da mensalidade 
+           esta trazendo certo para mais de um registro. CORRIGIR
+        - Conferir tela de mensalidade de alunos se não esta trazendo registro
+           repedito no botão frente e traz. CORRIGIR
     
     
     */
@@ -34,33 +38,25 @@ public class PendenciasIdeiasAlteracoes {
     
     
     /* PENDÊNCIAS SEM RELEVÂNCIAS SE FUNCIONAR LEGAL....
-        * Fazer histórico (de treinos)
-        * Verificar a possibilidade de criar barra de rolagem nas telas para resoluções de telas menores. 800x600 corta
+        * Melhorar a pesquisa da tela de pagamento de mensalidade, esta trazendo valores repetidos. se resolver, 
+            fazer o botão frente e traz funcionar também igual o da tela de cadastro de alunos. 
+            - Este erro também esta acontecendo na tela de alunos em atrazo. 
+            - Esta funcionando porém com o valor da mensalidade repedita(mensalidade) ou igual em todos (atrasos)
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
         * Se der certo enviar o email, vazer verificação para prómixo login com senha nova, seja pedido para criar uma nova senha pessoal.
-        * Criar botão de carregar foto e salvar no BD dentro campo foto
+        * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.    
         * Importação e exportação de bkp do banco
         * Tentar fazer import/export/bkp do banco pela aplicação
-        * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.
-        * Fazer uma telinha no canto inferior direito sempre aparecendo com o nome dos alunos que estão para vencer 
-           o treino e os alunos que faz tempo que não vão para academia de acordo com a catraca 
-        * Travar entrada de aluno com mensalidade vencida
-        * Fazer botão frente e traz nas telas de despezas 
         * Colocar mascara nos telefones do cadastro do aluno
         * Colcar mascara no campo de CEP do cadastro do aluno
-        * Pintar a data de vermelho quando o treino do aluno estiver vencido
-        * Quando o aluno tem dois valores de plano ou mais e está em atraso, não esta trazendo o valor correto
-          do plano na listaAlunosAtrasos
-    */
-    
-    
-    /* PENDÊNCIAS IMPORTANTES FAZER ----------------------
-        * Obrigar . nos valores float (tela de planos e cadastro equipamentos, despesas programadas)
         * Campos datas com mascara tentar colocar obrigatorio. como a mascara ja vem / não da como vazio. (tela de despesas, planos, cadastro equipamentos)
           (resolvi problema acima na tela de treinosA, copiar o elseif de la nas outras telas)
-        * Digitar somente numeros no codigo do aluno na catraca
-        * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno(IMPORTANTE TODAS AS LISTAS VÃO USAR)
+        
+
     */
+    
+    
+    
     
     
     /*
@@ -91,8 +87,7 @@ public class PendenciasIdeiasAlteracoes {
     */
     
     /* PROBLEMAS PORÉM ESTÁ FUNCIONANDO
-    - Problemas para trazer a data do vencimento do treino quando o aluno tem mais de 1 treino cadastrado. Ele 
-    esta trazendo todos as datas dos treinos.
+    
     */
     
     //FILME O PROTETOR

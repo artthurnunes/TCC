@@ -25,12 +25,12 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btnAtrasos = new javax.swing.JButton();
         btnDespesasProgramadas = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnMensalidades = new javax.swing.JButton();
         btnFrequencia = new javax.swing.JButton();
         btnDespesasNaoProgramadas = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnFinancas = new javax.swing.JButton();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -38,13 +38,13 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setTitle("Financeiro");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/negative-sign_icon-icons.com_70439.png"))); // NOI18N
-        jButton1.setText("ALUNOS EM ATRASO");
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAtrasos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/negative-sign_icon-icons.com_70439.png"))); // NOI18N
+        btnAtrasos.setText("ALUNOS EM ATRASO");
+        btnAtrasos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAtrasos.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAtrasos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAtrasosActionPerformed(evt);
             }
         });
 
@@ -58,13 +58,13 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/receiptofcash_cash_money_4581.png"))); // NOI18N
-        jButton3.setText("RECEBIMENTO DE MENSALIDADES");
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnMensalidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/receiptofcash_cash_money_4581.png"))); // NOI18N
+        btnMensalidades.setText("RECEBIMENTO DE MENSALIDADES");
+        btnMensalidades.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnMensalidades.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnMensalidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnMensalidadesActionPerformed(evt);
             }
         });
 
@@ -88,10 +88,15 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1486564180-finance-financial-report_81493.png"))); // NOI18N
-        jButton6.setText("SITUAÇÃO FINANCEIRA MENSAL");
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnFinancas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1486564180-finance-financial-report_81493.png"))); // NOI18N
+        btnFinancas.setText("SITUAÇÃO FINANCEIRA");
+        btnFinancas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnFinancas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnFinancas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinancasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,13 +110,13 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
                         .addGap(150, 150, 150)
                         .addComponent(btnDespesasNaoProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAtrasos, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(150, 150, 150)
                         .addComponent(btnFrequencia, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(150, 150, 150)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMensalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFinancas, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
@@ -119,13 +124,13 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMensalidades, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFrequencia, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAtrasos, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnDespesasNaoProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFinancas, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDespesasProgramadas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(79, 79, 79))
         );
@@ -145,21 +150,25 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
         new TelaDespesasNaoProgramadas(null,true).setVisible(true);
     }//GEN-LAST:event_btnDespesasNaoProgramadasActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAtrasosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasosActionPerformed
         new TelaListaAlunosEmAtraso().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAtrasosActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnMensalidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMensalidadesActionPerformed
         new TelaRecebimentoMensalidade().setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnMensalidadesActionPerformed
+
+    private void btnFinancasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinancasActionPerformed
+        new TelaSituacaoFinanceira().setVisible(true);
+    }//GEN-LAST:event_btnFinancasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtrasos;
     private javax.swing.JButton btnDespesasNaoProgramadas;
     private javax.swing.JButton btnDespesasProgramadas;
+    private javax.swing.JButton btnFinancas;
     private javax.swing.JButton btnFrequencia;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnMensalidades;
     // End of variables declaration//GEN-END:variables
 }
