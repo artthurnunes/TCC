@@ -176,6 +176,9 @@
               <Image iconType="3" name="/imagens/1486485553-ago-arrow-arrow-left-back-previous-direction-left_81160.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVoltarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnAvancar">
           <Properties>
@@ -183,6 +186,9 @@
               <Image iconType="3" name="/imagens/setadireita.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAvancarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnPesquisar2">
           <Properties>

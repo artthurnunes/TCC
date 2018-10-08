@@ -2,6 +2,7 @@
 package telas_internas_main.financeiro;
 
 import classes.ClassePagamentoMensalidade;
+import classes.ClasseCaractersFloat;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
@@ -12,6 +13,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import telas_internas_main.cadastro.TelaCadastro;
 
 
 public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
@@ -26,6 +28,7 @@ public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
         initComponents();
         dtVencimento.setEditable(false);
         vlMensalidade.setEditable(false);
+        valorPago.setDocument(new ClasseCaractersFloat());
     }
 
     private void limparCampos(){
@@ -114,8 +117,18 @@ public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
         });
 
         btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/1486485553-ago-arrow-arrow-left-back-previous-direction-left_81160.png"))); // NOI18N
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
 
         btnAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/setadireita.png"))); // NOI18N
+        btnAvancar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvancarActionPerformed(evt);
+            }
+        });
 
         btnPesquisar2.setText("Limpar");
         btnPesquisar2.addActionListener(new java.awt.event.ActionListener() {
@@ -232,13 +245,11 @@ public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(201, 201, 201)
                         .addComponent(jLabel1)))
@@ -305,6 +316,36 @@ public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
         this.limparCampos();
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
+        if(selects.getLinha_atual_select() < selects.getQt_linhas_select()){
+            selects.setLinha_atual_select(selects.getLinha_atual_select()+1);
+            this.limparCampos();
+            mensalidade.setNome("");
+            try {
+                    selects.retornaPagamentoMensalidade(mensalidade);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaRecebimentoMensalidade.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }else{
+            JOptionPane.showMessageDialog(null, "Ultimo registro para esta busca !");
+        }       
+        this.setaCamposDaClasse();
+    }//GEN-LAST:event_btnAvancarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        if((selects.getLinha_atual_select()-1) >= 1){
+            selects.setLinha_atual_select(selects.getLinha_atual_select()-1);
+            this.limparCampos();
+            mensalidade.setNome("");
+            try {
+                    selects.retornaPagamentoMensalidade(mensalidade);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaRecebimentoMensalidade.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
+        this.setaCamposDaClasse();
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /* -----------------------------------
     public static void main(String args[]) {

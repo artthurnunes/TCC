@@ -3,6 +3,8 @@ package telas_internas_main.financeiro;
 
 import classes.ClassejTableSelect;
 import conexoesbancodedados.ConectaBd;
+import java.awt.Color;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +13,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableCellRenderer;
 
 
 public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
@@ -54,7 +58,10 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
                 try{
                 rs.first();
                     do{
-                        dados.add(new Object[]{rs.getString("B.NOME"),rs.getString("B.TEL1"),rs.getString("DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y')"),rs.getString("DATEDIFF(NOW(),A.DT_ENTRADA)"),rs.getString("MAX(C.DT_FIM)")});
+                        dados.add(new Object[]{rs.getString("B.NOME"),rs.getString("B.TEL1")
+                                                ,rs.getString("DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y')")
+                                                ,rs.getString("DATEDIFF(NOW(),A.DT_ENTRADA)")
+                                                ,rs.getString("MAX(C.DT_FIM)")});
                         contLinhas++;
                     }while(rs.next());
                 }catch(SQLException ex){
@@ -83,7 +90,9 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         tabela.getColumnModel().getColumn(4).setResizable(false);
         tabela.getTableHeader().setReorderingAllowed(false);
         tabela.setAutoResizeMode(tabela.AUTO_RESIZE_OFF);
-        tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);        
+        tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);    
+        
+        this.pintarTreinosVencidos();
     }
 
     @SuppressWarnings("unchecked")
@@ -187,17 +196,53 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         //   
     }//GEN-LAST:event_btnAtivarAlunoActionPerformed
 
+    public void pintarTreinosVencidos(){
+        ArrayList<String> vencidos = new ArrayList();
+        
+        //alterando o render do jtable com a classe abaixo para celula ficar vermelha
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column); 
+
+            c.setForeground(Color.RED);
+//            //String str = (String) value;
+////            if ("MAX(C.DT_FIM)".equals(str)) {
+//            if (true) {
+//                c.setForeground(Color.RED);
+//                System.out.println("entrei no red");
+//            } else {
+//                c.setForeground(Color.BLACK);
+//                System.out.println("entrei no black");
+//            }
+            return c;
+            }
+        };
+        
+        //contLInhas nesta variavel eu tenho o numero de linhas da tabela
+        
+        tabela.setSelectionForeground(Color.RED);
+        tabela.setRowSelectionInterval(0, 0);
+        
+        
+        //tabela.getColumnModel().getColumn(4).setCellRenderer(renderer);
+        
+
+//        
+//        vencimentos.add((String)tabela.getValueAt(0, 4));
+
+    }
     
     
     
-    /* -----------------------------------
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-     /* -----------------------------------
+   
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -206,24 +251,24 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaListaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaListaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaListaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaListaAlunosInativos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-         /* -----------------------------------
+         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaListaAlunosInativos().setVisible(true);
+                new TelaListaAlunosFrequentes().setVisible(true);
             }
         });
-    } -----------------------------------------------------*/
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtivarAluno;

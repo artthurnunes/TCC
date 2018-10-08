@@ -2,6 +2,7 @@
 package telas_internas_main;
 
 import classes.ClasseEquipamentos;
+import classes.ClasseCaractersFloat;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
@@ -20,6 +21,7 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
     public TelaEquipamentos() {
         initComponents();
         valor_equipamento.setText("0");
+        valor_equipamento.setDocument(new ClasseCaractersFloat());
     }
     
     private void limparCampos(){

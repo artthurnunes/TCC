@@ -5,6 +5,7 @@
  */
 package telas_internas_main;
 
+import classes.ClasseCaractersNumeros;
 import classes.ClasseCatraca;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
@@ -36,6 +37,7 @@ public class TelaCatraca extends javax.swing.JInternalFrame {
     
     public TelaCatraca() {
         initComponents();
+        cd_aluno.setDocument(new ClasseCaractersNumeros());
         lblData.setText(formatoPT.format(dataSistema));
          
         Timer timer = new Timer(1000, new hora());
@@ -182,26 +184,31 @@ public class TelaCatraca extends javax.swing.JInternalFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         //FAZER UM SELECT COM O CODIGO DO ALUNO PARA A DATA ATUAL SE JA EXISTIR HORARIO DE ENTRADA(MAX POIS O 
         //ALUNO PODE ENTRAR E SAIR MAIS DE 1 X) MOSTRAR MENSAGEM DE ATE LOGO CASO CONTRARIO, BEM VINDO.
-        //Fazer um insert quando entrar e um update somente do horario quando sair....
         boolean entrando = true;
         boolean primeiraVez = true;
+        boolean debito = false;
         if("".equals(cd_aluno.getText())){
             JOptionPane.showMessageDialog(null, "Codigo vazio !");
         }else{
              this.setaCamposClasse();
                 try { //SETA O NOME DO ALUNO NA TELA
                     nome_aluno.setText(selects.retornaNomeAluno(catraca.getCd_registro()));
+                    debito = selects.retornaAlunoEmDebito(catraca.getCd_registro());
                         if("".equals(nome_aluno.getText())){
                             JOptionPane.showMessageDialog(null, "Codigo invalido !");
-                        }else{
-                            //SE FOR A PRIMEIRA VEZ VAI FAZER UM INSERT NA TABELA DE FREQUENCIA SE NAO FAZ 
-                            //UPDATE. TABELA PARA CONTROLE DE AUSENCIA/FREQUENCIA
-                            primeiraVez = selects.retornaAlunoPrimeiroTreino(catraca.getCd_registro());
-                            if(primeiraVez){
-                                inserts.salvaDataUltimoTreino(catraca);
+                        }else if(debito == true ){ //SE O ALUNO ESTIVER COM MENSALIDADE EM ATRASO NÃO ENTRA NA ACADEMIA
+                            JOptionPane.showMessageDialog(null, "Entrada não autorizada. Procure o financeiro.");
+                            cd_aluno.setText("");
+                            nome_aluno.setText("");
                             }else{
-                                updates.atualizaDataUltimoTreino(catraca);
-                            }
+                                //SE FOR A PRIMEIRA VEZ VAI FAZER UM INSERT NA TABELA DE FREQUENCIA SE NAO FAZ 
+                                //UPDATE. TABELA PARA CONTROLE DE AUSENCIA/FREQUENCIA
+                                primeiraVez = selects.retornaAlunoPrimeiroTreino(catraca.getCd_registro());
+                                    if(primeiraVez){
+                                        inserts.salvaDataUltimoTreino(catraca);
+                                        }else{
+                                            updates.atualizaDataUltimoTreino(catraca);
+                                    }
                                 //SE ALUNO NAO ESTIVER NA ACADEMIA ELE ENTRA COM O INSERT
                                 //SE ESTIVER SAINDO FAZ UM UPDATE COM O HORARIO DE SAIDA NA TABELA HISTORICO FREQUENCIA
                                 entrando = selects.retornaAlunoEntrandoOuSaindo(catraca.getCd_registro()); //select para verificar se esta entrando ou saindo atraves do horario e da data
@@ -210,13 +217,13 @@ public class TelaCatraca extends javax.swing.JInternalFrame {
                                     inserts.insereFrequenciaAlunoHistorico(catraca);//faz insert na tabela
                                     cd_aluno.setText("");
                                     nome_aluno.setText("");
-                                }else{ //false ele esta saindo (ja existe hr_saida)
-                                    JOptionPane.showMessageDialog(null, "Até logo");
-                                    updates.salvaDataSaidaHistorico(catraca);
-                                    cd_aluno.setText("");
-                                    nome_aluno.setText("");
+                                    }else{ //false ele esta saindo (ja existe hr_saida)
+                                        JOptionPane.showMessageDialog(null, "Até logo");
+                                        updates.salvaDataSaidaHistorico(catraca);
+                                        cd_aluno.setText("");
+                                        nome_aluno.setText("");
                                 }
-                        }
+                            }
                 } catch (SQLException ex) {
                     Logger.getLogger(TelaCatraca.class.getName()).log(Level.SEVERE, null, ex);
                 }

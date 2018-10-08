@@ -1,6 +1,7 @@
 package telas_internas_main.financeiro;
 
 import classes.ClasseDespesas;
+import classes.ClasseCaractersFloat;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
@@ -25,6 +26,7 @@ public class TelaDespesasProgramadas extends javax.swing.JDialog {
     public TelaDespesasProgramadas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        valor.setDocument(new ClasseCaractersFloat());
     }
     
     

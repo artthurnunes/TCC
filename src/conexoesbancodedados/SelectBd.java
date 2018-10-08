@@ -910,6 +910,8 @@ public class SelectBd {
                 dados.setNome(rs.getString("A.NOME"));
                 dados.setDtVencimento(rs.getDate("MAX(B.PROXIMO_VENCIMENTO)"));
                 dados.setValorMensalidade(rs.getFloat("C.VALOR"));   
+                
+                this.linha_atual_select = rs.getRow();
               }
         }
     }
@@ -944,11 +946,24 @@ public class SelectBd {
         
     }
     
-    
-    
-    
-    
-    
+    public boolean retornaAlunoEmDebito(int codigo) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String sql = "SELECT A.CD_REGISTRO,A.NOME,MAX(DATE_FORMAT(C.PROXIMO_VENCIMENTO,'%e/%m/%Y')) "
+                + "FROM TB_ALUNOS A INNER JOIN TB_HISTORICO_PAGAMENTOS_ALUNOS C ON C.CD_REGISTRO = A.CD_REGISTRO "
+                + "WHERE C.PROXIMO_VENCIMENTO < NOW() "
+                + "AND C.DT_PAGAMENTO IS NULL "
+                + "AND A.CD_REGISTRO = "+codigo+" "
+                + "GROUP BY A.CD_REGISTRO,A.NOME";
+        
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next())
+                return true;
+            else
+                return false;    
+    }
+   
 }
     
 

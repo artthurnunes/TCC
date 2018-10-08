@@ -2,6 +2,7 @@
 package telas_internas_main.cadastro;
 
 import classes.ClasseCadastro_planos;
+import classes.ClasseCaractersFloat;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
@@ -23,6 +24,7 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         //System.out.println("Entrei no construtor"); //teste
+        lblDesconto.setDocument(new ClasseCaractersFloat());
         lblDesconto.setText("0");
             try {
                 planos.populandoCombPlanoAluno();
