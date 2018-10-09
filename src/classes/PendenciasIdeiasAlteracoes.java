@@ -21,7 +21,6 @@ public class PendenciasIdeiasAlteracoes {
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
         * Se der certo enviar o email, vazer verificação para prómixo login com senha nova, seja pedido para criar uma nova senha pessoal.
         * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.    
-        * Importação e exportação de bkp do banco
         * Tentar fazer import/export/bkp do banco pela aplicação
     */
     
