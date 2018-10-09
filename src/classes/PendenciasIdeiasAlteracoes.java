@@ -5,10 +5,9 @@ public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ---------------------------- 
     
-    Tentando pintar o campo de treino vencido na telalistaalunosfrequentes.
+    TENTAR CORRIGIR O SELECT DA TELA DE ALUNOS EM ATRASO IGUAL O MARCEL FEZ NA MENSALIDADE CRIANDO A VIEW
     
     /* PENDÊNCIAS ----------------------  
-        * Pintar a data de vermelho quando o treino do aluno estiver vencido
         * Corrigir select da tela de alunos em atraso com o select que o marcel fez para a tela de mensalidades, 
           mesma idéia, tentar fazer igual. Esta nos selects la no final no workbench
         * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno(IMPORTANTE TODAS AS LISTAS VÃO USAR)
@@ -16,7 +15,7 @@ public class PendenciasIdeiasAlteracoes {
         * Tela de contato
         * Campos datas com mascara tentar colocar obrigatorio. como a mascara ja vem / não da como vazio. (tela de despesas, planos, cadastro equipamentos)
           (resolvi problema acima na tela de treinosA, copiar o elseif de la nas outras telas)
- 
+        * Pintar a data de vermelho quando o treino do aluno estiver vencido
           --------
  
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.

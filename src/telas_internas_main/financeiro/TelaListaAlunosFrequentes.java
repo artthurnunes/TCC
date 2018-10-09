@@ -3,15 +3,20 @@ package telas_internas_main.financeiro;
 
 import classes.ClassejTableSelect;
 import conexoesbancodedados.ConectaBd;
+import conexoesbancodedados.SelectBd;
 import java.awt.Color;
 import java.awt.Component;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -20,6 +25,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
+    SelectBd selects = new SelectBd();
     int linha_selecionada;
     int codAluno_selecionado;
     int contLinhas=0;
@@ -92,7 +98,11 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         tabela.setAutoResizeMode(tabela.AUTO_RESIZE_OFF);
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);    
         
-        this.pintarTreinosVencidos();
+        try {
+            this.pintarTreinosVencidos();
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -196,40 +206,66 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         //   
     }//GEN-LAST:event_btnAtivarAlunoActionPerformed
 
-    public void pintarTreinosVencidos(){
-        ArrayList<String> vencidos = new ArrayList();
+    public void pintarTreinosVencidos() throws ParseException{
         
-        //alterando o render do jtable com a classe abaixo para celula ficar vermelha
-        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer() {
-            @Override
-            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column); 
-
-            c.setForeground(Color.RED);
-//            //String str = (String) value;
-////            if ("MAX(C.DT_FIM)".equals(str)) {
-//            if (true) {
-//                c.setForeground(Color.RED);
-//                System.out.println("entrei no red");
-//            } else {
-//                c.setForeground(Color.BLACK);
-//                System.out.println("entrei no black");
+        //https://www.youtube.com/watch?v=-5z16LHWEtE
+        
+        ArrayList<Date> treinosVencidos = new ArrayList();
+        ArrayList<String> treinosV = new ArrayList();
+        Date dataSistema = new Date();
+        SimpleDateFormat formatoPT = new SimpleDateFormat("dd/MM/yyyy");
+        java.sql.Date dataAtual = new java.sql.Date(dataSistema.getTime());
+        
+       
+        for(int i=0; i < contLinhas;i++){
+            treinosV.add((String)tabela.getValueAt(i,4));
+        }
+        
+//        System.out.println(treinosV);
+        
+        for(int l = 0; l < contLinhas; l++){
+            Date data = formatoPT.parse((String) tabela.getValueAt(l,4));
+            java.sql.Date dataSql = new java.sql.Date(data.getTime());
+            treinosVencidos.add(dataSql);
+        }  
+//        dataAtual.before(dataSistema);
+//        dataAtual.compareTo(dataSistema);
+        
+//        for(int i=0;i< treinosVencidos.size();i++){
+//            System.out.println(treinosVencidos.get(i));
+//        }
+        
+//        for(int i=0;i<treinosVencidos.size();i++){
+//            if(dataAtual.after(treinosVencidos.get(i))){
+//                System.out.println("Vencida");
 //            }
-            return c;
+//        }
+        
+        
+//        System.out.println(dataAtual); //data atual
+        
+        String texte = "a";
+        tabela.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                    boolean isSelected, boolean hasFocus, int row, int column){
+                JLabel label = (JLabel) super.getTableCellRendererComponent(table, value,
+                        isSelected, hasFocus, row, column);
+                
+                Color c = Color.WHITE;
+//                Object texto = table.getValueAt(row, 4);
+                Object texto = dataAtual; //2018-10-08
+//                if(texto != null && treinosV.get(1).equals(texto.toString()) )
+                if(treinosVencidos.get(0).before((Date) texto)) 
+                    c = Color.RED;
+                label.setBackground(c);
+                tabela.setSelectionForeground(Color.GREEN);
+                
+                return label;
             }
-        };
+            
+        });
         
-        //contLInhas nesta variavel eu tenho o numero de linhas da tabela
-        
-        tabela.setSelectionForeground(Color.RED);
-        tabela.setRowSelectionInterval(0, 0);
-        
-        
-        //tabela.getColumnModel().getColumn(4).setCellRenderer(renderer);
-        
-
-//        
-//        vencimentos.add((String)tabela.getValueAt(0, 4));
 
     }
     
