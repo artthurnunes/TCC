@@ -327,4 +327,21 @@ public class UpdateBd {
         }  
     }
     
+    public void inativaPlano(int codigo){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+        
+        try{    
+            stmt = con.prepareStatement("UPDATE TB_PLANOS_ALUNOS SET SN_ATIVO = FALSE "
+                    + "WHERE CD_REGISTRO = "+codigo+" AND SN_ATIVO = TRUE");
+                       
+            stmt.executeUpdate();
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO INATIVAR PLANO !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
+    
 }

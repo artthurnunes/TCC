@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import telas_internas_main.cadastro.TelaCadastro;
@@ -154,6 +155,17 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public static JFrame abreJFrame(JFrame frame) {
+                JFrame frame1 = new JFrame();
+                frame.add(frame);
+                frame.pack();
+                frame.setVisible(true);
+                frame.setLocationRelativeTo(frame);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                return frame;
+    }
+    
+    
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
         //linha_selecionada = tabela.getSelectedRow(); //seleciona a linha que o usuário clicou na tabela
         //codAluno_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
@@ -163,18 +175,10 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
         
         int op = JOptionPane.showConfirmDialog(null, "<html>Ir para o cadastro do aluno <b>"+nmAluno_selecionado+"</b> ?</html>");
             if(op == 0){
+                tela_principal.telaCadastro.setVisible(true);
                 
-                /* TENTANDO FAZER A TELA DE CADASTRO APARECER QUANDO CLICAR EM AVAÇAR
-                //new TelaPrincipal().espacoTelas.add(telaCadastro);
-                new TelaPrincipal().telaCadastro.setVisible(true);
-                //updates.ativarCadastro(codAluno_selecionado);
-                //tela_principal.getParent().add(telaCadastro);
-                //tela_principal.add(telaCadastro);
-                //telaCadastro.setVisible(true);
-                this.dispose();
-                */
-            }
-        //   
+                
+            }  
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     

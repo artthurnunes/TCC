@@ -536,8 +536,8 @@ public class InsertBd {
         PreparedStatement stmt = null;
         
         try{
-            stmt = con.prepareStatement("INSERT INTO TB_PLANOS_ALUNOS (CD_REGISTRO,CD_PLANO,VALOR,TP_DESCONTO,DESCONTO,VENCIMENTO) "
-                    + "VALUES (?,?,?,?,?,?)");           
+            stmt = con.prepareStatement("INSERT INTO TB_PLANOS_ALUNOS (CD_REGISTRO,CD_PLANO,VALOR,TP_DESCONTO,DESCONTO,VENCIMENTO,SN_ATIVO) "
+                    + "VALUES (?,?,?,?,?,?,1)");           
             
             stmt.setInt(1, dados.getCd_registro());
             stmt.setInt(2, dados.getCd_plano());

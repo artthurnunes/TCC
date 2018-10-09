@@ -238,6 +238,17 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
             lblTotal.setText(Float.toString(valor-desconto));
         
         this.setarCamposClasse();
+        
+        //SE O ALUNO JÁ TIVER PLANO, SERA FEITO UM UPDATE NO PLANO ANTIGO PARA INATIVO
+        try {
+            if(selects.existePlanoAluno(planos.getCd_registro()) == true){
+                updates.inativaPlano(planos.getCd_registro());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastro_financeiro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //SEMPRE E INSERIDA UMA NOVA LINHA DE PLANO PARA MANTER HISTÓRICO DE PLANOS ANTERIORES
         inserts.inserePlanosAlunos(planos);
         
         //INSERINDO OS DADOS NA TABELA DE TB_HISTORICO_PAGAMENTOS_ALUNOS
@@ -253,7 +264,7 @@ public class TelaCadastro_financeiro extends javax.swing.JDialog {
         //SE O ALUNO JA POSSUI UM PLANO, QUANDO E CRIADO UM NOVO PLANO, A DATA DE PAGAMENTO E ATUALIZADA NA TABELA DE PAGAMENTOS
         if(temRegistro == true)
             try {
-                updates.alteraVencimento(planos.getCd_registro(),Integer.parseInt((String)combVencimento.getSelectedItem()));
+                updates.alteraVencimento(planos.getCd_registro(),Integer.parseInt((String)combVencimento.getSelectedItem()));  
             } catch (SQLException ex) {
                 Logger.getLogger(TelaCadastro_financeiro.class.getName()).log(Level.SEVERE, null, ex);
             }

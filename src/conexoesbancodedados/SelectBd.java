@@ -966,6 +966,18 @@ public class SelectBd {
                 return false;    
     }
    
+    public boolean existePlanoAluno(int codigo) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String sql = "SELECT * FROM TB_PLANOS_ALUNOS WHERE CD_REGISTRO = "+codigo+" AND SN_ATIVO = 1";
+        
+        rs = stmt.executeQuery(sql);
+        
+            if(rs.next())
+                return true;
+            else
+                return false;  
+    }
     
     
 }

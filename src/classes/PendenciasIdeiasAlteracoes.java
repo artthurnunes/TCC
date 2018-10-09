@@ -5,17 +5,16 @@ public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ---------------------------- 
     
-    TENTAR CORRIGIR O SELECT DA TELA DE ALUNOS EM ATRASO IGUAL O MARCEL FEZ NA MENSALIDADE CRIANDO A VIEW
+    ***Iniciar novo banco para testar os dados. Modifiquei as consultas de mensalidade e alunos em atraso. 
+    ** Tentando fazer a lista de alunosAtivos ir para tela de cadastro do aluno. https://www.youtube.com/watch?v=c6PuSPgG3IM
     
     /* PENDÊNCIAS ----------------------  
-        * Corrigir select da tela de alunos em atraso com o select que o marcel fez para a tela de mensalidades, 
-          mesma idéia, tentar fazer igual. Esta nos selects la no final no workbench
-        * Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno(IMPORTANTE TODAS AS LISTAS VÃO USAR)
-        * Criar botão de carregar foto e salvar no BD dentro campo foto (PRONTO, SO FALTA SALVAR A FOTO)
-        * Tela de contato
-        * Campos datas com mascara tentar colocar obrigatorio. como a mascara ja vem / não da como vazio. (tela de despesas, planos, cadastro equipamentos)
+        1 Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno(IMPORTANTE TODAS AS LISTAS VÃO USAR)
+        2 Criar botão de carregar foto e salvar no BD dentro campo foto (PRONTO, SO FALTA SALVAR A FOTO)
+        3 Tela de contato
+        4 Campos datas com mascara tentar colocar obrigatorio. como a mascara ja vem / não da como vazio. (tela de despesas, planos, cadastro equipamentos)
           (resolvi problema acima na tela de treinosA, copiar o elseif de la nas outras telas)
-        * Pintar a data de vermelho quando o treino do aluno estiver vencido
+        5 Pintar a data de vermelho quando o treino do aluno estiver vencido
           --------
  
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
@@ -33,10 +32,11 @@ public class PendenciasIdeiasAlteracoes {
         - Aluno Inativo. Ok
         - Aluno Ausente. Ok
         - Mensalidade Vencida. Ok
+        - Bloqueio de entrada de aluno em débito - Ok
         - Conferir tela de alunos em atraso, se o valor da mensalidade 
-           esta trazendo certo para mais de um registro. CORRIGIR
+           esta trazendo certo para mais de um registro. Ok
         - Conferir tela de mensalidade de alunos se não esta trazendo registro
-           repedito no botão frente e traz. CORRIGIR
+           repedito no botão frente e traz. Ok
     */  
 
     /*

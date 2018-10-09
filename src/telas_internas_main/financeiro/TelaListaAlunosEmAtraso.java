@@ -29,7 +29,7 @@ public class TelaListaAlunosEmAtraso extends javax.swing.JFrame {
 
     public TelaListaAlunosEmAtraso() {
         initComponents();
-        this.preencherTabela("SELECT A.CD_REGISTRO,A.NOME,A.TEL1, DATE_FORMAT(D.DT_ENTRADA,'%e/%m/%Y'),(SELECT VALOR FROM tb_planos_alunos ORDER BY CD_PLANO_ALUNO DESC LIMIT 1),MAX(DATE_FORMAT(C.PROXIMO_VENCIMENTO,'%e/%m/%Y')) FROM TB_ALUNOS A INNER JOIN TB_PLANOS_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO INNER JOIN TB_HISTORICO_PAGAMENTOS_ALUNOS C ON C.CD_REGISTRO = A.CD_REGISTRO LEFT JOIN TB_FREQUENCIA_ALUNOS D ON D.CD_REGISTRO = A.CD_REGISTRO WHERE C.PROXIMO_VENCIMENTO < NOW() AND DT_PAGAMENTO IS NULL GROUP BY A.CD_REGISTRO,A.NOME,A.TEL1,D.DT_ENTRADA"); 
+        this.preencherTabela("SELECT A.CD_REGISTRO,A.NOME,A.TEL1, DATE_FORMAT(D.DT_ENTRADA,'%e/%m/%Y'),B.VALOR,MAX(DATE_FORMAT(C.PROXIMO_VENCIMENTO,'%e/%m/%Y')) FROM TB_ALUNOS A INNER JOIN TB_PLANOS_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO AND SN_ATIVO = 1 INNER JOIN TB_HISTORICO_PAGAMENTOS_ALUNOS C ON C.CD_REGISTRO = A.CD_REGISTRO LEFT JOIN TB_FREQUENCIA_ALUNOS D ON D.CD_REGISTRO = A.CD_REGISTRO WHERE C.PROXIMO_VENCIMENTO < NOW() AND C.DT_PAGAMENTO IS NULL GROUP BY A.CD_REGISTRO,A.NOME,A.TEL1,D.DT_ENTRADA,B.VALOR"); 
         
         total.setText("R$ "+Float.toString(this.somaDespesas())+" de débitos à receber");
     }
@@ -75,7 +75,7 @@ public class TelaListaAlunosEmAtraso extends javax.swing.JFrame {
                 rs.first();
                     do{
                         dados.add(new Object[]{rs.getInt("A.CD_REGISTRO"),rs.getString("A.NOME"),rs.getString("A.TEL1"),
-                                               rs.getString("DATE_FORMAT(D.DT_ENTRADA,'%e/%m/%Y')"),rs.getFloat("(SELECT VALOR FROM tb_planos_alunos ORDER BY CD_PLANO_ALUNO DESC LIMIT 1)"),
+                                               rs.getString("DATE_FORMAT(D.DT_ENTRADA,'%e/%m/%Y')"),rs.getFloat("B.VALOR"),
                                                rs.getString("MAX(DATE_FORMAT(C.PROXIMO_VENCIMENTO,'%e/%m/%Y'))")});
                     }while(rs.next());
                 }catch(SQLException ex){

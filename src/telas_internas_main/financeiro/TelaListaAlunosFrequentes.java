@@ -98,11 +98,11 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         tabela.setAutoResizeMode(tabela.AUTO_RESIZE_OFF);
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);    
         
-        try {
-            this.pintarTreinosVencidos();
-        } catch (ParseException ex) {
-            Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            this.pintarTreinosVencidos();
+//        } catch (ParseException ex) {
+//            Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     @SuppressWarnings("unchecked")
