@@ -5,11 +5,18 @@ import classes.ClasseCadastro;
 import classes.ClasseCadastro_modalidades;
 import classes.ClasseCadastro_planos;
 import classes.ClasseCadastro_treino;
+import conexoesbancodedados.ConectaBd;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
 import java.awt.Image;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +34,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     InsertBd inserts = new InsertBd();
     SelectBd selects = new SelectBd();
     UpdateBd updates = new UpdateBd();
+    String caminho = "";
     
     public TelaCadastro() {
         initComponents();
@@ -88,7 +96,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         jLabel23 = new javax.swing.JLabel();
         Tcad_txtNascimento = new javax.swing.JTextField();
         lblFoto = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnCarregarFoto = new javax.swing.JButton();
         Tcad_btnModalidade = new javax.swing.JButton();
         Tcad_btnFinanceiro = new javax.swing.JButton();
         Tcad_btnTreino = new javax.swing.JButton();
@@ -242,10 +250,10 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
         jLabel23.setText("Data de Nascimento:");
 
-        jButton1.setText("Carregar foto");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCarregarFoto.setText("Carregar foto");
+        btnCarregarFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCarregarFotoActionPerformed(evt);
             }
         });
 
@@ -299,32 +307,32 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel14)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(combEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(Tcad_txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Tcad_txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel23)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Tcad_txtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Tcad_txtMae, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel9)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(Tcad_txtPai, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addComponent(combEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(Tcad_txtRg, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Tcad_txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel23)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Tcad_txtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Tcad_txtMae, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Tcad_txtPai, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCarregarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -375,7 +383,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                                     .addComponent(Tcad_txtPai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
-                                .addComponent(jButton1)))
+                                .addComponent(btnCarregarFoto)))
                         .addGap(30, 30, 30))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -599,6 +607,9 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 }
                 this.setarCamposDaClasse();
                 
+                //INSERINDO A FOTO DO CADASTRO NO BANCO AQUI POIS MAIS PRA CIMA AINDA NÃO TENHO O CD_REGISTRO
+                inserts.insereImgCadastro(classecadastro);
+                
                 //SETAR NA CLASSE POIS O PLANO USA O CD_REGISTRO DO ALUNO PARA TRAZER O SELECT
                 classecadastro.setCd_registro(Integer.parseInt(lblCodigoAluno.getText()));
                 try {
@@ -626,7 +637,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnSalvarMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCarregarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarFotoActionPerformed
         JFileChooser arquivo = new JFileChooser();
         arquivo.setDialogTitle("Selecione uma foto");
         arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -635,14 +646,15 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         if(opc == JFileChooser.APPROVE_OPTION){
             File file = new File("Caminho");
             file = arquivo.getSelectedFile(); //recebe o caminho 
-            String filename = file.getAbsolutePath(); //mostrar o caminho, não vou mostrar .....
+//          String filename = file.getAbsolutePath(); 
+            classecadastro.setCaminhoImg(file.getAbsolutePath()); //pega o caminho da imagem pra salvar no BD
             
             ImageIcon imagem = new ImageIcon(arquivo.getSelectedFile().getPath());
             //configura o tamanho da imagem de acordo com o tamanho do label
             lblFoto.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT)));
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCarregarFotoActionPerformed
 
     private void radioMasculinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_radioMasculinoMouseClicked
         
@@ -827,6 +839,29 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtCep.setText(classecadastro.getEnd_cep());
     }
     
+    public void salvaImgBanco(){
+//        Connection con = ConectaBd.getConnection();
+//        PreparedStatement stmt = null;
+//        
+//        //String caminho = lblFoto.getIcon().toString();
+//        InputStream fis;
+//        
+//        File file = new File(caminho);
+//        try{
+//            fis = new FileInputStream(file);
+//            stmt = con.prepareStatement("INSERT INTO TB_FOTOS_ALUNOS (CD_REGISTRO,IMAGEM) VALUES (1,?)");
+//            stmt.setBinaryStream(1, fis, (int)file.length());
+//            stmt.executeUpdate();
+//            fis.close();
+//            
+//        }catch (FileNotFoundException ex){
+//            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+//        }catch (SQLException ex){
+//            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+//        }catch (IOException ex){
+//            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Tcad_btnFinanceiro;
@@ -848,6 +883,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Tcad_txtTel1;
     private javax.swing.JTextField Tcad_txtTel2;
     private javax.swing.JTextField Tcad_txtTelEmergencia;
+    private javax.swing.JButton btnCarregarFoto;
     private javax.swing.JMenu btnExcluir;
     private javax.swing.JMenu btnNovo;
     private javax.swing.JMenu btnPesquisar;
@@ -857,7 +893,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> combEstado;
     private javax.swing.JComboBox<String> combEstadoCivil;
     private javax.swing.JComboBox<String> combParente;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -4,8 +4,7 @@ package classes;
 public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ---------------------------- 
-    
-    ***Mudar a tabela de alunos, retirar a imagem, fazer uma tabela somente para as imagens.
+
     ***Iniciar novo banco para testar os dados. Modifiquei as consultas de mensalidade e alunos em atraso. 
     
     /* PENDÊNCIAS ----------------------  

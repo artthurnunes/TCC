@@ -9,6 +9,11 @@ import classes.ClasseCadastro_treino;
 import classes.ClasseCatraca;
 import classes.ClasseDespesas;
 import classes.ClasseEquipamentos;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -16,7 +21,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import telas_internas_main.cadastro.TelaCadastro;
 
 public class InsertBd {
     
@@ -724,6 +732,32 @@ public class InsertBd {
         }finally{
             ConectaBd.closeConnection(con, stmt);
         }          
+    }
+    
+    public void insereImgCadastro(ClasseCadastro dados){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null;
+        
+        //String caminho = lblFoto.getIcon().toString();
+        InputStream fis;
+        
+        File file = new File(dados.getCaminhoImg());
+        try{
+            fis = new FileInputStream(file);
+            stmt = con.prepareStatement("INSERT INTO TB_FOTOS_ALUNOS (CD_REGISTRO,IMAGEM) VALUES (?,?)");
+            stmt.setInt(1, dados.getCd_registro());
+            stmt.setBinaryStream(2, fis, (int)file.length());
+            stmt.executeUpdate();
+            fis.close();
+            
+        }catch (FileNotFoundException ex){
+            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (SQLException ex){
+            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (IOException ex){
+            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
 }

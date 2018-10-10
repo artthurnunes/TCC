@@ -25,7 +25,17 @@ public class ClasseCadastro {
     private static String end_cidade;
     private static int end_estado;
     private static String end_cep;
+    private static String caminhoImg;
 
+    public String getCaminhoImg() {
+        return caminhoImg;
+    }
+
+    public void setCaminhoImg(String caminhoImg) {
+        this.caminhoImg = caminhoImg;
+    }
+    
+    
     
     public int getCd_registro() {
         return cd_registro;
