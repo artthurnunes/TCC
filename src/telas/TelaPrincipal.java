@@ -53,7 +53,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnAtalhoFinanceiro = new javax.swing.JButton();
         espacoTelas = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu8 = new javax.swing.JMenu();
+        btnSobre = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         btnMenuImport = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -72,7 +72,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnAltUserAcesso = new javax.swing.JMenuItem();
         btnNovoUsuarioAcesso = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        btnContato = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
 
         jScrollPane1.setViewportView(jTree1);
@@ -162,10 +162,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(153, 255, 204));
 
-        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/arthur.png"))); // NOI18N
-        jMenu8.setText("Sobre Ruthra Softwares       ");
-        jMenu8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jMenuBar1.add(jMenu8);
+        btnSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/arthur.png"))); // NOI18N
+        btnSobre.setText("Sobre Ruthra Softwares       ");
+        btnSobre.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnSobre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSobreMouseClicked(evt);
+            }
+        });
+        btnSobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSobreActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(btnSobre);
 
         jMenu1.setText("Arquivo");
 
@@ -296,8 +306,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu6.setText("Ajuda");
 
-        jMenuItem8.setText("Contato(fazer)");
-        jMenu6.add(jMenuItem8);
+        btnContato.setText("Contato");
+        btnContato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContatoActionPerformed(evt);
+            }
+        });
+        jMenu6.add(btnContato);
 
         jMenuItem9.setText("Relatar problemas(Criar se o envio de email funcionar)");
         jMenu6.add(jMenuItem9);
@@ -403,6 +418,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
         new TelaAltSenhaAcesso(null,true).setVisible(true);
     }//GEN-LAST:event_btnAltUserAcessoActionPerformed
 
+    private void btnSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSobreActionPerformed
+        
+    }//GEN-LAST:event_btnSobreActionPerformed
+
+    private void btnContatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContatoActionPerformed
+        new TelaContato(null,true).setVisible(true);
+    }//GEN-LAST:event_btnContatoActionPerformed
+
+    private void btnSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSobreMouseClicked
+        new TelaSobre(null,true).setVisible(true);
+    }//GEN-LAST:event_btnSobreMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -456,8 +483,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnCadPlanos;
     private javax.swing.JMenuItem btnCadastroExercicios;
     private javax.swing.JMenuItem btnCadastroModalidades;
+    private javax.swing.JMenuItem btnContato;
     private javax.swing.JMenu btnMenuImport;
     private javax.swing.JMenuItem btnNovoUsuarioAcesso;
+    private javax.swing.JMenu btnSobre;
     public javax.swing.JDesktopPane espacoTelas;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -466,9 +495,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
