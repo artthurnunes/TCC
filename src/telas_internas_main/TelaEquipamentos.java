@@ -29,7 +29,7 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
         this.setVisible(true);
     }
     
-    private void limparCampos(){
+    public void limparCampos(){
         cd_equipamento.setText("");
         nm_equipamento.setText("");
         dt_compra_equipamento.setText("");
@@ -409,7 +409,7 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
         if("".equals(cd_equipamento.getText())){
             if("".equals(nm_equipamento.getText())){
                 JOptionPane.showMessageDialog(null, "Campo NOME não pode estar vazio.");
-            }else if("".equals(dt_proxima_manutencao.getText())){
+            }else if("  /  /    ".equals(dt_proxima_manutencao.getText())){
                 JOptionPane.showMessageDialog(null, "Campo PRÓXIMA MANUTENÇÃO não pode estar vazio.");
             }else{
                 this.setarCamposParaClasse();

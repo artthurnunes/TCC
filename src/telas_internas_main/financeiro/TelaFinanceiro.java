@@ -1,7 +1,11 @@
 
 package telas_internas_main.financeiro;
 
+import telas.TelaPrincipal;
+
 public class TelaFinanceiro extends javax.swing.JInternalFrame {
+    
+    TelaListaAlunosFrequentes alunosFrequentes = new TelaListaAlunosFrequentes();
     
     public TelaFinanceiro() {
         initComponents();
@@ -129,6 +133,7 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
         new TelaDespesasProgramadas(null,true).setVisible(true);
     }//GEN-LAST:event_btnDespesasProgramadasActionPerformed
 
+   
     private void btnFrequenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFrequenciaActionPerformed
         new TelaListaAlunosFrequentes().setVisible(true);
     }//GEN-LAST:event_btnFrequenciaActionPerformed

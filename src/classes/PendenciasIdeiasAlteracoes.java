@@ -5,21 +5,17 @@ public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ---------------------------- 
     
+    ***Mudar a tabela de alunos, retirar a imagem, fazer uma tabela somente para as imagens.
     ***Iniciar novo banco para testar os dados. Modifiquei as consultas de mensalidade e alunos em atraso. 
-    ** Tentando fazer a lista de alunosAtivos ir para tela de cadastro do aluno. https://www.youtube.com/watch?v=c6PuSPgG3IM
     
     /* PENDÊNCIAS ----------------------  
-        1 Tentar fazer a tela de alunos cadastrados ir para a tela de cadastro quando clicar no aluno(IMPORTANTE TODAS AS LISTAS VÃO USAR)
-        2 Criar botão de carregar foto e salvar no BD dentro campo foto (PRONTO, SO FALTA SALVAR A FOTO)
-        3 Tela de contato
-        4 Campos datas com mascara tentar colocar obrigatorio. como a mascara ja vem / não da como vazio. (tela de despesas, planos, cadastro equipamentos)
-          (resolvi problema acima na tela de treinosA, copiar o elseif de la nas outras telas)
-        5 Pintar a data de vermelho quando o treino do aluno estiver vencido
-        6 Tela de Cadastro de equipamentos não esta limpando quando fecha
+        * Criar botão de carregar foto e salvar no BD dentro campo foto (PRONTO, SO FALTA SALVAR A FOTO)
+        * Tela de contato
+        * Pintar a data de vermelho quando o treino do aluno estiver vencido
           --------
- 
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
-        * Se der certo enviar o email, vazer verificação para prómixo login com senha nova, seja pedido para criar uma nova senha pessoal.
+        * Se der certo enviar o email, vazer verificação para prómixo login com senha 
+          nova, seja pedido para criar uma nova senha pessoal.
         * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.    
         * Tentar fazer import/export/bkp do banco pela aplicação
     */

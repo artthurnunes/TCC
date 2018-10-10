@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
+import telas.TelaPrincipal;
 
 
 public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
@@ -112,8 +113,6 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
-        btnIrCadastroAluno = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         total = new javax.swing.JLabel();
@@ -134,15 +133,6 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabela);
 
-        btnIrCadastroAluno.setText("AVANÇAR");
-        btnIrCadastroAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIrCadastroAlunoActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Ir para a tela de Cadastro do aluno ?");
-
         jLabel2.setText("LISTA DE ALUNOS FREQUENTES NA ACADEMIA");
 
         jLabel3.setText("TOTAL :");
@@ -151,10 +141,6 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnIrCadastroAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
                 .addContainerGap())
@@ -166,9 +152,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
+                .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -182,11 +166,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnIrCadastroAluno)
-                .addGap(28, 28, 28))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -194,10 +174,6 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void btnIrCadastroAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIrCadastroAlunoActionPerformed
-  
-    }//GEN-LAST:event_btnIrCadastroAlunoActionPerformed
-
     public void pintarTreinosVencidos() throws ParseException{
         
         //https://www.youtube.com/watch?v=-5z16LHWEtE
@@ -301,8 +277,6 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
     }  -----------------------------------*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIrCadastroAluno;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
