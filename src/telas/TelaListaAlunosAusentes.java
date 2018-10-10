@@ -1,8 +1,10 @@
 
 package telas;
 
+import classes.ClasseCadastro;
 import classes.ClassejTableSelect;
 import conexoesbancodedados.ConectaBd;
+import conexoesbancodedados.SelectBd;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,9 +18,11 @@ import javax.swing.ListSelectionModel;
 
 public class TelaListaAlunosAusentes extends javax.swing.JFrame {
 
+    SelectBd selects = new SelectBd();
     int linha_selecionada;
     int codAluno_selecionado;
     String nmAluno_selecionado;
+    ClasseCadastro classecadastro = new ClasseCadastro();
 
     public TelaListaAlunosAusentes() {
         initComponents();
@@ -156,18 +160,32 @@ public class TelaListaAlunosAusentes extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+   private TelaPrincipal principal;
+   public void MostrarTela(TelaPrincipal telaprincipal){
+       this.principal = telaprincipal;
+       setVisible(true);
+   }
+   
+   public void ExecutaMetodo(){
+       principal.abrirTelaCadastro();
+       this.dispose();
+   }
+    
     private void btnAtivarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtivarAlunoActionPerformed
         linha_selecionada = tabela.getSelectedRow(); //seleciona a linha que o usuário clicou na tabela
-        codAluno_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
-        nmAluno_selecionado = (String) tabela.getValueAt(linha_selecionada, 1); //armazena o nome do aluno selecionado
-        //System.out.println("codigo aluno selecionado : "+codAluno_selecionado);
-        int op = JOptionPane.showConfirmDialog(null, "<html>O aluno <b>"+nmAluno_selecionado+"</b> será ativado. Desejá continuar ?</html>");
+        //codAluno_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
+        nmAluno_selecionado = (String) tabela.getValueAt(linha_selecionada, 0); //armazena o nome do aluno selecionado
+        classecadastro.setNome(nmAluno_selecionado);
+        
+        int op = JOptionPane.showConfirmDialog(null, "<html>Ir para o cadastro do aluno <b>"+nmAluno_selecionado+"</b> ?</html>");
             if(op == 0){
-//                updates.ativarCadastroAluno(codAluno_selecionado);
-//                JOptionPane.showMessageDialog(null, "ALUNO ATIVO !!!");
-//                this.dispose();
-            }
-        //   
+                try {
+                    selects.selectCadastroAlfabetico(classecadastro);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaListaAlunosAtivos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.ExecutaMetodo();   
+            }     
     }//GEN-LAST:event_btnAtivarAlunoActionPerformed
 
     

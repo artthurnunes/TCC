@@ -15,6 +15,7 @@ public class PendenciasIdeiasAlteracoes {
         4 Campos datas com mascara tentar colocar obrigatorio. como a mascara ja vem / não da como vazio. (tela de despesas, planos, cadastro equipamentos)
           (resolvi problema acima na tela de treinosA, copiar o elseif de la nas outras telas)
         5 Pintar a data de vermelho quando o treino do aluno estiver vencido
+        6 Tela de Cadastro de equipamentos não esta limpando quando fecha
           --------
  
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
@@ -37,6 +38,8 @@ public class PendenciasIdeiasAlteracoes {
            esta trazendo certo para mais de um registro. Ok
         - Conferir tela de mensalidade de alunos se não esta trazendo registro
            repedito no botão frente e traz. Ok
+        - Testar alteração de senha 
+        - Criação de novo usuário
     */  
 
     /*

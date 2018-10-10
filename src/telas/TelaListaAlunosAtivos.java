@@ -11,16 +11,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
-import telas_internas_main.cadastro.TelaCadastro;
 
 
 public class TelaListaAlunosAtivos extends javax.swing.JFrame {
 
     SelectBd selects = new SelectBd();
-    
+   
     
     //int[] codAluno_linha = new int[100]; //vetor para armazenar codigos de alunos com mesmo nome para listar
     //int contador_linhas=0; //contagem de linhas da lista de contagem de nomes iguais
@@ -155,29 +153,31 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public static JFrame abreJFrame(JFrame frame) {
-                JFrame frame1 = new JFrame();
-                frame.add(frame);
-                frame.pack();
-                frame.setVisible(true);
-                frame.setLocationRelativeTo(frame);
-                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                return frame;
-    }
+   private TelaPrincipal principal;
+   public void MostrarTela(TelaPrincipal telaprincipal){
+       this.principal = telaprincipal;
+       setVisible(true);
+   }
+   
+   public void ExecutaMetodo(){
+       principal.abrirTelaCadastro();
+       this.dispose();
+   }
     
     
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
-        //linha_selecionada = tabela.getSelectedRow(); //seleciona a linha que o usuário clicou na tabela
-        //codAluno_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
-        //nmAluno_selecionado = (String) tabela.getValueAt(linha_selecionada, 1); //armazena o nome do aluno selecionado
-        TelaPrincipal tela_principal = new TelaPrincipal();
-        TelaCadastro telaCadastro = new TelaCadastro();
-        
+        linha_selecionada = tabela.getSelectedRow(); //seleciona a linha que o usuário clicou na tabela
+        codAluno_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
+        nmAluno_selecionado = (String) tabela.getValueAt(linha_selecionada, 1); //armazena o nome do aluno selecionado
+                
         int op = JOptionPane.showConfirmDialog(null, "<html>Ir para o cadastro do aluno <b>"+nmAluno_selecionado+"</b> ?</html>");
             if(op == 0){
-                tela_principal.telaCadastro.setVisible(true);
-                
-                
+                try {
+                    selects.selectCadastroAlfabetico(codAluno_selecionado);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaListaAlunosAtivos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.ExecutaMetodo();   
             }  
     }//GEN-LAST:event_btnAvancarActionPerformed
 

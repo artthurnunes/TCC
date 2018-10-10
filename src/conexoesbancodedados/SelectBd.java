@@ -28,6 +28,7 @@ public class SelectBd {
     ClasseEsqueceuSenha cEsqSenha = new ClasseEsqueceuSenha();
     ClasseCadastro_treino treinos = new ClasseCadastro_treino();
     ClasseCadastro_treinoCodigos treinosCodigos = new ClasseCadastro_treinoCodigos();
+    ClasseCadastro cadastro = new ClasseCadastro();
     
     PreparedStatement stmt = null;
     ResultSet rs = null;
@@ -164,7 +165,59 @@ public class SelectBd {
             } 
         }
     }
+      
+    //select para trazer o cadastro atraves do codigo do aluno
+    public void selectCadastroAlfabetico(int codigo) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+
+        sqlselectCadastroAlfabetico = "SELECT CD_REGISTRO,SITUACAO,NOME,TEL1,TEL2,PROFISSAO,SEXO,ESTADO_CIVIL,RG"
+                                   + ",CPF,DT_NASCIMENTO,NM_MAE,NM_PAI,NM_EMER,TEL_EMER,PARENTESCO,END_RUA,END_NUMERO"
+                                   + ",END_BAIRRO,END_CIDADE,END_ESTADO,END_CEP "
+                                        + "FROM TB_ALUNOS WHERE SITUACAO = 1 AND CD_REGISTRO = "+codigo+" "
+                                            + "ORDER BY 3 ";
         
+        rs = stmt.executeQuery(sqlselectCadastroAlfabetico);
+        //System.out.println("Logo quando recebe o sql no rs :"+rs.getRow()); //teste
+         
+       //O rs começa com 0 mas o primeiro registro válido é o next que no caso é o 1. O 0 não retorna nada do sql
+       while(rs.next()){ //while e if para que eu consiga manipular as linhas retornadas
+       //System.out.println("Entrei no While :"+rs.getRow()); //teste
+              if(rs.getRow() == this.linha_atual_select){
+            //if(rs.next()){ //if caso retorno somente 1 row
+                //System.out.println("Primeira linha do rs.next numero :"+rs.getRow()); //teste
+                
+                cadastro.setCd_registro(rs.getInt("CD_REGISTRO"));
+                cadastro.setSituacao(rs.getBoolean("SITUACAO"));
+                cadastro.setNome(rs.getString("NOME"));
+                cadastro.setTel1(rs.getString("TEL1"));
+                cadastro.setTel2(rs.getString("TEL2"));
+                cadastro.setProfissao(rs.getString("PROFISSAO"));
+                cadastro.setSexo(rs.getString("SEXO"));
+                cadastro.setEstado_civil(rs.getInt("ESTADO_CIVIL"));
+                cadastro.setRg(rs.getString("RG"));
+                cadastro.setCpf(rs.getString("CPF"));
+                cadastro.setDt_nascimento(rs.getString("DT_NASCIMENTO"));
+                cadastro.setNm_mae(rs.getString("NM_MAE"));
+                cadastro.setNm_pai(rs.getString("NM_PAI"));
+                cadastro.setNm_emer(rs.getString("NM_EMER"));
+                cadastro.setTel_emer(rs.getString("TEL_EMER"));
+                cadastro.setParentesco(rs.getInt("PARENTESCO"));
+                cadastro.setEnd_rua(rs.getString("END_RUA"));
+                cadastro.setEnd_numero(rs.getString("END_NUMERO"));
+                cadastro.setEnd_bairro(rs.getString("END_BAIRRO"));
+                cadastro.setEnd_cidade(rs.getString("END_CIDADE"));
+                cadastro.setEnd_estado(rs.getInt("END_ESTADO"));
+                cadastro.setEnd_cep(rs.getString("END_CEP"));
+                
+                this.linha_atual_select = rs.getRow();
+                
+                //System.out.println("Linha atual do select :"+rs.getRow());//teste
+            } 
+        }
+    }
+
+    //select para trazer os equipamentos da academia em ordem alfabetica
     public void selectCadEquipAlfabetico(ClasseEquipamentos dados) throws SQLException{
         con = ConectaBd.getConnection();
         Statement stmt = con.createStatement();

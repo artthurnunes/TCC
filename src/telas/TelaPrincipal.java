@@ -14,6 +14,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     TelaCatraca telaTreinos = new TelaCatraca();
     TelaEquipamentos telaEquipamentos = new TelaEquipamentos();
     TelaFinanceiro telaFinanceiro = new TelaFinanceiro();
+    TelaListaAlunosAtivos listaAlunosAtivos = new TelaListaAlunosAtivos();
+    TelaListaAlunosAusentes listaAlunosAusentes = new TelaListaAlunosAusentes();
+    TelaListaEquipamentosAtivos listaEquipAtivos = new TelaListaEquipamentosAtivos();
 
     public TelaPrincipal() {
         initComponents();
@@ -22,7 +25,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         espacoTelas.add(telaTreinos);
         espacoTelas.add(telaEquipamentos);
         espacoTelas.add(telaFinanceiro);
-    }    
+    }  
+    
+    public void abrirTelaCadastro(){ //Metodo para abrir a tela de cadastro de outro FRAME
+        telaCadastro.setVisible(true);
+        telaCadastro.setarCamposDaClasse();
+    }
     
     private void limpaFundoInternalFrame(){
         this.telaCadastro.setVisible(false);
@@ -375,7 +383,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadPlanosActionPerformed
 
     private void btnAlunosAtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlunosAtivosActionPerformed
-        new TelaListaAlunosAtivos().setVisible(true);
+        listaAlunosAtivos.MostrarTela(this);
     }//GEN-LAST:event_btnAlunosAtivosActionPerformed
 
     private void bntEquipamentosInativosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntEquipamentosInativosActionPerformed
@@ -383,11 +391,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bntEquipamentosInativosActionPerformed
 
     private void bntEquipamentosAtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntEquipamentosAtivosActionPerformed
-        new TelaListaEquipamentosAtivos().setVisible(true);
+        new TelaListaEquipamentosAtivos().MostrarTela(telaEquipamentos);
     }//GEN-LAST:event_bntEquipamentosAtivosActionPerformed
 
     private void btnAlunosAusentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlunosAusentesActionPerformed
-        new TelaListaAlunosAusentes().setVisible(true);
+        listaAlunosAusentes.MostrarTela(this);
     }//GEN-LAST:event_btnAlunosAusentesActionPerformed
 
     private void btnAltUserAcessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltUserAcessoActionPerformed

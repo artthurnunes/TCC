@@ -30,6 +30,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
     int codAluno_selecionado;
     int contLinhas=0;
     String nmAluno_selecionado;
+   
 
     public TelaListaAlunosFrequentes() {
         initComponents();
@@ -111,7 +112,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
-        btnAtivarAluno = new javax.swing.JButton();
+        btnIrCadastroAluno = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -133,10 +134,10 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabela);
 
-        btnAtivarAluno.setText("AVANÇAR");
-        btnAtivarAluno.addActionListener(new java.awt.event.ActionListener() {
+        btnIrCadastroAluno.setText("AVANÇAR");
+        btnIrCadastroAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtivarAlunoActionPerformed(evt);
+                btnIrCadastroAlunoActionPerformed(evt);
             }
         });
 
@@ -152,7 +153,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAtivarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnIrCadastroAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
@@ -184,7 +185,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAtivarAluno)
+                .addComponent(btnIrCadastroAluno)
                 .addGap(28, 28, 28))
         );
 
@@ -192,19 +193,10 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAtivarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtivarAlunoActionPerformed
-        linha_selecionada = tabela.getSelectedRow(); //seleciona a linha que o usuário clicou na tabela
-        codAluno_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
-        nmAluno_selecionado = (String) tabela.getValueAt(linha_selecionada, 1); //armazena o nome do aluno selecionado
-        //System.out.println("codigo aluno selecionado : "+codAluno_selecionado);
-        int op = JOptionPane.showConfirmDialog(null, "<html>O aluno <b>"+nmAluno_selecionado+"</b> será ativado. Desejá continuar ?</html>");
-            if(op == 0){
-//                updates.ativarCadastroAluno(codAluno_selecionado);
-//                JOptionPane.showMessageDialog(null, "ALUNO ATIVO !!!");
-//                this.dispose();
-            }
-        //   
-    }//GEN-LAST:event_btnAtivarAlunoActionPerformed
+    
+    private void btnIrCadastroAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIrCadastroAlunoActionPerformed
+  
+    }//GEN-LAST:event_btnIrCadastroAlunoActionPerformed
 
     public void pintarTreinosVencidos() throws ParseException{
         
@@ -271,7 +263,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
     
     
     
-    
+    /* ---------------------------------------
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -279,6 +271,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
    
+    /* ---------------------------------------
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -299,15 +292,16 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
         /* Create and display the form */
          
+    /* ---------------------------------------
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaListaAlunosFrequentes().setVisible(true);
             }
         });
-    } 
+    }  -----------------------------------*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtivarAluno;
+    private javax.swing.JButton btnIrCadastroAluno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

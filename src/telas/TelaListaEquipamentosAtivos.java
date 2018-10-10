@@ -1,8 +1,10 @@
 
 package telas;
 
+import classes.ClasseEquipamentos;
 import classes.ClassejTableSelect;
 import conexoesbancodedados.ConectaBd;
+import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,14 +15,18 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import telas_internas_main.TelaEquipamentos;
 
 
 public class TelaListaEquipamentosAtivos extends javax.swing.JFrame {
 
-    UpdateBd updates = new UpdateBd();    
+    UpdateBd updates = new UpdateBd();  
+    SelectBd selects = new SelectBd();
     int linha_selecionada;
     int codEquipamento_selecionado;
     String nmEquipamento_selecionado;
+    //TelaEquipamentos tela_equipamentos = new TelaEquipamentos();
+    ClasseEquipamentos equip = new ClasseEquipamentos();
 
     public TelaListaEquipamentosAtivos() {
         initComponents();
@@ -89,7 +95,7 @@ public class TelaListaEquipamentosAtivos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
-        btnAtivarAluno = new javax.swing.JButton();
+        btnCadastroEquipamentos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -108,10 +114,10 @@ public class TelaListaEquipamentosAtivos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabela);
 
-        btnAtivarAluno.setText("AVANÇAR");
-        btnAtivarAluno.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastroEquipamentos.setText("AVANÇAR");
+        btnCadastroEquipamentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtivarAlunoActionPerformed(evt);
+                btnCadastroEquipamentosActionPerformed(evt);
             }
         });
 
@@ -123,7 +129,7 @@ public class TelaListaEquipamentosAtivos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAtivarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCadastroEquipamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -143,7 +149,7 @@ public class TelaListaEquipamentosAtivos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAtivarAluno)
+                .addComponent(btnCadastroEquipamentos)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -151,18 +157,33 @@ public class TelaListaEquipamentosAtivos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAtivarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtivarAlunoActionPerformed
-        linha_selecionada = tabela.getSelectedRow(); //seleciona a linha que o usuário clicou na tabela
-        codEquipamento_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
-        nmEquipamento_selecionado = (String) tabela.getValueAt(linha_selecionada, 1); //armazena o nome do aluno selecionado
-        //System.out.println("codigo aluno selecionado : "+codAluno_selecionado);
-        int op = JOptionPane.showConfirmDialog(null, "<html>O equipamento <b>"+nmEquipamento_selecionado+"</b> será ativado. Desejá continuar ?</html>");
+   private TelaEquipamentos equipamentos;
+   public void MostrarTela(TelaEquipamentos telaequipamentos){
+       this.equipamentos = telaequipamentos;
+       setVisible(true);
+   }
+   
+   public void ExecutaMetodo(){
+       equipamentos.abrirTelaEquipamentos();
+       this.dispose();
+   }
+    
+    private void btnCadastroEquipamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroEquipamentosActionPerformed
+        linha_selecionada = tabela.getSelectedRow(); 
+        codEquipamento_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); 
+        nmEquipamento_selecionado = (String) tabela.getValueAt(linha_selecionada, 1); 
+        equip.setNm_equipamento(nmEquipamento_selecionado);
+        
+        int op = JOptionPane.showConfirmDialog(null, "<html>Ir para o cadastro do equipamento <b>"+nmEquipamento_selecionado+"</b> ?</html>");
             if(op == 0){
-                updates.ativarCadastroEquipamento(codEquipamento_selecionado);
-                JOptionPane.showMessageDialog(null, "EQUIPAMENTO ATIVO !!!");
-                this.dispose();
+                try {
+                    selects.selectCadEquipAlfabetico(equip);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TelaListaAlunosAtivos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.ExecutaMetodo();   
             }  
-    }//GEN-LAST:event_btnAtivarAlunoActionPerformed
+    }//GEN-LAST:event_btnCadastroEquipamentosActionPerformed
 
     
     
@@ -203,7 +224,7 @@ public class TelaListaEquipamentosAtivos extends javax.swing.JFrame {
     } -----------------------------------------------------*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtivarAluno;
+    private javax.swing.JButton btnCadastroEquipamentos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabela;

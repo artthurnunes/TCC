@@ -1,21 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package telas_internas_main.financeiro;
 
-import telas_internas_main.financeiro.TelaDespesasProgramadas;
-
-/**
- *
- * @author Arthur
- */
 public class TelaFinanceiro extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form TelaFinanceiro
-     */
+    
     public TelaFinanceiro() {
         initComponents();
     }

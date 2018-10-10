@@ -4,27 +4,27 @@ package classes;
 public class ClasseCadastro {
     
     private static int cd_registro;
-    private boolean situacao;
+    private static boolean situacao;
     private static String nome;
-    private String tel1;
-    private String tel2;
-    private String profissao;
-    private String sexo;
-    private int estado_civil;
-    private String rg;
-    private String cpf;
-    private String dt_nascimento;
-    private String nm_mae;
-    private String nm_pai;
-    private String nm_emer;
-    private String tel_emer;
-    private int parentesco;
-    private String end_rua;
-    private String end_numero;
-    private String end_bairro;
-    private String end_cidade;
-    private int end_estado;
-    private String end_cep;
+    private static String tel1;
+    private static String tel2;
+    private static String profissao;
+    private static String sexo;
+    private static int estado_civil;
+    private static String rg;
+    private static String cpf;
+    private static String dt_nascimento;
+    private static String nm_mae;
+    private static String nm_pai;
+    private static String nm_emer;
+    private static String tel_emer;
+    private static int parentesco;
+    private static String end_rua;
+    private static String end_numero;
+    private static String end_bairro;
+    private static String end_cidade;
+    private static int end_estado;
+    private static String end_cep;
 
     
     public int getCd_registro() {

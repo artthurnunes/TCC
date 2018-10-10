@@ -24,6 +24,11 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
         valor_equipamento.setDocument(new ClasseCaractersFloat());
     }
     
+    public void abrirTelaEquipamentos(){ 
+        this.setarCamposDaClasse();
+        this.setVisible(true);
+    }
+    
     private void limparCampos(){
         cd_equipamento.setText("");
         nm_equipamento.setText("");
@@ -68,7 +73,7 @@ public class TelaEquipamentos extends javax.swing.JInternalFrame {
         equipamentos.setProxima_empresa(proxima_empresa.getText());
     }
     
-    private void setarCamposDaClasse(){
+    public void setarCamposDaClasse(){
         cd_equipamento.setText(Integer.toString(equipamentos.getCd_equipamento()));
         nm_equipamento.setText(equipamentos.getNm_equipamento());
         dt_compra_equipamento.setText(equipamentos.getDt_compra_equipamento());
