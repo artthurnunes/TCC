@@ -70,6 +70,7 @@ public class TelaListaAlunosAtivos extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(TelaListaAlunosAtivos.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
 
         ClassejTableSelect modelo = new ClassejTableSelect(dados, colunas);
         

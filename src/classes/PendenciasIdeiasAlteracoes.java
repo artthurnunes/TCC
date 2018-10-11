@@ -5,7 +5,13 @@ public class PendenciasIdeiasAlteracoes {
     
     /*   ONDE PAREI ---------------------------- 
 
-    *** Fazer BKP do banco em casa e exportar esse com a nova estrutura. TREINAMENTO
+    *** Importar banco TREINAMENTO em casa para fazer testes. Tentar manter o banco PRODUÇÃO sempre Ok com dados 
+        verdadeiros
+    
+    -- Esta com problema para Salvar cadastro de aluno que não esta colocando foto. Pensei em deixar uma foto padrão
+       da pasta de imagens, se não for selecionada nenhuma foto, salvar a da pasta.
+    caminho 
+    C:\Users\anunes\Documents\NetBeansProjects\TCC\src\imagens\Question-mark-icon_34771.png
     
     /* PENDÊNCIAS ----------------------  
         * Pintar a data de vermelho quando o treino do aluno estiver vencido

@@ -5,21 +5,14 @@ import classes.ClasseCadastro;
 import classes.ClasseCadastro_modalidades;
 import classes.ClasseCadastro_planos;
 import classes.ClasseCadastro_treino;
-import conexoesbancodedados.ConectaBd;
 import conexoesbancodedados.InsertBd;
 import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
 import java.awt.Image;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -40,6 +33,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     
     public TelaCadastro() {
         initComponents();
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -251,6 +245,9 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         lblSituacaoAluno.setText("ATIVO/INATIVO");
 
         jLabel23.setText("Data de Nascimento:");
+
+        lblFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Question-mark-icon_34771.png"))); // NOI18N
 
         btnCarregarFoto.setText("Carregar foto");
         btnCarregarFoto.addActionListener(new java.awt.event.ActionListener() {
@@ -611,7 +608,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 
                 //INSERINDO A FOTO DO CADASTRO NO BANCO AQUI POIS MAIS PRA CIMA AINDA NÃO TENHO O CD_REGISTRO
                 inserts.insereImgCadastro(classecadastro);
-                
+                                
                 //SETAR NA CLASSE POIS O PLANO USA O CD_REGISTRO DO ALUNO PARA TRAZER O SELECT
                 classecadastro.setCd_registro(Integer.parseInt(lblCodigoAluno.getText()));
                 try {
@@ -627,12 +624,14 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 }
                 new TelaCadastro_financeiro(null,true).setVisible(true);
                 this.limparCampos();
+                lblFoto.setIcon(null);
+                
 
             }  
         }else{
             this.setarCamposParaClasse();
             updates.alterarCadastroAluno(classecadastro);
-            updates.alterarImagemAlunos(classecadastro);
+            //updates.alterarImagemAlunos(classecadastro);
             
         }
         
@@ -644,10 +643,11 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         JFileChooser arquivo = new JFileChooser();
         arquivo.setDialogTitle("Selecione uma foto");
         arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        
+                
         int opc = arquivo.showOpenDialog(this);
         if(opc == JFileChooser.APPROVE_OPTION){
-            File file = new File("Caminho");
+        File file = new File("Caminho");
+
             file = arquivo.getSelectedFile(); //recebe o caminho 
 //          String filename = file.getAbsolutePath(); 
             classecadastro.setCaminhoImg(file.getAbsolutePath()); //pega o caminho da imagem pra salvar no BD
@@ -655,7 +655,11 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             ImageIcon imagem = new ImageIcon(arquivo.getSelectedFile().getPath());
             //configura o tamanho da imagem de acordo com o tamanho do label
             lblFoto.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT)));
+            System.out.println("file.getAbsolutePath: "+file.getAbsolutePath());
         }
+        
+        System.out.println("arquivo.getSelectedFile: "+arquivo.getSelectedFile());
+        
         
     }//GEN-LAST:event_btnCarregarFotoActionPerformed
 
@@ -697,17 +701,21 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
         this.setarCamposDaClasse();
         
         //Carregando a foto
         try {
-            selects.retornaFotoAluno(classecadastro);
-            lblFoto.setIcon(new ImageIcon(classecadastro.getImagemBanco().getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT)));
+            if("".equals(lblCodigoAluno.getText())){
+                //Se codigo aluno estiver em branco nao faz nada para não dar erro de banco      
+            }else{
+                selects.retornaFotoAluno(classecadastro);
+                lblFoto.setIcon(new ImageIcon(classecadastro.getImagemBanco().getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT)));
+            }
         } catch (SQLException ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+   
     }//GEN-LAST:event_btnPesquisarMouseClicked
 
     private void btnProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProximoMouseClicked
@@ -792,7 +800,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtCidade.setText("");
         combEstado.setSelectedIndex(0);
         Tcad_txtCep.setText("");
-        lblFoto.setIcon(null);
     }
     
     public void setarCamposParaClasse(){
@@ -854,7 +861,10 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtCidade.setText(classecadastro.getEnd_cidade());
         combEstado.setSelectedIndex(classecadastro.getEnd_estado());
         Tcad_txtCep.setText(classecadastro.getEnd_cep());
+        
     }
+    
+    
     
 
 

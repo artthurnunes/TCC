@@ -1,12 +1,10 @@
 
 package telas;
 
-import javax.swing.JDesktopPane;
 import telas_internas_main.cadastro.TelaCadastro;
 import telas_internas_main.TelaEquipamentos;
 import telas_internas_main.financeiro.TelaFinanceiro;
 import telas_internas_main.TelaCatraca;
-import telas_internas_main.cadastro.TelaCadastro_financeiro;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -399,6 +397,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadPlanosActionPerformed
 
     private void btnAlunosAtivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlunosAtivosActionPerformed
+        listaAlunosAtivos.preencherTabela("SELECT * FROM TB_ALUNOS WHERE SITUACAO = TRUE");
         listaAlunosAtivos.MostrarTela(this);
     }//GEN-LAST:event_btnAlunosAtivosActionPerformed
 
@@ -411,6 +410,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_bntEquipamentosAtivosActionPerformed
 
     private void btnAlunosAusentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlunosAusentesActionPerformed
+        listaAlunosAusentes.preencherTabela("SELECT B.NOME,B.TEL1, DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y'), DATEDIFF(NOW(),A.DT_ENTRADA) FROM TB_FREQUENCIA_ALUNOS A INNER JOIN TB_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO WHERE DATEDIFF(NOW(),DT_ENTRADA) > 7"); 
         listaAlunosAusentes.MostrarTela(this);
     }//GEN-LAST:event_btnAlunosAusentesActionPerformed
 

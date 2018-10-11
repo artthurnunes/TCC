@@ -287,8 +287,12 @@ public class TelaRecebimentoMensalidade extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(TelaRecebimentoMensalidade.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        this.setaCamposDaClasse();
+        
+            if("".equals(mensalidade.getNome())){
+                //não faz nada para não dar erro quando não retornar nada do select
+            }else{
+                this.setaCamposDaClasse();
+            }  
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnPesquisar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisar2ActionPerformed
