@@ -8,12 +8,18 @@ import classes.ClasseCatraca;
 import classes.ClasseDespesas;
 import classes.ClasseEquipamentos;
 import classes.ClassePagamentoMensalidade;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class UpdateBd {
@@ -339,6 +345,32 @@ public class UpdateBd {
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO INATIVAR PLANO !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
+    
+    public void alterarImagemAlunos(ClasseCadastro classecadastro){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+        InputStream fis;
+        
+        File file = new File(classecadastro.getCaminhoImg());
+        
+        try{    
+            fis = new FileInputStream(file);
+            stmt = con.prepareStatement("UPDATE TB_FOTOS_ALUNOS SET IMAGEM = ? WHERE CD_REGISTRO = ? ");
+            
+            stmt.setBinaryStream(1, fis, (int)file.length());
+            stmt.setInt(2, classecadastro.getCd_registro());
+                       
+            stmt.executeUpdate();
+            //JOptionPane.showMessageDialog(null,"<html>Dados atualizados !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(UpdateBd.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             ConectaBd.closeConnection(con, stmt);
         }  

@@ -1,6 +1,8 @@
 
 package classes;
 
+import javax.swing.ImageIcon;
+
 public class ClasseCadastro {
     
     private static int cd_registro;
@@ -26,6 +28,15 @@ public class ClasseCadastro {
     private static int end_estado;
     private static String end_cep;
     private static String caminhoImg;
+    private static ImageIcon imagemBanco;
+
+    public ImageIcon getImagemBanco() {
+        return imagemBanco;
+    }
+
+    public void setImagemBanco(ImageIcon imagem) {
+        this.imagemBanco = imagem;
+    }
 
     public String getCaminhoImg() {
         return caminhoImg;

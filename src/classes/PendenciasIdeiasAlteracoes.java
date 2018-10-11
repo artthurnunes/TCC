@@ -6,12 +6,8 @@ public class PendenciasIdeiasAlteracoes {
     /*   ONDE PAREI ---------------------------- 
 
     *** Fazer BKP do banco em casa e exportar esse com a nova estrutura. TREINAMENTO
-    *** Terminas de fazer a tela de salvar foto no banco. TelaCadastro / Insert / ClasseCadastro
-        - Fazer Update da imagem se o aluno quiser fazer um update
     
     /* PENDÊNCIAS ----------------------  
-        * Criar botão de carregar foto e salvar no BD dentro campo foto (PRONTO, SO FALTA SALVAR A FOTO)
-            https://www.youtube.com/watch?v=fd9zvTW5iLc
         * Pintar a data de vermelho quando o treino do aluno estiver vencido
           --------
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
@@ -20,9 +16,7 @@ public class PendenciasIdeiasAlteracoes {
         * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.    
         * Tentar fazer import/export/bkp do banco pela aplicação
     */
-    
-    
-    
+
     /* TESTES DE CONSISTENCIA DO BANCO
         - Treino Vencido. Ok
         - Mais de um treino cadastrado. Ok

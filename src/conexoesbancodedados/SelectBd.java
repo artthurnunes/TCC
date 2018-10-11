@@ -13,6 +13,7 @@ import classes.ClasseEquipamentos;
 import classes.ClasseEsqueceuSenha;
 import classes.ClasseSenhaInicial;
 import classes.ClasseSituacaoFinanceira;
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -20,6 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class SelectBd {
@@ -1032,6 +1034,21 @@ public class SelectBd {
                 return false;  
     }
     
+    public void retornaFotoAluno(ClasseCadastro classecadastro) throws SQLException{
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String sql = "SELECT IMAGEM FROM TB_FOTOS_ALUNOS WHERE CD_REGISTRO = "+classecadastro.getCd_registro()+"";
+        
+        rs = stmt.executeQuery(sql);
+        
+        rs.beforeFirst();
+            while(rs.next()){
+                byte[] imgBytes = ((byte[]) rs.getBytes("IMAGEM"));
+                ImageIcon pic = new ImageIcon(imgBytes);    
+                classecadastro.setImagemBanco(pic);
+            }        
+    }
+
     
 }
     

@@ -17,7 +17,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -264,8 +266,8 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Tcad_txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -278,7 +280,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblSituacaoAluno)
                                 .addGap(14, 14, 14))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel11)
@@ -309,7 +311,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(combEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
@@ -630,6 +632,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         }else{
             this.setarCamposParaClasse();
             updates.alterarCadastroAluno(classecadastro);
+            updates.alterarImagemAlunos(classecadastro);
             
         }
         
@@ -697,6 +700,14 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
 
         this.setarCamposDaClasse();
         
+        //Carregando a foto
+        try {
+            selects.retornaFotoAluno(classecadastro);
+            lblFoto.setIcon(new ImageIcon(classecadastro.getImagemBanco().getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT)));
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_btnPesquisarMouseClicked
 
     private void btnProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProximoMouseClicked
@@ -707,6 +718,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             classecadastro.setNome("");
             try {
                     selects.selectCadastroAlfabetico(classecadastro);
+                    selects.retornaFotoAluno(classecadastro);
                 } catch (SQLException ex) {
                     Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -719,6 +731,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         //System.out.println("Nome do proximo :"+classecadastro.getNome());//teste
         
         this.setarCamposDaClasse();
+        lblFoto.setIcon(new ImageIcon(classecadastro.getImagemBanco().getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT)));
     }//GEN-LAST:event_btnProximoMouseClicked
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -732,11 +745,13 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             classecadastro.setNome("");
             try {
                     selects.selectCadastroAlfabetico(classecadastro);
+                    selects.retornaFotoAluno(classecadastro);
                 } catch (SQLException ex) {
                     Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
         this.setarCamposDaClasse();
+        lblFoto.setIcon(new ImageIcon(classecadastro.getImagemBanco().getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT)));
     }//GEN-LAST:event_btnVoltarMouseClicked
 
     private void btnExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExcluirMouseClicked
@@ -777,6 +792,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtCidade.setText("");
         combEstado.setSelectedIndex(0);
         Tcad_txtCep.setText("");
+        lblFoto.setIcon(null);
     }
     
     public void setarCamposParaClasse(){
@@ -807,6 +823,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         classecadastro.setEnd_cidade(Tcad_txtCidade.getText());
         classecadastro.setEnd_estado(combEstado.getSelectedIndex());
         classecadastro.setEnd_cep(Tcad_txtCep.getText()); 
+        classecadastro.setImagemBanco((ImageIcon) lblFoto.getIcon());
         
     }
     
@@ -839,29 +856,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtCep.setText(classecadastro.getEnd_cep());
     }
     
-    public void salvaImgBanco(){
-//        Connection con = ConectaBd.getConnection();
-//        PreparedStatement stmt = null;
-//        
-//        //String caminho = lblFoto.getIcon().toString();
-//        InputStream fis;
-//        
-//        File file = new File(caminho);
-//        try{
-//            fis = new FileInputStream(file);
-//            stmt = con.prepareStatement("INSERT INTO TB_FOTOS_ALUNOS (CD_REGISTRO,IMAGEM) VALUES (1,?)");
-//            stmt.setBinaryStream(1, fis, (int)file.length());
-//            stmt.executeUpdate();
-//            fis.close();
-//            
-//        }catch (FileNotFoundException ex){
-//            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
-//        }catch (SQLException ex){
-//            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
-//        }catch (IOException ex){
-//            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Tcad_btnFinanceiro;
