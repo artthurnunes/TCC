@@ -6,9 +6,12 @@ public class PendenciasIdeiasAlteracoes {
     /*   ONDE PAREI ---------------------------- 
 
     *** MATER O BANCO PRODUÇÃO COM DADOS REAIS. TESTES USAR O BANCO TREINAMENTO
-        
+     - PROBLEMA PARA TRAZER O TREINO MAIS RECENTE. QUANDO ALUNO TEM UM TREINO VENCIDO E E FEITO UM TREINO
+       NOVO, AINDA ESTA TRAZENDO O ANTIGO.
+    
+    
     /* PENDÊNCIAS ----------------------  
-        * Pintar a data de vermelho quando o treino do aluno estiver vencido
+
           --------
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
         * Se der certo enviar o email, vazer verificação para prómixo login com senha 

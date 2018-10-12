@@ -18,6 +18,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -319,8 +320,7 @@ public class SelectBd {
             
         return(i);
     }
-    
-    
+        
     //selec para retornar o numero do cd do grupo muscular para a tela de cadastro de exercicios
     public void retornaCdGrupoMuscular(ClasseCadastro_exercicios dados) throws SQLException{
         con = ConectaBd.getConnection();
@@ -1046,6 +1046,24 @@ public class SelectBd {
             }        
     }
 
+    public ArrayList retornaAlunosTreinoVencido() throws SQLException{
+        ArrayList<String> nomes = new ArrayList();
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        String sql = "SELECT A.NOME,STR_TO_DATE(MAX(B.DT_FIM),'%e/%m/%Y') "
+                        + "FROM TB_ALUNOS A "
+                        + "INNER JOIN TB_TREINOSA B ON B.CD_REGISTRO = A.CD_REGISTRO "
+                            + "AND STR_TO_DATE(B.DT_FIM,'%e/%m/%Y') < NOW() "
+                        + "WHERE A.SITUACAO = 1 GROUP BY A.NOME";
+
+        rs = stmt.executeQuery(sql);
+
+        //rs.beforeFirst();
+            while(rs.next()){
+                nomes.add(rs.getString("A.NOME"));
+            }  
+        return nomes;
+    }
     
 }
     

@@ -6,14 +6,17 @@ import conexoesbancodedados.ConectaBd;
 import conexoesbancodedados.SelectBd;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.AttributedCharacterIterator;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
@@ -29,6 +32,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
     int codAluno_selecionado;
     int contLinhas=0;
     String nmAluno_selecionado;
+    ArrayList<String> nomesAlunosVendidos = new ArrayList();
    
     public TelaListaAlunosFrequentes() {
         initComponents();
@@ -101,6 +105,8 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
             this.pintarTreinosVencidos();
         } catch (ParseException ex) {
             Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -171,8 +177,53 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    public void pintarTreinosVencidos() throws ParseException{
+    public void pintarTreinosVencidos() throws ParseException, SQLException{
+  
+        nomesAlunosVendidos = selects.retornaAlunosTreinoVencido();
+            
         
+        
+        String texte = "a";
+        tabela.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value,
+                    boolean isSelected, boolean hasFocus, int row, int column){
+                JLabel label = (JLabel) super.getTableCellRendererComponent(table, value,
+                        isSelected, hasFocus, row, column);
+                        
+                Color c = Color.WHITE;
+                    for(int i = 0; i < nomesAlunosVendidos.size(); i++){
+                        Object texto = table.getValueAt(row, 0);
+                        if(nomesAlunosVendidos.get(i).equals(texto))
+                            c = Color.RED;
+                        label.setBackground(c);
+                        tabela.setSelectionForeground(Color.GREEN);
+                
+                    
+                    }
+                return label;
+                
+                /*
+                Object texto = table.getValueAt(row, 4);
+                if(texto != null && texte == "a")
+                    c = Color.RED;
+                label.setBackground(c);
+                tabela.setSelectionForeground(Color.GREEN);
+                
+                return label;
+                */
+                
+            }
+            
+        });
+        
+        
+        
+        
+//        System.out.println(nomesAlunosVendidos);
+//        System.out.println(nomesAlunosVendidos.get(0));
+        
+        /*
         //https://www.youtube.com/watch?v=-5z16LHWEtE
         
         ArrayList<Date> treinosVencidos = new ArrayList();
@@ -216,7 +267,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
             }
             
         });
-        
+        */
 
     }
     
