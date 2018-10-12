@@ -10,8 +10,6 @@ import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
 import java.awt.Image;
 import java.io.File;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +28,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     SelectBd selects = new SelectBd();
     UpdateBd updates = new UpdateBd();
     String caminho = "";
+    Boolean carregouFoto = false;
     
     public TelaCadastro() {
         initComponents();
@@ -606,6 +605,11 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
                 }
                 this.setarCamposDaClasse();
                 
+                //SE NÃO CARREGAR NENHUMA IMAGEM, SALVA IMAGEM PADRAO PARA NÃO DAR ERRO NA FOTO.
+                if(carregouFoto == false){
+                    classecadastro.setCaminhoImg("C:\\Users\\Arthur\\Documents\\NetBeansProjects\\Tcc\\src\\imagens\\logoUser.png");
+                    carregouFoto = false;
+                }
                 //INSERINDO A FOTO DO CADASTRO NO BANCO AQUI POIS MAIS PRA CIMA AINDA NÃO TENHO O CD_REGISTRO
                 inserts.insereImgCadastro(classecadastro);
                                 
@@ -651,14 +655,17 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
             file = arquivo.getSelectedFile(); //recebe o caminho 
 //          String filename = file.getAbsolutePath(); 
             classecadastro.setCaminhoImg(file.getAbsolutePath()); //pega o caminho da imagem pra salvar no BD
+//            classecadastro.setCaminhoImg("C:\\Users\\Arthur\\Documents\\NetBeansProjects\\Tcc\\src\\imagens\\logoUser.png");
+            
             
             ImageIcon imagem = new ImageIcon(arquivo.getSelectedFile().getPath());
             //configura o tamanho da imagem de acordo com o tamanho do label
             lblFoto.setIcon(new ImageIcon(imagem.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT)));
-            System.out.println("file.getAbsolutePath: "+file.getAbsolutePath());
+            carregouFoto = true;
+//            System.out.println("file.getAbsolutePath: "+file.getAbsolutePath());
         }
         
-        System.out.println("arquivo.getSelectedFile: "+arquivo.getSelectedFile());
+//        System.out.println("arquivo.getSelectedFile: "+arquivo.getSelectedFile());
         
         
     }//GEN-LAST:event_btnCarregarFotoActionPerformed
@@ -706,7 +713,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         
         //Carregando a foto
         try {
-            if("".equals(lblCodigoAluno.getText())){
+            if("".equals(lblCodigoAluno.getText()) || "0".equals(lblCodigoAluno.getText())){
                 //Se codigo aluno estiver em branco nao faz nada para não dar erro de banco      
             }else{
                 selects.retornaFotoAluno(classecadastro);
@@ -719,7 +726,6 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPesquisarMouseClicked
 
     private void btnProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProximoMouseClicked
-      
         if(selects.getLinha_atual_select() < selects.getQt_linhas_select()){
             selects.setLinha_atual_select(selects.getLinha_atual_select()+1);
             this.limparCampos();
@@ -739,7 +745,12 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         //System.out.println("Nome do proximo :"+classecadastro.getNome());//teste
         
         this.setarCamposDaClasse();
-        lblFoto.setIcon(new ImageIcon(classecadastro.getImagemBanco().getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT)));
+        if("".equals(lblCodigoAluno.getText()) || "0".equals(lblCodigoAluno.getText())){
+                //Se codigo aluno estiver em branco nao faz nada para não dar erro de banco      
+        }else{
+            lblFoto.setIcon(new ImageIcon(classecadastro.getImagemBanco().getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT)));
+        }
+        
     }//GEN-LAST:event_btnProximoMouseClicked
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -800,6 +811,9 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtCidade.setText("");
         combEstado.setSelectedIndex(0);
         Tcad_txtCep.setText("");
+        lblFoto.setIcon(null);
+        classecadastro.setCaminhoImg("C:\\Users\\Arthur\\Documents\\NetBeansProjects\\Tcc\\src\\imagens\\logoUser.png");
+
     }
     
     public void setarCamposParaClasse(){
@@ -863,6 +877,7 @@ public class TelaCadastro extends javax.swing.JInternalFrame {
         Tcad_txtCep.setText(classecadastro.getEnd_cep());
         
     }
+    
     
     
     

@@ -260,10 +260,21 @@ public class TelaDespesasNaoProgramadas extends javax.swing.JDialog {
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagoActionPerformed
+        Date dataSistema = new Date();
+        SimpleDateFormat formatoPT = new SimpleDateFormat("dd/MM/yyyy");
+        Date dataPT = new Date();
+        
         int i = JOptionPane.showConfirmDialog(null, "Confirma o pagamento desta despesa ? ");
-        if(i == 0){
-            updates.pagaDespesa(despesas);
-        }
+            if(i == 0){
+                try {
+                    dataPT = formatoPT.parse(JOptionPane.showInputDialog(null," Data de pagamento ",formatoPT.format(dataSistema)));
+                    java.sql.Date dataBD = new java.sql.Date(dataPT.getTime());
+                    despesas.setDtPagamento(dataBD);
+                    updates.pagaDespesa(despesas);
+                } catch (ParseException ex) {
+                    Logger.getLogger(TelaDespesasProgramadas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
     }//GEN-LAST:event_btnPagoActionPerformed
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed

@@ -112,8 +112,6 @@ public class TelaListaDespesasProgramadas extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
-        btnAvancar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         total = new javax.swing.JLabel();
 
@@ -133,15 +131,6 @@ public class TelaListaDespesasProgramadas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabela);
 
-        btnAvancar.setText("AVANÇAR");
-        btnAvancar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvancarActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Ir para tela de cadastro da despesas ? ");
-
         jLabel2.setText("TOTAL :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,16 +145,8 @@ public class TelaListaDespesasProgramadas extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnAvancar, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,40 +157,12 @@ public class TelaListaDespesasProgramadas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(total, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAvancar)
-                .addGap(15, 15, 15))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
-        //linha_selecionada = tabela.getSelectedRow(); //seleciona a linha que o usuário clicou na tabela
-        //codAluno_selecionado = (Integer)tabela.getValueAt(linha_selecionada, 0); //armazena o número do cd aluno selecionado
-        //nmAluno_selecionado = (String) tabela.getValueAt(linha_selecionada, 1); //armazena o nome do aluno selecionado
-//        TelaPrincipal tela_principal = new TelaPrincipal();
-//        TelaCadastro telaCadastro = new TelaCadastro();
-        
-           
-//        int op = JOptionPane.showConfirmDialog(null, "<html>Ir para o cadastro do aluno <b>"+nmAluno_selecionado+"</b> ?</html>");
-//            if(op == 0){
-//                
-//                /* TENTANDO FAZER A TELA DE CADASTRO APARECER QUANDO CLICAR EM AVAÇAR
-//                //new TelaPrincipal().espacoTelas.add(telaCadastro);
-//                new TelaPrincipal().telaCadastro.setVisible(true);
-//                //updates.ativarCadastro(codAluno_selecionado);
-//                //tela_principal.getParent().add(telaCadastro);
-//                //tela_principal.add(telaCadastro);
-//                //telaCadastro.setVisible(true);
-//                this.dispose();
-//                */
-//            }
-        //   
-    }//GEN-LAST:event_btnAvancarActionPerformed
 
     
     
@@ -250,8 +203,6 @@ public class TelaListaDespesasProgramadas extends javax.swing.JFrame {
     } -----------------------------------------------------*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAvancar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabela;

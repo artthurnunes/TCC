@@ -13,14 +13,11 @@ import classes.ClasseEquipamentos;
 import classes.ClasseEsqueceuSenha;
 import classes.ClasseSenhaInicial;
 import classes.ClasseSituacaoFinanceira;
-import java.awt.Image;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 

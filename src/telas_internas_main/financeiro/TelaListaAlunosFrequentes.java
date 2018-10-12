@@ -21,8 +21,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableCellRenderer;
-import telas.TelaPrincipal;
-
 
 public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
@@ -32,7 +30,6 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
     int contLinhas=0;
     String nmAluno_selecionado;
    
-
     public TelaListaAlunosFrequentes() {
         initComponents();
         this.preencherTabela("SELECT B.NOME,B.TEL1, DATE_FORMAT(A.DT_ENTRADA,'%e/%m/%Y'), DATEDIFF(NOW(),A.DT_ENTRADA), MAX(C.DT_FIM) FROM TB_FREQUENCIA_ALUNOS A INNER JOIN TB_ALUNOS B ON B.CD_REGISTRO = A.CD_REGISTRO LEFT JOIN TB_TREINOSA C ON C.CD_REGISTRO = A.CD_REGISTRO WHERE B.SITUACAO = 1 AND DATEDIFF(NOW(),A.DT_ENTRADA) < 8 GROUP BY A.CD_REGISTRO ORDER BY 4"); 
@@ -100,11 +97,11 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         tabela.setAutoResizeMode(tabela.AUTO_RESIZE_OFF);
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);    
         
-//        try {
-//            this.pintarTreinosVencidos();
-//        } catch (ParseException ex) {
-//            Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            this.pintarTreinosVencidos();
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -196,21 +193,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
             java.sql.Date dataSql = new java.sql.Date(data.getTime());
             treinosVencidos.add(dataSql);
         }  
-//        dataAtual.before(dataSistema);
-//        dataAtual.compareTo(dataSistema);
-        
-//        for(int i=0;i< treinosVencidos.size();i++){
-//            System.out.println(treinosVencidos.get(i));
-//        }
-        
-//        for(int i=0;i<treinosVencidos.size();i++){
-//            if(dataAtual.after(treinosVencidos.get(i))){
-//                System.out.println("Vencida");
-//            }
-//        }
-        
-        
-//        System.out.println(dataAtual); //data atual
+
         
         String texte = "a";
         tabela.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
@@ -221,10 +204,10 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
                         isSelected, hasFocus, row, column);
                 
                 Color c = Color.WHITE;
-//                Object texto = table.getValueAt(row, 4);
-                Object texto = dataAtual; //2018-10-08
-//                if(texto != null && treinosV.get(1).equals(texto.toString()) )
-                if(treinosVencidos.get(0).before((Date) texto)) 
+                Object texto = table.getValueAt(row, 4);
+//                Object texto = dataAtual; //2018-10-08
+                if(texto != null && texte == "a")
+//                if(treinosVencidos.get(0).before((Date) texto)) 
                     c = Color.RED;
                 label.setBackground(c);
                 tabela.setSelectionForeground(Color.GREEN);
@@ -239,7 +222,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
     
     
     
-    /* ---------------------------------------
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -247,7 +230,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
    
-    /* ---------------------------------------
+   
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -268,13 +251,13 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
         /* Create and display the form */
          
-    /* ---------------------------------------
+    
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaListaAlunosFrequentes().setVisible(true);
             }
         });
-    }  -----------------------------------*/
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
