@@ -2,8 +2,10 @@
 package telas;
 
 import classes.ClasseAltSenha;
+import classes.ClasseSenhaMd5;
 import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -14,6 +16,7 @@ public class TelaAltSenhaAcesso extends javax.swing.JDialog {
 
     ArrayList<String> dados = new ArrayList();
     ClasseAltSenha login = new ClasseAltSenha(); //objeto para classe de login
+    ClasseSenhaMd5 md5 = new ClasseSenhaMd5();
     SelectBd selects = new SelectBd();
     UpdateBd updates = new UpdateBd();
     
@@ -135,10 +138,10 @@ public class TelaAltSenhaAcesso extends javax.swing.JDialog {
                         JOptionPane.showMessageDialog(null, "Usuário invalido !");
                     }else{
                         login.setUsuario(usuario.getText());
-                        login.setSenha(senha.getText());
+                        login.setSenha(md5.converterSenha(senha.getText()));
                         verificacao_senha = login.verificaSenha(login);
                         if(verificacao_senha == true){
-                            login.setNovaSenha(novaSenha.getText());
+                            login.setNovaSenha(md5.converterSenha(novaSenha.getText()));
                             updates.alteraSenhaAcesso(login);
                             this.dispose();
                         }else{
@@ -147,7 +150,9 @@ public class TelaAltSenhaAcesso extends javax.swing.JDialog {
                     }
                 } catch (SQLException ex) {
                     Logger.getLogger(TelaSenhaInicial.class.getName()).log(Level.SEVERE, null, ex);
-                }          
+                } catch (NoSuchAlgorithmException ex) {          
+                Logger.getLogger(TelaAltSenhaAcesso.class.getName()).log(Level.SEVERE, null, ex);
+            }          
         }
     }//GEN-LAST:event_btnSalvarMouseClicked
 

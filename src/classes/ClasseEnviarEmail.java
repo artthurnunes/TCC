@@ -66,7 +66,7 @@ public class ClasseEnviarEmail extends ClasseEsqueceuSenha {
            JOptionPane.showMessageDialog(null, "<html>Nova senha enviada com sucesso !!!<br>Verifique seua caixa de email</html>");
         }catch(Exception ex)
         {
-            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "A nova senha não pode ser enviada :"+ex);
         }
     }
 }

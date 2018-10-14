@@ -2,9 +2,11 @@ package telas;
 
 import classes.ClasseEsqueceuSenha;
 import classes.ClasseSenhaInicial;
+import classes.ClasseSenhaMd5;
 import conexoesbancodedados.SelectBd;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,6 +17,7 @@ public class TelaSenhaInicial extends javax.swing.JDialog {
     SelectBd select = new SelectBd(); //objeto para classe selects
     ClasseSenhaInicial login = new ClasseSenhaInicial(); //objeto para classe de login
     ClasseEsqueceuSenha cEsqSenha = new ClasseEsqueceuSenha();
+    ClasseSenhaMd5 md5 = new ClasseSenhaMd5();
     
     public TelaSenhaInicial(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -221,7 +224,7 @@ public class TelaSenhaInicial extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(null, "Foi solicitado uma nova senha via email e é necessario altera-lá.");
                     new TelaAltSenhaAcesso(null,true).setVisible(true);
                 }else{
-                    login.setSenha(lblSenha.getText());
+                    login.setSenha(md5.converterSenha(lblSenha.getText()));
                     verificacao_senha = select.verificaSenha(login);
                     if(verificacao_senha == true){
                         this.dispose();
@@ -231,6 +234,8 @@ public class TelaSenhaInicial extends javax.swing.JDialog {
                     }
                 }      
             } catch (SQLException ex) {
+                Logger.getLogger(TelaSenhaInicial.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(TelaSenhaInicial.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

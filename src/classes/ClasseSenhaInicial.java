@@ -4,7 +4,7 @@ package classes;
 public class ClasseSenhaInicial {
     
     private static String usuario;
-    private String senha;
+    private static String senha;
     private static String nome;
     private boolean verificacao_botao;
     

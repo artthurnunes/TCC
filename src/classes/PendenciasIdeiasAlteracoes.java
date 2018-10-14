@@ -12,9 +12,6 @@ public class PendenciasIdeiasAlteracoes {
     
     /* PENDÊNCIAS ----------------------  
           --------
-        * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
-        * Se der certo enviar o email, vazer verificação para prómixo login com senha 
-          nova, seja pedido para criar uma nova senha pessoal.
         * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.
         * Salvar senhas md5 no banco - ALTERAR
         * Tentar fazer import/export/bkp do banco pela aplicação

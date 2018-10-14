@@ -2,8 +2,10 @@ package telas;
 
 import classes.ClasseEnviarEmail;
 import classes.ClasseEsqueceuSenha;
+import classes.ClasseSenhaMd5;
 import conexoesbancodedados.SelectBd;
 import conexoesbancodedados.UpdateBd;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
@@ -12,6 +14,7 @@ import java.util.logging.Logger;
 public class TelaEsqueceuSenha extends javax.swing.JDialog {
 
     ClasseEsqueceuSenha cSenha = new ClasseEsqueceuSenha();
+    ClasseSenhaMd5 md5 = new ClasseSenhaMd5();
     UpdateBd updates = new UpdateBd();
     ClasseEnviarEmail email = new ClasseEnviarEmail();
     SelectBd cSelect = new SelectBd();
@@ -113,7 +116,11 @@ public class TelaEsqueceuSenha extends javax.swing.JDialog {
         email.setTo(lblEmail.getText());
         email.setMessageText(this.gerarSenhaRandomica());
         email.enviarEmail();
-        updates.esqueceuSenha(cSenha.getUsuario(),newPass);
+            try {
+                updates.esqueceuSenha(cSenha.getUsuario(),md5.converterSenha(newPass));
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(TelaEsqueceuSenha.class.getName()).log(Level.SEVERE, null, ex);
+            }
         this.dispose();
     }//GEN-LAST:event_btnEnviarActionPerformed
 

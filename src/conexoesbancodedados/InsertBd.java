@@ -33,12 +33,12 @@ public class InsertBd {
         PreparedStatement stmt = null;
         
         try{
-            stmt = con.prepareStatement("INSERT INTO TB_SENHAS (USUARIO,NOME,SENHA,EMAIL) VALUES (?,?,?,?)");           
+            stmt = con.prepareStatement("INSERT INTO TB_SENHAS (USUARIO,NOME,SENHA,EMAIL) VALUES (?,?,MD5('"+dados.get(2)+"'),?)");           
             
             stmt.setString(1, (String) dados.get(1)); //indice do array usuario
             stmt.setString(2, (String) dados.get(0)); //nome
-            stmt.setString(3, (String) dados.get(2)); //senha
-            stmt.setString(4, (String) dados.get(3)); //email
+//            stmt.setString(3, (String) dados.get(2)); //senha //alterei aqui para a implementação do md5
+            stmt.setString(3, (String) dados.get(3)); //email
                        
             stmt.executeUpdate();
             //JOptionPane.showMessageDialog(null,"NOVO USUÁRIO SALVO COM SUCESSO !");
