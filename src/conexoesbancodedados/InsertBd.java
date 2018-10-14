@@ -41,7 +41,7 @@ public class InsertBd {
             stmt.setString(4, (String) dados.get(3)); //email
                        
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null,"NOVO USUÁRIO SALVO COM SUCESSO !");
+            //JOptionPane.showMessageDialog(null,"NOVO USUÁRIO SALVO COM SUCESSO !");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);

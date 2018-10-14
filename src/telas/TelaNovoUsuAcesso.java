@@ -144,6 +144,8 @@ public class TelaNovoUsuAcesso extends javax.swing.JDialog {
             dados.add(senha.getText());
             dados.add(email.getText());
             inserts.insereNovoUserPass(dados);
+            JOptionPane.showMessageDialog(null, "Novo usuario criado com sucesso !! ");
+            this.dispose();
         }
     }//GEN-LAST:event_btnSalvarMouseClicked
 

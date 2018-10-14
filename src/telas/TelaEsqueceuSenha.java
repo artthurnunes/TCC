@@ -1,15 +1,21 @@
 package telas;
 
+import classes.ClasseEnviarEmail;
 import classes.ClasseEsqueceuSenha;
 import conexoesbancodedados.SelectBd;
+import conexoesbancodedados.UpdateBd;
 import java.sql.SQLException;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TelaEsqueceuSenha extends javax.swing.JDialog {
 
     ClasseEsqueceuSenha cSenha = new ClasseEsqueceuSenha();
+    UpdateBd updates = new UpdateBd();
+    ClasseEnviarEmail email = new ClasseEnviarEmail();
     SelectBd cSelect = new SelectBd();
+    String newPass = "";
     
     public TelaEsqueceuSenha(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -20,9 +26,7 @@ public class TelaEsqueceuSenha extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(TelaEsqueceuSenha.class.getName()).log(Level.SEVERE, null, ex);
         }
-        lblEmail.setText(cSenha.getEmail());
-        
-        
+        lblEmail.setText(cSenha.getEmail());   
     }
 
     @SuppressWarnings("unchecked")
@@ -106,14 +110,27 @@ public class TelaEsqueceuSenha extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-
+        email.setTo(lblEmail.getText());
+        email.setMessageText(this.gerarSenhaRandomica());
+        email.enviarEmail();
+        updates.esqueceuSenha(cSenha.getUsuario(),newPass);
+        this.dispose();
     }//GEN-LAST:event_btnEnviarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    public String gerarSenhaRandomica(){
+        Random random = new Random();
+                
+        for(int i = 0; i < 6; i++){
+            newPass = newPass + Integer.toString(random.nextInt(9));
+        }
+        
+        return "Você solicitou uma nova senha. No seu próximo login, entre com a nova senha"
+                + ", logo em seguida será solicitado a alteração de senha para uma senha pessoal. "
+                + " NOVA SENHA: "+newPass; 
+    }
+
     
-    /*
+    /* --------------------------------------------------
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -121,7 +138,7 @@ public class TelaEsqueceuSenha extends javax.swing.JDialog {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
     
-    /*
+    /* --------------------------------------------------
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -141,7 +158,7 @@ public class TelaEsqueceuSenha extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-    /*
+    /* --------------------------------------------------
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaEsqueceuSenha dialog = new TelaEsqueceuSenha(new javax.swing.JFrame(), true);
@@ -154,8 +171,8 @@ public class TelaEsqueceuSenha extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
-    }
-*/
+    } --------------------------------*/
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;

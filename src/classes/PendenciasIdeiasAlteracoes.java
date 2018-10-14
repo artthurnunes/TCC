@@ -6,18 +6,24 @@ public class PendenciasIdeiasAlteracoes {
     /*   ONDE PAREI ---------------------------- 
 
     *** MATER O BANCO PRODUÇÃO COM DADOS REAIS. TESTES USAR O BANCO TREINAMENTO
-     - PROBLEMA PARA TRAZER O TREINO MAIS RECENTE. QUANDO ALUNO TEM UM TREINO VENCIDO E E FEITO UM TREINO
-       NOVO, AINDA ESTA TRAZENDO O ANTIGO.
+    * Adicionar as referencias do videos do youtube na parte escrita
+     
     
     
     /* PENDÊNCIAS ----------------------  
-
           --------
         * Email para recuperação de senha já está aparecendo na telinha, falta agora fazer o envio do email realmente.
         * Se der certo enviar o email, vazer verificação para prómixo login com senha 
           nova, seja pedido para criar uma nova senha pessoal.
-        * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.    
+        * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.
+        * Salvar senhas md5 no banco - ALTERAR
         * Tentar fazer import/export/bkp do banco pela aplicação
+    */
+    
+    /* PROBLEMAS
+        - PROBLEMA PARA TRAZER O TREINO MAIS RECENTE. QUANDO ALUNO TEM UM TREINO VENCIDO E E FEITO UM TREINO
+       NOVO, AINDA ESTA TRAZENDO O ANTIGO.(TELALISTAALUNOSFREQUENTES)
+    
     */
 
     /* TESTES DE CONSISTENCIA DO BANCO

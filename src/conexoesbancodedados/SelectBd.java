@@ -100,6 +100,23 @@ public class SelectBd {
         return(check);
     }
     
+    public boolean verificaAlteracaoSenha(String user) throws SQLException{
+
+        con = ConectaBd.getConnection();
+        Statement stmt = con.createStatement();
+        boolean verificacao = false;
+
+        String sql = "SELECT ESQ_SENHA FROM TB_SENHAS WHERE USUARIO = '"+user+"' ";
+
+        rs = stmt.executeQuery(sql);
+
+        if(rs.next())
+            verificacao = rs.getBoolean("ESQ_SENHA");
+                 
+        return verificacao;
+
+    }
+    
     //select de email para recuperacao de senha
     public void selecionaEmail() throws SQLException{
         

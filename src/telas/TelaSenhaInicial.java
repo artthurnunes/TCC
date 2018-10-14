@@ -215,14 +215,24 @@ public class TelaSenhaInicial extends javax.swing.JDialog {
                 Logger.getLogger(TelaSenhaInicial.class.getName()).log(Level.SEVERE, null, ex);
             }          
         }else{
-            login.setSenha(lblSenha.getText());
-            verificacao_senha = select.verificaSenha(login);
-                if(verificacao_senha == true){
-                    this.dispose();
+            try {
+                //se foi solicitado uma nova senha, altera a senha antes de entrar no primeiro login
+                if(select.verificaAlteracaoSenha(login.getUsuario()) == true){
+                    JOptionPane.showMessageDialog(null, "Foi solicitado uma nova senha via email e é necessario altera-lá.");
+                    new TelaAltSenhaAcesso(null,true).setVisible(true);
                 }else{
-                    JOptionPane.showMessageDialog(null, "Senha inválida !");
-                    lblSenha.setText("");
-                }        
+                    login.setSenha(lblSenha.getText());
+                    verificacao_senha = select.verificaSenha(login);
+                    if(verificacao_senha == true){
+                        this.dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Senha inválida !");
+                        lblSenha.setText("");
+                    }
+                }      
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaSenhaInicial.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
                     
@@ -233,6 +243,8 @@ public class TelaSenhaInicial extends javax.swing.JDialog {
         lblUsuario.setText("");
         btnEsqueceuSenha.setVisible(false);
         login.setVerificacao_botao(false);
+        login.setNome("abcdefghi");
+        login.setUsuario("abcdefghi");
     }//GEN-LAST:event_btnNaoSouEuActionPerformed
 
     /**

@@ -29,12 +29,32 @@ public class UpdateBd {
         PreparedStatement stmt = null; 
 
         try{
-            stmt = con.prepareStatement("UPDATE TB_SENHAS SET SENHA = (?) WHERE USUARIO = '"+dados.getUsuario()+"'");
+            stmt = con.prepareStatement("UPDATE TB_SENHAS SET SENHA = (?),ESQ_SENHA = FALSE WHERE USUARIO = '"+dados.getUsuario()+"'");
             
             stmt.setString(1,dados.getNovaSenha());
            
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,"<html>Senha atualizada com sucesso !</html>");
+        
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
+        }finally{
+            ConectaBd.closeConnection(con, stmt);
+        }  
+    }
+    
+    public void esqueceuSenha(String user, String newPass){
+        Connection con = ConectaBd.getConnection();
+        PreparedStatement stmt = null; 
+
+        try{
+            stmt = con.prepareStatement("UPDATE TB_SENHAS SET SENHA = (?),ESQ_SENHA = 1 WHERE USUARIO = (?)");
+            
+            stmt.setString(1,newPass);
+            stmt.setString(2,user);
+           
+            stmt.executeUpdate();
+            //JOptionPane.showMessageDialog(null,"<html>Senha atualizada com sucesso !</html>");
         
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"ERRO AO SALVAR !"+ex);
