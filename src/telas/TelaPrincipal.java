@@ -54,6 +54,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnSobre = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         btnMenuImport = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         btnAlunosAtivos = new javax.swing.JMenuItem();
@@ -177,7 +179,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Arquivo");
 
-        btnMenuImport.setText("Importar/Exportar backup(fazer)");
+        btnMenuImport.setText("Importar/Exportar backup");
         btnMenuImport.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMenuImportMouseClicked(evt);
@@ -188,6 +190,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 btnMenuImportActionPerformed(evt);
             }
         });
+
+        jMenuItem1.setText("Exportar");
+        btnMenuImport.add(jMenuItem1);
+
+        jMenuItem2.setText("Importar");
+        btnMenuImport.add(jMenuItem2);
+
         jMenu1.add(btnMenuImport);
 
         jMenuBar1.add(jMenu1);
@@ -365,7 +374,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuImportActionPerformed
 
     private void btnMenuImportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuImportMouseClicked
-        new TelaImportBackup(null,true).setVisible(true);
+        new TelaExportartBackup(null,true).setVisible(true);
     }//GEN-LAST:event_btnMenuImportMouseClicked
 
     private void btnNovoUsuarioAcessoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNovoUsuarioAcessoMouseClicked
@@ -496,6 +505,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
