@@ -54,8 +54,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnSobre = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         btnMenuImport = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        btnExportarBD = new javax.swing.JMenuItem();
+        btnImportarBD = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         btnAlunosAtivos = new javax.swing.JMenuItem();
@@ -191,11 +191,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("Exportar");
-        btnMenuImport.add(jMenuItem1);
+        btnExportarBD.setText("Exportar");
+        btnExportarBD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportarBDActionPerformed(evt);
+            }
+        });
+        btnMenuImport.add(btnExportarBD);
 
-        jMenuItem2.setText("Importar");
-        btnMenuImport.add(jMenuItem2);
+        btnImportarBD.setText("Importar");
+        btnImportarBD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImportarBDActionPerformed(evt);
+            }
+        });
+        btnMenuImport.add(btnImportarBD);
 
         jMenu1.add(btnMenuImport);
 
@@ -374,7 +384,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuImportActionPerformed
 
     private void btnMenuImportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMenuImportMouseClicked
-        new TelaExportartBackup(null,true).setVisible(true);
+        
     }//GEN-LAST:event_btnMenuImportMouseClicked
 
     private void btnNovoUsuarioAcessoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNovoUsuarioAcessoMouseClicked
@@ -439,6 +449,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         new TelaSobre(null,true).setVisible(true);
     }//GEN-LAST:event_btnSobreMouseClicked
 
+    private void btnImportarBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarBDActionPerformed
+        new TelaImportarBackup(null,true).setVisible(true);
+    }//GEN-LAST:event_btnImportarBDActionPerformed
+
+    private void btnExportarBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarBDActionPerformed
+        new TelaExportarBackup(null,true).setVisible(true);
+    }//GEN-LAST:event_btnExportarBDActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -493,6 +511,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnCadastroExercicios;
     private javax.swing.JMenuItem btnCadastroModalidades;
     private javax.swing.JMenuItem btnContato;
+    private javax.swing.JMenuItem btnExportarBD;
+    private javax.swing.JMenuItem btnImportarBD;
     private javax.swing.JMenu btnMenuImport;
     private javax.swing.JMenuItem btnNovoUsuarioAcesso;
     private javax.swing.JMenu btnSobre;
@@ -505,8 +525,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
