@@ -7,14 +7,14 @@ public class PendenciasIdeiasAlteracoes {
 
     *** MATER O BANCO PRODUÇÃO COM DADOS REAIS. TESTES USAR O BANCO TREINAMENTO
     * Adicionar as referencias do videos do youtube na parte escrita
-    * Tetando gerar o arquivo de bkp https://www.youtube.com/watch?v=fq1alQY9iLk / https://www.youtube.com/watch?v=Db_WCXmyRCg
+    
     
     
     
     /* PENDÊNCIAS ----------------------  
           --------
         * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.
-        * Tentar fazer import/export/bkp do banco pela aplicação
+        * Import Banco de Dados
     */
     
     /* PROBLEMAS
