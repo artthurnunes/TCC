@@ -6,6 +6,7 @@ public class PendenciasIdeiasAlteracoes {
     /*   ONDE PAREI ---------------------------- 
 
     *** MATER O BANCO PRODUÇÃO COM DADOS REAIS. TESTES USAR O BANCO TREINAMENTO
+    *** DEIXAR DOIS CAMINHOS PARA O BKP, NO SERVICO E AQUI NO NOTE E DIFERENTE O CAMINHO DO WAMP
     * Adicionar as referencias do videos do youtube na parte escrita
     
     
