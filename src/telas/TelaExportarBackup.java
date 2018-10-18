@@ -116,7 +116,9 @@ public class TelaExportarBackup extends javax.swing.JDialog {
         if(x > 0){
             try{
                 Runtime run = Runtime.getRuntime();
-                pr = run.exec("C://wamp//bin//mysql//mysql5.7.14//bin//mysqldump.exe -uroot --add-drop-database -B tcc -r"+caminho);
+                //Caminhos do Wamp diferentes. Essa linha precisa ser configurada de acordo com o pc de uso
+//                pr = run.exec("C://wamp//bin//mysql//mysql5.7.14//bin//mysqldump.exe -uroot --add-drop-database -B tcc -r"+caminho);
+                pr = run.exec("C://wamp64//bin//mysql//mysql5.7.14//bin//mysqldump.exe -uroot --add-drop-database -B tcc -r"+caminho);
                 int processComplete = pr.waitFor();
                 if(processComplete == 0){
                     JOptionPane.showMessageDialog(rootPane, "Backup realizado com sucesso !!");

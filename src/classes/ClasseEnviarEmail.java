@@ -14,6 +14,7 @@ public class ClasseEnviarEmail extends ClasseEsqueceuSenha {
     
     private static String to; // "artthur.nunes@outlook.com";
     private static String messageText; // "test test test";
+    private static String subject ; //assunto do email
 
     public String getTo() {
         return to;
@@ -30,6 +31,14 @@ public class ClasseEnviarEmail extends ClasseEsqueceuSenha {
     public void setMessageText(String messageText) {
         this.messageText = messageText;
     }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
     
     public void enviarEmail(){
         try{
@@ -37,7 +46,6 @@ public class ClasseEnviarEmail extends ClasseEsqueceuSenha {
             String user = "ruthrasoftware@gmail.com";
             String from = "artthur.nunes@gmail.com";
             String pass = "ruthra2018";
-            String subject = "Recuperação de senha Ruthra Academia";
             boolean sessionDebug = false;
             
             Properties props = System.getProperties();
@@ -63,10 +71,10 @@ public class ClasseEnviarEmail extends ClasseEsqueceuSenha {
            transport.sendMessage(msg, msg.getAllRecipients());
            transport.close();
            //System.out.println("message send successfully");
-           JOptionPane.showMessageDialog(null, "<html>Nova senha enviada com sucesso !!!<br>Verifique seua caixa de email</html>");
+           
         }catch(Exception ex)
         {
-            JOptionPane.showMessageDialog(null, "A nova senha não pode ser enviada :"+ex);
+            JOptionPane.showMessageDialog(null, "Erro ao enviar email :"+ex);
         }
     }
 }

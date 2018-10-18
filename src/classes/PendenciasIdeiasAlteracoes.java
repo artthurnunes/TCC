@@ -6,17 +6,8 @@ public class PendenciasIdeiasAlteracoes {
     /*   ONDE PAREI ---------------------------- 
 
     *** MATER O BANCO PRODUÇÃO COM DADOS REAIS. TESTES USAR O BANCO TREINAMENTO
-    *** DEIXAR DOIS CAMINHOS PARA O BKP, NO SERVICO E AQUI NO NOTE E DIFERENTE O CAMINHO DO WAMP
-    * Adicionar as referencias do videos do youtube na parte escrita
-    
-    
-    
-    
-    /* PENDÊNCIAS ----------------------  
-          --------
-        * - RELATAR PROBLEMAS (Criar está tela se o envio de email funcionar.
-        * Import Banco de Dados
-    */
+     * Falta fazer somente Import Banco de Dados
+
     
     /* PROBLEMAS
         - PROBLEMA PARA TRAZER O TREINO MAIS RECENTE. QUANDO ALUNO TEM UM TREINO VENCIDO E E FEITO UM TREINO
@@ -36,8 +27,10 @@ public class PendenciasIdeiasAlteracoes {
            esta trazendo certo para mais de um registro. Ok
         - Conferir tela de mensalidade de alunos se não esta trazendo registro
            repedito no botão frente e traz. Ok
-        - Testar alteração de senha 
-        - Criação de novo usuário
+        - Testar alteração de senha. Ok 
+        - Criação de novo usuário. Ok
+        - Exporta bando de dados. Ok
+     
     */  
 
     /*

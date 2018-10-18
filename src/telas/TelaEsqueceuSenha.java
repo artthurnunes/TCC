@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class TelaEsqueceuSenha extends javax.swing.JDialog {
 
@@ -114,6 +115,7 @@ public class TelaEsqueceuSenha extends javax.swing.JDialog {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         email.setTo(lblEmail.getText());
+        email.setSubject("Recuperação de senha Ruthra Academia");
         email.setMessageText(this.gerarSenhaRandomica());
         email.enviarEmail();
             try {
@@ -121,6 +123,7 @@ public class TelaEsqueceuSenha extends javax.swing.JDialog {
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(TelaEsqueceuSenha.class.getName()).log(Level.SEVERE, null, ex);
             }
+        JOptionPane.showMessageDialog(null, "<html>Nova senha enviada com sucesso !!!<br>Verifique seua caixa de email</html>");    
         this.dispose();
     }//GEN-LAST:event_btnEnviarActionPerformed
 
