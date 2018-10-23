@@ -26,7 +26,7 @@ public class TelaRelatarProblemas extends javax.swing.JFrame {
         txt_problema = new javax.swing.JTextArea();
         btnEnviar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Relatar Problemas");
 
         jLabel1.setText("RELATAR PROBLEMAS");
