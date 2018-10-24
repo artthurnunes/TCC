@@ -70,7 +70,7 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
         });
 
         btnDespesasNaoProgramadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/business-economic-finance-interprise-point-of-services_88994 (2).png"))); // NOI18N
-        btnDespesasNaoProgramadas.setText("DISPEZAS NÃO PROGRAMADAS");
+        btnDespesasNaoProgramadas.setText("DESPESAS NÃO PROGRAMADAS");
         btnDespesasNaoProgramadas.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnDespesasNaoProgramadas.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnDespesasNaoProgramadas.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +102,7 @@ public class TelaFinanceiro extends javax.swing.JInternalFrame {
                         .addComponent(btnDespesasNaoProgramadas, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAtrasos, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(150, 150, 150)
+                        .addGap(128, 128, 128)
                         .addComponent(btnFrequencia, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(150, 150, 150)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)

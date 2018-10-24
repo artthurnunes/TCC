@@ -36,7 +36,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="btnAtrasos" min="-2" pref="230" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                       <Component id="btnFrequencia" min="-2" pref="230" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -127,7 +127,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/imagens/business-economic-finance-interprise-point-of-services_88994 (2).png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="DISPEZAS N&#xc3;O PROGRAMADAS"/>
+        <Property name="text" type="java.lang.String" value="DESPESAS N&#xc3;O PROGRAMADAS"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
         <Property name="verticalTextPosition" type="int" value="3"/>
       </Properties>
