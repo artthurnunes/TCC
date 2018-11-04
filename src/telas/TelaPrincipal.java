@@ -55,7 +55,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         btnMenuImport = new javax.swing.JMenu();
         btnExportarBD = new javax.swing.JMenuItem();
-        btnImportarBD = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         btnAlunosAtivos = new javax.swing.JMenuItem();
@@ -179,7 +178,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Arquivo");
 
-        btnMenuImport.setText("Importar/Exportar backup");
+        btnMenuImport.setText("Exportar backup banco");
         btnMenuImport.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnMenuImportMouseClicked(evt);
@@ -198,14 +197,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         btnMenuImport.add(btnExportarBD);
-
-        btnImportarBD.setText("Importar");
-        btnImportarBD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImportarBDActionPerformed(evt);
-            }
-        });
-        btnMenuImport.add(btnImportarBD);
 
         jMenu1.add(btnMenuImport);
 
@@ -454,10 +445,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         new TelaSobre(null,true).setVisible(true);
     }//GEN-LAST:event_btnSobreMouseClicked
 
-    private void btnImportarBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarBDActionPerformed
-        new TelaImportarBackup(null,true).setVisible(true);
-    }//GEN-LAST:event_btnImportarBDActionPerformed
-
     private void btnExportarBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarBDActionPerformed
         new TelaExportarBackup(null,true).setVisible(true);
     }//GEN-LAST:event_btnExportarBDActionPerformed
@@ -521,7 +508,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnCadastroModalidades;
     private javax.swing.JMenuItem btnContato;
     private javax.swing.JMenuItem btnExportarBD;
-    private javax.swing.JMenuItem btnImportarBD;
     private javax.swing.JMenu btnMenuImport;
     private javax.swing.JMenuItem btnNovoUsuarioAcesso;
     private javax.swing.JMenu btnSobre;

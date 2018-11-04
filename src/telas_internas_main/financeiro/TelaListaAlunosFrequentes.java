@@ -6,17 +6,12 @@ import conexoesbancodedados.ConectaBd;
 import conexoesbancodedados.SelectBd;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Font;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.AttributedCharacterIterator;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
@@ -85,7 +80,6 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
 
         total.setText(contLinhas+" alunos");
         ClassejTableSelect modelo = new ClassejTableSelect(dados, colunas);
-        
         tabela.setModel(modelo);
         tabela.getColumnModel().getColumn(0).setPreferredWidth(290);
         tabela.getColumnModel().getColumn(0).setResizable(false);
@@ -101,6 +95,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         tabela.setAutoResizeMode(tabela.AUTO_RESIZE_OFF);
         tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);    
         
+        /* NÃO ESTAVA FUNCIONANDO DIREITO, PREFIRI NÃO COLOCAR NA APRESENTAÇÃO. MELHORAR ....
         try {
             this.pintarTreinosVencidos();
         } catch (ParseException ex) {
@@ -108,6 +103,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(TelaListaAlunosFrequentes.class.getName()).log(Level.SEVERE, null, ex);
         }
+        */
     }
 
     @SuppressWarnings("unchecked")
@@ -179,9 +175,7 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
     
     public void pintarTreinosVencidos() throws ParseException, SQLException{
   
-        nomesAlunosVendidos = selects.retornaAlunosTreinoVencido();
-            
-        
+        nomesAlunosVendidos = selects.retornaAlunosTreinoVencido();     
         
         String texte = "a";
         tabela.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
@@ -197,78 +191,11 @@ public class TelaListaAlunosFrequentes extends javax.swing.JFrame {
                         if(nomesAlunosVendidos.get(i).equals(texto))
                             c = Color.RED;
                         label.setBackground(c);
-                        tabela.setSelectionForeground(Color.GREEN);
-                
-                    
+                        tabela.setSelectionForeground(Color.GREEN);                    
                     }
-                return label;
-                
-                /*
-                Object texto = table.getValueAt(row, 4);
-                if(texto != null && texte == "a")
-                    c = Color.RED;
-                label.setBackground(c);
-                tabela.setSelectionForeground(Color.GREEN);
-                
-                return label;
-                */
-                
-            }
-            
+                return label;  
+            }  
         });
-        
-        
-        
-        
-//        System.out.println(nomesAlunosVendidos);
-//        System.out.println(nomesAlunosVendidos.get(0));
-        
-        /*
-        //https://www.youtube.com/watch?v=-5z16LHWEtE
-        
-        ArrayList<Date> treinosVencidos = new ArrayList();
-        ArrayList<String> treinosV = new ArrayList();
-        Date dataSistema = new Date();
-        SimpleDateFormat formatoPT = new SimpleDateFormat("dd/MM/yyyy");
-        java.sql.Date dataAtual = new java.sql.Date(dataSistema.getTime());
-        
-       
-        for(int i=0; i < contLinhas;i++){
-            treinosV.add((String)tabela.getValueAt(i,4));
-        }
-        
-//        System.out.println(treinosV);
-        
-        for(int l = 0; l < contLinhas; l++){
-            Date data = formatoPT.parse((String) tabela.getValueAt(l,4));
-            java.sql.Date dataSql = new java.sql.Date(data.getTime());
-            treinosVencidos.add(dataSql);
-        }  
-
-        
-        String texte = "a";
-        tabela.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
-            @Override
-            public Component getTableCellRendererComponent(JTable table, Object value,
-                    boolean isSelected, boolean hasFocus, int row, int column){
-                JLabel label = (JLabel) super.getTableCellRendererComponent(table, value,
-                        isSelected, hasFocus, row, column);
-                
-                Color c = Color.WHITE;
-                Object texto = table.getValueAt(row, 4);
-//                Object texto = dataAtual; //2018-10-08
-                if(texto != null && texte == "a")
-//                if(treinosVencidos.get(0).before((Date) texto)) 
-                    c = Color.RED;
-                label.setBackground(c);
-                tabela.setSelectionForeground(Color.GREEN);
-                
-                return label;
-            }
-            
-        });
-        */
-
     }
     
     

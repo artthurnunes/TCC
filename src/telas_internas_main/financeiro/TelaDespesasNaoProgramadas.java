@@ -241,7 +241,15 @@ public class TelaDespesasNaoProgramadas extends javax.swing.JDialog {
         } catch (SQLException ex) {
             Logger.getLogger(TelaDespesasNaoProgramadas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.setarCamposDaClasse();
+        
+            //IF PARA NÃO DAR ERRO SE O SELECT RETORNAR VAZIO.
+            if(selects.getRetornoVazio() == true){
+                
+            }else{
+                this.setarCamposDaClasse();
+                selects.setRetornoVazio(false);
+            }
+
         //PEGANDO O NOME DA DESPESA DEPOIS DO RETORNO DO SELECT PARA PEGAR O NOME CORRETO
         try { //DEIXANDO O CODIGO DA DESPESA SETADA NA CLASSE CASO HAJA NECESSIDADE DE ALTERAR A DESPESA COM UPDATE
                 despesas.setCodigo(selects.codigoDespesa(nome.getText()));

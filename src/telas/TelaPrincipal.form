@@ -40,7 +40,7 @@
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="btnMenuImport">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Importar/Exportar backup"/>
+                <Property name="text" type="java.lang.String" value="Exportar backup banco"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMenuImportMouseClicked"/>
@@ -53,14 +53,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportarBDActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="btnImportarBD">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Importar"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImportarBDActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>
