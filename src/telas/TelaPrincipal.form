@@ -22,9 +22,6 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="btnSobre">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagens/arthur.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Sobre Ruthra Softwares       "/>
             <Property name="horizontalTextPosition" type="int" value="2"/>
           </Properties>

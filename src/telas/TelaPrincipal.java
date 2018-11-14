@@ -161,7 +161,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(153, 255, 204));
 
-        btnSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/arthur.png"))); // NOI18N
         btnSobre.setText("Sobre Ruthra Softwares       ");
         btnSobre.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnSobre.addMouseListener(new java.awt.event.MouseAdapter() {
